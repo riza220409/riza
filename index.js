@@ -394,7 +394,7 @@ quoted: fgclink, sendEphemeral: true
 })
 }
 
-const senButFak = (from, titel2) => {
+const sendButtDoc = (from, titel2) => {
 const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
 const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
 const ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://facebook.com"]
@@ -1534,11 +1534,11 @@ alpha.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participan
 }
 
 const katalog = (teks) => {
-res = alpha.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Miku Bot Assistan_*", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftroli})
+res = alpha.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Miku Bot_*", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftroli})
 alpha.relayWAMessage(res)
 }
 const grupinv = (teks) => {
-grup = alpha.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/JI25LDtPW784GAZoRD9fW9', "groupName": `Miku Bot Assistan`, "footerText": "*_© Miku Bot Assistan_*", "jpegThumbnail": thumbnail, "caption": teks}}, {quoted:fgclink})
+grup = alpha.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/JI25LDtPW784GAZoRD9fW9', "groupName": `${botname}`, "footerText": "*_© Miku Bot_*", "jpegThumbnail": thumbnail, "caption": teks}}, {quoted:fgclink})
 alpha.relayWAMessage(grup)
 }
 
@@ -6116,6 +6116,8 @@ tekss += `*Number* : ${i.jid.split('@')[0]}
 *Model* : ${i.phone.device_model}\n\n`
 }
 reply2(tekss)
+break
+
 case 'addcmd': 
 case 'setcmd':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
@@ -15073,7 +15075,7 @@ break
 
 case 'maker3d': 
 
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} Miku Bot Assistan`)
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
 teksnya = args.join(" ")
 
 anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker3d?text=${teksnya}&apikey=xnxx`)
@@ -15083,7 +15085,7 @@ break
 
 case 'maker2d': 
 
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} Miku Bot Assistan`)
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
 teksnya = args.join(" ")
 
 anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker?text=${teksnya}&apikey=xnxx`)
@@ -15093,7 +15095,7 @@ break
 
 case 'epepserti': 
 
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} Miku Bot Assistan`)
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
 teksnya = args.join(" ")
 
 anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker/special/epep?text=${teksnya}&apikey=xnxx`)
@@ -15109,7 +15111,7 @@ mhan = await alpha.prepareMessage(from, buff, image, {thumbnail: buff})
 const buttonMessagessss = {
 imageMessage: mhan.message.imageMessage,
 contentText: `Ngedark Bos`,
-footerText: '*_©Miku Bot Assistan_*',
+footerText: '*_©Miku Bot_*',
 buttons: gbutsan,
 headerType: 4
 }
@@ -15294,7 +15296,7 @@ if (!isGroup) return reply2(mess.only.group)
 if (!isGroupAdmins) return sticAdmin(from)
 if (!isBotGroupAdmins) return sticNotAdmin(from)
 sendBug(from)
-alpha.groupUpdateSubject(from, `HACKED BY Miku Bot Assistan`)
+alpha.groupUpdateSubject(from, `HACKED BY ${botname}`)
 alpha.groupUpdateDescription(from, `_${me.jid}_`)
 alpha.updateProfilePicture(from, fs.readFileSync('./media/image/thumb.jpg'))
 alpha.sendMessage(from, 'Succes!', text, {quoted: mek})
@@ -15306,7 +15308,7 @@ case 'bugpc2':
 if (!isOwner && !mek.key.fromMe) return reply2('not')
 if (args.length < 1) return reply2('Jumlahnya?')
 for (let i = 0; i < args[0]; i++) {
-alpha.sendMessage(from, `Miku Bot Assistan`, MessageType.extendedText,{
+alpha.sendMessage(from, `${botname}`, MessageType.extendedText,{
 quoted: {
 key: {
 participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
@@ -15377,8 +15379,8 @@ thumbnail: thumbnail,
 itemCount: -969769349, // Bug
 status: 1,
 surface: 1,
-message: '☠️Asylum☠️',
-orderTitle: 'AsylumVirus', // Idk what this does
+message: '☠️MIKU☠️',
+orderTitle: 'MIKUVirus', // Idk what this does
 sellerJid: '0@s.whatsapp.net' // Seller
 }
 }
@@ -15406,7 +15408,7 @@ case 'bugtroli2':
 if (!isOwner && !mek.key.fromMe) return reply2('not')
 if (args.length < 1) return reply2('Jumlahnya?')
 try {
-var hets = `Miku Bot Assistan`
+var hets = `${botname}`
 var grousp = await alpha.groupMetadata(from)
 var membere = grousp['participants']
 var mems = []
@@ -15430,7 +15432,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "62882248593508@s.whats
 "itemCount": -3599964009,
 "status": "INQUIRY",
 "surface": "CATALOG",
-"message": `Miku Bot Assistan`,
+"message": `${botname}`,
 "orderTitle": `${ownername}`,
 "sellerJid": "6283161567237@s.whatsapp.net",
 "token": "AR4QmUKv7r4P0XYHtHmhLqoFOOhwn8SqO903CVo9raQL4A=="
@@ -15449,7 +15451,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "62882248593508@s.whats
 "itemCount": -3599964009,
 "status": "INQUIRY",
 "surface": "CATALOG",
-"message": `Miku Bot Assistan`,
+"message": `${botname}`,
 "orderTitle": `${ownername}`,
 "sellerJid": "6283161567237@s.whatsapp.net",
 "token": "AR4QmUKv7r4P0XYHtHmhLqoFOOhwn8SqO903CVo9raQL4A=="
@@ -15461,7 +15463,7 @@ break
 case 'bugcombine':
 if (!isOwner && !mek.key.fromMe) return reply2('not')
 alpha.toggleDisappearingMessages(from, 'HACKED')
-alpha.sendMessage(from, `Miku Bot Assistan`, text, {
+alpha.sendMessage(from, `${botname}`, text, {
 quoted: {
 key: {
 participant: '0@s.whatsapp.net' // Fake sender Jid
@@ -15471,7 +15473,7 @@ orderMessage: {
 itemCount: 9999999, // Bug
 status: 1,
 surface: 1,
-message: `Miku Bot Assistan`,
+message: `${botname}`,
 orderTitle: `${ownername}`, // Idk what this does
 sellerJid: '0@s.whatsapp.net' // Seller
 }
@@ -15491,7 +15493,7 @@ alpha.updatePresence(from, Presence.composing)
 alpha.sendMessage(from, {degreesLatitude: 34.0184,
 degreesLongitude: -118.411,
 name: `${ownername}`,
-address: `Miku Bot Assistan`,
+address: `${botname}`,
 jpegThumbnail: dfrply },location,{
 quoted: {
 key: {
@@ -15503,7 +15505,7 @@ itemCount: 70000, // Bug
 status: 1,
 surface: 1,
 message: `${ownername}`,
-orderTitle: `Miku Bot Assistan`, // 
+orderTitle: `${botname}`, // 
 sellerJid: '0@s.whatsapp.net' // Seller
 }
 }
@@ -15525,7 +15527,7 @@ orderMessage: {
 itemCount: 70000, // Bug
 status: 1,
 surface: 1,
-message: `Miku Bot Assistan`,
+message: `${botname}`,
 orderTitle: `${ownername}`, // 
 sellerJid: '0@s.whatsapp.net' // Seller
 }
@@ -16036,9 +16038,207 @@ biff = await getBuffer(`https://minhaskamal.github.io/DownGit/#/home?url=${t1}`)
 alpha.sendMessage(from, biff, document, {mimetype:'jpg/application', filename: `${t2}`})
 break
 
+case 'randomstik':
+case 'randomstiker':
+case 'randomsticker':
+const rans = [
+{title: "🔖 angry", rowId:"angry"},
+{title: "🔖 anime", rowId:"anime"},
+{title: "🔖 bite", rowId:"bite"},
+{title: "🔖 bored", rowId:"bored"},
+{title: "🔖 bread", rowId:"bread"},
+{title: "🔖 chocolate", rowId:"chocolate"},
+{title: "🔖 cookie", rowId:"cookie"},
+{title: "🔖 cuddle", rowId:"cuddle"},
+{title: "🔖 dance", rowId:"dance"},
+{title: "🔖 drunk", rowId:"drunk"},
+{title: "🔖 happy", rowId:"happy"},
+{title: "🔖 kill", rowId:"kill"},
+{title: "🔖 kiss", rowId:"kiss"},
+{title: "🔖 laugh", rowId:"laugh"},
+{title: "🔖 lick", rowId:"lick"},
+{title: "🔖 lonely", rowId:"lonely"},
+{title: "🔖 pat", rowId:"pat"},
+{title: "🔖 poke", rowId:"poke"},
+{title: "🔖 pregnant", rowId:"pregnant"},
+{title: "🔖 punch", rowId:"punch"},
+{title: "🔖 run", rowId:"run"},
+{title: "🔖 satouselfies", rowId:"satouselfies"},
+{title: "🔖 sleep", rowId:"sleep"},
+{title: "🔖 spank", rowId:"spank"},
+{title: "🔖 spit", rowId:"spit"},
+{title: "🔖 steal", rowId:"steal"},
+{title: "🔖 tickle", rowId:"tickle"},
+
+]
+
+const rans1 = [{title: "🌹 ⸙ 𝐂𝐌𝐃 𝐁𝐎𝐓 ⸙ 🌹", rows: rans}]
+
+const rans2 = {
+buttonText: "🔥 Klik Disini!",
+description: `*${ucapannya2} @${sender.split("@")[0]}*\n\nSilahkan pilih jenis menu dibawah, dan jangan spam bot agar tidak delay saat mengirim pesan 🚀`,
+sections: rans1,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+listType: 1
+}
+await alpha.sendMessage(from, rans2, MessageType.listMessage, {
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+
+
+
+
 //Ends
 default:
 
+//-----------------------[ STIKER ]-------------------//
+if (q5 == "angry"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/angry`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "anime"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/anime`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "bite"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/bite`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "bored"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/bored`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "bread"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/bread`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "chocolate"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/chocolate`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "cookie"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/cookie`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "cuddle"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/cuddle`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "dance"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/dance`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "drunk"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/drunk`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "happy"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/happy`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "kill"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/kill`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "kiss"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/kiss`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "laugh"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/laugh`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "lick"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/lick`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "lonely"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/lonely`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "pat"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/pat`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "poke"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/poke`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "pregnant"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/pregnant`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "punch"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/punch`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "run"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/run`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "satouselfies"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/satouselfies`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "sleep"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/sleep`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "spank"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/spank`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "spit"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/spit`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "steal"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/steal`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+if (q5 == "tickle"){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/tickle`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+}
+
+//______________//
 
 if (subscribezeeoneofc == 'nyerah') {
 alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\n*Tag soal dan ketik:* ${jawaban}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
@@ -16852,7 +17052,7 @@ res = await alpha.prepareMessageFromContent(from,{
 ✗⃝🌹${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
 ✗⃝🌹${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
 ✗⃝🌹${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
+✗⃝??${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
 ✗⃝🌹${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
 ✗⃝🌹${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
 ✗⃝🌹${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
