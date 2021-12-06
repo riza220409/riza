@@ -137,6 +137,7 @@ const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 
 // MENU EDIT
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
+const { reki } = require('./list/reki.js')
 
 // GAME
 const asahotak = JSON.parse(fs.readFileSync('./game/asahotak.json'))
@@ -398,6 +399,45 @@ quoted: fgclink, sendEphemeral: true
 })
 }
 
+const reki_nih = (from) => {
+const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
+const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
+const ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://facebook.com"]
+const pelink_ = ngelink_[Math.floor(Math.random() * ngelink_.length)]
+alpha.sendMessage(from,
+ { contentText: `${reki}`,
+ buttons: [{buttonId: `${reki}`,
+ buttonText: {displayText: 'Owner'},
+ type: 1},
+{buttonId: `${reki}`,
+ buttonText: {displayText: 'MENU'},
+ type: 1}],
+ "headerType": "DOCUMENT",
+ "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
+ "mimetype": mimtip,
+ "title": `${reki}`,
+ "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
+ "fileLength": 10000000000,
+ "pageCount": 10000000000,
+ "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
+ "fileName": `${reki}`,
+ "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
+ "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC",
+ "mediaKeyTimestamp": "1634472176",
+ "jpegThumbnail": fs.readFileSync(`image/miku.jpg`)}},
+ MessageType.buttonsMessage,
+ { quoted: fgclink,sendEphemeral: true,
+ thumbnail: fs.readFileSync(`image/miku.jpg`),
+ contextInfo: { forwardingScore: 508,
+ isForwarded: true,
+ externalAdReply: { title: `${reki}`,
+ body: `${reki}`,
+ thumbnail: fs.readFileSync(`image/miku.jpg`),
+ mediaType:"2",
+ previewType: "VIDEO",
+ mediaUrl: pelink_}}})
+}
+
 const sendButtDoc = (from, titel2) => {
 const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
 const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
@@ -437,55 +477,6 @@ alpha.sendMessage(from,
  mediaUrl: pelink_}}})
 }
 
-///Button Text
-const ButtMessage = (id, text1, desc1, but = [], options = {}) => {
-const buttonMessage = {
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 1
-}
-alpha.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
-}
-///Button Image
-const ButtImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
-kma = gam1
-mhan = await alpha.prepareMessage(from, kma, image)
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
-alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}
-///Button Video
-const ButtVideo = async(id, text1, desc1, vid1, but = [], options = {}) => {
-kma = vid1
-mhan = await alpha.prepareMessage(from, kma, video)
-const buttonMessages = {
-videoMessage: mhan.message.videoMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 5
-}
-alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}
-///Button Location
-const ButtLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
-kma = gam1
-mhan = await alpha.prepareMessage(from, kma, location)
-const buttonMessages = {
-locationMessage: mhan.message.locationMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 6
-}
-alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}
 
 // Auto Read Group 
 var chats = await alpha.chats.array.filter(v => v.jid.endsWith('g.us'))
@@ -7970,6 +7961,57 @@ alpha.sendMessage(from, buff, sticker, { quoted: fgclink }).then(() => {
 fs.unlinkSync(rano)
 })
 })
+break
+
+case '3000years':
+case 'approved':
+case 'beautiful':
+case 'blur':
+case 'brazzers':
+case 'burn':
+case 'challenger':
+case 'circle':
+case 'contrast':
+case 'ddungeon':
+case 'deepfry':
+case 'dictator':
+case 'dictator':
+case 'distort':
+case 'fire':
+case 'gay':
+case 'glitch':
+case 'greyscale':
+case 'instagram':
+case 'invert':
+case 'jail':
+case 'lookwhatkarenhave':
+case 'missionpassed':
+case 'moustache':
+case 'ps4':
+case 'redple':
+case 'rejected':
+case 'rip':
+case 'scary':
+case 'sepia':
+case 'sharpen':
+case 'sniper':
+case 'thanos':
+case 'triggered':
+case 'utatoo':
+case 'wanted':
+case 'wasted':
+if (isQuotedSticker) {
+	if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpg')
+teks = `${anu.display_url}`
+sendStickerFromUrl(from, `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${teks}`, mek)
+fs.unlinkSync('./stickmeme.jpg')
+}
+} 
 break
 
 case 'stickermeme':
