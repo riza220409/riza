@@ -61,6 +61,7 @@ const { error } = require("qrcode-terminal")
 const imgbb = require('imgbb-uploader')
 const { msgFilter } = require('./lib/antispam')
 // const translate = require('./lib/translate')
+// const { removeBackgroundFromImageFile } = require('remove.bg')
 const { addBadword, delBadword, isKasar, addCountKasar, isCountKasar, delCountKasar } = require("./lib/badword");
 const { pinterest } = require('./lib/pinterest.js')
 const { pShadow, pRomantic, pSmoke, pBurnPapper, pNaruto, pLoveMsg, pMsgGrass, pGlitch, pDoubleHeart, pCoffeCup, pLoveText, pButterfly, pWanted } = require('./lib/photooxy')
@@ -4423,26 +4424,6 @@ fs.unlinkSync(ran)
 .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 .toFormat('webp')
 .save(ran)
-} else if ((isMedia || isQuotedImage) && args[0] == 'nobg') {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const media = await alpha.downloadAndSaveMediaMessage(encmedia)
-ranw = getRandom('.webp')
-ranp = getRandom('.png')
-// reply2(mess.wait)
-keyrmbg = 'bcAvZyjYAjKkp1cmK8ZgQvWH'
-await removeBackgroundFromImageFile({ path: media, apiKey: keyrmbg, size: 'auto', type: 'auto', ranp }).then(res => {
-fs.unlinkSync(media)
-let bufferir9vn5 = Buffer.from(res.base64img, 'base64')
-fs.writeFileSync(ranp, bufferir9vn5, (err) => {
-if (err) return reply2('Gagal, Terjadi kesalahan, silahkan coba beberapa saat lagi.')
-})
-exec(`ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${ranw}`, (err) => {
-fs.unlinkSync(ranp)
-if (err) return reply2('emror bang')
-alpha.sendMessage(from, fs.readFileSync(ranw), sticker, { mimetype: 'image/webp', fileLength: 1000000000000, isAnimated: true, quoted: fgclink })
-fs.unlinkSync(ranw)
-})
-})
 } else {
 reply2(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim\nDurasi sticker video 1-9 detik...`)
 }
@@ -4508,7 +4489,7 @@ const media = await alpha.downloadAndSaveMediaMessage(encmedia)
 ranw = getRandom('.webp')
 ranp = getRandom('.png')
 // reply2(mess.wait)
-keyrmbg = 'bcAvZyjYAjKkp1cmK8ZgQvWH'
+keyrmbg = 'UBhMUo7FNNdEZ6fmkyAMrAUA'
 await removeBackgroundFromImageFile({ path: media, apiKey: keyrmbg, size: 'auto', type: 'auto', ranp }).then(res => {
 fs.unlinkSync(media)
 let bufferir9vn5 = Buffer.from(res.base64img, 'base64')
@@ -5956,12 +5937,12 @@ break
 case 'addvn':
 if(!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 if (!isQuotedAudio) return fakegroup('```Reply vnnya```')
-svst = body.slice(7)
-if (!svst) return reply2('```Nama audionya apa```')
+veen = body.slice(7)
+if (!veen) return reply2('```Nama audionya apa```')
 keya = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 delb = await alpha.downloadMediaMessage(keya)
-audionye.push(`${svst}`)
-fs.writeFileSync(`./media/audio/${svst}.mp3`, delb)
+audionye.push(`${veen}`)
+fs.writeFileSync(`./media/audio/${veen}.mp3`, delb)
 fs.writeFileSync('./temp/vn.json', JSON.stringify(audionye))
 fakegroup( `Sukses Menambahkan Audio\nCek dengan cara ${prefix}listvn`)
 break
@@ -6747,32 +6728,6 @@ type: 1,
 ]);
 }
 break;
-case 'volume':
-if (!isQuotedAudio) return reply2('Reply audio!')
-let encmedia3 = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-let media3 = await alpha.downloadAndSaveMediaMessage(encmedia3)
-rname = getRandom('.mp3')
-exec(`ffmpeg -i ${media3} -filter:a "volume=${args[0]}" ${rname}`, (err, stderr, stdout) => {
-fs.unlinkSync(media3)
-if (err) return reply2('Error!')
-jadie = fs.readFileSync(rname)
-alpha.sendMessage(from, jadie, audio, {mimetype: 'audio/mp4', ptt: true, quoted: fgclink})
-fs.unlinkSync(rname)
-}
-)
-case 'balik':
-if (!isQuotedAudio) return reply2('Reply audio!')
-let encmedia4 = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-let media4 = await alpha.downloadAndSaveMediaMessage(encmedia4)
-ran = getRandom('.mp3')
-exec(`ffmpeg -i ${media4} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
-fs.unlinkSync(media4)
-if (err) return reply2('emror')
-hihi = fs.readFileSync(ran)
-alpha.sendMessage(from, hihi, audio, {mimetype: 'audio/mp4', ptt: true, quoted: fgclink})
-fs.unlinkSync(ran)
-})
-break
 
 case 'banlist':
 case 'blocklist':
@@ -7878,6 +7833,19 @@ alpha.sendMessage(from, Frd, video, { mimetype: 'video/gif', caption: 'Sukses Lo
 limitAdd(sender, limit)
 break
 
+case 'loadingx':
+ranp = getRandom('.gif')
+rano = getRandom('.webp')
+ini_buffer = `https://c.tenor.com/wfEN4Vd_GYsAAAAC/loading.gif`
+exec(`wget "${ini_buffer}" -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+fs.unlinkSync(ranp)
+buff = fs.readFileSync(rano)
+alpha.sendMessage(from, buff, sticker, { quoted: fgclink }).then(() => {
+fs.unlinkSync(rano)
+})
+})
+break
+
 case 'stickermeme':
 case 'memesticker':
 case 'memestick':
@@ -7903,34 +7871,6 @@ reply2('stiker ae ngb')
 }
 break
 
-case 'loadingx':
-ranp = getRandom('.gif')
-rano = getRandom('.webp')
-ini_buffer = `https://c.tenor.com/wfEN4Vd_GYsAAAAC/loading.gif`
-exec(`wget "${ini_buffer}" -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-fs.unlinkSync(ranp)
-buff = fs.readFileSync(rano)
-alpha.sendMessage(from, buff, sticker, { quoted: fgclink }).then(() => {
-fs.unlinkSync(rano)
-})
-})
-break
-
-case 'smeme1':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
-txt1 = args[0]
-if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
-ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-owgi = await alpha.downloadMediaMessage(ger)
-await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
-var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
-teks = `${anu.display_url}`
-sendStickerFromUrl(from, `https://api.memegen.link/images/custom/_/${txt1}.png?background=${teks}`, mek)
-fs.unlinkSync('./stickmeme.jpeg')
-}
-break
-
 case 'smeme2':
 if (!q) return reply2(`Contoh: ${prefix + command} top|bottom`)
 top = q.split('|')[0]
@@ -7949,7 +7889,7 @@ break
 
 case 'smeme3':
 if (!q) return reply2(`Contoh: ${prefix + command} top`)
-top = q.split(' ')[0]
+top = q.split('|')[0]
 if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
 ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 owgi = await alpha.downloadMediaMessage(ger)
@@ -7957,7 +7897,7 @@ await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
 anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
 teks = `${anu.display_url}`
-sendStickerFromUrl(from, `https://api.memegen.link/images/custom/${top}.png/_?background=${teks}`, mek)
+sendStickerFromUrl(from, `https://api.memegen.link/images/custom/${top}.png?background=${teks}`, mek)
 fs.unlinkSync('./stickmeme.jpeg')
 }
 break
@@ -8026,19 +7966,87 @@ console.log(e)
 break
 
 
-case 'bass': 
-encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-media = await alpha.downloadAndSaveMediaMessage(encmedia)
-ran = getRandom('.mp3')
-exec(`ffmpeg -i ${media} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
-fs.unlinkSync(media)
+case 'volume':
+if (!isQuotedAudio) return reply2('Reply audio!')
+let encmedia3 = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+let media3 = await alpha.downloadAndSaveMediaMessage(encmedia3)
+rname = getRandom('.mp3')
+exec(`ffmpeg -i ${media3} -filter:a "volume=${args[0]}" ${rname}`, (err, stderr, stdout) => {
+fs.unlinkSync(media3)
 if (err) return reply2('Error!')
-hah = fs.readFileSync(ran)
-alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: fgclink})
+jadie = fs.readFileSync(rname)
+alpha.sendMessage(from, jadie, audio, {mimetype: 'audio/mp4', ptt:true, duration: 444441600, quoted: fgclink})
+fs.unlinkSync(rname)
+}
+)
+case 'balik':
+if (!isQuotedAudio) return reply2('Reply audio!')
+let encmedia4 = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+let media4 = await alpha.downloadAndSaveMediaMessage(encmedia4)
+ran = getRandom('.mp3')
+exec(`ffmpeg -i ${media4} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(media4)
+if (err) return reply2('emror')
+hihi = fs.readFileSync(ran)
+alpha.sendMessage(from, hihi, audio, {mimetype: 'audio/mp4', ptt:true, duration: 444441600, quoted: fgclink})
 fs.unlinkSync(ran)
 })
 break
 
+
+case 'robot':
+              
+encmedial = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+medial = await alpha.downloadAndSaveMediaMessage(encmedial)
+ran = getRandom('.mp3')
+exec(`ffmpeg -i ${medial} -filter_complex "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(medial)
+if (err) return reply(mess.error.api)
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: 444441600, ptt:true, quoted: mek})
+fs.unlinkSync(ran)
+})
+break
+case 'gemuk':
+              
+					encmediaz = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					mediaz = await alpha.downloadAndSaveMediaMessage(encmediaz)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${mediaz} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(mediaz)
+						if (err) return ephe('Error!')
+						hah = fs.readFileSync(ran)
+					alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, duration: 444441600, quoted:mek})
+						fs.unlinkSync(ran)
+					})
+					break
+case 'balik':
+              
+	encmediau = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	mediau = await alpha.downloadAndSaveMediaMessage(encmediau)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${mediau} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(mediau)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+case 'bass':                 
+              
+					encmediao = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					mediao = await alpha.downloadAndSaveMediaMessage(encmediao)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${mediao} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(mediao)
+						if (err) return reply('Error!')
+						hah = fs.readFileSync(ran)
+						alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+						fs.unlinkSync(ran)
+					})
+				break
+				
 case 'ngebass':
 if (!Number(args[0])) return reply2(`Example : ${prefix + command} 50`)
 baas = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -8049,7 +8057,7 @@ beuh = Number(args[0])
 exec(`ffmpeg -i ${baaas} -af equalizer=f=${beuh}:width_type=o:width=2:g=30 ${bas}`, (err, stderr, stdout) => {
 fs.unlinkSync(media)
 hah = fs.readFileSync(bas)
-alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: 10000, ptt: true, quoted: fgclink})
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, duration: 444441600, quoted: fgclink})
 fs.unlinkSync(bas)
 })
 break
@@ -13363,26 +13371,63 @@ case 'exontol':
 case 'blekpink':
 case 'quotesyt':
 case 'darkjokes':
-rdmg_ = await fetchJson(`https://api.dapuhy.ga/api/randomimage/${command}?apikey=${dapuhy}`);
+rdmg_ = `https://api.dapuhy.ga/api/randomimage/${command}?apikey=${dapuhy}`
 let rdmg_1 = await getBuffer(rdmg_);
-const rdmg_3 = await alpha.prepareMessage(from, rdmg_1, MessageType.image, { thumbnail:thumb_miku})
-let rdmg_2 = rdmg_3.message["ephemeralMessage"] ? rdmg_3.message.ephemeralMessage : rdmg_3
+alpha.sendMessage(from, rdmg_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
 
-rdmg_5 =`${ucapannya2} Selesai...`
-const rdmg_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
+case 'wallflare':
+rdm_ = await fetchJson(`https://hadi-api.herokuapp.com/api/wallpaperflare?query=${q}`)
+getr = rdm_.result
+let wflar= getr[Math.floor(Math.random() * getr.length)];
+let rdm_1 = await getBuffer(wflar);
+alpha.sendMessage(from, rdm_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
 
-const rdmg_7 = {
-contentText: rdmg_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: rdmg_6,
-headerType: 4,
-imageMessage: rdmg_2.message.imageMessage
-}
+case 'wallhd':
+hdw_ = `https://hadi-api.herokuapp.com/api/wallpaperhd?q=${q}`
+let hdw_1 = await getBuffer(hdw_);
+alpha.sendMessage(from, hdw_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
 
-alpha.sendMessage(from, rdmg_7, MessageType.buttonsMessage,{
+case 'wallanime':
+wnim_ = `https://hadi-api.herokuapp.com/api/walpaperanime?q=${q}`
+let wnim_1 = await getBuffer(wnim_);
+alpha.sendMessage(from, wnim_1, MessageType.image,{
+	caption : 'oke',
 "contextInfo": {
 "forwardingScore": 1000000000,isForwarded: true,
 "externalAdReply": {
@@ -15859,19 +15904,6 @@ reply2(mess.error.api)
 }
 break
 
-case 'robot':
-encmedial = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-medial = await alpha.downloadAndSaveMediaMessage(encmedial)
-ran = getRandom('.mp3')
-exec(`ffmpeg -i ${medial} -filter_complex "afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75" ${ran}`, (err, stderr, stdout) => {
-fs.unlinkSync(medial)
-if (err) return reply2(mess.error.api)
-hah = fs.readFileSync(ran)
-alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: mek})
-fs.unlinkSync(ran)
-})
-break
-
 case 'stk':
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encstk_ = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -16094,12 +16126,29 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-
+case 'animes':
+nimp_ = await fetchJson(`https://dhnjing.xyz/api/anime/animeplanet?manga=naruto&apikey=044f4e9b6d553de682e8`)
+for (let g of nimp_.result) {
+let npl = `${g.manga_name} ${g.manga_url}`
+}
+await alpha.sendMessage(from, npl, MessageType.text, {
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
 
 
 
 //Ends
 default:
+
 
 //-----------------------[ STIKER ]-------------------//
 if (q5 == "angry"){
