@@ -138,6 +138,7 @@ const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 // MENU EDIT
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
 const { reki } = require('./list/reki.js')
+const sisimi = require('./list/sisimi.json')
 
 // GAME
 const asahotak = JSON.parse(fs.readFileSync('./game/asahotak.json'))
@@ -244,7 +245,7 @@ autoketik = true
 autoregister = setting.user_register
 
 img = setting.img
-baper = '🏷️ 𝑀𝑖𝑘𝑢𝐵𝑜𝑡'
+baper = '🏷️ 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡'
 apiku = 'https://wa.link/l8owsw'
 gc_wa_lu = 'https://chat.whatsapp.com/GZDTLuWtXU0CiBz5lb1n4o' //klo gk punya gc wa gk usah di ganti 👍
 targetpc = setting.ownerNumberr
@@ -253,7 +254,7 @@ own1 = '6282195322106'
 own2 = '6282195322106'
 own3 = '6282195322106'
 fake = setting.fake
-footerr = '𝑀𝑖𝑘𝑢𝐵𝑜𝑡 〆🌹' 
+footerr = '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡 〆🌹' 
 numbernye = '0'
 waktu = 'Nothing'
 alasan = 'Nothing'
@@ -399,6 +400,57 @@ quoted: fgclink, sendEphemeral: true
 })
 }
 
+///Button Text
+const ButtMessage = (id, text1, desc1, but = [], options = {}) => {
+const buttonMessage = {
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 1
+}
+alpha.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
+}
+///Button Image
+const ButtImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
+kma = gam1
+mhan = await alpha.prepareMessage(from, kma, image)
+const buttonMessages = {
+imageMessage: mhan.message.imageMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 4
+}
+alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+///Button Video
+const ButtVideo = async(id, text1, desc1, vid1, but = [], options = {}) => {
+kma = vid1
+mhan = await alpha.prepareMessage(from, kma, video)
+const buttonMessages = {
+videoMessage: mhan.message.videoMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 5
+}
+alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+///Button Location
+const ButtLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+kma = gam1
+mhan = await alpha.prepareMessage(from, kma, location)
+const buttonMessages = {
+locationMessage: mhan.message.locationMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 6
+}
+alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+
 const reki_nih = (from) => {
 const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
 const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
@@ -476,7 +528,6 @@ alpha.sendMessage(from,
  previewType: "VIDEO",
  mediaUrl: pelink_}}})
 }
-
 
 // Auto Read Group 
 var chats = await alpha.chats.array.filter(v => v.jid.endsWith('g.us'))
@@ -581,6 +632,8 @@ const isEventon = isGroup ? event.includes(from) : false
 const isSewa = _sewa.checkSewaGroup(from, sewa)
 const isBadword = isGroup ? grupbadword.includes(from) : false
 const isMuted = isGroup ? mute.includes(from) : false
+const isSisimi = isGroup ? sisimi.includes(from) : false
+
 function _0x48c6(_0x36e236,_0x28a7d8){const _0x8c1642=_0x8c16();return _0x48c6=function(_0x48c6ce,_0x1ee6bc){_0x48c6ce=_0x48c6ce-0x186;let _0x4fb38b=_0x8c1642[_0x48c6ce];return _0x4fb38b;},_0x48c6(_0x36e236,_0x28a7d8);}const _0x52adec=_0x48c6;(function(_0x57c75f,_0x150719){const _0x132f1c=_0x48c6,_0x554c9b=_0x57c75f();while(!![]){try{const _0x52df39=-parseInt(_0x132f1c(0x189))/0x1*(parseInt(_0x132f1c(0x18a))/0x2)+parseInt(_0x132f1c(0x193))/0x3*(-parseInt(_0x132f1c(0x190))/0x4)+parseInt(_0x132f1c(0x18e))/0x5*(-parseInt(_0x132f1c(0x18d))/0x6)+parseInt(_0x132f1c(0x186))/0x7+-parseInt(_0x132f1c(0x187))/0x8*(-parseInt(_0x132f1c(0x188))/0x9)+-parseInt(_0x132f1c(0x18b))/0xa*(-parseInt(_0x132f1c(0x191))/0xb)+parseInt(_0x132f1c(0x194))/0xc*(parseInt(_0x132f1c(0x18c))/0xd);if(_0x52df39===_0x150719)break;else _0x554c9b['push'](_0x554c9b['shift']());}catch(_0x1c1493){_0x554c9b['push'](_0x554c9b['shift']());}}}(_0x8c16,0x2d1d7));const alphaNumber=[_0x52adec(0x192),_0x52adec(0x18f)],isCreator=alphaNumber['includes'](sender);function _0x8c16(){const _0x37a4cc=['65xmcCgV','6hoiUcV','785095EkGgce','918156874290@s.whatsapp.net','1432468GswrZV','121ZEBubH','62887435047326@s.whatsapp.net','3dHqOGE','619656hzoCVh','1984220vbkepi','282056trugsR','9LkAPQM','37166bVyVDD','12dJFTOf','314560vKQKoN'];_0x8c16=function(){return _0x37a4cc;};return _0x8c16();}
 const isPremium = isOwner || isCreator || mek.key.fromMe ? true : premium.checkPremiumUser(sender, _premium)
 const gcount = isPremium ? gcounttprem : gcounttuser
@@ -729,8 +782,6 @@ return Math.floor(Math.random() * angka) + 1
 function randomAngka(angka){
 return Math.floor(Math.random() * angka)
 }
-
-
 
 const levelRole = getLevelingLevel(sender)
 const addATM = (sender) => {
@@ -1622,7 +1673,6 @@ resolve(hasil)
 })
 }
 
-
 const fakestatus = (teks) => {
 alpha.sendMessage(from, teks, text, {
 quoted: {
@@ -1724,7 +1774,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "62882248593508@s.whats
 "token": "AR5b5YFz2g4W5fYrjbeakPiI3/XxarATSeP+KLh+0FGwkw=="
 }}}
 
-const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us" }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumb_miku, surface: 200, message: `𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, orderTitle: '𝑀𝑖𝑘𝑢𝐵𝑜𝑡', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us" }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumb_miku, surface: 200, message: `𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, orderTitle: '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
 const fdoc = {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${creator}`,jpegThumbnail: thumb_miku}}}
 const fvn = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":444441600,"ptt": "true"}} } 
 const fgif = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`${creator}`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `${creator}`, 'jpegThumbnail': thumb_miku}}}
@@ -2371,7 +2421,6 @@ headerType: 1
 alpha.sendMessage(from, buttonMessages, MessageType.buttonsMessage, options)
 }
 
-
 const sendKontak = (from, nomor, nama, org = "") => {
 const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
 alpha.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: fgclink})
@@ -2386,7 +2435,6 @@ fs.writeFileSync('./database/mute.json', JSON.stringify(mute))
 reply2('Bot telah diunmute di group ini')
 }
 }
-
 
 // FUNTION CHAT \\
 const getpc = async function(totalchat){
@@ -2525,7 +2573,6 @@ akinator[sender.split('@')[0]] = data_
 fs.writeFileSync("./src/akinator.json", JSON.stringify(akinator))
 })
 }
-
 
 // TEBAKGAMBAR
 if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
@@ -3410,6 +3457,81 @@ sendButLocation(from, teks , `Makasih Udah Verifikasi 😉\n${botname}™© | By
 break
 
 case 'menu':
+try {
+xcat = await alpha.getProfilePicture(sender)
+} catch {
+xcat = 'https://i.ibb.co/LPvt8wx/ppkosong.jpg'
+}
+let xc = await getBuffer(xcat)
+xtar = `${targetpc}@s.whatsapp.net`
+let xbi = await alpha.getStatus(sender)
+anunya = process.uptime()
+
+const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
+const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
+const ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://facebook.com"]
+const pelink_ = ngelink_[Math.floor(Math.random() * ngelink_.length)]
+alpha.sendMessage(from,
+ { contentText: `${ucapannya2} @${sender.split('@')[0]}
+
+「 *BOT INFO* 」
+
+*🔖 Creator :* _@${xtar.split('@')[0]}_
+*🔖 Powered :* _@${ini_mark.split('@')[0]}_
+*🔖 Mode :* _${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
+*🔖 Status :* _${offline ? 'OFFLINE' : 'ONLINE'}_
+*🔖 Prefix :* _${prefix}_
+*🔖 Group Chat :* _${giid.length}_
+*🔖 Private Chat :* _${totalchat.length - giid.length}_
+*🔖 Total Chat :* _${totalchat.length}_
+*🔖 Lib :* _Baileys_
+*🔖 Type :* _NodeJs_
+*🔖 Total hit :* _${hitall}_
+*🔖 Hit today :* _${hit_today.length}_
+*🔖 Speed :* _${latensii.toFixed(4)} Second_
+*🔖 Runtime :* _${kyun(anunya)}_
+*🔖 Battery :* _${isBattre}_
+*🔖 Charging :* _${isCharge}_
+
+「 *YOU INFO* 」
+
+*🔖 Kak :* _${pushname}_
+*🔖 Bio :* _${xbi ? `${xbi.status}` : '-'}_
+*🔖 Nomor :* _@${sender.split('@')[0]}_
+*🔖 Me :* _${mek.key.fromMe ? 'True' : 'False'}_
+*🔖 Owner :* _${isOwner ? 'True' : `False`}_
+*🔖 CoOwner :* _${isCreator ? 'True' : `False`}_`,
+ buttons: [
+{buttonId: 'Xmen', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🔥 Menu X'}, type: 1}
+],
+ "headerType": "DOCUMENT",
+ "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
+ "mimetype": mimtip,
+ "title": `${botname}`,
+ "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
+ "fileLength": 10000000000,
+ "pageCount": 10000000000,
+ "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
+ "fileName": `${ucapannya2}`,
+ "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
+ "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC",
+ "mediaKeyTimestamp": "1634472176",
+ "jpegThumbnail": xc}},
+ MessageType.buttonsMessage,
+ { quoted: fgclink,sendEphemeral: true,
+ thumbnail: fs.readFileSync(`image/miku.jpg`),
+ contextInfo: { forwardingScore: 508,
+ isForwarded: true,
+ "mentionedJid" : [sender,xtar,ini_mark],
+ externalAdReply: { title: `${botname}`,
+ body: `${tampilTanggal}`,
+ thumbnail: xc,
+ mediaType:"2",
+ previewType: "VIDEO",
+ mediaUrl: pelink_}}})
+break
+
 case 'help':
 try {
 chatt = await alpha.getProfilePicture(sender)
@@ -3520,7 +3642,7 @@ locationMessage: bacotlu1.message.locationMessage
 }
 
 alpha.sendMessage(from, btn1, MessageType.buttonsMessage,{
-caption: '𝑀𝑖𝑘𝑢𝐵𝑜𝑡',
+caption: '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡',
 "contextInfo": {
 text: 'hi',
 "forwardingScore": 1000000000,
@@ -3588,7 +3710,6 @@ let papao = [{
 }]
 sendButLocation(from, allmenu(prefix, wita, wit, ucapannya2 , timuu, status, wa_version, mcc, mnc, os_version, device_manufacturer, device_model, alfa , alfa1, thisDay, ini_tanggal, totalchat, hit_today, ini_gcchat), `NOTE ！\nJika whatsapp mod kamu belum support button silahkan tonton video ini https://youtu.be/ERGID4Fmo9w\n\n${botname}™© | By ${ownername}`,pp_userz, papao, {})
 break
-
 
 case 'group': 
 case 'gc': 
@@ -3820,8 +3941,8 @@ let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
 ini_list.push({
-"displayName": '𝑀𝑖𝑘𝑢𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"displayName": '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
 hehe = await alpha.sendMessage(from, {
@@ -5034,80 +5155,6 @@ break
 ]=====> NSFW MENU<=====[
 */
 
-case 'anal':
-case 'avatar2':
-case 'bj':
-case 'blowJob':
-case 'boobs':
-case 'classic':
-case 'cumarts':
-case 'cumsluts':
-case 'ero':
-case 'erofeet':
-case 'erokemonomimi':
-case 'erokitsune':
-case 'eroneko':
-case 'eroyuri':
-case 'feet':
-case 'feetgif':
-case 'femdom':
-case 'futanari':
-case 'girl_solo':
-case 'girl_solo_gif':
-case 'hentai':
-case 'hentai_gif':
-case 'holo':
-case 'holoEro':
-case 'kemonomimi':
-case 'keta':
-case 'kitsune':
-case 'kuni':
-case 'lesbian':
-case 'neko':
-case 'neko_gif':
-case 'pussy':
-case 'pussyart':
-case 'pussywankgif':
-case 'spank':
-case 'tits':
-case 'trap':
-case 'yuri':
-nsfw2_ = (`https://api-alphabot.herokuapp.com/api/nsfw/v2/${command}?apikey=Alphabot`);
-let nsfw2_1 = await getBuffer(nsfw2_);
-const nsfw2_3 = await alpha.prepareMessage(from, nsfw2_1, MessageType.image, { thumbnail:thumb_pro})
-let nsfw2_2 = nsfw2_3.message["ephemeralMessage"] ? nsfw2_3.message.ephemeralMessage : nsfw2_3
-
-nsfw2_5 =` *@${sender.split("@")[0]}* Dah selesai`
-const nsfw2_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `nsfw_list`, buttonText: {displayText: 'Oxy List'}, type: 1}
-]
-
-const nsfw2_7 = {
-contentText: nsfw2_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: nsfw2_6,
-headerType: 4,
-imageMessage: nsfw2_2.message.imageMessage
-}
-
-alpha.sendMessage(from, nsfw2_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'nsfwlist':
-reply2(`${nsfw_list(prefix)}`)
-break
-
 case 'awoo':
 if (!isNsfw) return reply2(lang.nsfwmo())
 // reply2(lang.wait())
@@ -5270,7 +5317,7 @@ JSON.stringify(antivirtex)
 reply2(lang.anjawaOn(command))
 } else if (args[0] == "off") {
 antivirtex.splice(from, 1);
-fs.writeFileSync("./src/antivirtex.json", JSON.stringify(ant));
+fs.writeFileSync("./src/antivirtex.json", JSON.stringify(antivirtex));
 reply2(lang.anjawaOff(command))
 } else if (!q) {
 sendButMessage(from, `MODE ANTIVIRTEX`, `Choose one`, [
@@ -5291,6 +5338,42 @@ type: 1,
 ]);
 }
 break;
+
+case 'sisimi':
+if (!isGroup && !isGroupAdmins && !isBotGroupAdmins) return reply2(lang.botNotAdm())
+if (args[0] == "on") {
+if (isSisimi) return reply2(lang.anjawaUdhOn(command))
+sisimi.push(from);
+fs.writeFileSync(
+"./list/sisimi.json",
+JSON.stringify(sisimi)
+);
+reply2(lang.anjawaOn(command))
+} else if (args[0] == "off") {
+sisimi.splice(from, 1);
+fs.writeFileSync("./list/sisimi.json", JSON.stringify(sisimi));
+reply2(lang.anjawaOff(command))
+} else if (!q) {
+sendButMessage(from, `MODE SISIMI`, `Choose one`, [
+{
+buttonId: 'sisimi on',
+buttonText: {
+displayText: `On`,
+},
+type: 1,
+},
+{
+buttonId: 'sisimi off',
+buttonText: {
+displayText: `Off`,
+},
+type: 1,
+},
+]);
+}
+break;
+
+
 case 'kick2':
 if (!isGroupAdmins && !isBotGroupAdmins) return reply2("Khusus admin");
 var mentionedd = mek.message.extendedTextMessage.contextInfo.mentionedJid
@@ -5552,7 +5635,7 @@ alpha.groupDemoteAdmin(from, mentioned)
 }
 break
 
-//───────────────[ API ZEKS ]───────────────//
+//LIST───────[ API ZEKS ]───────────────//
 
 case 'tahta': 
 if (args.length < 1) return reply2(lang.noteks(prefix, command))
@@ -5927,19 +6010,6 @@ alpha.sendMessage(from, fs.readFileSync('./media/nulis/images/folio/setelahkanan
 limitAdd(sender, limit)
 })
 }
-break
-
-case 'ttp': 
-if (args.length < 1) return reply2(lang.noteks(prefix, command))
-ttp = args.join(' ')
-anu1 = await getBuffer(`https://api.xteam.xyz/ttp?file&text=${encodeURI(ttp)}`)
-alpha.sendMessage(from, anu1, sticker, {quoted: fgclink})
-break
-
-case 'attp':
-if (args.length == 0) return fakestatus(`Example: ${prefix + command} Hai`)
-buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
-alpha.sendMessage(from, buffer, sticker, { quoted: fgclink })
 break
 
 case 'ktpmaker':
@@ -6448,13 +6518,6 @@ await alpha.modifyChat(from, ChatModification.delete)
 reply2('*succes delete this chat*')
 break
 
-case 'ssweb':
-if (args.length < 1) return reply2('Urlnya mana om')
-teks = args[0]
-buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb2?url=${teks}`)
-alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Screenshot from ${teks}`})
-break
-
 case 'sspng':
 if (args.length < 1) return reply2('Urlnya mana om')
 teks = args[0]
@@ -6467,16 +6530,6 @@ if (args.length < 1) return reply2('Urlnya mana om')
 teks = args[0]
 buff = await getBuffer(`https://nurutomo.herokuapp.com/api/ssweb?url=${teks}&type=jpeg`)
 alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Screenshot from ${teks}`})
-break
-
-case 'ss':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} url|desktop|on`)
-pe = args.join(' ')
-tes1 = pe.split('|')[0]
-tes2 = pe.split('|')[1]
-tes3 = pe.split('|')[2]
-buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb?url=${tes1}&device=${tes2}&full=${tes3}`)
-alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}`})
 break
 
 case 'ssmap':
@@ -6854,7 +6907,7 @@ teks = '╭────「 *BANNED LIST* 」\n'
 for (let hui of banned) {
 teks += `│+ @${hui.split('@')[0]}\n`
 }
-teks += `│+ Total : ${banned.length}\n╰──────「 *𝑀𝑖𝑘𝑢𝐵𝑜𝑡* 」────`
+teks += `│+ Total : ${banned.length}\n╰──────「 *𝑀𝑖𝑘𝑢.𝐵𝑜𝑡* 」────`
 alpha.sendMessage(from, teks.trim(), extendedText, { quoted: fgclink, contextInfo: { "mentionedJid": [hui] } })
 break
 
@@ -7450,7 +7503,7 @@ lin = args[0]
 hx.fbdown(lin).then(async (res) => { 
 Anu = res.HD
 fto = potogw
-alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗠𝗣3*
+alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗙𝗔𝗖𝗘𝗕𝗢??𝗞 𝗠𝗣3*
 
 •🌹Normal : ${res.Normal_video}
 •🌹Hd : ${res.HD}
@@ -7690,168 +7743,82 @@ let li = await getBuffer(acak)
 await alpha.sendMessage(from,li,image,{quoted: fgclink})
 break
 
-case 'happymod': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} free fire`)
-query = args.join(" ")
-get_result = await fetchJson(`https://api.dapuhy.ga/api/search/happymod?query=${query}&apikey=${dapuhy}`, {method: 'get'})
-kontol = get_result.result
-ini_txt = "Result : \n"
-for (var x of kontol) {
-ini_txt += `${x.title}\n`
-ini_txt += `${x.url}\n\n`
-}
-fakestatus(ini_txt)
-break
-
-case 'klikmanga': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
-query = args.join(" ")
-get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/klikmanga?query=${query}&apikey=${dapuhy}`, {method: 'get'})
-kontol = get_result.result
-ini_txt = "Result : \n"
-for (var x of kontol) {
-ini_txt += `${x.title}\n`
-ini_txt += `${x.genre}\n`
-ini_txt += `${x.author}\n`
-ini_txt += `${x.status}\n`
-ini_txt += `${x.release}\n`
-ini_txt += `${x.desc}\n`
-ini_txt += `${x.url}\n\n`
-}
-fakestatus(ini_txt)
-break
-
-case 'kiryu': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
-query = args.join(" ")
-get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/kiryuu?query=${query}&apikey=${dapuhy}`, {method: 'get'})
-kontol = get_result.result
-ini_txt = "Result : \n"
-for (var x of kontol) {
-ini_txt += `${x.title}\n`
-ini_txt += `${x.episode}\n`
-ini_txt += `${x.rating}\n`
-ini_txt += `${x.url}\n\n`
-}
-fakestatus(ini_txt)
-break
-
-case 'animeplanet': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
-query = args.join(" ")
-get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/animeplanet?query=${query}&apikey=${dapuhy}`, {method: 'get'})
-kontol = get_result.result
-ini_txt = "Result : \n"
-for (var x of kontol) {
-ini_txt += `${x.title}\n`
-ini_txt += `${x.url}\n\n`
-}
-fakestatus(ini_txt)
-break
-
 case 'naruto':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pNaruto(`${q}`).then(res => {
 sendMediaURL(from, res.url, q)})
 break
 
 case 'shadow':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pShadow(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'romantic':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pRomantic(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'smoke':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pSmoke(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'burnpaper':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pBurnPapper(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'lovemsg':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pLoveMsg(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'grass':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pMsgGrass(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'doubleheart':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pDoubleHeart(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'coffecup':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pCoffeCup(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'lovetext':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pLoveText(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'butterfly':
-if (!q) return fakestatus('Teksnya Bosku?')
+if (!q) return reply2('Teksnya bg?')
 fakestatus(mess.wait)
 pButterfly(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break 
-
-
-case 'gcwa':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
-gcwa_ = await fetchJson(`https://x-restapi.herokuapp.com/api/search-grup?q=${q}&apikey=BETA`)
-let gece = '「 *GC WA* 」\n\n'
-for (let g of gcwa_.result) {
-gece += `*Nama*: ${g.judul}\n*Link*: ${g.link}\n\n`}
-var gcwa_1 = `${ucapannya2}\n ${gece}`
-var gcwa_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-gcwa_3 = {
-contentText: gcwa_1,
-footerText: `${tampilTanggal}`,
-buttons: gcwa_2,
-headerType: 1
-}
-alpha.sendMessage(from, gcwa_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
 
 case 'listbadword':
 if (isBanned) return
@@ -7963,57 +7930,6 @@ fs.unlinkSync(rano)
 })
 break
 
-case '3000years':
-case 'approved':
-case 'beautiful':
-case 'blur':
-case 'brazzers':
-case 'burn':
-case 'challenger':
-case 'circle':
-case 'contrast':
-case 'ddungeon':
-case 'deepfry':
-case 'dictator':
-case 'dictator':
-case 'distort':
-case 'fire':
-case 'gay':
-case 'glitch':
-case 'greyscale':
-case 'instagram':
-case 'invert':
-case 'jail':
-case 'lookwhatkarenhave':
-case 'missionpassed':
-case 'moustache':
-case 'ps4':
-case 'redple':
-case 'rejected':
-case 'rip':
-case 'scary':
-case 'sepia':
-case 'sharpen':
-case 'sniper':
-case 'thanos':
-case 'triggered':
-case 'utatoo':
-case 'wanted':
-case 'wasted':
-if (isQuotedSticker) {
-	if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
-ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-owgi = await alpha.downloadMediaMessage(ger)
-await fs.writeFileSync(`./stickmeme.jpg`, owgi)
-var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpg')
-teks = `${anu.display_url}`
-sendStickerFromUrl(from, `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${teks}`, mek)
-fs.unlinkSync('./stickmeme.jpg')
-}
-} 
-break
-
 case 'stickermeme':
 case 'memesticker':
 case 'memestick':
@@ -8085,55 +8001,6 @@ fs.unlinkSync('./stickmeme.jpeg')
 }
 break
 
-case 'smeme5':
-// if (!isPremium && !mek.key.fromMe) return reply2(mess.only.prem)
-try {
-if (!q) return reply2(`${prefix+command} Miku`)
-var bawah = q.replace('', '_').replace('\n','%5Cn').replace('?', '~q').replace('%', '~p').replace('&', '~a').replace('#', '~h').replace('/', '~s')
-if ( isQuotedImage) {
-// reply2(mess.wait)
-var imgbb = require('imgbb-uploader')
-let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-let media = await alpha.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", media)
-var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
-//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
-//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
-fs.writeFileSync('./sticker/${sender}.webp', sticknye)
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-if (error) return reply2(mess.error)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, { quoted: fgclink })
-})
-} else if (isQuotedSticker){
-// reply2(mess.wait)
-var imgbb = require('imgbb-uploader')
-let encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-let media = await alpha.downloadAndSaveMediaMessage(encmedia)
-let ran = getRandom('.png')
-exec(`ffmpeg -i ${media} ${ran}`, async (err) => {
-fs.unlinkSync(media)
-if (err) return reply2('Error')
-var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", ran)
-var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
-//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
-//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
-fs.writeFileSync('./sticker/smemek.webp', sticknye)
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/smemek.webp -o ./sticker/smemek.webp`, async (error) => {
-if (error) return reply2(mess.error)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: fgclink })
-fs.unlinkSync(ran)
-})
-})
-} else {
-reply2(`Reply gambar atau sticker dengan Caption ${prefix+command} teks`)
-}
-} catch (e) {
-return reply2(`${e}`)
-console.log(e)
-}
-break
-
-
 case 'volume':
 if (!isQuotedAudio) return reply2('Reply audio!')
 let encmedia3 = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -8160,7 +8027,6 @@ alpha.sendMessage(from, hihi, audio, {mimetype: 'audio/mp4', ptt:true, duration:
 fs.unlinkSync(ran)
 })
 break
-
 
 case 'robot':
               
@@ -8243,13 +8109,6 @@ fs.unlinkSync(detikv)
 limitAdd(sender, limit)
 break
 
-case 'say':
-if (args.length > 50) return reply2('```Error, Teks Terlalu Panjang!```')
-say_ = await getBuffer(`https://api.dapuhy.ga/api/maker/tts?text=${q}&lang=id&apikey=${dapuhy}`)
-alpha.sendMessage(from, say_, MessageType.audio, {quoted: fgclink, mimetype: 'audio/mp4', ptt:true, duration: 444441600})
-
-break
-
 case 'tts':
 try {if (args.length > 50) return reply2('```Error, Teks Terlalu Panjang!```')
 if (isLimit(sender, isPremium, isOwner, limitawal, limit)) return reply2(mess.limit)
@@ -8292,61 +8151,6 @@ reply2(`${e}`)
 limitAdd(sender, limit)
 break
 
-
-case 'gsearch':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
-gsrch_ = await fetchJson(`https://x-restapi.herokuapp.com/api/google-search?q=${q}&apikey=BETA`)
-var gsrch_1 = `${ucapannya2}\n *Judul :*\n${gsrch_.data.title}\n*Link :* ${gsrch_.data.link}\n*Desc :* ${gsrch_.data.desc}`
-var gsrch_2 = [
-{buttonId: 'Menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-gsrch_3 = {
-contentText: gsrch_1,
-footerText: `${tampilTanggal}`,
-buttons: gsrch_2,
-headerType: 1
-}
-alpha.sendMessage(from, gsrch_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'topmanga':
-case 'topanime':
-topnim_ = await fetchJson(`https://x-restapi.herokuapp.com/api/${command}?apikey=BETA`)
-let nimr = '「 *${command}* 」\n'
-for (let t of topnim_.data) {
-nimr += `
-*Judul :*
-${t.Judul}
-*Link :* ${t.Link}
-*Desc :* ${t.Informasi} *Score :* ${t.Score}`}
-
-var topnim_1 = `${ucapannya2}\n ${nimr}`
-var topnim_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-topnim_3 = {
-contentText: topnim_1,
-footerText: `${tampilTanggal}`,
-buttons: topnim_2,
-headerType: 1
-}
-alpha.sendMessage(from, topnim_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
 case 'random':
 var ramdom_1 = `${ucapannya2}
 @${sender.split("@")[0]} Silahkan Klik Dibawah \nUntuk Melihat Menu Random`
@@ -8366,494 +8170,6 @@ alpha.sendMessage(from, ramdom_3, MessageType.buttonsMessage,{
 quoted: fgclink, sendEphemeral: true
 })
 break
-
-case 'bucin':
-rbuc_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-bucin?apikey=BETA`)
-var rbuc_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
-*${rbuc_.bucin}*`
-var rbuc_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-rbuc_3 = {
-contentText: rbuc_1,
-footerText: `${tampilTanggal}`,
-buttons: rbuc_2,
-headerType: 1
-}
-alpha.sendMessage(from, rbuc_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fakta':
-fakta_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-fakta?apikey=BETA`)
-var fakta_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
-*${fakta_.fakta}*`
-var fakta_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-fakta_3 = {
-contentText: fakta_1,
-footerText: `${tampilTanggal}`,
-buttons: fakta_2,
-headerType: 1
-}
-alpha.sendMessage(from, fakta_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'katabijak':
-ktbjk_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-katabijak?apikey=BETA`)
-var ktbjk_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
-*${ktbjk_.katabijak}*`
-var ktbjk_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-ktbjk_3 = {
-contentText: ktbjk_1,
-footerText: `${tampilTanggal}`,
-buttons: ktbjk_2,
-headerType: 1
-}
-alpha.sendMessage(from, ktbjk_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'motivasi':
-motvas_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
-var motvas_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
-*${motvas_.motivasi}*`
-var motvas_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-motvas_3 = {
-contentText: motvas_1,
-footerText: `${tampilTanggal}`,
-buttons: motvas_2,
-headerType: 1
-}
-alpha.sendMessage(from, motvas_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'pantun':
-pntn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-pantun?apikey=BETA`)
-var pntn_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
-${pntn_.pantun}`
-var pntn_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-pntn_3 = {
-contentText: pntn_1,
-footerText: `${tampilTanggal}`,
-buttons: pntn_2,
-headerType: 1
-}
-alpha.sendMessage(from, pntn_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'ssticker':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} pentol`) 
-var ano = await fetchJson(`https://x-restapi.herokuapp.com/api/search-sticker?q=${q}&apikey=BETA`)
-wifegerak = ano.data.url
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-sendStickerUrl(from, wifegerakx)
-break
-
-case 'ssfile':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
-ssfile_ = await fetchJson(`https://x-restapi.herokuapp.com/api/sfile-search?q=wa&apikey=BETA`)
-let sfile_ = '「 *Hasil* 」\n\n'
-for (let s of ssfile_.data) {
-sfile_ += `
-• Judul : ${s.title}
-• Size : ${s.filesize}
-• Link : ${s.url}`}
-var ssfile_1 = `${ucapannya2}\n ${sfile_}`
-var ssfile_2 = [
-{buttonId: 'Download_sfile', buttonText: {displayText: '📥 Unduh'}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-ssfile_3 = {
-contentText: ssfile_1,
-footerText: `${tampilTanggal}`,
-buttons: ssfile_2,
-headerType: 1
-}
-alpha.sendMessage(from, ssfile_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'moddroid':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
-smodd_ = await fetchJson(`https://x-restapi.herokuapp.com/api/moddroid-search?q=${q}&apikey=BETA`);
-let modd_1 = await getBuffer('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_NhIOLV738PJvKb_rkFDsIohJj-vZWihlaQ&usqp=CAU');
-const modd_3 = await alpha.prepareMessage(from, modd_1, MessageType.image, { thumbnail:fthumb_mod})
-let modd_2 = modd_3.message["ephemeralMessage"] ? modd_3.message.ephemeralMessage : modd_3
-let modd_4 = await alpha.getStatus(sender)
-let modd_ = '「 *Hasil* 」\n\n'
-for (let s of smodd_.data) {
-modd_ += `
-• Judul : ${s.title}
-• Link : ${s.url}`}
-modd_5 = `${ucapannya2}\n ${modd_}`
-const modd_6 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-const modd_7 = {
-contentText: modd_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: modd_6,
-headerType: 4,
-imageMessage: modd_2.message.imageMessage
-}
-
-alpha.sendMessage(from, modd_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_mod},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'md5enc':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Say no to drug`) 
-md5_ = await fetchJson(`https://x-restapi.herokuapp.com/api/md5-encrypt?teks=${q}&apikey=BETA`)
-var md5_1 = `${ucapannya2}
-*Hasil :*
-• ${md5_.results}`
-var md5_2 = [
-{buttonId: 'Copas', buttonText: {displayText: '📥 Copas'}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-md5_3 = {
-contentText: md5_1,
-footerText: `${tampilTanggal}`,
-buttons: md5_2,
-headerType: 1
-}
-alpha.sendMessage(from, md5_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'artikata':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
-artikt_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=${q}&apikey=BETA`)
-var artikt_1 = `${ucapannya2}
-*Arti Kata ${q} :*
-• ${artikt_.artikata}`
-var artikt_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-artikt_3 = {
-contentText: artikt_1,
-footerText: `${tampilTanggal}`,
-buttons: artikt_2,
-headerType: 1
-}
-alpha.sendMessage(from, artikt_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'artimimpi':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
-artimp_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-mimpi?q=${q}&apikey=BETA`)
-var artimp_1 = `${ucapannya2}
-*Arti Mimpi ${q} :*
-• ${artimp_.result}`
-var artimp_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-artimp_3 = {
-contentText: artimp_1,
-footerText: `${tampilTanggal}`,
-buttons: artimp_2,
-headerType: 1
-}
-alpha.sendMessage(from, artimp_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'artinama':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
-artinm_ = await fetchJson(`https://x-restapi.herokuapp.com/api/artinama?q=${q}&apikey=BETA`)
-var artinm_1 = `${ucapannya2}
-*Arti Nama ${q} :*
-• ${artinm_.data}`
-var artinm_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-artinm_3 = {
-contentText: artinm_1,
-footerText: `${tampilTanggal}`,
-buttons: artinm_2,
-headerType: 1
-}
-alpha.sendMessage(from, artinm_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'amazon':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
-amzn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/amazon?q=${q}&apikey=BETA`)
-var amzn_1 = `${ucapannya2}
-*Results ${q} :*
-• item : ${amzn_.item}
-• review : ${amzn_.review}
-• rating : ${amzn_.rating}
-• price : ${amzn_.price}
-• score : ${amzn_.score}
-• discounted : ${amzn_.discounted}
-• url : ${amzn_.url}
-• sponsored : ${amzn_.sponsored}
-• bestseller : ${amzn_.bestseller}
-• amazonprime : ${amzn_.amazonprime}`
-var amzn_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-amzn_3 = {
-contentText: amzn_1,
-footerText: `${tampilTanggal}`,
-buttons: amzn_2,
-headerType: 1
-}
-alpha.sendMessage(from, amzn_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'ipgeo':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
-ipgeo_ = await fetchJson(`https://x-restapi.herokuapp.com/api/ipgeolocation?ip=${q}&apikey=BETA`)
-var ipgeo_1 = `${ucapannya2}
-*Results ${q} :*
-• country_code : ${ipgeo_.country_code}
-• country_name : ${ipgeo_.country_name}
-• region_code : ${ipgeo_.region_code}
-• region_name : ${ipgeo_.region_name}
-• city : ${ipgeo_.city}
-• isp : ${ipgeo_.isp}
-• zip_code : ${ipgeo_.zip_code}
-• time_zone : ${ipgeo_.time_zone}
-• latitude : ${ipgeo_.latitude}
-• longitude : ${ipgeo_.longitude}`
-var ipgeo_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-ipgeo_3 = {
-contentText: ipgeo_1,
-footerText: `${tampilTanggal}`,
-buttons: ipgeo_2,
-headerType: 1
-}
-alpha.sendMessage(from, ipgeo_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'samehadaku':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
-smhdku_ = await fetchJson(`https://x-restapi.herokuapp.com/api/samehadaku-search?q=${q}&apikey=BETA`);
-let smhdku_1 = await getBuffer(smhdku_.image);
-const smhdku_3 = await alpha.prepareMessage(from, smhdku_1, MessageType.image, { thumbnail:thumb_sam})
-let smhdku_2 = smhdku_3.message["ephemeralMessage"] ? smhdku_3.message.ephemeralMessage : smhdku_3
-
-smhdku_5 =`${ucapannya2}
-• *Judul :* ${smhdku_.title}
-• *Url :* ${smhdku_.url}
-• *Description :*
-${smhdku_.desc}`
-const smhdku_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-const smhdku_7 = {
-contentText: smhdku_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: smhdku_6,
-headerType: 4,
-imageMessage: smhdku_2.message.imageMessage
-}
-
-alpha.sendMessage(from, smhdku_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_sam},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'thelazy':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
-lzy_ = await fetchJson(`https://x-restapi.herokuapp.com/api/thelazy-search?q=${q}&apikey=BETA`)
-let zy = '「 *THELAZY* 」\n\n'
-for (let l of lzy_.data) {
-zy += `
-• *Judul :* ${l.title}
-• *Url :* ${l.url}
-• *Category :* ${l.category}
-• *Author :* ${l.author}
-• *Post_date :* ${l.post_date}
-• *Comments :* ${l.comments}
-`}
-var lzy_1 = `${ucapannya2}\n ${zy}`
-var lzy_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-lzy_3 = {
-contentText: lzy_1,
-footerText: `${tampilTanggal}`,
-buttons: lzy_2,
-headerType: 1
-}
-alpha.sendMessage(from, lzy_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'youwatch':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
-yw_ = await fetchJson(`https://x-restapi.herokuapp.com/api/youwatch-search?q=${q}&apikey=BETA`)
-let y_ = '「 *YOUWATCH* 」\n\n'
-for (let y of yw_.data) {
-y_ += `
-• *Judul :* ${y.title}
-• *Url :* ${y.source}
-• *Category :* ${y.category}
-`}
-var yw_1 = `${ucapannya2}\n ${y_}`
-var yw_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-yw_3 = {
-contentText: yw_1,
-footerText: `${tampilTanggal}`,
-buttons: yw_2,
-headerType: 1
-}
-alpha.sendMessage(from, yw_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'zodiak':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} leo`) 
-zdiak_ = await fetchJson(`https://x-restapi.herokuapp.com/api/zodiak?q=${q}&apikey=BETA`)
-var zdiak_1 = `${ucapannya2}
-*Results ${q} :*
-• Umum : ${zdiak_.umum}
-• Love : ${zdiak_.love}
-• Keuangan : ${zdiak_.keuangan}`
-var zdiak_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-zdiak_3 = {
-contentText: zdiak_1,
-footerText: `${tampilTanggal}`,
-buttons: zdiak_2,
-headerType: 1
-}
-alpha.sendMessage(from, zdiak_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-
 
 //───────────────[ START LOLHUMAN ]───────────────//
 case 'xmenu':
@@ -8949,7 +8265,7 @@ break
 
 // Islami //
 case 'xlistsurah':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${lolkey}`)
+get_result = await fetchJlson(`https://api.lolhuman.xyz/api/quran?apikey=${lolkey}`)
 get_result = get_result.result
 ini_txt = 'List Surah:\n'
 for (var x in get_result) {
@@ -11167,11 +10483,70 @@ break
 
 //───────────────[ END LOLHUMAN ]───────────────//
 
-case 'translate':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  Hello`)
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${q}&from=auto&to=id`)
-tee = `*Translate*\n• Bahasa ${result.language_from}\nKe\n• Indonesia *${result.language_to}*\n\n= *${result.translated}`
-alpha.sendMessage(from, tee, text,{quoted: mek})
+//LIST───────[ API DAPUHY
+case 'happymod': 
+if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} free fire`)
+query = args.join(" ")
+get_result = await fetchJson(`https://api.dapuhy.ga/api/search/happymod?query=${query}&apikey=${dapuhy}`, {method: 'get'})
+kontol = get_result.result
+ini_txt = "Result : \n"
+for (var x of kontol) {
+ini_txt += `${x.title}\n`
+ini_txt += `${x.url}\n\n`
+}
+fakestatus(ini_txt)
+break
+
+case 'klikmanga': 
+if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+query = args.join(" ")
+get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/klikmanga?query=${query}&apikey=${dapuhy}`, {method: 'get'})
+kontol = get_result.result
+ini_txt = "Result : \n"
+for (var x of kontol) {
+ini_txt += `${x.title}\n`
+ini_txt += `${x.genre}\n`
+ini_txt += `${x.author}\n`
+ini_txt += `${x.status}\n`
+ini_txt += `${x.release}\n`
+ini_txt += `${x.desc}\n`
+ini_txt += `${x.url}\n\n`
+}
+fakestatus(ini_txt)
+break
+
+case 'kiryu': 
+if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+query = args.join(" ")
+get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/kiryuu?query=${query}&apikey=${dapuhy}`, {method: 'get'})
+kontol = get_result.result
+ini_txt = "Result : \n"
+for (var x of kontol) {
+ini_txt += `${x.title}\n`
+ini_txt += `${x.episode}\n`
+ini_txt += `${x.rating}\n`
+ini_txt += `${x.url}\n\n`
+}
+fakestatus(ini_txt)
+break
+
+case 'animeplanet': 
+if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+query = args.join(" ")
+get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/animeplanet?query=${query}&apikey=${dapuhy}`, {method: 'get'})
+kontol = get_result.result
+ini_txt = "Result : \n"
+for (var x of kontol) {
+ini_txt += `${x.title}\n`
+ini_txt += `${x.url}\n\n`
+}
+fakestatus(ini_txt)
+break
+
+case 'say':
+if (args.length > 50) return reply2('```Error, Teks Terlalu Panjang!```')
+say_ = await getBuffer(`https://api.dapuhy.ga/api/maker/tts?text=${q}&lang=id&apikey=${dapuhy}`)
+alpha.sendMessage(from, say_, MessageType.audio, {quoted: fgclink, mimetype: 'audio/mp4', ptt:true, duration: 444441600})
 break
 
 case 'tr':
@@ -11282,232 +10657,6 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-//───────────────[ FITUR URL ]───────────────//
-
-case 'tinyurl':
-// reply2(mess.wait)
-if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
-short = args.join(" ")
-ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/tinyurl?url=${short}`,{method:'get'})
-get_result = ini_result.result
-ini_txt = `*Tinyurl shortlink*`
-ini_txt += `Shortlink : ${get_result}`
-reply2(ini_txt)
-break
-
-case 'bitly':
-// reply2(mess.wait)
-if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
-short = args.join(" ")
-ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/bitly?url=${short}`,{method:'get'})
-get_result = ini_result.result
-ini_txt = `*Bitly shortlink*`
-ini_txt += `Shortlink : ${get_result}`
-reply2(ini_txt)
-break
-
-case 'shorturl':
-// reply2(mess.wait)
-if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
-short = args.join(" ")
-ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/shorturl?url=${short}`,{method:'get'})
-get_result = ini_result.result
-ini_txt = `*Shorturl shortlink*`
-ini_txt += `Shortlink : ${get_result}`
-reply2(ini_txt)
-break
-
-case 'cuttly':
-// reply2(mess.wait)
-if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
-short = args.join(" ")
-ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/cuttly?url=${short}`,{method:'get'})
-get_result = ini_result.result
-ini_txt = `*Cuttly shortlink*`
-ini_txt += `Shortlink : ${get_result}`
-reply2(ini_txt)
-break 
-
-//───────────────[ FITUR GAME ]───────────────//
-
-case 'recaptcha':
-if (recaptcha.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-capt_ = await fetchJson(`http://api.zekais.com/captcha?apikey=CsapIPYk`);
-let capt_1 = await getBuffer(capt_.question);
-jawaban = capt_.answer
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-recaptcha[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
-console.log(jawaban)
-const capt_3 = await alpha.prepareMessage(from, capt_1, MessageType.image, { thumbnail:thumb_cap})
-let capt_2 = capt_3.message["ephemeralMessage"] ? capt_3.message.ephemeralMessage : capt_3
-
-capt_5 =`Coba tebak 🙂\nClue : ${clue}`
-const capt_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const capt_7 = {
-contentText: capt_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: capt_6,
-headerType: 4,
-imageMessage: capt_2.message.imageMessage
-}
-
-alpha.sendMessage(from, capt_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_cap},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (recaptcha.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete recaptcha[sender.split('@')[0]]
-fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
-}
-break
-
-case 'tebakbendera':
-if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbra_ = await fetchJson(`http://api.zekais.com/randomcountry?apikey=CsapIPYk`);
-let tbra_1 = await getBuffer(tbra_.result.flag);
-clu = tbra_.result.alpha_code
-jawaban = tbra_.result.name
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
-console.log(jawaban)
-const tbra_3 = await alpha.prepareMessage(from, tbra_1, MessageType.image, { thumbnail:thumb_flag})
-let tbra_2 = tbra_3.message["ephemeralMessage"] ? tbra_3.message.ephemeralMessage : tbra_3
-
-tbra_5 =`*Clue :* ${clu}\nCoba tebak 🙂`
-const tbra_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const tbra_7 = {
-contentText: tbra_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: tbra_6,
-headerType: 4,
-imageMessage: tbra_2.message.imageMessage
-}
-
-alpha.sendMessage(from, tbra_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_flag},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakbendera.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakbendera[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
-}
-break
-
-case 'tebakgambar':
-if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tgbr_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/gambar`);
-let tgbr_1 = await getBuffer(tgbr_.result.pertanyaan);
-jawaban = tgbr_.result.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
-console.log(jawaban)
-const tgbr_3 = await alpha.prepareMessage(from, tgbr_1, MessageType.image, { thumbnail:thumb_img})
-let tgbr_2 = tgbr_3.message["ephemeralMessage"] ? tgbr_3.message.ephemeralMessage : tgbr_3
-
-tgbr_5 =` Hei @${sender.split("@")[0]} Coba tebak \nClue : ${clue}🙂`
-const tgbr_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const tgbr_7 = {
-contentText: tgbr_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: tgbr_6,
-headerType: 4,
-imageMessage: tgbr_2.message.imageMessage
-}
-
-alpha.sendMessage(from, tgbr_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_img},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakgambar.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakgambar[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
-}
-break
-
 case 'tebakgambar2':
 if (tebakgambar2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
 ttgbr_ = await fetchJson(`https://api.dapuhy.ga/api/fun/tebakgambar2?apikey=${dapuhy}`);
@@ -11568,186 +10717,6 @@ fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
 }
 break
 
-case 'tebakgambar3':
-if (tebakgambar3.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/gambar?apikey=${lolkey}`)
-get_result = get_result.result
-ini_image = get_result.image
-jawaban = get_result.answer
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-let tttgbr_1 = await getBuffer(ini_image);
-tebakgambar3[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
-console.log(jawaban)
-const tttgbr_3 = await alpha.prepareMessage(from, tttgbr_1, MessageType.image, { thumbnail:thumb_img})
-let tttgbr_2 = tttgbr_3.message["ephemeralMessage"] ? tttgbr_3.message.ephemeralMessage : tttgbr_3
-
-tttgbr_5 =`Coba tebak 🙂\nClue ${clue}`
-const tttgbr_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const tttgbr_7 = {
-contentText: tttgbr_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: tttgbr_6,
-headerType: 4,
-imageMessage: tttgbr_2.message.imageMessage
-}
-
-alpha.sendMessage(from, tttgbr_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_img},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakgambar3.hasOwnProperty(sender.split('@')[0]))  {
-var htgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var htgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-htgbr1_ = {
-contentText: htgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: htgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, htgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakgambar3[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
-}
-break
-
-case 'tebakgambar4':
-if (tebakgambar4.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-gbr4_ = await fetchJson(`http://api.zekais.com/tebakgambar?apikey=CsapIPYk`);
-let gbr4_1 = await getBuffer(gbr4_.soal);
-clu = gbr4_.clue
-jawaban = gbr4_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakgambar4[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
-console.log(jawaban)
-const gbr4_3 = await alpha.prepareMessage(from, gbr4_1, MessageType.image, { thumbnail:thumb_img})
-let gbr4_2 = gbr4_3.message["ephemeralMessage"] ? gbr4_3.message.ephemeralMessage : gbr4_3
-
-gbr4_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
-const gbr4_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const gbr4_7 = {
-contentText: gbr4_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: gbr4_6,
-headerType: 4,
-imageMessage: gbr4_2.message.imageMessage
-}
-
-alpha.sendMessage(from, gbr4_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_img},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakgambar4.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakgambar4[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
-}
-break
-
-case 'tebakgambar5':
-if (tebakgambar5.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-gbr5_ = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-gambar?apikey=BETA`);
-let gbr5_1 = await getBuffer(gbr5_.img);
-jawaban = gbr5_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakgambar5[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
-console.log(jawaban)
-const gbr5_3 = await alpha.prepareMessage(from, gbr5_1, MessageType.image, { thumbnail:thumb_img})
-let gbr5_2 = gbr5_3.message["ephemeralMessage"] ? gbr5_3.message.ephemeralMessage : gbr5_3
-
-gbr5_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
-const gbr5_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const gbr5_7 = {
-contentText: gbr5_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: gbr5_6,
-headerType: 4,
-imageMessage: gbr5_2.message.imageMessage
-}
-
-alpha.sendMessage(from, gbr5_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_img},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakgambar5.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakgambar5[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
-}
-break
-
 case 'caklontong':
 if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
 cak_ = await fetchJson(`https://api.dapuhy.ga/api/fun/caklontong?apikey=${dapuhy}`);
@@ -11797,865 +10766,10 @@ fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
 }
 break
 
-case 'caklontong2':
-if (caklontong2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-anu = await fetchJson(`https://api.lolhuman.xyz/api/tebak/caklontong22?apikey=${lolkey}`)
-tebakya = anu.result.question
-jawaban = anu.result.answer
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-caklontong2[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
-console.log(jawaban)
-var cak2_0 = `*Soal* : ${tebakya}\nClue : ${clue}\n\nJawab Hayoo!`
-var cak2_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-cak2_1_ = {
-contentText: cak2_0,
-footerText: `${tampilTanggal}`,
-buttons: cak2_1,
-headerType: 1
-}
-alpha.sendMessage(from, cak2_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
-var cak2_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var cak2_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-cak2_udh1_ = {
-contentText: cak2_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: cak2_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, cak2_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete caklontong2[sender.split('@')[0]]
-fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
-}
-break
-
-case 'caklontong3':
-if (caklontong3.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-cak3_ = await fetchJson(`https://x-restapi.herokuapp.com/api/caklontong?apikey=BETA`);
-soal = cak3_.soal
-jawaban = cak3_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-caklontong3[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
-console.log(jawaban)
-var cak3_0 = `*Soal* : ${soal}\nClue : ${clue}\n\ninfo : ${informasi} `
-var cak3_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-cak3_1_ = {
-contentText: cak3_0,
-footerText: `${tampilTanggal}`,
-buttons: cak3_1,
-headerType: 1
-}
-alpha.sendMessage(from, cak3_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
-var cak3_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var cak3_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-cak3_udh1_ = {
-contentText: cak3_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: cak3_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, cak3_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete caklontong3[sender.split('@')[0]]
-fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
-}
-break
-
-case 'family1002':
-if (family100.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-fam_ = await fetchJson(`https://velgrynd.herokuapp.com/api/family100`);
-soal = fam_.result.question
-ja = fam_.result.answer
-jawaban = ja[Math.floor(Math.random() * ja.length)]
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-family100[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
-console.log(jawaban)
-var fam_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var fam_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-fam_1_ = {
-contentText: fam_0,
-footerText: `${tampilTanggal}`,
-buttons: fam_1,
-headerType: 1
-}
-alpha.sendMessage(from, fam_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (family100.hasOwnProperty(sender.split('@')[0]))  {
-var fam_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var fam_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-fam_udh1_ = {
-contentText: fam_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: fam_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, fam_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete family100[sender.split('@')[0]]
-fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
-}
-break
-
-case 'family100':
-if (family100.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-fam_ = await fetchJson(`https://velgrynd.herokuapp.com/api/family100`);
-soal = fam_.result.question
-ja = fam_.result.answer
-jawaban = ja[Math.floor(Math.random() * ja.length)]
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-family100[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (family100.hasOwnProperty(sender.split('@')[0]))  {
-var fam_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var fam_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-fam_2 = {
-contentText: fam_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: fam_3,
-headerType: 1
-}
-alpha.sendMessage(from, fam_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete family100[sender.split('@')[0]]
-fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
-}
-break
-
-case 'tebakanime':
-if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tnim_ = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-anime?apikey=BETA`);
-let tnim_1 = await getBuffer(tnim_.soal);
-jawaban = tnim_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakanime[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
-console.log(jawaban)
-const tnim_3 = await alpha.prepareMessage(from, tnim_1, MessageType.image, { thumbnail:thumb_anim})
-let tnim_2 = tnim_3.message["ephemeralMessage"] ? tnim_3.message.ephemeralMessage : tnim_3
-
-tnim_5 =`Coba tebak Siapa Dia 🙂\nClue : ${clue}`
-const tnim_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-
-const tnim_7 = {
-contentText: tnim_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: tnim_6,
-headerType: 4,
-imageMessage: tnim_2.message.imageMessage
-}
-
-alpha.sendMessage(from, tnim_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_anim},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-
-await sleep(120000)
-if (tebakanime.hasOwnProperty(sender.split('@')[0]))  {
-var tnim_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tnim_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tnim_udh1_ = {
-contentText: tnim_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tnim_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tnim_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakanime[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
-}
-break
-
-case 'suit': 
-if (!q) return reply2(`Kirim perintah ${prefix}suit gunting / batu / kertas`)
-const userspilih = q
-if (!userspilih.match(/batu|gunting|kertas/)) return reply2(`Pilih batu, kertas, gunting`)
-var computer = Math.random();
-if (computer < 0.34 ) {
-computer = 'batu';
-} else if( computer >= 0.34 && computer < 0.67) {
-computer = 'gunting';
-} else {
-computer = 'kertas';
-}
-if ( userspilih == computer ) {
-reply2(`Pertandingan Seri!`)
-} else if ( userspilih == 'batu' ) {
-if( computer == 'gunting' ) {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *🗿Batu* dan BOT *✂️Gunting*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-} else {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *🗿Batu* dan BOT memilih *📄Kertas*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-}
-} else if ( userspilih == 'gunting' ) {
-if( computer == 'batu' ) {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *✂️Gunting* dan BOT memilih *🗿Batu*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-} else {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *✂️Gunting* dan BOT *📄Kertas*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-}
-} else if ( userspilih == 'kertas' ) {
-if( computer == 'batu' ) {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *📄Kertas* dan BOT *🗿Batu*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-} else {
-alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *📄Kertas* dan bot memilih *✂️Gunting*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
-}
-}
-break
-
-case 'asahotak':
-if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-ash_ = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak`);
-soal = ash_.soal
-jawaban = ash_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-asahotak[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
-var ash_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var ash_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-ash_2 = {
-contentText: ash_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: ash_3,
-headerType: 1
-}
-alpha.sendMessage(from, ash_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete asahotak[sender.split('@')[0]]
-fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
-}
-break
-
-case 'tebakjenaka':
-if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkj_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/jenaka`);
-soal = tbkj_.result.soal
-jawaban = tbkj_.result.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakjenaka[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
-console.log(jawaban)
-var tbkj_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var tbkj_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-tbkj_1_ = {
-contentText: tbkj_0,
-footerText: `${tampilTanggal}`,
-buttons: tbkj_1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkj_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
-var tbkj_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkj_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tbkj_udh1_ = {
-contentText: tbkj_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkj_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkj_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakjenaka[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
-}
-break
-
-case 'tebakkimia':
-if (tebakkimia.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-kimia_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kimia`);
-soal = kimia_.result.nama
-jawaban = kimia_.result.lambang
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakkimia[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
-console.log(jawaban)
-var kimia_0 = `*Soal* : Apa lambang ${soal}\nClue : ${clue}`
-var kimia_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-kimia_1_ = {
-contentText: kimia_0,
-footerText: `${tampilTanggal}`,
-buttons: kimia_1,
-headerType: 1
-}
-alpha.sendMessage(from, kimia_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
-var kimia_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var kimia_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-kimia_udh1_ = {
-contentText: kimia_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: kimia_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, kimia_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_kim},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakkimia[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
-}
-break
-
-case 'tebakkata':
-if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkt_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kata`);
-soal = tbkt_.soal
-jawaban = tbkt_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
-console.log(jawaban)
-var tbkt_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var tbkt_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-tbkt_1_ = {
-contentText: tbkt_0,
-footerText: `${tampilTanggal}`,
-buttons: tbkt_1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkt_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-
-if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
-var tbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkt_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tbkt_udh1_ = {
-contentText: tbkt_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkt_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkt_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakkata[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
-}
-break
-
-case 'tebakkata2':
-if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-te_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kata`);
-soal = te_.soal
-jawaban = te_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
-var te_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var te_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-te_udh1_ = {
-contentText: te_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: te_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, te_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakkata[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
-}
-break
-
-case 'sambungkata':
-if (sambungkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-ini_txt = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=${lolkey}&text=${ini_txt}`)
-jawaban = get_result.result
-clue = jawaban.replace(jawaban[jawaban.length - 1])
-sambungkata[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
-console.log(jawaban)
-var sbkt_0 = `*Sambung kata* : ${ini_txt}\nClue : ${clue}`
-var sbkt_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-sbkt_1_ = {
-contentText: sbkt_0,
-footerText: `${tampilTanggal}`,
-buttons: sbkt_1,
-headerType: 1
-}
-alpha.sendMessage(from, sbkt_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-
-if (sambungkata.hasOwnProperty(sender.split('@')[0]))  {
-var sbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var sbkt_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-sbkt_udh1_ = {
-contentText: sbkt_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: sbkt_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, sbkt_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete sambungkata[sender.split('@')[0]]
-fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
-}
-break
-
-case 'tebaklirik':
-if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-lirik_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/lirik`);
-soal = lirik_.result.question
-jawaban = lirik_.result.answer
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebaklirik[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
-console.log(jawaban)
-var lirik_0 = `*Tebak* : ${soal}\nClue : ${clue}`
-var lirik_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-lirik_1_ = {
-contentText: lirik_0,
-footerText: `${tampilTanggal}`,
-buttons: lirik_1,
-headerType: 1
-}
-alpha.sendMessage(from, lirik_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
-var lirik_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var lirik_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-lirik_udh1_ = {
-contentText: lirik_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: lirik_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, lirik_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebaklirik[sender.split('@')[0]]
-fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
-}
-break
-
-case 'tebakkalimat':
-if (tebakkalimat.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkl_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/kalimat`);
-soal = tbkl_.result.soal
-jawaban = tbkl_.result.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakkalimat[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
-console.log(jawaban)
-var tbkl_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var tbkl_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-tbkl_1_ = {
-contentText: tbkl_0,
-footerText: `${tampilTanggal}`,
-buttons: tbkl_1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkl_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
-var tbkl_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkl_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tbkl_udh1_ = {
-contentText: tbkl_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkl_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkl_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakkalimat[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
-}
-break
-
-case 'tebakan':
-if (tebakan.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebak/tebakan`);
-soal = tbkn_.soal
-jawaban = tbkn_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakan[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
-var tbk_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbk_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tbk_2 = {
-contentText: tbk_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbk_3,
-headerType: 1
-}
-alpha.sendMessage(from, tbk_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakan[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
-}
-break
-
-case 'tebakan2':
-if (tebakan2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkn2_ = await fetchJson(`http://api.zekais.com/tebakan?apikey=CsapIPYk`);
-soal = tbkn2_.question
-clu = tbkn2_.clue
-jawaban = tbkn2_.answer
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-tebakan2[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
-console.log(jawaban)
-var tbkn2_0 = `*Soal* : ${soal}\n\n*Clue* : ${clue}`
-var tbkn2_1 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
-]
-tbkn2_1_ = {
-contentText: tbkn2_0,
-footerText: `${tampilTanggal}`,
-buttons: tbkn2_1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkn2_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-await sleep(120000)
-if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
-var tbkn2_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkn2_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-tbkn2_udh1_ = {
-contentText: tbkn2_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkn2_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkn2_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete tebakan2[sender.split('@')[0]]
-fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
-}
-break
-
-case 'siapaaku':
-if (siapaaku.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-saha_ = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku`);
-soal = saha_.soal
-jawaban = saha_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-siapaaku[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
-var saha_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var saha_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-saha_2 = {
-contentText: saha_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: saha_3,
-headerType: 1
-}
-alpha.sendMessage(from, saha_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete siapaaku[sender.split('@')[0]]
-fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
-}
-break
-
-case 'siapakah':
+case 'siapakahaku':
 if (siapakah.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-sape_ = await fetchJson(`https://api.dapuhy.ga/api/fun/siapakah?apikey=${dapuhy}`);
-tebakya = anu.pertanyaan
+anu = await fetchJson(`https://api.dapuhy.ga/api/fun/siapakah?apikey=${dapuhy}`);
+soal = anu.pertanyaan
 jawaban = anu.jawaban
 clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
@@ -12663,7 +10777,7 @@ console.log(jawaban)
 res = await alpha.prepareMessageFromContent(from,{
 "templateMessage": {
 "hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}\nTipe : ${tipe}`,
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
 "hydratedFooterText": `Coba Tebak!..`,
 "hydratedButtons": [
 {
@@ -12754,129 +10868,6 @@ fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
 }
 break
 
-case 'susunkata':
-if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-susn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata`);
-soal = susn_.soal
-tipe = susn_.tipe
-jawaban = susn_.jawaban
-clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
-susunkata[sender.split('@')[0]] = jawaban.toLowerCase()
-fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
-console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}\nTipe : ${tipe}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
-]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
-await sleep(120000)
-if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
-var susn_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var susn_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-susn_2 = {
-contentText: susn_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: susn_3,
-headerType: 1
-}
-alpha.sendMessage(from, susn_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-delete susunkata[sender.split('@')[0]]
-fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
-}
-break
-
-//───────────────[ FITUR MAKER ]───────────────//
-
-case 'wanted':
-case 'utatoo':
-case 'unsharpen':
-case 'thanos':
-case 'sniper':
-case 'sharpen':
-// case 'sepia':
-case 'scary':
-case 'rip':
-case 'redple':
-case 'rejected':
-case 'posterize':
-case 'ps4':
-case 'pixelize':
-case 'missionpassed':
-case 'moustache':
-case 'lookwhatkarenhave':
-// case 'jail':
-// case 'invert':
-case 'instagram':
-// case 'greyscale':
-case 'glitch':
-// case 'gay':
-case 'frame':
-case 'fire':
-case 'distort':
-case 'dictator':
-case 'deepfry':
-case 'ddungeon':
-case 'circle':
-case 'challenger':
-case 'burn':
-case 'brazzers':
-case 'beautiful':
-console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
-var imgbb = require('imgbb-uploader')
-if (isQuotedImage) {
-// reply2(lang.wait())
-let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
-thumbnya = await getBuffer(ppk)
-var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
-let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
-anuk = `${datau.display_url}`
-ini_gen = `${command}`
-console.log(color(ini_gen))
-imoj = await ameApi.generate(ini_gen, { url: anuk})
-alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: thumbnya})
-// sendStickerFromUrl(from, `${emoj}`, mek)
-} else {
-// reply2(lang.wait())
-ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
-let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-let medianya = await getBuffer(oppp)
-let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
-fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
-anuk = `${odata.display_url}`
-ini_gen = `${command}`
-console.log(color(ini_gen))
-imoj = await ameApi.generate(ini_gen, { url: anuk})
-alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: medianya})
-// sendStickerFromUrl(from, `${emoj}`, mek)
-} 
-break
-
 case 'ad':
 case 'airpods':
 case 'approved':
@@ -12945,75 +10936,6 @@ sendStickerFromUrl(from, `${anuk}`, mek)
 }
 break
 
-case 'blue':
-// case 'blur':
-case 'blurple':
-case 'blurple2':
-case 'brightness':
-case 'color':
-case 'colorviewer':
-case 'comrade':
-// case 'gay':
-case 'glass':
-case 'green':
-// case 'greyscale':
-case 'hex':
-case 'horny':
-// case 'invert':
-case 'invertgreyscale':
-case 'its-so-stupid':
-// case 'jail':
-case 'lolice':
-case 'passed':
-case 'pixelate':
-case 'red':
-case 'rgb':
-// case 'sepia':
-case 'simpcard':
-case 'threshold':
-// case 'triggered':
-case 'tweet':
-case 'wasted':
-case 'youtube-comment':
-console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
-var imgbb = require('imgbb-uploader')
-if (isQuotedImage) {
-let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
-thumbnya = await getBuffer(ppk)
-var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
-let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
-anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
-ini_gen = `${command}`
-console.log(color(ini_gen))
-sendStickerFromUrl(from, `${anuk}`, mek)
-} else {
-ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
-let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-let medianya = await getBuffer(oppp)
-let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
-fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
-anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
-ini_gen = `${command}`
-console.log(color(ini_gen))
-sendStickerFromUrl(from, `${anuk}`, mek)
-}
-break
-
-case 'wroom':
-case 'text3d':
-case 'water':
-case 'blackbird':
-case 'smurf':
-case 'memories':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} noob`) 
-anuk = `https://kocakz.herokuapp.com/api/flamingtext/${command}?text=${q}`
-ini_gen = `${command}`
-console.log(color(ini_gen))
-sendStickerFromUrl(from, `${anuk}`, mek)
-break
-
 case 'batues':
 case 'exontol':
 case 'blekpink':
@@ -13022,59 +10944,6 @@ case 'darkjokes':
 rdmg_ = `https://api.dapuhy.ga/api/randomimage/${command}?apikey=${dapuhy}`
 let rdmg_1 = await getBuffer(rdmg_);
 alpha.sendMessage(from, rdmg_1, MessageType.image,{
-	caption : 'oke',
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'wallflare':
-rdm_ = await fetchJson(`https://hadi-api.herokuapp.com/api/wallpaperflare?query=${q}`)
-getr = rdm_.result
-let wflar= getr[Math.floor(Math.random() * getr.length)];
-let rdm_1 = await getBuffer(wflar);
-alpha.sendMessage(from, rdm_1, MessageType.image,{
-	caption : 'oke',
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'wallhd':
-hdw_ = `https://hadi-api.herokuapp.com/api/wallpaperhd?q=${q}`
-let hdw_1 = await getBuffer(hdw_);
-alpha.sendMessage(from, hdw_1, MessageType.image,{
-	caption : 'oke',
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'wallanime':
-wnim_ = `https://hadi-api.herokuapp.com/api/walpaperanime?q=${q}`
-let wnim_1 = await getBuffer(wnim_);
-alpha.sendMessage(from, wnim_1, MessageType.image,{
 	caption : 'oke',
 "contextInfo": {
 "forwardingScore": 1000000000,isForwarded: true,
@@ -13271,6 +11140,243 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
+case '3dcrack':
+case '3dhologram':
+case '3dshiny':
+case '3dunderwater':
+case '1917':
+case 'artpapercut':
+case 'bearlogo':
+case 'birthdaycake':
+case 'blackpink':
+case 'blackpinkneon':
+case 'brokenglass':
+case 'cake':
+case 'cakes':
+case 'cloud':
+case 'clouds':
+case 'galaxy':
+case 'galaxybat':
+case 'galaxystyle':
+case 'glow':
+case 'glowing':
+case 'graffiti2':
+case 'graffiti3':
+case 'graffiti5':
+case 'graffiti':
+case 'graffiticolor':
+case 'greenbrush':
+case 'hotmetalic':
+case 'lighteffects':
+case 'lightgalaxy':
+case 'metal':
+case 'neon2':
+case 'neon':
+case 'neondevil':
+case 'neonlight':
+case 'pubgmascot':
+case 'snake':
+case 'startsnight2':
+case 'startsnight':
+case 'summerbeach2':
+case 'summerbeach':
+case 'thunder':
+case 'watercolor':
+case 'wetglass':
+case 'wooden3d':
+case 'wordgreen':
+case 'writingchalk':
+case 'zombie3d':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+ephto_ = (`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
+let ephto_1 = await getBuffer(ephto_);
+const ephto_3 = await alpha.prepareMessage(from, ephto_1, MessageType.image, { thumbnail:thumb_epho})
+let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMessage : ephto_3
+
+ephto_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const ephto_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `ephoto_list`, buttonText: {displayText: 'Ephoto List'}, type: 1}
+]
+
+const ephto_7 = {
+contentText: ephto_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: ephto_6,
+headerType: 4,
+imageMessage: ephto_2.message.imageMessage
+}
+
+alpha.sendMessage(from, ephto_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_epho},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'airballoon':
+case 'beachsign':
+case 'blinkinglights':
+case 'bracelet':
+case 'cemeterygates':
+case 'christmas':
+case 'denimembroidery':
+case 'einstein':
+case 'fortunecookie':
+case 'lightgraffiti':
+case 'lightwriting':
+case 'lovelock':
+case 'neonsign':
+case 'nightmare':
+case 'pendant':
+case 'planebanner':
+case 'rugbyball':
+case 'rustywriting':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+pfun_ = (`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
+let pfun_1 = await getBuffer(pfun_);
+const pfun_3 = await alpha.prepareMessage(from, pfun_1, MessageType.image, { thumbnail:thumb_pfun})
+let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessage : pfun_3
+
+pfun_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const pfun_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `pfun_list`, buttonText: {displayText: 'Photofunia List'}, type: 1}
+]
+
+const pfun_7 = {
+contentText: pfun_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: pfun_6,
+headerType: 4,
+imageMessage: pfun_2.message.imageMessage
+}
+
+alpha.sendMessage(from, pfun_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_pfun},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'pasangan':
+cwe_ = await fetchJson(`https://api.dapuhy.ga/api/randomimage/couple?apikey=${dapuhy}`)
+let cwe_1 = await getBuffer(cwe_.result.wanita);
+const cwe_3 = await alpha.prepareMessage(from, cwe_1, MessageType.image, { thumbnail:thumb_coupl})
+let cwe_2 = cwe_3.message["ephemeralMessage"] ? cwe_3.message.ephemeralMessage : cwe_3
+var cwe_5 = `@${sender.split("@")[0]} Nih Cewenya`
+const cwe_6 = [
+{buttonId: `${command}`, buttonText: {displayText: '💁 Next'}, type: 1}
+]
+const cwe_7 = {
+contentText: cwe_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: cwe_6,
+headerType: 4,
+imageMessage: cwe_2.message.imageMessage
+}
+alpha.sendMessage(from, cwe_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_coupl},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+let cwo_1 = await getBuffer(cwe_.result.pria);
+const cwo_3 = await alpha.prepareMessage(from, cwo_1, MessageType.image, { thumbnail:thumb_coupl})
+let cwo_2 = cwo_3.message["ephemeralMessage"] ? cwo_3.message.ephemeralMessage : cwo_3
+var cwo_5 = `@${sender.split("@")[0]} Nih Cowoknya`
+const cwo_6 = [
+{buttonId: 'Oke', buttonText: {displayText: '🙇 Ok'}, type: 1}
+]
+const cwo_7 = {
+contentText: cwo_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: cwo_6,
+headerType: 4,
+imageMessage: cwo_2.message.imageMessage
+}
+alpha.sendMessage(from, cwo_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_coupl},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+//LIST───────[ API ALPHA
+case '3000years':
+case 'approved':
+case 'beautiful':
+case 'blur':
+case 'brazzers':
+case 'burn':
+case 'challenger':
+case 'circle':
+case 'contrast':
+case 'ddungeon':
+case 'deepfry':
+case 'dictator':
+case 'dictator':
+case 'distort':
+case 'fire':
+case 'gay':
+case 'glitch':
+case 'greyscale':
+case 'instagram':
+case 'invert':
+case 'jail':
+case 'lookwhatkarenhave':
+case 'missionpassed':
+case 'moustache':
+case 'ps4':
+case 'redple':
+case 'rejected':
+case 'rip':
+case 'scary':
+case 'sepia':
+case 'sharpen':
+case 'sniper':
+case 'thanos':
+case 'triggered':
+case 'utatoo':
+case 'wanted':
+case 'wasted':
+
+if (isQuotedImage) {
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+var image_buffer = await alpha.downloadMediaMessage(encmedia);
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", image_buffer)
+teks = `${anu.display_url}`
+sendStickerFromUrl(from, `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${teks}`, mek)
+} else {
+reply2(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim`)
+}
+
+break
+
 case '3dbox':
 case '3dchrome':
 case '3dglue':
@@ -13456,219 +11562,6 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-case 'textpro_list':
-reply2(`${tpro_list(prefix)}`)
-break
-
-case '3dcrack':
-case '3dhologram':
-case '3dshiny':
-case '3dunderwater':
-case '1917':
-case 'artpapercut':
-case 'bearlogo':
-case 'birthdaycake':
-case 'blackpink':
-case 'blackpinkneon':
-case 'brokenglass':
-case 'cake':
-case 'cakes':
-case 'cloud':
-case 'clouds':
-case 'galaxy':
-case 'galaxybat':
-case 'galaxystyle':
-case 'glow':
-case 'glowing':
-case 'graffiti2':
-case 'graffiti3':
-case 'graffiti5':
-case 'graffiti':
-case 'graffiticolor':
-case 'greenbrush':
-case 'hotmetalic':
-case 'lighteffects':
-case 'lightgalaxy':
-case 'metal':
-case 'neon2':
-case 'neon':
-case 'neondevil':
-case 'neonlight':
-case 'pubgmascot':
-case 'snake':
-case 'startsnight2':
-case 'startsnight':
-case 'summerbeach2':
-case 'summerbeach':
-case 'thunder':
-case 'watercolor':
-case 'wetglass':
-case 'wooden3d':
-case 'wordgreen':
-case 'writingchalk':
-case 'zombie3d':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-ephto_ = (`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
-let ephto_1 = await getBuffer(ephto_);
-const ephto_3 = await alpha.prepareMessage(from, ephto_1, MessageType.image, { thumbnail:thumb_epho})
-let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMessage : ephto_3
-
-ephto_5 =` *@${sender.split("@")[0]}* Dah selesai`
-const ephto_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `ephoto_list`, buttonText: {displayText: 'Ephoto List'}, type: 1}
-]
-
-const ephto_7 = {
-contentText: ephto_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: ephto_6,
-headerType: 4,
-imageMessage: ephto_2.message.imageMessage
-}
-
-alpha.sendMessage(from, ephto_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_epho},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'ephoto_list':
-reply2(`${epho_list(prefix)}`)
-break
-
-case 'airballoon':
-case 'beachsign':
-case 'blinkinglights':
-case 'bracelet':
-case 'cemeterygates':
-case 'christmas':
-case 'denimembroidery':
-case 'einstein':
-case 'fortunecookie':
-case 'lightgraffiti':
-case 'lightwriting':
-case 'lovelock':
-case 'neonsign':
-case 'nightmare':
-case 'pendant':
-case 'planebanner':
-case 'rugbyball':
-case 'rustywriting':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-pfun_ = (`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
-let pfun_1 = await getBuffer(pfun_);
-const pfun_3 = await alpha.prepareMessage(from, pfun_1, MessageType.image, { thumbnail:thumb_pfun})
-let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessage : pfun_3
-
-pfun_5 =` *@${sender.split("@")[0]}* Dah selesai`
-const pfun_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `pfun_list`, buttonText: {displayText: 'Photofunia List'}, type: 1}
-]
-
-const pfun_7 = {
-contentText: pfun_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: pfun_6,
-headerType: 4,
-imageMessage: pfun_2.message.imageMessage
-}
-
-alpha.sendMessage(from, pfun_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_pfun},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'pfun_list':
-reply2(`${pfun_list(prefix)}`)
-break
-
-case '3d-glowing':
-case '3d-rainbow-bg':
-case '3d-summer':
-case '8-bit-arcade':
-case 'army-camouflage-fabric':
-case 'banner-metal':
-case 'battlefield-4-rising':
-case 'burn-paper':
-case 'butter-fly':
-case 'coffee-cup':
-case 'crisp-chrome':
-case 'csgo':
-case 'dark-metal':
-case 'embroidery-text':
-case 'flaming-fire':
-case 'flower-hearth':
-case 'flower-typography':
-case 'funny-cup':
-case 'fur-effect':
-case 'glow-rainbow':
-case 'golden-roses':
-case 'gradient-avatar':
-case 'grafiti-text-cover':
-case 'green-leaves':
-case 'harry-poter':
-case 'honey-text':
-case 'love-messages':
-case 'luxury-royal':
-case 'manga-naruto':
-case 'metalic-gold':
-case 'multi-material':
-case 'nature-3d':
-case 'neon-glow':
-case 'neon-lights':
-case 'on-the-silk':
-case 'party-neon':
-case 'put-coffee-cup':
-case 'rainbow-shine':
-case 'romantic-double':
-case 'romantic-messages':
-case 'royal-patterns':
-case 'shadow-sky':
-case 'smoke-typography':
-case 'striking-3d':
-case 'summer-nature-bg':
-case 'summer-watermelon':
-case 'sweet-candy':
-case 'teks-cup':
-case 'text-on-scary':
-case 'tiktok-effect':
-case 'typography-leaves':
-case 'under-cube':
-case 'under-fall':
-case 'under-grass':
-case 'under-orchids':
-case 'under-web-matrix':
-case 'underwater':
-case 'video-spells-name':
-case 'vintage-text':
-case 'wolf-metal':
-case 'wood-hearth':
-case 'woodblock-effect':
-case 'wooden-3d-black':
-case 'wooden-boards':
-case 'write-stars':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-buff = await getBuffer(`https://hadi-api.herokuapp.com/api/photoxy/${command}?teks=${q}`)
-alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxylist* untuk melihat menu yang lain`})
-break
-
 case '3dglowing':
 case '3dligth':
 case '3dnature':
@@ -13754,87 +11647,2382 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-case 'oxylist':
-reply2(`${oxy_list(prefix)}`)
-break
-
-
-case 'advancedglow':
-case 'blackpink':
-case 'bloodtext':
-case 'bokehtext':
-case 'captamerica':
-case 'cloudsky':
-case 'dropwater':
-case 'equalizer':
-case 'firework':
-case 'foilballoon':
-case 'glue3d':
-case 'greenneon':
-case 'holographic':
-case 'lavatext':
-case 'luxury':
-case 'matrixtext':
-case 'metaldark':
-case 'miniontext':
-case 'neonlight':
-case 'neontext':
-case 'old1917':
-case 'realcloud':
-case 'realvintage':
-case 'sandengraved':
-case 'sandsummer':
-case 'sandsummery':
-case 'sandwrite':
-case 'text3d':
-case 'thundertext':
-case 'toxictext':
-ini_buffer = await getBuffer(`https://kocakz.herokuapp.com/api/textpro/${command}?text=${q}`)
-alpha.sendMessage(from, ini_buffer, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}tpro_list* untuk melihat menu yang lain`})
-break
-
-case 'avengers':
-case 'glitchtext':
-case 'marvelstudio':
-case 'pornhub':
-case 'space3d':
-case 'stonetext':
-t = args.join(' ')
-t1 = t.split('|')[0]
-t2 = t.split('|')[1]
-ini_buffer = await getBuffer(`https://kocakz.herokuapp.com/api/textpro/${command}?text1=${t1}&text2=${t2}`)
-alpha.sendMessage(from, ini_buffer, MessageType.image,{quoted: fgclink})
-break
-
-case 'sertitolol':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-buff = await getBuffer(`https://mysakura.herokuapp.com/api/serti/tolol?text=${q}&apikey=sakura404`)
-alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Ketik *.serti* untuk melihat list , Req by: ${pushname}`})
-break
-
-//───────────────[ FITUR IMAGE ]───────────────//
-
-case 'waifu':
-const w_1 = [
-{title: '🗿 Waifu 1', description: "", rowId:"waifu_1"},
-{title: '🗿 Waifu 2', description: "", rowId:"waifu_2"},
-{title: '🗿 Waifu 3', description: "", rowId:"waifu_3"}
+case 'quran':
+if(!q) return reply2(`*Cth :* ${prefix + command} 2|1`)
+qu = args.join(' ')
+sur = qu.split('|')[0]
+ay = qu.split('|')[1]
+qt = await fetchJson(`https://api-alphabot.herokuapp.com/api/quran?surah=${sur}&ayat=${ay}&apikey=Alphabot`)
+arb = qt.result.text.arab
+indo = qt.result.translation.id
+aud = qt.result.audio.primary
+taf = qt.result.surah.tafsir.id
+sur = qt.result.surah.name.long
+sur2 = qt.result.surah.name.transliteration.id
+var qur_0 = `*Silahkan Dipilih*`
+var qur_1 = [
+{buttonId: 'Quran_text', buttonText: {displayText: '📖 Teks'}, type: 1},
+{buttonId: 'Quran_audio', buttonText: {displayText: '🎙️ Audio'}, type: 1}
 ]
-const w_2 = [{title: "🌹 ⸙ WAIFU ⸙ 🌹", rows: w_1}]
-const w_3 = {
-buttonText: '🔥 Waifu Disini!',
-description: `*${ucapannya2} @${sender.split("@")[0]}*\n\nSilahkan pilih jenis waifu dibawah, dan jangan spam bot agar tidak delay saat mengirim pesan 🚀`,
-sections: w_2,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-listType: 1
+qur_1_ = {
+contentText: qur_0,
+footerText: `${tampilTanggal}`,
+buttons: qur_1,
+headerType: 1
 }
-
-await alpha.sendMessage(from, w_3, MessageType.listMessage, {
+alpha.sendMessage(from, qur_1_, MessageType.buttonsMessage,{
 "contextInfo": {
 "forwardingScore": 1000000000,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
+break
+
+case 'anal':
+case 'avatar2':
+case 'bj':
+case 'blowJob':
+case 'boobs':
+case 'classic':
+case 'cumarts':
+case 'cumsluts':
+case 'ero':
+case 'erofeet':
+case 'erokemonomimi':
+case 'erokitsune':
+case 'eroneko':
+case 'eroyuri':
+case 'feet':
+case 'feetgif':
+case 'femdom':
+case 'futanari':
+case 'girl_solo':
+case 'girl_solo_gif':
+case 'hentai':
+case 'hentai_gif':
+case 'holo':
+case 'holoEro':
+case 'kemonomimi':
+case 'keta':
+case 'kitsune':
+case 'kuni':
+case 'lesbian':
+case 'neko':
+case 'neko_gif':
+case 'pussy':
+case 'pussyart':
+case 'pussywankgif':
+case 'spank':
+case 'tits':
+case 'trap':
+case 'yuri':
+nsfw2_ = (`https://api-alphabot.herokuapp.com/api/nsfw/v2/${command}?apikey=Alphabot`);
+let nsfw2_1 = await getBuffer(nsfw2_);
+const nsfw2_3 = await alpha.prepareMessage(from, nsfw2_1, MessageType.image, { thumbnail:thumb_pro})
+let nsfw2_2 = nsfw2_3.message["ephemeralMessage"] ? nsfw2_3.message.ephemeralMessage : nsfw2_3
+
+nsfw2_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const nsfw2_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `nsfw_list`, buttonText: {displayText: 'Oxy List'}, type: 1}
+]
+
+const nsfw2_7 = {
+contentText: nsfw2_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: nsfw2_6,
+headerType: 4,
+imageMessage: nsfw2_2.message.imageMessage
+}
+
+alpha.sendMessage(from, nsfw2_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'oxylist':
+reply2(`${oxy_list(prefix)}`)
+break
+
+case 'textpro_list':
+reply2(`${tpro_list(prefix)}`)
+break
+
+case 'ephoto_list':
+reply2(`${epho_list(prefix)}`)
+break
+
+case 'pfun_list':
+reply2(`${pfun_list(prefix)}`)
+break
+
+case 'nsfwlist':
+reply2(`${nsfw_list(prefix)}`)
+break
+
+//LIST───────[ API HADI
+case 'ssweb':
+if (args.length < 1) return reply2('Urlnya mana om')
+teks = args[0]
+buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb2?url=${teks}`)
+alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Screenshot from ${teks}`})
+break
+
+case 'ss':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} url|desktop|on`)
+pe = args.join(' ')
+tes1 = pe.split('|')[0]
+tes2 = pe.split('|')[1]
+tes3 = pe.split('|')[2]
+buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb?url=${tes1}&device=${tes2}&full=${tes3}`)
+alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}`})
+break
+
+case 'translate':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  Hello`)
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${q}&from=auto&to=id`)
+tee = `*Translate*\n• Bahasa ${result.language_from}\nKe\n• Indonesia *${result.language_to}*\n\n= *${result.translated}`
+alpha.sendMessage(from, tee, text,{quoted: mek})
+break
+
+case 'tinyurl':
+// reply2(mess.wait)
+if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/tinyurl?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `*Tinyurl shortlink*`
+ini_txt += `Shortlink : ${get_result}`
+reply2(ini_txt)
+break
+
+case 'bitly':
+// reply2(mess.wait)
+if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/bitly?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `*Bitly shortlink*`
+ini_txt += `Shortlink : ${get_result}`
+reply2(ini_txt)
+break
+
+case 'shorturl':
+// reply2(mess.wait)
+if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/shorturl?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `*Shorturl shortlink*`
+ini_txt += `Shortlink : ${get_result}`
+reply2(ini_txt)
+break
+
+case 'cuttly':
+// reply2(mess.wait)
+if (args.length == 0) return reply2(`Format salah! dibutuhkan (${prefix + command} (url with http://)) Example: ${prefix + command} http://panel.vinny.wtf/`)
+short = args.join(" ")
+ini_result = await fetchJson(`http://hadi-api.herokuapp.com/api/cuttly?url=${short}`,{method:'get'})
+get_result = ini_result.result
+ini_txt = `*Cuttly shortlink*`
+ini_txt += `Shortlink : ${get_result}`
+reply2(ini_txt)
+break 
+
+case 'wallflare':
+rdm_ = await fetchJson(`https://hadi-api.herokuapp.com/api/wallpaperflare?query=${q}`)
+getr = rdm_.result
+let wflar= getr[Math.floor(Math.random() * getr.length)];
+let rdm_1 = await getBuffer(wflar);
+alpha.sendMessage(from, rdm_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'wallhd':
+hdw_ = `https://hadi-api.herokuapp.com/api/wallpaperhd?q=${q}`
+let hdw_1 = await getBuffer(hdw_);
+alpha.sendMessage(from, hdw_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'wallanime':
+wnim_ = `https://hadi-api.herokuapp.com/api/walpaperanime?q=${q}`
+let wnim_1 = await getBuffer(wnim_);
+alpha.sendMessage(from, wnim_1, MessageType.image,{
+	caption : 'oke',
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case '3d-glowing':
+case '3d-rainbow-bg':
+case '3d-summer':
+case '8-bit-arcade':
+case 'army-camouflage-fabric':
+case 'banner-metal':
+case 'battlefield-4-rising':
+case 'burn-paper':
+case 'butter-fly':
+case 'coffee-cup':
+case 'crisp-chrome':
+case 'csgo':
+case 'dark-metal':
+case 'embroidery-text':
+case 'flaming-fire':
+case 'flower-hearth':
+case 'flower-typography':
+case 'funny-cup':
+case 'fur-effect':
+case 'glow-rainbow':
+case 'golden-roses':
+case 'gradient-avatar':
+case 'grafiti-text-cover':
+case 'green-leaves':
+case 'harry-poter':
+case 'honey-text':
+case 'love-messages':
+case 'luxury-royal':
+case 'manga-naruto':
+case 'metalic-gold':
+case 'multi-material':
+case 'nature-3d':
+case 'neon-glow':
+case 'neon-lights':
+case 'on-the-silk':
+case 'party-neon':
+case 'put-coffee-cup':
+case 'rainbow-shine':
+case 'romantic-double':
+case 'romantic-messages':
+case 'royal-patterns':
+case 'shadow-sky':
+case 'smoke-typography':
+case 'striking-3d':
+case 'summer-nature-bg':
+case 'summer-watermelon':
+case 'sweet-candy':
+case 'teks-cup':
+case 'text-on-scary':
+case 'tiktok-effect':
+case 'typography-leaves':
+case 'under-cube':
+case 'under-fall':
+case 'under-grass':
+case 'under-orchids':
+case 'under-web-matrix':
+case 'underwater':
+case 'video-spells-name':
+case 'vintage-text':
+case 'wolf-metal':
+case 'wood-hearth':
+case 'woodblock-effect':
+case 'wooden-3d-black':
+case 'wooden-boards':
+case 'write-stars':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+buff = await getBuffer(`https://hadi-api.herokuapp.com/api/photoxy/${command}?teks=${q}`)
+alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxylist* untuk melihat menu yang lain`})
+break
+
+case 'anime':
+animek_1 = (`https://hadi-api.herokuapp.com/api/anime`);
+let animek_2 = await getBuffer(animek_1);
+const animek_3 = await alpha.prepareMessage(from, animek_2, MessageType.image, { thumbnail:thumb_nime})
+let animek_4 = animek_3.message["ephemeralMessage"] ? animek_3.message.ephemeralMessage : animek_3
+animek_6 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_`
+const animek_7 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+const animek_8 = {
+contentText: animek_6 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: animek_7,
+headerType: 4,
+imageMessage: animek_4.message.imageMessage
+}
+
+alpha.sendMessage(from, animek_8, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_nime},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'enc64':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+enc = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=enc`)
+hsl = `*Hasil Enc :* ${enc.result.enc}`
+reply2(hsl)
+break
+
+case 'dec64':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+dec = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=dec`)
+hsl = `*Hasil Dec :* ${dec.result.dec}`
+reply2(hsl)
+break
+
+case 'chord':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} kangen`)
+crd = await fetchJson(`https://hadi-api.herokuapp.com/api/chord?q=${q}`);
+crdd = crd.result
+crddd = `${ucapannya2}
+${crdd}`
+reply2(crddd)
+break
+
+case 'covid':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
+cvd1 = await fetchJson(`https://hadi-api.herokuapp.com/api/corohelp?negara=${q}`);
+cvd2 = cvd1.result
+cvd3 = `${ucapannya2}
+*COVID DUNIA*
+• *Terkonfirmasi* : ${cvd2.terkonfirmasi}
+• *Meniggal* : ${cvd2.meniggal}
+• *Sembuh* : ${cvd2.sembuh}
+
+• _Update ${cvd2.update}_`
+reply2(cvd3)
+break
+
+case 'cuaca':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Sulawesi Selatan`) 
+cuac_ = await fetchJson(`https://hadi-api.herokuapp.com/api/cuaca?prov=${q}`)
+let cu = `「 *CUACA* 」
+${cuac_.powered_by}\n\n`
+for (let c of cuac_.result) {
+cu += `*Kota*: ${c.kota}
+*Malam*: ${c.malam}\n\n`
+}
+var cuac_1 = `${ucapannya2}\n ${cu}`
+var cuac_2 = [
+{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+cuac_3 = {
+contentText: cuac_1,
+footerText: `${tampilTanggal}`,
+buttons: cuac_2,
+headerType: 1
+}
+alpha.sendMessage(from, cuac_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'font':
+case 'font2':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
+fnt1 = await fetchJson(`https://hadi-api.herokuapp.com/api/font2?teks=${q}`);
+fnt2 = fnt1.result
+fnt3 = `${ucapannya2}
+• *Hasil* : ${fnt2}`
+reply2(fnt3)
+break
+
+//LIST───────[ API HARDIANTO
+case 'randomloli':
+fakestatus(mess.wait)
+aku = (`https://hardianto-chan.herokuapp.com/api/anime/loli?apikey=hardianto`)
+kon = await getBuffer(aku)
+sendButImage(from, `Nih Kak`, `${footerr}`, kon, [{buttonId: `${prefix+command}`,buttonText: {displayText: 'Try Again ♻️',},type: 1}]) 
+break
+
+case 'nuliskiri':
+if (!q) return reply2('Textnya mana gan?')
+
+kon = (`https://hardianto-chan.herokuapp.com/api/nuliskiri?text=${c}&apikey=hardianto`)
+anu = await getBuffer(kon)
+alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
+break
+
+case 'nuliskanan':
+if (!q) return reply2('Textnya mana gan?')
+
+kon = (`https://hardianto-chan.herokuapp.com/api/nuliskanan?text=${c}&apikey=hardianto`)
+anu = await getBuffer(kon)
+alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
+break
+
+case 'foliokanan':
+if (!q) return reply2('Textnya mana gan?')
+
+kon = (`https://hardianto-chan.herokuapp.com/api/foliokanan?text=${c}&apikey=hardianto`)
+anu = await getBuffer(kon)
+alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
+break
+
+case 'foliokiri':
+if (!q) return reply2('Textnya mana gan?')
+
+kon = (`https://hardianto-chan.herokuapp.com/api/foliokiri?text=${c}&apikey=hardianto`)
+anu = await getBuffer(kon)
+alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
+break
+
+case 'asupan':
+asu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/asupan?apikey=hardianto`)
+alpha.sendMessage(from, asu, video, { quoted: mek})
+break
+
+//LIST───────[ API XTEAM
+case 'ttp': 
+if (args.length < 1) return reply2(lang.noteks(prefix, command))
+ttp = args.join(' ')
+anu1 = await getBuffer(`https://api.xteam.xyz/ttp?file&text=${encodeURI(ttp)}`)
+alpha.sendMessage(from, anu1, sticker, {quoted: fgclink})
+break
+
+case 'attp':
+if (args.length == 0) return fakestatus(`Example: ${prefix + command} Hai`)
+buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
+alpha.sendMessage(from, buffer, sticker, { quoted: fgclink })
+break
+
+case 'smeme5':
+// if (!isPremium && !mek.key.fromMe) return reply2(mess.only.prem)
+try {
+if (!q) return reply2(`${prefix+command} Miku`)
+var bawah = q.replace('', '_').replace('\n','%5Cn').replace('?', '~q').replace('%', '~p').replace('&', '~a').replace('#', '~h').replace('/', '~s')
+if ( isQuotedImage) {
+// reply2(mess.wait)
+var imgbb = require('imgbb-uploader')
+let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+let media = await alpha.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", media)
+var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
+//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
+//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
+fs.writeFileSync('./sticker/${sender}.webp', sticknye)
+exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+if (error) return reply2(mess.error)
+alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, { quoted: fgclink })
+})
+} else if (isQuotedSticker){
+// reply2(mess.wait)
+var imgbb = require('imgbb-uploader')
+let encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+let media = await alpha.downloadAndSaveMediaMessage(encmedia)
+let ran = getRandom('.png')
+exec(`ffmpeg -i ${media} ${ran}`, async (err) => {
+fs.unlinkSync(media)
+if (err) return reply2('Error')
+var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", ran)
+var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
+//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
+//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
+fs.writeFileSync('./sticker/smemek.webp', sticknye)
+exec(`webpmux -set exif ./sticker/data.exif ./sticker/smemek.webp -o ./sticker/smemek.webp`, async (error) => {
+if (error) return reply2(mess.error)
+alpha.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: fgclink })
+fs.unlinkSync(ran)
+})
+})
+} else {
+reply2(`Reply gambar atau sticker dengan Caption ${prefix+command} teks`)
+}
+} catch (e) {
+return reply2(`${e}`)
+console.log(e)
+}
+break
+
+case 'qrcode':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
+getqr = (`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
+buff = await getBuffer(getqr)
+alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
+break
+
+case 'scanqr':
+if(!q) return reply2(`🏷️Hint : ${prefix + command} link`)
+ini_link = args[0]
+let sqr = await fetchJson(`https://api.lolhuman.xyz/api/read-qr?apikey=${lolkey}&img=${ini_link}`)
+reply2(sqr)
+break
+
+case 'dadu2':
+ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=https://janbot-api.herokuapp.com/api/maker/dadu`)
+await alpha.sendMessage(from, ini_buffer, sticker)
+break
+
+case 'dadu':
+case 'patrick':
+case 'amongus':
+case 'gawrgura':
+case 'anjing':
+case 'bucinstick':
+ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/sticker/${command}?apikey=${lolkey}`)
+await alpha.sendMessage(from, ini_buffer, sticker)
+break
+
+case 'sambungkata':
+if (sambungkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+ini_txt = args.join(" ")
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=${lolkey}&text=${ini_txt}`)
+jawaban = get_result.result
+clue = jawaban.replace(jawaban[jawaban.length - 1])
+sambungkata[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
+console.log(jawaban)
+var sbkt_0 = `*Sambung kata* : ${ini_txt}\nClue : ${clue}`
+var sbkt_1 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+sbkt_1_ = {
+contentText: sbkt_0,
+footerText: `${tampilTanggal}`,
+buttons: sbkt_1,
+headerType: 1
+}
+alpha.sendMessage(from, sbkt_1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+
+if (sambungkata.hasOwnProperty(sender.split('@')[0]))  {
+var sbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var sbkt_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+sbkt_udh1_ = {
+contentText: sbkt_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: sbkt_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, sbkt_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete sambungkata[sender.split('@')[0]]
+fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
+}
+break
+
+case 'caklontong2':
+if (caklontong2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+anu = await fetchJson(`https://api.lolhuman.xyz/api/tebak/caklontong22?apikey=${lolkey}`)
+tebakya = anu.result.question
+jawaban = anu.result.answer
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+caklontong2[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
+console.log(jawaban)
+var cak2_0 = `*Soal* : ${tebakya}\nClue : ${clue}\n\nJawab Hayoo!`
+var cak2_1 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+cak2_1_ = {
+contentText: cak2_0,
+footerText: `${tampilTanggal}`,
+buttons: cak2_1,
+headerType: 1
+}
+alpha.sendMessage(from, cak2_1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
+var cak2_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var cak2_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+cak2_udh1_ = {
+contentText: cak2_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: cak2_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, cak2_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete caklontong2[sender.split('@')[0]]
+fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
+}
+break
+
+case 'tebakgambar3':
+if (tebakgambar3.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/gambar?apikey=${lolkey}`)
+get_result = get_result.result
+ini_image = get_result.image
+jawaban = get_result.answer
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+let tttgbr_1 = await getBuffer(ini_image);
+tebakgambar3[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
+console.log(jawaban)
+const tttgbr_3 = await alpha.prepareMessage(from, tttgbr_1, MessageType.image, { thumbnail:thumb_img})
+let tttgbr_2 = tttgbr_3.message["ephemeralMessage"] ? tttgbr_3.message.ephemeralMessage : tttgbr_3
+
+tttgbr_5 =`Coba tebak 🙂\nClue ${clue}`
+const tttgbr_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tttgbr_7 = {
+contentText: tttgbr_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: tttgbr_6,
+headerType: 4,
+imageMessage: tttgbr_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tttgbr_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_img},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakgambar3.hasOwnProperty(sender.split('@')[0]))  {
+var htgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var htgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+htgbr1_ = {
+contentText: htgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: htgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakgambar3[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
+}
+break
+
+//LIST───────[ API VELGRYND
+case 'tebakgambar':
+if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tgbr_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakgambar`);
+let tgbr_1 = await getBuffer(tgbr_.result.pertanyaan);
+jawaban = tgbr_.result.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
+console.log(jawaban)
+const tgbr_3 = await alpha.prepareMessage(from, tgbr_1, MessageType.image, { thumbnail:thumb_img})
+let tgbr_2 = tgbr_3.message["ephemeralMessage"] ? tgbr_3.message.ephemeralMessage : tgbr_3
+
+tgbr_5 =` Hei @${sender.split("@")[0]} Coba tebak \nClue : ${clue}🙂`
+const tgbr_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tgbr_7 = {
+contentText: tgbr_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: tgbr_6,
+headerType: 4,
+imageMessage: tgbr_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tgbr_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_img},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakgambar.hasOwnProperty(sender.split('@')[0]))  {
+var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var hgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+hgbr1_ = {
+contentText: hgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: hgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakgambar[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
+}
+break
+
+
+case 'family100':
+if (family100.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+fam_ = await fetchJson(`https://velgrynd.herokuapp.com/api/family100`);
+soal = fam_.soal
+ja = fam_.jawaban
+jawaban = ja[Math.floor(Math.random() * ja.length)]
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+family100[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (family100.hasOwnProperty(sender.split('@')[0]))  {
+var fam_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var fam_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+fam_2 = {
+contentText: fam_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: fam_3,
+headerType: 1
+}
+alpha.sendMessage(from, fam_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete family100[sender.split('@')[0]]
+fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
+}
+break
+
+case 'asahotak':
+if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+ash_ = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak`);
+soal = ash_.soal
+jawaban = ash_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+asahotak[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
+var ash_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var ash_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+ash_2 = {
+contentText: ash_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: ash_3,
+headerType: 1
+}
+alpha.sendMessage(from, ash_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete asahotak[sender.split('@')[0]]
+fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
+}
+break
+
+
+
+case 'tebakkimia':
+if (tebakkimia.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+kimia_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkimia`);
+soal = kimia_.result.nama
+jawaban = kimia_.result.lambang
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakkimia[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
+console.log(jawaban)
+var kimia_0 = `*Soal* : Apa lambang ${soal}\nClue : ${clue}`
+var kimia_1 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+kimia_1_ = {
+contentText: kimia_0,
+footerText: `${tampilTanggal}`,
+buttons: kimia_1,
+headerType: 1
+}
+alpha.sendMessage(from, kimia_1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
+var kimia_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var kimia_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+kimia_udh1_ = {
+contentText: kimia_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: kimia_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, kimia_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_kim},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakkimia[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
+}
+break
+
+case 'tebakkata':
+if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tbkt_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata`);
+soal = tbkt_.soal
+jawaban = tbkt_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
+console.log(jawaban)
+var tbkt_0 = `*Soal* : ${soal}\nClue : ${clue}`
+var tbkt_1 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+tbkt_1_ = {
+contentText: tbkt_0,
+footerText: `${tampilTanggal}`,
+buttons: tbkt_1,
+headerType: 1
+}
+alpha.sendMessage(from, tbkt_1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+
+if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
+var tbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tbkt_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tbkt_udh1_ = {
+contentText: tbkt_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tbkt_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, tbkt_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakkata[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
+}
+break
+
+case 'tebakkata2':
+if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+te_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata`);
+soal = te_.soal
+jawaban = te_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
+var te_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var te_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+te_udh1_ = {
+contentText: te_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: te_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, te_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakkata[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
+}
+break
+
+case 'tebaklirik':
+if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tlir_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaklirik`);
+soal = tlir_.result.question
+jawaban = tlir_.result.answer
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebaklirik[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
+var tlirx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tlirx_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tlirx_2 = {
+contentText: tlirx_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tlirx_3,
+headerType: 1
+}
+alpha.sendMessage(from, tlirx_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebaklirik[sender.split('@')[0]]
+fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
+}
+break
+
+case 'tebakkalimat':
+if (tebakkalimat.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tkal_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkalimat`);
+soal = tkal_.soal
+jawaban = tkal_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakkalimat[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
+var tkalx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tkalx_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tkalx_2 = {
+contentText: tkalx_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tkalx_3,
+headerType: 1
+}
+alpha.sendMessage(from, tkalx_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakkalimat[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
+}
+break
+
+case 'tebakan':
+if (tebakan.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tbkn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaktebakan`);
+soal = tbkn_.soal
+jawaban = tbkn_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakan[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
+var tbk_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tbk_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tbk_2 = {
+contentText: tbk_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tbk_3,
+headerType: 1
+}
+alpha.sendMessage(from, tbk_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakan[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
+}
+break
+
+case 'siapaaku':
+if (siapaaku.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+saha_ = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku`);
+soal = saha_.soal
+jawaban = saha_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+siapaaku[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
+var saha_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var saha_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+saha_2 = {
+contentText: saha_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: saha_3,
+headerType: 1
+}
+alpha.sendMessage(from, saha_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete siapaaku[sender.split('@')[0]]
+fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
+}
+break
+
+case 'susunkata':
+if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+susn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata`);
+soal = susn_.soal
+tipe = susn_.tipe
+jawaban = susn_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+susunkata[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}\nTipe : ${tipe}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
+var susn_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var susn_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+susn_2 = {
+contentText: susn_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: susn_3,
+headerType: 1
+}
+alpha.sendMessage(from, susn_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete susunkata[sender.split('@')[0]]
+fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
+}
+break
+
+//LIST───────[ API SOME RANDOM
+case 'blue':
+// case 'blur':
+case 'blurple':
+case 'blurple2':
+case 'brightness':
+case 'color':
+case 'colorviewer':
+case 'comrade':
+// case 'gay':
+case 'glass':
+case 'green':
+// case 'greyscale':
+case 'hex':
+case 'horny':
+// case 'invert':
+case 'invertgreyscale':
+case 'its-so-stupid':
+// case 'jail':
+case 'lolice':
+case 'passed':
+case 'pixelate':
+case 'red':
+case 'rgb':
+// case 'sepia':
+case 'simpcard':
+case 'threshold':
+// case 'triggered':
+case 'tweet':
+case 'wasted':
+case 'youtube-comment':
+console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
+var imgbb = require('imgbb-uploader')
+if (isQuotedImage) {
+let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
+thumbnya = await getBuffer(ppk)
+var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
+let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
+anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+sendStickerFromUrl(from, `${anuk}`, mek)
+} else {
+ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
+let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
+let medianya = await getBuffer(oppp)
+let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
+fs.writeFileSync('janckuk.jpeg', datae, 'base64')
+let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+sendStickerFromUrl(from, `${anuk}`, mek)
+}
+break
+
+case 'burung':
+rnim_ = await fetchJson(`https://some-random-api.ml/img/bird`);
+let rnim_1 = await getBuffer(rnim_.link);
+
+rnim_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fburung untuk melihat fakta en`
+
+alpha.sendMessage(from, rnim_1, MessageType.image,{caption:rnim_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fburung':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/bird`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'kucing':
+rcat_ = await fetchJson(`https://some-random-api.ml/img/cat`);
+let rcat_1 = await getBuffer(rcat_.link);
+
+rcat_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fkucing untuk melihat fakta en`
+
+alpha.sendMessage(from, rcat_1, MessageType.image,{caption:rcat_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fkucing':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/cat`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'anjing':
+rdog_ = await fetchJson(`https://some-random-api.ml/img/dog`);
+let rdog_1 = await getBuffer(rdog_.link);
+
+rdog_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fanjing untuk melihat fakta en`
+
+alpha.sendMessage(from, rdog_1, MessageType.image,{caption:rdog_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fanjing':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/dog`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'rubah':
+rfox_ = await fetchJson(`https://some-random-api.ml/img/fox`);
+let rfox_1 = await getBuffer(rfox_.link);
+
+rfox_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .frubah untuk melihat fakta en`
+
+alpha.sendMessage(from, rfox_1, MessageType.image,{caption:rfox_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'frubah':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/fox`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'koala':
+rkoa_ = await fetchJson(`https://some-random-api.ml/img/koala`);
+let rkoa_1 = await getBuffer(rkoa_.link);
+
+rkoa_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fkoala untuk melihat fakta en`
+
+alpha.sendMessage(from, rkoa_1, MessageType.image,{caption:rkoa_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fkoala':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/koala`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'panda':
+rpan_ = await fetchJson(`https://some-random-api.ml/img/panda`);
+let rpan_1 = await getBuffer(rpan_.link);
+
+rpan_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fpanda untuk melihat fakta en`
+
+alpha.sendMessage(from, rpan_1, MessageType.image,{caption:rpan_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fpanda':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/panda`);
+f = rfact_.fact
+reply2(f)
+break
+
+case 'red_panda':
+rred_ = await fetchJson(`https://some-random-api.ml/img/red_panda`);
+let rred_1 = await getBuffer(rred_.link);
+
+rred_5 =`「 *Nih Hasilnya* 」
+*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fred_panda untuk melihat fakta en`
+
+alpha.sendMessage(from, rred_1, MessageType.image,{caption:rred_5,
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_miku},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fred_panda':
+rfact_ = await fetchJson(`https://some-random-api.ml/facts/red_panda`);
+f = rfact_.fact
+reply2(f)
+break
+
+//LIST───────[ API XNXX
+case 'maker3d': 
+
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
+teksnya = args.join(" ")
+
+anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker3d?text=${teksnya}&apikey=xnxx`)
+buffer1 = await getBuffer(anu.result.results)
+alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
+break
+
+case 'maker2d': 
+
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
+teksnya = args.join(" ")
+
+anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker?text=${teksnya}&apikey=xnxx`)
+buffer1 = await getBuffer(anu.result.results)
+alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
+break
+
+case 'epepserti': 
+
+if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
+teksnya = args.join(" ")
+
+anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker/special/epep?text=${teksnya}&apikey=xnxx`)
+buffer1 = await getBuffer(anu.result.results)
+alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
+break
+
+case 'song':  
+if (args.length < 1) return reply2("Where's the link bro")
+if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply2('```Invalid link```')
+reply2(lang.wait()) 
+anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/yutub/audio?url=${args[0]}&apikey=xnxx`)
+ini_txt = `YT AUDIO HAS BEEN FOUND\n\n`
+ini_txt += ` Judul : ${anu.result.title}\n`
+ini_txt += ` Ext : mp3\n`
+ini_txt += ` Size : ${anu.result.filesize}\n\n_Tunggu beberapa menit video akan segera di kirimkan_`
+ini_txt2 = await getBuffer(anu.result.thumb)
+ini_txt3 = await getBuffer(anu.result.result)
+alpha.sendMessage(from, ini_txt2, image, { quoted: mek, caption: ini_txt })
+alpha.sendMessage(from, ini_txt3, audio, { mimetype: 'audio/mp4', quoted: mek, ptt:true})
+break
+
+//LIST───────[ API YUZZU
+case 'mik':
+ku = await fetchJson(`https://yuzzu-api.herokuapp.com/api/simi?text=${q}`)
+mik = ku.result
+reply2(ku.result)
+break
+
+case 'asupan2':
+anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan?apikey=${YuzApi}`)
+ano = await getBuffer(anu.result.result)
+alpha.sendMessage(from, ano, video, { quoted: mek})
+break
+
+case 'asupant3':
+anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan/tiktok?apikey=${YuzApi}`)
+ano = await getBuffer(anu.result.url)
+alpha.sendMessage(from, ano, video, { quoted: mek})
+break
+
+case 'hijaber': case 'santuy':
+case 'ukty': case 'bocil': case 'ghea':
+anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan/${command}?apikey=${YuzApi}`)
+ano = await getBuffer(anu.result.url)
+alpha.sendMessage(from, ano, image, { quoted: mek, thumbnail: thumb_miku})
+break
+
+case 'meme':
+anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/darkjokes?apikey=${YuzApi}`)
+buff = await getBuffer(anu.result.result)
+gbutsan = [{buttonId:`meme`,buttonText:{displayText: 'Try Again ♻️'},type:1}]
+mhan = await alpha.prepareMessage(from, buff, image, {thumbnail: buff})
+const buttonMessagessss = {
+imageMessage: mhan.message.imageMessage,
+contentText: `Ngedark Bos`,
+footerText: '*_©Miku Bot_*',
+buttons: gbutsan,
+headerType: 4
+}
+alpha.sendMessage(from, buttonMessagessss, MessageType.buttonsMessage, {
+thumbnail: thumb_miku,
+caption: 'Tes',
+quoted: mek})
+break
+
+//LIST───────[ API X REST
+case 'gcwa':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+gcwa_ = await fetchJson(`https://x-restapi.herokuapp.com/api/search-grup?q=${q}&apikey=BETA`)
+let gece = '「 *GC WA* 」\n\n'
+for (let g of gcwa_.result) {
+gece += `*Nama*: ${g.judul}\n*Link*: ${g.link}\n\n`}
+var gcwa_1 = `${ucapannya2}\n ${gece}`
+var gcwa_2 = [
+{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+gcwa_3 = {
+contentText: gcwa_1,
+footerText: `${tampilTanggal}`,
+buttons: gcwa_2,
+headerType: 1
+}
+alpha.sendMessage(from, gcwa_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'gsearch':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+gsrch_ = await fetchJson(`https://x-restapi.herokuapp.com/api/google-search?q=${q}&apikey=BETA`)
+var gsrch_1 = `${ucapannya2}\n *Judul :*\n${gsrch_.data.title}\n*Link :* ${gsrch_.data.link}\n*Desc :* ${gsrch_.data.desc}`
+var gsrch_2 = [
+{buttonId: 'Menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+gsrch_3 = {
+contentText: gsrch_1,
+footerText: `${tampilTanggal}`,
+buttons: gsrch_2,
+headerType: 1
+}
+alpha.sendMessage(from, gsrch_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'topmanga':
+case 'topanime':
+topnim_ = await fetchJson(`https://x-restapi.herokuapp.com/api/${command}?apikey=BETA`)
+let nimr = '「 *${command}* 」\n'
+for (let t of topnim_.data) {
+nimr += `
+*Judul :*
+${t.Judul}
+*Link :* ${t.Link}
+*Desc :* ${t.Informasi} *Score :* ${t.Score}`}
+
+var topnim_1 = `${ucapannya2}\n ${nimr}`
+var topnim_2 = [
+{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+topnim_3 = {
+contentText: topnim_1,
+footerText: `${tampilTanggal}`,
+buttons: topnim_2,
+headerType: 1
+}
+alpha.sendMessage(from, topnim_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'bucin':
+rbuc_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-bucin?apikey=BETA`)
+var rbuc_1 = `${ucapannya2}
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+*${rbuc_.bucin}*`
+var rbuc_2 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+rbuc_3 = {
+contentText: rbuc_1,
+footerText: `${tampilTanggal}`,
+buttons: rbuc_2,
+headerType: 1
+}
+alpha.sendMessage(from, rbuc_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'fakta':
+fakta_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-fakta?apikey=BETA`)
+var fakta_1 = `${ucapannya2}
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+*${fakta_.fakta}*`
+var fakta_2 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+fakta_3 = {
+contentText: fakta_1,
+footerText: `${tampilTanggal}`,
+buttons: fakta_2,
+headerType: 1
+}
+alpha.sendMessage(from, fakta_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'katabijak':
+ktbjk_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-katabijak?apikey=BETA`)
+var ktbjk_1 = `${ucapannya2}
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+*${ktbjk_.katabijak}*`
+var ktbjk_2 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+ktbjk_3 = {
+contentText: ktbjk_1,
+footerText: `${tampilTanggal}`,
+buttons: ktbjk_2,
+headerType: 1
+}
+alpha.sendMessage(from, ktbjk_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'motivasi':
+motvas_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
+var motvas_1 = `${ucapannya2}
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+*${motvas_.motivasi}*`
+var motvas_2 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+motvas_3 = {
+contentText: motvas_1,
+footerText: `${tampilTanggal}`,
+buttons: motvas_2,
+headerType: 1
+}
+alpha.sendMessage(from, motvas_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'pantun':
+pntn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-pantun?apikey=BETA`)
+var pntn_1 = `${ucapannya2}
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+${pntn_.pantun}`
+var pntn_2 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+pntn_3 = {
+contentText: pntn_1,
+footerText: `${tampilTanggal}`,
+buttons: pntn_2,
+headerType: 1
+}
+alpha.sendMessage(from, pntn_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'ssticker':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} pentol`) 
+var ano = await fetchJson(`https://x-restapi.herokuapp.com/api/search-sticker?q=${q}&apikey=BETA`)
+wifegerak = ano.data.url
+var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+sendStickerUrl(from, wifegerakx)
+break
+
+case 'ssfile':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+ssfile_ = await fetchJson(`https://x-restapi.herokuapp.com/api/sfile-search?q=wa&apikey=BETA`)
+let sfile_ = '「 *Hasil* 」\n\n'
+for (let s of ssfile_.data) {
+sfile_ += `
+• Judul : ${s.title}
+• Size : ${s.filesize}
+• Link : ${s.url}`}
+var ssfile_1 = `${ucapannya2}\n ${sfile_}`
+var ssfile_2 = [
+{buttonId: 'Download_sfile', buttonText: {displayText: '📥 Unduh'}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+ssfile_3 = {
+contentText: ssfile_1,
+footerText: `${tampilTanggal}`,
+buttons: ssfile_2,
+headerType: 1
+}
+alpha.sendMessage(from, ssfile_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'moddroid':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
+smodd_ = await fetchJson(`https://x-restapi.herokuapp.com/api/moddroid-search?q=${q}&apikey=BETA`);
+let modd_1 = await getBuffer('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_NhIOLV738PJvKb_rkFDsIohJj-vZWihlaQ&usqp=CAU');
+const modd_3 = await alpha.prepareMessage(from, modd_1, MessageType.image, { thumbnail:fthumb_mod})
+let modd_2 = modd_3.message["ephemeralMessage"] ? modd_3.message.ephemeralMessage : modd_3
+let modd_4 = await alpha.getStatus(sender)
+let modd_ = '「 *Hasil* 」\n\n'
+for (let s of smodd_.data) {
+modd_ += `
+• Judul : ${s.title}
+• Link : ${s.url}`}
+modd_5 = `${ucapannya2}\n ${modd_}`
+const modd_6 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+const modd_7 = {
+contentText: modd_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: modd_6,
+headerType: 4,
+imageMessage: modd_2.message.imageMessage
+}
+
+alpha.sendMessage(from, modd_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_mod},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'md5enc':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Say no to drug`) 
+md5_ = await fetchJson(`https://x-restapi.herokuapp.com/api/md5-encrypt?teks=${q}&apikey=BETA`)
+var md5_1 = `${ucapannya2}
+*Hasil :*
+• ${md5_.results}`
+var md5_2 = [
+{buttonId: 'Copas', buttonText: {displayText: '📥 Copas'}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+md5_3 = {
+contentText: md5_1,
+footerText: `${tampilTanggal}`,
+buttons: md5_2,
+headerType: 1
+}
+alpha.sendMessage(from, md5_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'artikata':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+artikt_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=${q}&apikey=BETA`)
+var artikt_1 = `${ucapannya2}
+*Arti Kata ${q} :*
+• ${artikt_.artikata}`
+var artikt_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+artikt_3 = {
+contentText: artikt_1,
+footerText: `${tampilTanggal}`,
+buttons: artikt_2,
+headerType: 1
+}
+alpha.sendMessage(from, artikt_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'artimimpi':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+artimp_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-mimpi?q=${q}&apikey=BETA`)
+var artimp_1 = `${ucapannya2}
+*Arti Mimpi ${q} :*
+• ${artimp_.result}`
+var artimp_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+artimp_3 = {
+contentText: artimp_1,
+footerText: `${tampilTanggal}`,
+buttons: artimp_2,
+headerType: 1
+}
+alpha.sendMessage(from, artimp_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'artinama':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+artinm_ = await fetchJson(`https://x-restapi.herokuapp.com/api/artinama?q=${q}&apikey=BETA`)
+var artinm_1 = `${ucapannya2}
+*Arti Nama ${q} :*
+• ${artinm_.data}`
+var artinm_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+artinm_3 = {
+contentText: artinm_1,
+footerText: `${tampilTanggal}`,
+buttons: artinm_2,
+headerType: 1
+}
+alpha.sendMessage(from, artinm_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'amazon':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
+amzn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/amazon?q=${q}&apikey=BETA`)
+var amzn_1 = `${ucapannya2}
+*Results ${q} :*
+• item : ${amzn_.item}
+• review : ${amzn_.review}
+• rating : ${amzn_.rating}
+• price : ${amzn_.price}
+• score : ${amzn_.score}
+• discounted : ${amzn_.discounted}
+• url : ${amzn_.url}
+• sponsored : ${amzn_.sponsored}
+• bestseller : ${amzn_.bestseller}
+• amazonprime : ${amzn_.amazonprime}`
+var amzn_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+amzn_3 = {
+contentText: amzn_1,
+footerText: `${tampilTanggal}`,
+buttons: amzn_2,
+headerType: 1
+}
+alpha.sendMessage(from, amzn_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'ipgeo':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
+ipgeo_ = await fetchJson(`https://x-restapi.herokuapp.com/api/ipgeolocation?ip=${q}&apikey=BETA`)
+var ipgeo_1 = `${ucapannya2}
+*Results ${q} :*
+• country_code : ${ipgeo_.country_code}
+• country_name : ${ipgeo_.country_name}
+• region_code : ${ipgeo_.region_code}
+• region_name : ${ipgeo_.region_name}
+• city : ${ipgeo_.city}
+• isp : ${ipgeo_.isp}
+• zip_code : ${ipgeo_.zip_code}
+• time_zone : ${ipgeo_.time_zone}
+• latitude : ${ipgeo_.latitude}
+• longitude : ${ipgeo_.longitude}`
+var ipgeo_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+ipgeo_3 = {
+contentText: ipgeo_1,
+footerText: `${tampilTanggal}`,
+buttons: ipgeo_2,
+headerType: 1
+}
+alpha.sendMessage(from, ipgeo_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'samehadaku':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
+smhdku_ = await fetchJson(`https://x-restapi.herokuapp.com/api/samehadaku-search?q=${q}&apikey=BETA`);
+let smhdku_1 = await getBuffer(smhdku_.image);
+const smhdku_3 = await alpha.prepareMessage(from, smhdku_1, MessageType.image, { thumbnail:thumb_sam})
+let smhdku_2 = smhdku_3.message["ephemeralMessage"] ? smhdku_3.message.ephemeralMessage : smhdku_3
+
+smhdku_5 =`${ucapannya2}
+• *Judul :* ${smhdku_.title}
+• *Url :* ${smhdku_.url}
+• *Description :*
+${smhdku_.desc}`
+const smhdku_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+const smhdku_7 = {
+contentText: smhdku_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: smhdku_6,
+headerType: 4,
+imageMessage: smhdku_2.message.imageMessage
+}
+
+alpha.sendMessage(from, smhdku_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_sam},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'thelazy':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+lzy_ = await fetchJson(`https://x-restapi.herokuapp.com/api/thelazy-search?q=${q}&apikey=BETA`)
+let zy = '「 *THELAZY* 」\n\n'
+for (let l of lzy_.data) {
+zy += `
+• *Judul :* ${l.title}
+• *Url :* ${l.url}
+• *Category :* ${l.category}
+• *Author :* ${l.author}
+• *Post_date :* ${l.post_date}
+• *Comments :* ${l.comments}
+`}
+var lzy_1 = `${ucapannya2}\n ${zy}`
+var lzy_2 = [
+{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+lzy_3 = {
+contentText: lzy_1,
+footerText: `${tampilTanggal}`,
+buttons: lzy_2,
+headerType: 1
+}
+alpha.sendMessage(from, lzy_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'youwatch':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+yw_ = await fetchJson(`https://x-restapi.herokuapp.com/api/youwatch-search?q=${q}&apikey=BETA`)
+let y_ = '「 *YOUWATCH* 」\n\n'
+for (let y of yw_.data) {
+y_ += `
+• *Judul :* ${y.title}
+• *Url :* ${y.source}
+• *Category :* ${y.category}
+`}
+var yw_1 = `${ucapannya2}\n ${y_}`
+var yw_2 = [
+{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+yw_3 = {
+contentText: yw_1,
+footerText: `${tampilTanggal}`,
+buttons: yw_2,
+headerType: 1
+}
+alpha.sendMessage(from, yw_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'zodiak':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} leo`) 
+zdiak_ = await fetchJson(`https://x-restapi.herokuapp.com/api/zodiak?q=${q}&apikey=BETA`)
+var zdiak_1 = `${ucapannya2}
+*Results ${q} :*
+• Umum : ${zdiak_.umum}
+• Love : ${zdiak_.love}
+• Keuangan : ${zdiak_.keuangan}`
+var zdiak_2 = [
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+
+zdiak_3 = {
+contentText: zdiak_1,
+footerText: `${tampilTanggal}`,
+buttons: zdiak_2,
+headerType: 1
+}
+alpha.sendMessage(from, zdiak_3, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'tebakgambar5':
+if (tebakgambar5.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+gbr5_ = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-gambar?apikey=BETA`);
+let gbr5_1 = await getBuffer(gbr5_.img);
+jawaban = gbr5_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakgambar5[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
+console.log(jawaban)
+const gbr5_3 = await alpha.prepareMessage(from, gbr5_1, MessageType.image, { thumbnail:thumb_img})
+let gbr5_2 = gbr5_3.message["ephemeralMessage"] ? gbr5_3.message.ephemeralMessage : gbr5_3
+
+gbr5_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
+const gbr5_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const gbr5_7 = {
+contentText: gbr5_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: gbr5_6,
+headerType: 4,
+imageMessage: gbr5_2.message.imageMessage
+}
+
+alpha.sendMessage(from, gbr5_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_img},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakgambar5.hasOwnProperty(sender.split('@')[0]))  {
+var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var hgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+hgbr1_ = {
+contentText: hgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: hgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakgambar5[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
+}
+break
+
+case 'caklontong3':
+if (caklontong3.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+cak3_ = await fetchJson(`https://x-restapi.herokuapp.com/api/caklontong?apikey=BETA`);
+soal = cak3_.soal
+jawaban = cak3_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+caklontong3[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
+console.log(jawaban)
+var cak3_0 = `*Soal* : ${soal}\nClue : ${clue}\n\ninfo : ${informasi} `
+var cak3_1 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+cak3_1_ = {
+contentText: cak3_0,
+footerText: `${tampilTanggal}`,
+buttons: cak3_1,
+headerType: 1
+}
+alpha.sendMessage(from, cak3_1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
+var cak3_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var cak3_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+cak3_udh1_ = {
+contentText: cak3_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: cak3_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, cak3_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete caklontong3[sender.split('@')[0]]
+fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
+}
+break
+
+case 'tebakanime':
+if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tnim_ = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-anime?apikey=BETA`);
+let tnim_1 = await getBuffer(tnim_.soal);
+jawaban = tnim_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakanime[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
+console.log(jawaban)
+const tnim_3 = await alpha.prepareMessage(from, tnim_1, MessageType.image, { thumbnail:thumb_anim})
+let tnim_2 = tnim_3.message["ephemeralMessage"] ? tnim_3.message.ephemeralMessage : tnim_3
+
+tnim_5 =`Coba tebak Siapa Dia 🙂\nClue : ${clue}`
+const tnim_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tnim_7 = {
+contentText: tnim_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: tnim_6,
+headerType: 4,
+imageMessage: tnim_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tnim_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_anim},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+
+await sleep(120000)
+if (tebakanime.hasOwnProperty(sender.split('@')[0]))  {
+var tnim_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tnim_udh1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tnim_udh1_ = {
+contentText: tnim_udh0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tnim_udh1,
+headerType: 1
+}
+alpha.sendMessage(from, tnim_udh1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakanime[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
+}
 break
 
 case 'wallanime':
@@ -14179,11 +14367,433 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-case 'randomloli':
-fakestatus(mess.wait)
-aku = (`https://hardianto-chan.herokuapp.com/api/anime/loli?apikey=hardianto`)
-kon = await getBuffer(aku)
-sendButImage(from, `Nih Kak`, `${footerr}`, kon, [{buttonId: `${prefix+command}`,buttonText: {displayText: 'Try Again ♻️',},type: 1}]) 
+//───────────────[ FITUR GAME ]───────────────//
+
+case 'recaptcha':
+if (recaptcha.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+capt_ = await fetchJson(`http://api.zekais.com/captcha?apikey=CsapIPYk`);
+let capt_1 = await getBuffer(capt_.question);
+jawaban = capt_.answer
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+recaptcha[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
+console.log(jawaban)
+const capt_3 = await alpha.prepareMessage(from, capt_1, MessageType.image, { thumbnail:thumb_cap})
+let capt_2 = capt_3.message["ephemeralMessage"] ? capt_3.message.ephemeralMessage : capt_3
+
+capt_5 =`Coba tebak 🙂\nClue : ${clue}`
+const capt_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const capt_7 = {
+contentText: capt_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: capt_6,
+headerType: 4,
+imageMessage: capt_2.message.imageMessage
+}
+
+alpha.sendMessage(from, capt_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_cap},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (recaptcha.hasOwnProperty(sender.split('@')[0]))  {
+var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var hgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+hgbr1_ = {
+contentText: hgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: hgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete recaptcha[sender.split('@')[0]]
+fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
+}
+break
+
+case 'tebakbendera':
+if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tbra_ = await fetchJson(`http://api.zekais.com/randomcountry?apikey=CsapIPYk`);
+let tbra_1 = await getBuffer(tbra_.result.flag);
+clu = tbra_.result.alpha_code
+jawaban = tbra_.result.name
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
+console.log(jawaban)
+const tbra_3 = await alpha.prepareMessage(from, tbra_1, MessageType.image, { thumbnail:thumb_flag})
+let tbra_2 = tbra_3.message["ephemeralMessage"] ? tbra_3.message.ephemeralMessage : tbra_3
+
+tbra_5 =`*Clue :* ${clu}\nCoba tebak 🙂`
+const tbra_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tbra_7 = {
+contentText: tbra_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: tbra_6,
+headerType: 4,
+imageMessage: tbra_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tbra_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_flag},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakbendera.hasOwnProperty(sender.split('@')[0]))  {
+var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var hgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+hgbr1_ = {
+contentText: hgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: hgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakbendera[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
+}
+break
+
+case 'tebakgambar4':
+if (tebakgambar4.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+gbr4_ = await fetchJson(`http://api.zekais.com/tebakgambar?apikey=CsapIPYk`);
+let gbr4_1 = await getBuffer(gbr4_.soal);
+clu = gbr4_.clue
+jawaban = gbr4_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakgambar4[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
+console.log(jawaban)
+const gbr4_3 = await alpha.prepareMessage(from, gbr4_1, MessageType.image, { thumbnail:thumb_img})
+let gbr4_2 = gbr4_3.message["ephemeralMessage"] ? gbr4_3.message.ephemeralMessage : gbr4_3
+
+gbr4_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
+const gbr4_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const gbr4_7 = {
+contentText: gbr4_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: gbr4_6,
+headerType: 4,
+imageMessage: gbr4_2.message.imageMessage
+}
+
+alpha.sendMessage(from, gbr4_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_img},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(120000)
+if (tebakgambar4.hasOwnProperty(sender.split('@')[0]))  {
+var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var hgbr1 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+hgbr1_ = {
+contentText: hgbr0,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: hgbr1,
+headerType: 1
+}
+alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakgambar4[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
+}
+break
+
+case 'suit': 
+if (!q) return reply2(`Kirim perintah ${prefix}suit gunting / batu / kertas`)
+const userspilih = q
+if (!userspilih.match(/batu|gunting|kertas/)) return reply2(`Pilih batu, kertas, gunting`)
+var computer = Math.random();
+if (computer < 0.34 ) {
+computer = 'batu';
+} else if( computer >= 0.34 && computer < 0.67) {
+computer = 'gunting';
+} else {
+computer = 'kertas';
+}
+if ( userspilih == computer ) {
+reply2(`Pertandingan Seri!`)
+} else if ( userspilih == 'batu' ) {
+if( computer == 'gunting' ) {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *🗿Batu* dan BOT *✂️Gunting*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+} else {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *🗿Batu* dan BOT memilih *📄Kertas*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+}
+} else if ( userspilih == 'gunting' ) {
+if( computer == 'batu' ) {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *✂️Gunting* dan BOT memilih *🗿Batu*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+} else {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *✂️Gunting* dan BOT *📄Kertas*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+}
+} else if ( userspilih == 'kertas' ) {
+if( computer == 'batu' ) {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *📄Kertas* dan BOT *🗿Batu*\n\n_Kamu menang!_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+} else {
+alpha.sendMessage(from, `@${sender.split("@")[0]} memilih *📄Kertas* dan bot memilih *✂️Gunting*\n\n_Kamu kalah_` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek})
+}
+}
+break
+
+case 'tebakan2':
+if (tebakan2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tbkn2_ = await fetchJson(`http://api.zekais.com/tebakan?apikey=CsapIPYk`);
+soal = tbkn2_.question
+jawaban = tbkn2_.answer
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakan2[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
+]
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
+var tbkn2x_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tbkn2x_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tbkn2x_2 = {
+contentText: tbkn2x_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tbkn2x_3,
+headerType: 1
+}
+alpha.sendMessage(from, tbkn2x_2, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakan2[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
+}
+break
+
+//───────────────[ FITUR MAKER ]───────────────//
+
+case 'wanted':
+case 'utatoo':
+case 'unsharpen':
+case 'thanos':
+case 'sniper':
+case 'sharpen':
+// case 'sepia':
+case 'scary':
+case 'rip':
+case 'redple':
+case 'rejected':
+case 'posterize':
+case 'ps4':
+case 'pixelize':
+case 'missionpassed':
+case 'moustache':
+case 'lookwhatkarenhave':
+// case 'jail':
+// case 'invert':
+case 'instagram':
+// case 'greyscale':
+case 'glitch':
+// case 'gay':
+case 'frame':
+case 'fire':
+case 'distort':
+case 'dictator':
+case 'deepfry':
+case 'ddungeon':
+case 'circle':
+case 'challenger':
+case 'burn':
+case 'brazzers':
+case 'beautiful':
+console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
+var imgbb = require('imgbb-uploader')
+if (isQuotedImage) {
+// reply2(lang.wait())
+let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
+thumbnya = await getBuffer(ppk)
+var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
+let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
+anuk = `${datau.display_url}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+imoj = await ameApi.generate(ini_gen, { url: anuk})
+alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: thumbnya})
+// sendStickerFromUrl(from, `${emoj}`, mek)
+} else {
+// reply2(lang.wait())
+ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
+let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
+let medianya = await getBuffer(oppp)
+let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
+fs.writeFileSync('janckuk.jpeg', datae, 'base64')
+let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+anuk = `${odata.display_url}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+imoj = await ameApi.generate(ini_gen, { url: anuk})
+alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: medianya})
+// sendStickerFromUrl(from, `${emoj}`, mek)
+} 
+break
+
+case 'wroom':
+case 'text3d':
+case 'water':
+case 'blackbird':
+case 'smurf':
+case 'memories':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} noob`) 
+anuk = `https://kocakz.herokuapp.com/api/flamingtext/${command}?text=${q}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+sendStickerFromUrl(from, `${anuk}`, mek)
+break
+
+case 'advancedglow':
+case 'blackpink':
+case 'bloodtext':
+case 'bokehtext':
+case 'captamerica':
+case 'cloudsky':
+case 'dropwater':
+case 'equalizer':
+case 'firework':
+case 'foilballoon':
+case 'glue3d':
+case 'greenneon':
+case 'holographic':
+case 'lavatext':
+case 'luxury':
+case 'matrixtext':
+case 'metaldark':
+case 'miniontext':
+case 'neonlight':
+case 'neontext':
+case 'old1917':
+case 'realcloud':
+case 'realvintage':
+case 'sandengraved':
+case 'sandsummer':
+case 'sandsummery':
+case 'sandwrite':
+case 'text3d':
+case 'thundertext':
+case 'toxictext':
+ini_buffer = await getBuffer(`https://kocakz.herokuapp.com/api/textpro/${command}?text=${q}`)
+alpha.sendMessage(from, ini_buffer, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}tpro_list* untuk melihat menu yang lain`})
+break
+
+case 'avengers':
+case 'glitchtext':
+case 'marvelstudio':
+case 'pornhub':
+case 'space3d':
+case 'stonetext':
+t = args.join(' ')
+t1 = t.split('|')[0]
+t2 = t.split('|')[1]
+ini_buffer = await getBuffer(`https://kocakz.herokuapp.com/api/textpro/${command}?text1=${t1}&text2=${t2}`)
+alpha.sendMessage(from, ini_buffer, MessageType.image,{quoted: fgclink})
+break
+
+case 'sertitolol':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+buff = await getBuffer(`https://mysakura.herokuapp.com/api/serti/tolol?text=${q}&apikey=sakura404`)
+alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Ketik *.serti* untuk melihat list , Req by: ${pushname}`})
+break
+
+//───────────────[ FITUR IMAGE ]───────────────//
+
+case 'waifu':
+const w_1 = [
+{title: '🗿 Waifu 1', description: "", rowId:"waifu_1"},
+{title: '🗿 Waifu 2', description: "", rowId:"waifu_2"},
+{title: '🗿 Waifu 3', description: "", rowId:"waifu_3"}
+]
+const w_2 = [{title: "🌹 ⸙ WAIFU ⸙ 🌹", rows: w_1}]
+const w_3 = {
+buttonText: '🔥 Waifu Disini!',
+description: `*${ucapannya2} @${sender.split("@")[0]}*\n\nSilahkan pilih jenis waifu dibawah, dan jangan spam bot agar tidak delay saat mengirim pesan 🚀`,
+sections: w_2,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+listType: 1
+}
+
+await alpha.sendMessage(from, w_3, MessageType.listMessage, {
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
 break
 
 case 'pinterest':
@@ -14266,21 +14876,6 @@ var gas = kls.split(" ")[1];
 alpha.sendMessage(from, `${has}‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎${gas}`, text, { quoted: mek })
 break
 
-case 'dadu2':
-ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=https://janbot-api.herokuapp.com/api/maker/dadu`)
-await alpha.sendMessage(from, ini_buffer, sticker)
-break
-
-case 'dadu':
-case 'patrick':
-case 'amongus':
-case 'gawrgura':
-case 'anjing':
-case 'bucinstick':
-ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/sticker/${command}?apikey=${lolkey}`)
-await alpha.sendMessage(from, ini_buffer, sticker)
-break
-
 case 'ttp2': 
 if (args.length < 1) return reply2(lang.noteks(prefix, command))
 ttp = args.join(' ')
@@ -14311,12 +14906,6 @@ calcu = await fetchText(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(la
 alpha.sendMessage(from,`Hasilnya : *${calcu}*`, MessageType.text, {quoted: mek})
 break
 
-case 'mik':
-ku = await fetchJson(`https://yuzzu-api.herokuapp.com/api/simi?text=${q}`)
-mik = ku.result
-reply2(ku.result)
-break
-
 case 'simi':
 if(!q) return reply2(`🏷️Hint : ${prefix + command} halo sim`)
 let link_simi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
@@ -14328,20 +14917,6 @@ if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
 getqr = (`https://qrickit.com/api/qr.php?d=${encodeURIComponent(q)}`)
 buff = await getBuffer(getqr)
 alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
-break
-
-case 'qrcode':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
-getqr = (`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
-buff = await getBuffer(getqr)
-alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
-break
-
-case 'scanqr':
-if(!q) return reply2(`🏷️Hint : ${prefix + command} link`)
-ini_link = args[0]
-let sqr = await fetchJson(`https://api.lolhuman.xyz/api/read-qr?apikey=${lolkey}&img=${ini_link}`)
-reply2(sqr)
 break
 
 case 'kata':
@@ -14470,7 +15045,7 @@ break
 case 'fact':
 facten_ = await fetchJson(`https://catfact.ninja/fact`)
 var facten_1 = `${ucapannya2}
-▰▱▰▱▰▱▰▱
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
 *English Fact*
 _${facten_.fact}_`
 var facten_2 = [
@@ -14496,7 +15071,7 @@ case 'umur':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Wahyu`) 
 umur_ = await fetchJson(`https://api.agify.io/?name=${q}`)
 var umur_1 = `${ucapannya2}
-▰▱▰▱▰▱▰▱
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
 *Umur* ${umur_.name}
 adalah : ${umur_.age}`
 var umur_2 = [
@@ -14522,7 +15097,7 @@ case 'gender':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Wahyu`) 
 gen_ = await fetchJson(`https://api.genderize.io/?name=${q}`)
 var gen_1 = `${ucapannya2}
-▰▱▰▱▰▱▰▱
+❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
 *Biodata*  :
 Nama : ${gen_.name}
 Gender : ${gen_.gender}
@@ -14697,297 +15272,6 @@ thumbb = await getBuffer(pic)
 alpha.sendMessage(from, thumbb ,image, {quoted: mek})
 break
 
-case 'burung':
-rnim_ = await fetchJson(`https://some-random-api.ml/img/${command}`);
-let rnim_1 = await getBuffer(rnim_.link);
-
-rnim_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fburung untuk melihat fakta en`
-
-alpha.sendMessage(from, rnim_1, MessageType.image,{caption:rnim_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fburung':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/bird`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'kucing':
-rcat_ = await fetchJson(`https://some-random-api.ml/img/cat`);
-let rcat_1 = await getBuffer(rcat_.link);
-
-rcat_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fkucing untuk melihat fakta en`
-
-alpha.sendMessage(from, rcat_1, MessageType.image,{caption:rcat_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fkucing':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/cat`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'anjing':
-rdog_ = await fetchJson(`https://some-random-api.ml/img/dog`);
-let rdog_1 = await getBuffer(rdog_.link);
-
-rdog_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fanjing untuk melihat fakta en`
-
-alpha.sendMessage(from, rdog_1, MessageType.image,{caption:rdog_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fanjing':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/dog`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'rubah':
-rfox_ = await fetchJson(`https://some-random-api.ml/img/fox`);
-let rfox_1 = await getBuffer(rfox_.link);
-
-rfox_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .frubah untuk melihat fakta en`
-
-alpha.sendMessage(from, rfox_1, MessageType.image,{caption:rfox_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'frubah':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/fox`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'koala':
-rkoa_ = await fetchJson(`https://some-random-api.ml/img/koala`);
-let rkoa_1 = await getBuffer(rkoa_.link);
-
-rkoa_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fkoala untuk melihat fakta en`
-
-alpha.sendMessage(from, rkoa_1, MessageType.image,{caption:rkoa_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fkoala':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/koala`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'panda':
-rpan_ = await fetchJson(`https://some-random-api.ml/img/panda`);
-let rpan_1 = await getBuffer(rpan_.link);
-
-rpan_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fpanda untuk melihat fakta en`
-
-alpha.sendMessage(from, rpan_1, MessageType.image,{caption:rpan_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fpanda':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/panda`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'red_panda':
-rred_ = await fetchJson(`https://some-random-api.ml/img/red_panda`);
-let rred_1 = await getBuffer(rred_.link);
-
-rred_5 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_\nKetik .fred_panda untuk melihat fakta en`
-
-alpha.sendMessage(from, rred_1, MessageType.image,{caption:rred_5,
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'fred_panda':
-rfact_ = await fetchJson(`https://some-random-api.ml/facts/red_panda`);
-f = rfact_.fact
-reply2(f)
-break
-
-case 'anime':
-animek_1 = (`https://hadi-api.herokuapp.com/api/anime`);
-let animek_2 = await getBuffer(animek_1);
-const animek_3 = await alpha.prepareMessage(from, animek_2, MessageType.image, { thumbnail:thumb_nime})
-let animek_4 = animek_3.message["ephemeralMessage"] ? animek_3.message.ephemeralMessage : animek_3
-animek_6 =`「 *Nih Hasilnya* 」
-*🔖 Kak :* _@${sender.split("@")[0]}_`
-const animek_7 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-const animek_8 = {
-contentText: animek_6 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: animek_7,
-headerType: 4,
-imageMessage: animek_4.message.imageMessage
-}
-
-alpha.sendMessage(from, animek_8, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_nime},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'enc64':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
-enc = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=enc`)
-hsl = `*Hasil Enc :* ${enc.result.enc}`
-reply2(hsl)
-break
-
-case 'dec64':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
-dec = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=dec`)
-hsl = `*Hasil Dec :* ${dec.result.dec}`
-reply2(hsl)
-break
-
-case 'chord':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} kangen`)
-crd = await fetchJson(`https://hadi-api.herokuapp.com/api/chord?q=${q}`);
-crdd = crd.result
-crddd = `${ucapannya2}
-${crdd}`
-reply2(crddd)
-break
-
-case 'covid':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
-cvd1 = await fetchJson(`https://hadi-api.herokuapp.com/api/corohelp?negara=${q}`);
-cvd2 = cvd1.result
-cvd3 = `${ucapannya2}
-*COVID DUNIA*
-• *Terkonfirmasi* : ${cvd2.terkonfirmasi}
-• *Meniggal* : ${cvd2.meniggal}
-• *Sembuh* : ${cvd2.sembuh}
-
-• _Update ${cvd2.update}_`
-reply2(cvd3)
-break
-
-case 'cuaca':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Sulawesi Selatan`) 
-cuac_ = await fetchJson(`https://hadi-api.herokuapp.com/api/cuaca?prov=${q}`)
-let cu = `「 *CUACA* 」
-${cuac_.powered_by}\n\n`
-for (let c of cuac_.result) {
-cu += `*Kota*: ${c.kota}
-*Malam*: ${c.malam}\n\n`
-}
-var cuac_1 = `${ucapannya2}\n ${cu}`
-var cuac_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
-]
-
-cuac_3 = {
-contentText: cuac_1,
-footerText: `${tampilTanggal}`,
-buttons: cuac_2,
-headerType: 1
-}
-alpha.sendMessage(from, cuac_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
-case 'font':
-case 'font2':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
-fnt1 = await fetchJson(`https://hadi-api.herokuapp.com/api/font2?teks=${q}`);
-fnt2 = fnt1.result
-fnt3 = `${ucapannya2}
-• *Hasil* : ${fnt2}`
-reply2(fnt3)
-break
-
 case 'mute':
 if (!isOwner && !mek.key.fromMe) return sticOwner(from)
 if (!isGroup) return reply2(mess.only.group)
@@ -14995,110 +15279,6 @@ if (isMuted) return reply2(`udah mute`)
 mute.push(from)
 fs.writeFileSync('./database/mute.json', JSON.stringify(mute))
 reply2('Bot berhasil dimute di chat ini')
-break
-
-case 'nuliskiri':
-if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/nuliskiri?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
-alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
-break
-
-case 'nuliskanan':
-if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/nuliskanan?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
-alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
-break
-
-case 'foliokanan':
-if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/foliokanan?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
-alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
-break
-
-case 'foliokiri':
-if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/foliokiri?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
-alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
-break
-
-case 'asupan':
-asu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/asupan?apikey=hardianto`)
-alpha.sendMessage(from, asu, video, { quoted: mek})
-break
-
-case 'asupan2':
-anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan?apikey=${YuzApi}`)
-ano = await getBuffer(anu.result.result)
-alpha.sendMessage(from, ano, video, { quoted: mek})
-break
-
-case 'asupant3':
-anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan/tiktok?apikey=${YuzApi}`)
-ano = await getBuffer(anu.result.url)
-alpha.sendMessage(from, ano, video, { quoted: mek})
-break
-
-case 'hijaber': case 'santuy':
-case 'ukty': case 'bocil': case 'ghea':
-anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/asupan/${command}?apikey=${YuzApi}`)
-ano = await getBuffer(anu.result.url)
-alpha.sendMessage(from, ano, image, { quoted: mek, thumbnail: thumb_miku})
-break
-
-case 'maker3d': 
-
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
-teksnya = args.join(" ")
-
-anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker3d?text=${teksnya}&apikey=xnxx`)
-buffer1 = await getBuffer(anu.result.results)
-alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
-break
-
-case 'maker2d': 
-
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
-teksnya = args.join(" ")
-
-anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker?text=${teksnya}&apikey=xnxx`)
-buffer1 = await getBuffer(anu.result.results)
-alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
-break
-
-case 'epepserti': 
-
-if (args.length < 1) return reply2(`*Example :*\n${prefix + command} ${botname}`)
-teksnya = args.join(" ")
-
-anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/maker/special/epep?text=${teksnya}&apikey=xnxx`)
-buffer1 = await getBuffer(anu.result.results)
-alpha.sendMessage(from, buffer1, image, {quoted: mek, thumbnail: thumb_miku})
-break
-
-case 'meme':
-anu = await fetchJson(`https://api-yuzzu.herokuapp.com/api/darkjokes?apikey=${YuzApi}`)
-buff = await getBuffer(anu.result.result)
-gbutsan = [{buttonId:`meme`,buttonText:{displayText: 'Try Again ♻️'},type:1}]
-mhan = await alpha.prepareMessage(from, buff, image, {thumbnail: buff})
-const buttonMessagessss = {
-imageMessage: mhan.message.imageMessage,
-contentText: `Ngedark Bos`,
-footerText: '*_©Miku Bot_*',
-buttons: gbutsan,
-headerType: 4
-}
-alpha.sendMessage(from, buttonMessagessss, MessageType.buttonsMessage, {
-thumbnail: thumb_miku,
-caption: 'Tes',
-quoted: mek})
 break
 
 case 'rate':
@@ -15474,7 +15654,7 @@ alpha.sendMessage(from, {degreesLatitude: 34.0184,
 degreesLongitude: -118.411,
 name: `${ownername}`,
 address: `${botname}`,
-jpegThumbnail: dfrply },location,{
+jpegThumbnail: thumb_miku },location,{
 quoted: {
 key: {
 participant: '111111111@s.whatsapp.net' // Fake sender Jid
@@ -15534,7 +15714,7 @@ await ffmpeg(`${media}`)
 .on('start', function (cmd) {
 console.log(`Started : ${cmd}`)
 })
-selamat									.on('error', function (err) {
+.on('error', function (err) {
 console.log(`Error : ${err}`)
 fs.unlinkSync(media)
 reply2(mess.error.api)
@@ -15801,21 +15981,6 @@ get_audio = await getBuffer(get_resultP.url_audio)
 alpha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, filename: `${get_resultP.title}.mp3`, quoted: mek})
 break
 
-case 'song':  
-if (args.length < 1) return reply2("Where's the link bro")
-if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply2('```Invalid link```')
-reply2(lang.wait()) 
-anu = await fetchJson(`https://xnxxapi.herokuapp.com/api/yutub/audio?url=${args[0]}&apikey=xnxx`)
-ini_txt = `YT AUDIO HAS BEEN FOUND\n\n`
-ini_txt += ` Judul : ${anu.result.title}\n`
-ini_txt += ` Ext : mp3\n`
-ini_txt += ` Size : ${anu.result.filesize}\n\n_Tunggu beberapa menit video akan segera di kirimkan_`
-ini_txt2 = await getBuffer(anu.result.thumb)
-ini_txt3 = await getBuffer(anu.result.result)
-alpha.sendMessage(from, ini_txt2, image, { quoted: mek, caption: ini_txt })
-alpha.sendMessage(from, ini_txt3, audio, { mimetype: 'audio/mp4', quoted: mek, ptt:true})
-break
-
 case 'ts':
 try{
 if ( args.length === 1 ){
@@ -15908,7 +16073,6 @@ break
 
 //🐀💰 MALING
 
-
 case 'memeimg':
 case 'memegen':
 top = q.split('|')[0]
@@ -15943,60 +16107,6 @@ reply2(mess.wrongFormat)
 }
 break
 
-case 'pasangan':
-cwe_ = await fetchJson(`https://api.dapuhy.ga/api/randomimage/couple?apikey=${dapuhy}`)
-let cwe_1 = await getBuffer(cwe_.result.wanita);
-const cwe_3 = await alpha.prepareMessage(from, cwe_1, MessageType.image, { thumbnail:thumb_coupl})
-let cwe_2 = cwe_3.message["ephemeralMessage"] ? cwe_3.message.ephemeralMessage : cwe_3
-var cwe_5 = `@${sender.split("@")[0]} Nih Cewenya`
-const cwe_6 = [
-{buttonId: `${command}`, buttonText: {displayText: '💁 Next'}, type: 1}
-]
-const cwe_7 = {
-contentText: cwe_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: cwe_6,
-headerType: 4,
-imageMessage: cwe_2.message.imageMessage
-}
-alpha.sendMessage(from, cwe_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_coupl},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-let cwo_1 = await getBuffer(cwe_.result.pria);
-const cwo_3 = await alpha.prepareMessage(from, cwo_1, MessageType.image, { thumbnail:thumb_coupl})
-let cwo_2 = cwo_3.message["ephemeralMessage"] ? cwo_3.message.ephemeralMessage : cwo_3
-var cwo_5 = `@${sender.split("@")[0]} Nih Cowoknya`
-const cwo_6 = [
-{buttonId: 'Oke', buttonText: {displayText: '🙇 Ok'}, type: 1}
-]
-const cwo_7 = {
-contentText: cwo_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: cwo_6,
-headerType: 4,
-imageMessage: cwo_2.message.imageMessage
-}
-alpha.sendMessage(from, cwo_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_coupl},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
 case 'git':
 l  = args.join(' ')
 t1 = l.split('|')
@@ -16019,7 +16129,7 @@ const rans = [
 {title: "🔖 cuddle", rowId:"cuddle"},
 {title: "🔖 dance", rowId:"dance"},
 {title: "🔖 drunk", rowId:"drunk"},
-{title: "🔖 happy", rowId:"happy"},
+{title: "?? happy", rowId:"happy"},
 {title: "🔖 kill", rowId:"kill"},
 {title: "🔖 kiss", rowId:"kiss"},
 {title: "🔖 laugh", rowId:"laugh"},
@@ -16079,40 +16189,64 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-case 'quran':
-if(!q) return reply2(`*Cth :* ${prefix + command} 2|1`)
-qu = args.join(' ')
-sur = qu.split('|')[0]
-ay = qu.split('|')[1]
-qt = await fetchJson(`https://api-alphabot.herokuapp.com/api/quran?surah=${sur}&ayat=${ay}&apikey=Alphabot`)
-arb = qt.result.text.arab
-indo = qt.result.translation.id
-aud = qt.result.audio.primary
-taf = qt.result.surah.tafsir.id
-sur = qt.result.surah.name.long
-sur2 = qt.result.surah.name.transliteration.id
-var qur_0 = `*Silahkan Dipilih*`
-var qur_1 = [
-{buttonId: 'Quran_text', buttonText: {displayText: '📖 Teks'}, type: 1},
-{buttonId: 'Quran_audio', buttonText: {displayText: '🎙️ Audio'}, type: 1}
+case 'tebakjenaka':
+if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tjk_ = await fetchJson(`https://janbot-api.herokuapp.com/api/kuis/tebakjenaka`);
+soal = tjk_.pertanyaan
+jawaban = tjk_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakjenaka[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
+console.log(jawaban)
+res = await alpha.prepareMessageFromContent(from,{
+"templateMessage": {
+"hydratedTemplate": {
+"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
+"hydratedFooterText": `Coba Tebak!..`,
+"hydratedButtons": [
+{
+"urlButton": {
+"displayText": "💁 Clue",
+"url": `${clue}` }, "index": 0 },
+{
+"quickReplyButton": {
+"displayText": "🚩 Nyerah",
+"id": "Nyerah"},"index": 1},
+{
+"quickReplyButton": {
+"displayText": "🚀 Game List",
+"id": "Game_List"},"index": 2}
 ]
-qur_1_ = {
-contentText: qur_0,
-footerText: `${tampilTanggal}`,
-buttons: qur_1,
+
+}}}, {}) 
+alpha.relayWAMessage(res)
+await sleep(120000)
+if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
+var tjkx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
+var tjkx_3 = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+]
+tjkx_2 = {
+contentText: tjkx_1,
+footerText: `${footerr}${enter}${tampilWaktu}` ,
+buttons: tjkx_3,
 headerType: 1
 }
-alpha.sendMessage(from, qur_1_, MessageType.buttonsMessage,{
+alpha.sendMessage(from, tjkx_2, MessageType.buttonsMessage,{
 "contextInfo": {
 "forwardingScore": 1000000000,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
+delete tebakjenaka[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
+}
 break
+
+
 
 //Ends
 default:
-
 
 //-----------------------[ STIKER ]-------------------//
 if (q5 == "angry"){
@@ -16340,24 +16474,24 @@ reply2(lis2)
 if (templat == 'Menu') {
 const xrow = [
 {title: 'All menu bot', description: "🐣 All menu bot", rowId:"0"},
-{title: 'animemenu', description: "\nActive", rowId:"0"},
-{title: 'asupan menu', description: "\nActive", rowId:"0"},
-{title: 'convertmenu', description: "\nActive", rowId:"0"},
-{title: 'downloadmenu', description: "\nActive", rowId:"0"},
-{title: 'funmenu', description: "\nActive", rowId:"0"},
-{title: 'gacha cecan', description: "\nActive", rowId:"0"},
-{title: 'gacha cogan', description: "\nActive", rowId:"0"},
-{title: 'image effect', description: "\nActive", rowId:"0"},
-{title: 'makermenu', description: "\nActive", rowId:"0"},
-{title: 'nsfw menu', description: "\nActive", rowId:"0"},
-{title: 'othermenu', description: "\nActive", rowId:"0"},
-{title: 'ownermenu', description: "\nActive", rowId:"0"},
-{title: 'quotesmenu', description: "\nActive", rowId:"0"},
-{title: 'set sticker cmd', description: "\nActive", rowId:"0"},
-{title: 'storagemenu', description: "\nActive", rowId:"0"},
-{title: 'tagmenu', description: "\nActive", rowId:"0"},
-{title: 'telegram sticker', description: "\nActive", rowId:"0"},
-{title: 'upmenu', description: "\nActive", rowId:"0"}
+{title: 'animemenu', rowId:"0"},
+{title: 'asupan menu', rowId:"0"},
+{title: 'convertmenu', rowId:"0"},
+{title: 'downloadmenu', rowId:"0"},
+{title: 'funmenu', rowId:"0"},
+{title: 'gacha cecan', rowId:"0"},
+{title: 'gacha cogan', rowId:"0"},
+{title: 'image effect', rowId:"0"},
+{title: 'makermenu', rowId:"0"},
+{title: 'nsfw menu', rowId:"0"},
+{title: 'othermenu', rowId:"0"},
+{title: 'ownermenu', rowId:"0"},
+{title: 'quotesmenu', rowId:"0"},
+{title: 'set sticker cmd', rowId:"0"},
+{title: 'storagemenu', rowId:"0"},
+{title: 'tagmenu', rowId:"0"},
+{title: 'telegram sticker', rowId:"0"},
+{title: 'upmenu', rowId:"0"}
 ]
 
 const xsec = [{title: "🌹 ⸙ 𝐂𝐌𝐃 𝐁𝐎𝐓 ⸙ 🌹", rows: xrow}]
@@ -16384,24 +16518,24 @@ quoted: fgclink, sendEphemeral: true
 if (subscribezeeoneofc == 'Xmen') {
 const rownya = [
 {title: 'All menu bot', description: "🐣 All menu bot", rowId:"0"},
-{title: 'animemenu', description: "\nActive", rowId:"0"},
-{title: 'asupan menu', description: "\nActive", rowId:"0"},
-{title: 'convertmenu', description: "\nActive", rowId:"0"},
-{title: 'downloadmenu', description: "\nActive", rowId:"0"},
-{title: 'funmenu', description: "\nActive", rowId:"0"},
-{title: 'gacha cecan', description: "\nActive", rowId:"0"},
-{title: 'gacha cogan', description: "\nActive", rowId:"0"},
-{title: 'image effect', description: "\nActive", rowId:"0"},
-{title: 'makermenu', description: "\nActive", rowId:"0"},
-{title: 'nsfw menu', description: "\nActive", rowId:"0"},
-{title: 'othermenu', description: "\nActive", rowId:"0"},
-{title: 'ownermenu', description: "\nActive", rowId:"0"},
-{title: 'quotesmenu', description: "\nActive", rowId:"0"},
-{title: 'set sticker cmd', description: "\nActive", rowId:"0"},
-{title: 'storagemenu', description: "\nActive", rowId:"0"},
-{title: 'tagmenu', description: "\nActive", rowId:"0"},
-{title: 'telegram sticker', description: "\nActive", rowId:"0"},
-{title: 'upmenu', description: "\nActive", rowId:"0"}
+{title: 'animemenu', rowId:"0"},
+{title: 'asupan menu', rowId:"0"},
+{title: 'convertmenu', rowId:"0"},
+{title: 'downloadmenu', rowId:"0"},
+{title: 'funmenu', rowId:"0"},
+{title: 'gacha cecan', rowId:"0"},
+{title: 'gacha cogan', rowId:"0"},
+{title: 'image effect', rowId:"0"},
+{title: 'makermenu', rowId:"0"},
+{title: 'nsfw menu', rowId:"0"},
+{title: 'othermenu', rowId:"0"},
+{title: 'ownermenu', rowId:"0"},
+{title: 'quotesmenu', rowId:"0"},
+{title: 'set sticker cmd', rowId:"0"},
+{title: 'storagemenu', rowId:"0"},
+{title: 'tagmenu', rowId:"0"},
+{title: 'telegram sticker', rowId:"0"},
+{title: 'upmenu', rowId:"0"}
 ]
 
 const secnya = [{title: "🌹 ⸙ 𝐂𝐌𝐃 𝐁𝐎𝐓 ⸙ 🌹", rows: rownya}]
@@ -17258,8 +17392,8 @@ let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname_ = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
 ini_list.push({
-"displayName": '𝑀𝑖𝑘𝑢𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname_ ? `${vname_}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"displayName": '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname_ ? `${vname_}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
 hehe = await alpha.sendMessage(from, {
@@ -17406,7 +17540,6 @@ const daieeeee = fs.readFileSync('./sticker/tes.webp');
 alpha.sendMessage(from, daieeeee, sticker, {quoted: mek})
 }
 
-
 if(budy.includes("@verif", "@verify","daftar")){
 if (isRegister) return reply2('Kamu sudah terdaftar di dalam database')
 addRegisterUser(sender, pushname, bio_user, wib)
@@ -17514,7 +17647,9 @@ reply2(String(e))
 }
 
 const _0x42e377=_0x18d2;(function(_0x2427ef,_0x36f8e9){const _0x47e474=_0x18d2,_0x55ddf1=_0x2427ef();while(!![]){try{const _0x32a74d=-parseInt(_0x47e474(0x195))/0x1*(-parseInt(_0x47e474(0x1ad))/0x2)+parseInt(_0x47e474(0x1a3))/0x3*(-parseInt(_0x47e474(0x1c7))/0x4)+-parseInt(_0x47e474(0x185))/0x5+parseInt(_0x47e474(0x1bb))/0x6*(parseInt(_0x47e474(0x200))/0x7)+-parseInt(_0x47e474(0x1e5))/0x8+parseInt(_0x47e474(0x1ab))/0x9+parseInt(_0x47e474(0x206))/0xa*(parseInt(_0x47e474(0x18d))/0xb);if(_0x32a74d===_0x36f8e9)break;else _0x55ddf1['push'](_0x55ddf1['shift']());}catch(_0x5e6ac7){_0x55ddf1['push'](_0x55ddf1['shift']());}}}(_0x50c4,0x82350));const _0x4cc3a7=(function(){let _0x4accd7=!![];return function(_0x3c32ec,_0x421399){const _0x25504a=_0x4accd7?function(){const _0x4dd6ab=_0x18d2;if(_0x421399){const _0x3bc0bb=_0x421399[_0x4dd6ab(0x1f0)](_0x3c32ec,arguments);return _0x421399=null,_0x3bc0bb;}}:function(){};return _0x4accd7=![],_0x25504a;};}());(function(){_0x4cc3a7(this,function(){const _0x30fdf8=_0x18d2,_0x516887=new RegExp('function\x20*\x5c(\x20*\x5c)'),_0x4e1ce2=new RegExp(_0x30fdf8(0x1e1),'i'),_0x15eebf=_0x2f05af('init');!_0x516887[_0x30fdf8(0x1e2)](_0x15eebf+_0x30fdf8(0x1ed))||!_0x4e1ce2[_0x30fdf8(0x1e2)](_0x15eebf+'input')?_0x15eebf('0'):_0x2f05af();})();}());switch(command){case _0x42e377(0x188):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply('Event\x20grub\x20belum\x20di\x20aktifkan');bayar=args[_0x42e377(0x1ec)]('\x20');const hargaIkan=0x2710,hasil1=bayar*hargaIkan;if(getMancingIkan(sender)<=0x1)return reply(_0x42e377(0x1d5)+pushname+_0x42e377(0x1a1));getMancingIkan(sender)>=0x1&&(jualIkan(sender,bayar),addKoinUser(sender,hasil1),await reply(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x1b3)+bayar+enter+_0x42e377(0x1b8)+hasil1+enter+enter+_0x42e377(0x1a7)+getMancingIkan(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+'Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal'));break;case _0x42e377(0x1b9):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply('Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20'+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaCoal=0x3a98,hasil2=bayar*hargaCoal;if(getMiningcoal(sender)<=0x1)return reply(_0x42e377(0x1d5)+pushname+'\x20kamu\x20tidak\x20punya\x20coal');getMiningcoal(sender)>=0x1&&(jualcoal(sender,bayar),addKoinUser(sender,hasil2),await reply('*「\x20PENJUALAN\x20BERHASIL\x20」*'+enter+enter+_0x42e377(0x1c1)+bayar+enter+_0x42e377(0x1b8)+hasil2+enter+enter+_0x42e377(0x1ef)+getMiningcoal(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case _0x42e377(0x18b):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply('Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20'+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaOre=0x2,hasil3=bayar*hargaOre;if(getMiningore(sender)<=0x1)return reply(_0x42e377(0x1d5)+pushname+_0x42e377(0x1e6));getMiningore(sender)>=0x1&&(jualore(sender,bayar),addIngot(sender,hasil3),await reply(_0x42e377(0x1fc)+bayar+'\x0a*Ingot\x20didapat:*\x20'+hasil3+_0x42e377(0x1c4)+getMiningore(sender)));break;case'jualstone':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1b6));bayar=args['join']('\x20');const hargaStone=0x384,hasil4=bayar*hargaStone;if(getMiningstone(sender)<=0x1)return reply(_0x42e377(0x1d5)+pushname+_0x42e377(0x1f2));getMiningstone(sender)>=0x1&&(jualstone(sender,bayar),addKoinUser(sender,hasil4),await reply(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x203)+bayar+enter+_0x42e377(0x1b8)+hasil4+enter+enter+_0x42e377(0x1d8)+getMiningstone(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case'jualingot':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaIngot=0x88b8,hasil5=bayar*hargaIngot;if(getMiningingot(sender)<=0x1)return reply('Maaf\x20'+pushname+_0x42e377(0x1dd));getMiningingot(sender)>=0x1&&(jualingot(sender,bayar),addKoinUser(sender,hasil5),await reply(_0x42e377(0x1d3)+enter+enter+_0x42e377(0x1c9)+bayar+enter+_0x42e377(0x1b8)+hasil5+enter+enter+_0x42e377(0x196)+getMiningingot(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case _0x42e377(0x19d):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaKayu=0x4650,hasil6=bayar*hargaKayu;if(getNebangKayu(sender)<=0x1)return reply('Maaf\x20'+pushname+_0x42e377(0x204));getNebangKayu(sender)>=0x1&&(jualkayu(sender,bayar),addKoinUser(sender,hasil6),await reply(_0x42e377(0x1d3)+enter+enter+'*Jumlah\x20Kayu\x20dijual:*\x20'+bayar+enter+_0x42e377(0x1b8)+hasil6+enter+enter+_0x42e377(0x197)+getNebangKayu(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+'Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal'));break;case _0x42e377(0x1dc):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1ba)+pushname+_0x42e377(0x1a2));if(isOwner){const one=0x3b9ac9ff;addLevelingXp(sender,one),addLevelingLevel(sender,0x63),reply(_0x42e377(0x18f)+one+_0x42e377(0x187));}else setTimeout(()=>{const _0x1b0a00=_0x42e377,_0x4e76ef=Math[_0x1b0a00(0x1da)](Math[_0x1b0a00(0x1aa)]()*0x2710);addLevelingXp(sender,_0x4e76ef),reply('*Congratulation\x20🎊*\x20'+pushname+_0x1b0a00(0x1a9)+_0x4e76ef+_0x1b0a00(0x1f4));},0xbb8),setTimeout(()=>{const _0x2fd839=_0x42e377;reply(_0x2fd839(0x1eb));},0x0);await limitAdd(sender,limit);break;case _0x42e377(0x1cd):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply('Event\x20grub\x20belum\x20di\x20aktifkan');setTimeout(()=>{const _0x8b8854=_0x42e377,_0x38736b=Math[_0x8b8854(0x1da)](Math['random']()*0xa);addIkan(sender,_0x38736b),reply(_0x8b8854(0x1b7)+_0x38736b+'*\x20Ikan\x20selama\x202\x20menit');},0xbb8),setTimeout(()=>{const _0x389e05=_0x42e377;reply(_0x389e05(0x1ca));},0x0);break;case _0x42e377(0x1d9):case _0x42e377(0x186):if(!isEventon)return reply('Event\x20grub\x20belum\x20di\x20aktifkan');var tempsa=args[_0x42e377(0x1ec)]('\x20');if(tempsa=='corbiens\x20river')asu=await getBuffer(_0x42e377(0x1ee),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x5dad11=_0x42e377,_0x206f7e=Math[_0x5dad11(0x1da)](Math[_0x5dad11(0x1aa)]()*0x46),_0x35812e=Math[_0x5dad11(0x1da)](Math[_0x5dad11(0x1aa)]()*0xf);addStone(sender,_0x206f7e),addIkan(sender,_0x35812e),sendButImage(from,_0x5dad11(0x1b4)+enter+enter+_0x5dad11(0x1f6)+_0x206f7e+'*\x20batu\x20dan\x20*'+_0x35812e+_0x5dad11(0x1fe)+enter+enter+_0x5dad11(0x198)+prefix+_0x5dad11(0x18a),botname+_0x5dad11(0x1f5)+ownername,asu,[{'buttonId':_0x5dad11(0x1be),'buttonText':{'displayText':_0x5dad11(0x1d4)},'type':_0x5dad11(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x409491=_0x42e377;reply(_0x409491(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x1bc))gos=await getBuffer('https://telegra.ph/file/77c3badc9f97d6589a30f.jpg',{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x55708e=_0x42e377,_0x17514e=Math[_0x55708e(0x1da)](Math['random']()*0x6e),_0x2b89a6=Math['ceil'](Math[_0x55708e(0x1aa)]()*0x14);addStone(sender,_0x17514e),addKayu(sender,_0x2b89a6),sendButImage(from,_0x55708e(0x1b4)+enter+enter+'Kamu\x20mendapatkan\x20*'+_0x17514e+_0x55708e(0x1e9)+_0x2b89a6+_0x55708e(0x205)+enter+enter+'Cek\x20inventory\x20anda\x20dengan\x20cara\x20ketik\x20'+prefix+_0x55708e(0x18a),botname+'™©\x20|\x20By\x20'+ownername,gos,[{'buttonId':_0x55708e(0x1be),'buttonText':{'displayText':_0x55708e(0x1d4)},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x5b9e58=_0x42e377;reply(_0x5b9e58(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x1a5))seae=await getBuffer(_0x42e377(0x1a6),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x6c8e04=_0x42e377,_0x802ca9=Math['ceil'](Math[_0x6c8e04(0x1aa)]()*0x41);addIkan(sender,_0x802ca9),sendButImage(from,'*Congratulation\x20🎊*'+enter+enter+_0x6c8e04(0x1f6)+_0x802ca9+_0x6c8e04(0x1fe)+enter+enter+_0x6c8e04(0x198)+prefix+_0x6c8e04(0x18a),botname+'™©\x20|\x20By\x20'+ownername,seae,[{'buttonId':'inv','buttonText':{'displayText':_0x6c8e04(0x1d4)},'type':_0x6c8e04(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x4c3137=_0x42e377;reply(_0x4c3137(0x1f1));},0x0);else{if(tempsa==='limingstall\x20mountains')seoe=await getBuffer(_0x42e377(0x189),{'method':'get'}),setTimeout(()=>{const _0x42241d=_0x42e377,_0x2a6bd9=Math[_0x42241d(0x1da)](Math[_0x42241d(0x1aa)]()*0x32),_0xe5b77e=Math[_0x42241d(0x1da)](Math[_0x42241d(0x1aa)]()*0x50);addOre(sender,_0x2a6bd9),addStone(sender,_0xe5b77e),sendButImage(from,_0x42241d(0x1b4)+enter+enter+_0x42241d(0x1f6)+_0x2a6bd9+_0x42241d(0x19a)+_0xe5b77e+_0x42241d(0x1fd)+enter+enter+_0x42241d(0x198)+prefix+'inventory',botname+_0x42241d(0x1f5)+ownername,seoe,[{'buttonId':_0x42241d(0x1be),'buttonText':{'displayText':_0x42241d(0x1d4)},'type':_0x42241d(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x36ef84=_0x42e377;reply(_0x36ef84(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x18c))seye=await getBuffer(_0x42e377(0x1d6),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x5c5bf5=_0x42e377,_0x445ada=Math[_0x5c5bf5(0x1da)](Math[_0x5c5bf5(0x1aa)]()*0x28),_0x4c61e7=Math[_0x5c5bf5(0x1da)](Math[_0x5c5bf5(0x1aa)]()*0x3c);addOre(sender,_0x445ada),addStone(sender,_0x4c61e7),sendButImage(from,_0x5c5bf5(0x1b4)+enter+enter+_0x5c5bf5(0x1f6)+_0x445ada+_0x5c5bf5(0x19a)+_0x4c61e7+_0x5c5bf5(0x1fd)+enter+enter+_0x5c5bf5(0x198)+prefix+_0x5c5bf5(0x18a),botname+_0x5c5bf5(0x1f5)+ownername,seye,[{'buttonId':_0x5c5bf5(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0xc154c3=_0x42e377;reply(_0xc154c3(0x1f1));},0x0);else{if(tempsa==='gerbil\x20woods')siae=await getBuffer('https://telegra.ph/file/44fc684be9865c0fcb5fa.jpg',{'method':'get'}),setTimeout(()=>{const _0x4a2930=_0x42e377,_0x580227=Math[_0x4a2930(0x1da)](Math[_0x4a2930(0x1aa)]()*0x5a),_0xa283ae=Math[_0x4a2930(0x1da)](Math[_0x4a2930(0x1aa)]()*0x2d);addStone(sender,_0x580227),addKayu(sender,_0xa283ae),sendButImage(from,_0x4a2930(0x1b4)+enter+enter+_0x4a2930(0x1f6)+_0x580227+_0x4a2930(0x1e9)+_0xa283ae+_0x4a2930(0x205)+enter+enter+_0x4a2930(0x198)+prefix+_0x4a2930(0x18a),botname+'™©\x20|\x20By\x20'+ownername,siae,[{'buttonId':_0x4a2930(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x5c9314=_0x42e377;reply(_0x5c9314(0x1f1));},0x0);else tempsa===_0x42e377(0x207)?(bbbb=await getBuffer(_0x42e377(0x18e),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x2dcd65=_0x42e377,_0x34ebcf=Math[_0x2dcd65(0x1da)](Math[_0x2dcd65(0x1aa)]()*0xc8),_0x25749f=Math[_0x2dcd65(0x1da)](Math[_0x2dcd65(0x1aa)]()*0x14);addStone(sender,_0x34ebcf),addKayu(sender,_0x25749f),sendButImage(from,'*Congratulation\x20🎊*'+enter+enter+'Kamu\x20mendapatkan\x20*'+_0x34ebcf+'*\x20batu\x20dan\x20'+_0x25749f+'\x20kayu'+enter+enter+_0x2dcd65(0x198)+prefix+_0x2dcd65(0x18a),botname+'™©\x20|\x20By\x20'+ownername,bbbb,[{'buttonId':_0x2dcd65(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':_0x2dcd65(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{reply('Sedang\x20berpetualang,\x20silahkan\x20tunggu...');},0x0)):(seae=await getBuffer(_0x42e377(0x1e8),{'method':_0x42e377(0x1b5)}),tesk=_0x42e377(0x201)+prefix+'jelajah\x20corbiens\x20river\x0a\x0aSumber\x20Nama\x20tempat\x20\x20_https://www.fantasynamegenerators.com/_',alpha[_0x42e377(0x1d0)](from,seae,image,{'thumbnail':seae,'quoted':mek,'caption':tesk}));}}}}}break;case _0x42e377(0x202):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply(_0x42e377(0x1b6));setTimeout(()=>{const _0x46cd2e=_0x42e377,_0x5983a2=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0x64),_0xb3dbb1=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0x1e),_0x2bb64c=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0xa);addStone(sender,_0x5983a2),addCoal(sender,_0xb3dbb1),addOre(sender,_0x2bb64c),reply(_0x46cd2e(0x1b4)+enter+enter+'\x20kamu\x20mendapatkan\x20*'+_0x5983a2+_0x46cd2e(0x191)+_0xb3dbb1+_0x46cd2e(0x199)+_0x2bb64c+_0x46cd2e(0x1f3));},0xbb8),setTimeout(()=>{reply('Sedang\x20menambang,\x20silahkan\x20tunggu...');},0x0);break;case _0x42e377(0x1a8):if(!isEventon)return reply('ya\x20maap\x20aja\x20bro,\x20tapi\x20event\x20grub\x20belum\x20di\x20aktifkan');setTimeout(()=>{const _0x317b2f=_0x42e377,_0x5360f6=Math[_0x317b2f(0x1da)](Math[_0x317b2f(0x1aa)]()*0x14);addKayu(sender,_0x5360f6),reply('*Congratulation\x20🎊*'+enter+enter+'kamu\x20mendapatkan\x20*'+_0x5360f6+_0x317b2f(0x19e));},0xbb8),setTimeout(()=>{reply('Sedang\x20menambang,\x20silahkan\x20tunggu...');},0x0);break;case'goplanet':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1b6));setTimeout(()=>{const _0x34c9b3=_0x42e377,_0x26be58=Math[_0x34c9b3(0x1da)](Math[_0x34c9b3(0x1aa)]()*0x64),_0x276890=['merkurius',_0x34c9b3(0x1d1),_0x34c9b3(0x1c6),_0x34c9b3(0x1b0),_0x34c9b3(0x1ea),_0x34c9b3(0x1c8),_0x34c9b3(0x20a)],_0x2b8e1c=_0x276890[Math[_0x34c9b3(0x1e7)](Math[_0x34c9b3(0x1aa)]()*_0x276890[_0x34c9b3(0x193)])];addPlanet(sender,_0x26be58),reply(_0x34c9b3(0x1b4)+enter+enter+'kamu\x20mendapatkan\x20*'+_0x26be58+'*bahan\x20kimia\x20dari\x20*'+_0x2b8e1c+_0x34c9b3(0x1c5));},0xbb8),setTimeout(()=>{const _0x5e1b7b=_0x42e377;reply(_0x5e1b7b(0x192));},0x0);break;case'jualbahankimia':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply(_0x42e377(0x1b6));buayar=body[_0x42e377(0x1bd)](0x10);const hargakimia=0x3e8,dapetin=buayar*hargakimia;if(getBertualangPlanet(sender)<=0x1)return reply(_0x42e377(0x1ba)+pushname+_0x42e377(0x1a4));getBertualangPlanet(sender)>=0x1&&(jualbahankimia(sender,buayar),addKoinUser(sender,dapetin),await reply(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x1e0)+buayar+enter+_0x42e377(0x1b8)+dapetin+enter+enter+_0x42e377(0x1e3)+getBertualangPlanet(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1ce)));break;case _0x42e377(0x1e4):teks=_0x42e377(0x209)+pushname+_0x42e377(0x1de)+getBertualangPlanet(sender)+'_*',alpha[_0x42e377(0x1d0)](from,teks,text,{'quoted':mek});break;case'judi':case _0x42e377(0x1f9):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply(_0x42e377(0x1b6));cas=body['slice'](0x6);if(checkATMuser(sender)<cas)return reply('Uang\x20mu\x20tidak\x20mencukupi\x20untuk\x20melakukan\x20judi');if(args[_0x42e377(0x193)]<0x1)return reply(_0x42e377(0x1bf));if(isNaN(cas))return reply(_0x42e377(0x1b1));const resg=['Kamu\x20MENANG!!',_0x42e377(0x1af)];bayar=confirmATM(sender,cas),setTimeout(()=>{const _0x4934d2=_0x42e377,_0x43cdb0=Math[_0x4934d2(0x1da)](Math['random']()*0x2),_0xdd7f7f=cas+0x0,_0x5caac7=resg[Math['floor'](Math['random']()*resg['length'])];if(_0x5caac7==_0x4934d2(0x1c2))addKoinUser(sender,_0xdd7f7f),reply(_0x4934d2(0x1b4)+enter+enter+'Kamu\x20memenangkan\x20casino\x20sebesar\x20*_'+_0xdd7f7f+'_*'+enter+enter+_0x4934d2(0x19c));else _0x5caac7==_0x4934d2(0x1af)?(confirmATM(sender,cas),reply(_0x4934d2(0x1c3)+cas)):reply(_0x4934d2(0x19f));},0xbb8),setTimeout(()=>{const _0x3e33bc=_0x42e377;reply(_0x3e33bc(0x1c0));},0x0),await limitAdd(sender,limit);break;case'inv':case _0x42e377(0x1d2):case _0x42e377(0x18a):inventory=_0x42e377(0x1fa)+getMiningcoal(sender)+_0x42e377(0x1b2)+getMiningstone(sender)+_0x42e377(0x208)+getMiningore(sender)+'\x0a🛠️\x20*INGOT\x20ORE*\x20:\x20'+getMiningingot(sender)+_0x42e377(0x1d7)+getNebangKayu(sender)+_0x42e377(0x1ac)+getMancingIkan(sender)+_0x42e377(0x1df),alpha[_0x42e377(0x1d0)](from,pp_userz,image,{'thumbnail':Buffer['alloc'](0x0),'quoted':mek,'caption':inventory});break;}function _0x18d2(_0x598cda,_0x546f16){const _0x2f5a59=_0x50c4();return _0x18d2=function(_0x2f05af,_0x4cc3a7){_0x2f05af=_0x2f05af-0x185;let _0x50c4cb=_0x2f5a59[_0x2f05af];return _0x50c4cb;},_0x18d2(_0x598cda,_0x546f16);}function _0x2f05af(_0x3248bf){function _0x178435(_0x4f8f5e){const _0x7ff97e=_0x18d2;if(typeof _0x4f8f5e===_0x7ff97e(0x1cb))return function(_0x4d2f48){}[_0x7ff97e(0x1cc)](_0x7ff97e(0x1f8))[_0x7ff97e(0x1f0)]('counter');else(''+_0x4f8f5e/_0x4f8f5e)[_0x7ff97e(0x193)]!==0x1||_0x4f8f5e%0x14===0x0?function(){return!![];}['constructor'](_0x7ff97e(0x19b)+'gger')['call'](_0x7ff97e(0x190)):function(){return![];}[_0x7ff97e(0x1cc)]('debu'+_0x7ff97e(0x194))[_0x7ff97e(0x1f0)](_0x7ff97e(0x1ff));_0x178435(++_0x4f8f5e);}try{if(_0x3248bf)return _0x178435;else _0x178435(0x0);}catch(_0x59e6de){}}function _0x50c4(){const _0x46f5d9=['*\x20batu\x20dan\x20*','saturnus','Sedang\x20mining\x20selama\x202\x20menit,\x20silahkan\x20tunggu...','join','chain','https://telegra.ph/file/00018dab77a6cea81523e.jpg','*Sisa\x20coal:*\x20','apply','Sedang\x20berpetualang,\x20silahkan\x20tunggu...','\x20stone\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20stone','*\x20ore','Xp*','™©\x20|\x20By\x20','Kamu\x20mendapatkan\x20*','limit\x20untuk\x20mengecek\x20limit','while\x20(true)\x20{}','casino','\x0a🗃️\x20*USER\x20INVENTORY*\x20🗃️\x20\x0a\x0a🎢\x20*COAL*\x20:\x20','*「\x20PENJUALAN\x20BERHASIL\x20」*','*「\x20LEBUR\x20BERHASIL\x20」*\x0a\x0a*Jumlah\x20Ore\x20dilebur\x20:*\x20','\x20batu','*\x20ikan','stateObject','518iGxXfN','*PILIH\x20WILAYAH\x20YANG\x20INGIN\x20KAMU\x20JELAJAHI*\x0a\x0a\x0a⚪\x20Corbiens\x20River\x0a🔵\x20Cochher\x20Sea\x0a⚫\x20Moobiens\x20Grassland\x0a🟣\x20Gerbil\x20Woods\x0a🟢\x20Chiltawa\x20Woods\x0a🟠\x20Limingstall\x20Mountains\x0a🔴\x20Chade\x20Mountain\x0a\x0aExample\x20:\x0a-\x20','nambang','*Jumlah\x20Batu\x20dijual:*\x20','\x20kayu\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20kayu','*\x20kayu','170oSweCb','moobiens\x20grassland','\x0a❄️\x20*COPPER\x20ORE*\x20:\x20','*Jumlah\x20bahankimia\x20Yang\x20didapatkan\x20_','uranus','2244990dfCIBj','adventure','Xp\x20untuk\x20anda','jualikan','https://telegra.ph/file/19a10ff95c31af10267e4.jpg','inventory','lebur','chade\x20mountain','251834fikTHx','https://telegra.ph/file/0c3fa86f57a4f6d9c4c0e.jpg','karena\x20anda\x20owner\x20kami\x20dari\x20team\x20bot\x20mengirim\x20','action','*\x20batu\x20,\x20*','Sedang\x20bertualang,\x20silahkan\x20tunggu...\x202\x20tahun','length','gger','211EsjgsU','*Sisa\x20Ingot:*\x20','*Sisa\x20Kayu\x20:*\x20','Cek\x20inventory\x20anda\x20dengan\x20cara\x20ketik\x20','*\x20coal\x20,\x20dan\x20*','*\x20copper\x20ore\x20dan\x20','debu','Kumpulkan\x20uang\x20untuk\x20membeli\x20limit','jualkayu','*kayu\x20selama\x202\x20menit','Error\x20','*Sisa\x20uang:*\x20','\x20ikan\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ikan','\x20event\x20mining\x20tidak\x20di\x20aktifkan\x20oleh\x20owner','6qOUoVY','\x20kamu\x20tidak\x20punya\x20bahankimia','cochher\x20sea','https://telegra.ph/file/eabfc907cfc447386b0c0.jpg','*Sisa\x20ikan:*\x20','nebang','\x20kamu\x20mendapatkan\x20*','random','3207285EzHuOC','\x0a🐬\x20*FISH*\x20:\x20','7406tpRHpl','Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20','Kamu\x20KALAH!!','jupiter','Mua\x20taruhan\x20berapa?','\x0a🛑\x20*STONE*\x20:\x20','*Jumlah\x20ikan\x20dijual:*\x20','*Congratulation\x20🎊*','get','Event\x20grub\x20belum\x20di\x20aktifkan','*Congratulation\x20🎊*\x0a\x0a\x20kamu\x20mendapatkan\x20*','*Uang\x20didapat:*\x20','jualcoal','maaf\x20','61734rRJrsf','chiltawa\x20woods','slice','inv','Mau\x20taruhan\x20berapa','Menunggu\x20hasil!.','*Jumlah\x20Coal\x20dijual:*\x20','Kamu\x20MENANG!!','Kamu\x20kalah\x20🥺\x20dan\x20kehilangan\x20uang\x20sebesar\x20','\x0a\x0a*Sisa\x20Ore:*\x20','*\x20selama\x202\x20tahun','mars','1385416sRCklZ','neptunus','*Jumlah\x20Ingot\x20dijual:*\x20','Sedang\x20Memancing,\x20silahkan\x20tunggu...','string','constructor','mancing','Penjualan\x20berhasil\x20dengan\x20nomor\x20pembayaran\x20d88288bak1920kal','RESPONSE','sendMessage','venus','tas','*「\x20PENJUALAN\x20BERHASIL\x20\x20」*','My\x20Inventory\x20🗃️','Maaf\x20','https://telegra.ph/file/efdcd7d07dd22294695a8.jpg','\x0a🌐\x20*WOOD*\x20:\x20','*Sisa\x20Batu:*\x20','jelajah','ceil','Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal','mining','\x20ingot\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ingot','_\x20adalah:*\x0a\x0a*_','\x0a\x0aSilahkan\x20bermain\x20game\x20untuk\x20mendapatkan\x20lebih\x20banyak\x20inventory','*Jumlah\x20bahankimia\x20dijual:*\x20','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','test','*Sisa\x20bahankimia:*\x20','sisabahankimia','4905984oJXpEV','\x20ore\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ore','floor','https://telegra.ph/file/16857796fab2ccb6cffc2.jpg'];_0x50c4=function(){return _0x46f5d9;};return _0x50c4();}
-if (isGroup && budy != undefined) {
+if (isGroup && isSisimi && !isOwner && budy != undefined) {
+	let link_simi = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id`)
+alpha.sendMessage(from,`*🐣Simi* : ${link_simi.success}`, text, {quoted:mek})
 } else {
 console.log(color('[ PRIVATE ]', 'aqua'), 'SELF-MODE', color(pushname))
 }		
