@@ -10946,9 +10946,7 @@ case 'wanted':
 case 'what':
 console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
 var imgbb = require('imgbb-uploader')
-if (isQuotedImage) {
-let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
-thumbnya = await getBuffer(ppk)
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
 let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
@@ -11550,55 +11548,6 @@ quoted: fgclink, sendEphemeral: true
 break 
 
 
-case '3000years':
-case 'approved':
-case 'beautiful':
-case 'blur':
-case 'brazzers':
-case 'burn':
-case 'challenger':
-case 'circle':
-case 'contrast':
-case 'ddungeon':
-case 'deepfry':
-case 'dictator':
-case 'dictator':
-case 'distort':
-case 'fire':
-case 'gay':
-case 'glitch':
-case 'greyscale':
-case 'instagram':
-case 'invert':
-case 'jail':
-case 'lookwhatkarenhave':
-case 'missionpassed':
-case 'moustache':
-case 'ps4':
-case 'redple':
-case 'rejected':
-case 'rip':
-case 'scary':
-case 'sepia':
-case 'sharpen':
-case 'sniper':
-case 'thanos':
-case 'triggered':
-case 'utatoo':
-case 'wanted':
-case 'wasted':
-
-if (isQuotedImage) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-var image_buffer = await alpha.downloadMediaMessage(encmedia);
-var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", image_buffer)
-teks = `${anu.display_url}`
-sendStickerFromUrl(from, `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${teks}`, mek)
-} else {
-reply2(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim`)
-}
-break
 
 //1 TEXT
 case '3dbox':
@@ -13120,9 +13069,7 @@ case 'wasted':
 case 'youtube-comment':
 console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
 var imgbb = require('imgbb-uploader')
-if (isQuotedImage) {
-let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
-thumbnya = await getBuffer(ppk)
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
 let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
@@ -13138,6 +13085,64 @@ let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
 let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
 anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
+ini_gen = `${command}`
+console.log(color(ini_gen))
+sendStickerFromUrl(from, `${anuk}`, mek)
+}
+break
+
+case '3000years':
+case 'approved':
+case 'beautiful':
+case 'blur':
+case 'brazzers':
+case 'burn':
+case 'challenger':
+case 'circle':
+case 'contrast':
+case 'ddungeon':
+case 'deepfry':
+case 'dictator':
+case 'distort':
+case 'fire':
+case 'gay':
+case 'glitch':
+case 'greyscale':
+case 'instagram':
+case 'invert':
+case 'jail':
+case 'lookwhatkarenhave':
+case 'missionpassed':
+case 'moustache':
+case 'ps4':
+case 'redple':
+case 'rejected':
+case 'rip':
+case 'scary':
+case 'sepia':
+case 'sharpen':
+case 'sniper':
+case 'thanos':
+case 'triggered':
+case 'utatoo':
+case 'wanted':
+case 'wasted':
+console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
+var imgbb = require('imgbb-uploader')
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+var edit2_ = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+var edit3_ = await alpha.downloadAndSaveMediaMessage(edit2_, `./media/${sender}.png`)
+let edit4_ = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", edit3_)
+anuk = `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${edit4_.display_url}`
+sendStickerFromUrl(from, `${anuk}`, mek)
+} else {
+ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
+let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
+let medianya = await getBuffer(oppp)
+let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
+fs.writeFileSync('janckuk.jpeg', datae, 'base64')
+let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+anuk = `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${odata.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
 sendStickerFromUrl(from, `${anuk}`, mek)
@@ -14800,10 +14805,8 @@ case 'brazzers':
 case 'beautiful':
 console.log(command + ' -> Mungkin fitur ini masih suka eror ngab jadi fix sendiri ya')
 var imgbb = require('imgbb-uploader')
-if (isQuotedImage) {
+if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 // reply2(lang.wait())
-let ppk = await alpha.getProfilePicture(sender).catch(_ => 'https://i.pinimg.com/736x/70/d0/1a/70d01adee6dde5dc16bedafe6d14217b.jpg')
-thumbnya = await getBuffer(ppk)
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
 let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
@@ -14827,7 +14830,7 @@ console.log(color(ini_gen))
 imoj = await ameApi.generate(ini_gen, { url: anuk})
 alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: medianya})
 // sendStickerFromUrl(from, `${emoj}`, mek)
-} 
+}
 break
 
 case 'wroom':
