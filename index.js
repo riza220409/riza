@@ -451,39 +451,33 @@ alpha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
 
-const reki_nih = (from) => {
+const reki_nih = (from, tek1) => {
 const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
 const mimtip = mim_[Math.floor(Math.random() * mim_.length)]
-const ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://facebook.com"]
+const ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://facebook.com","http://wa.me"]
 const pelink_ = ngelink_[Math.floor(Math.random() * ngelink_.length)]
-alpha.sendMessage(from,
- { contentText: `${reki}`,
- buttons: [{buttonId: `${reki}`,
- buttonText: {displayText: 'Owner'},
- type: 1},
-{buttonId: `${reki}`,
- buttonText: {displayText: 'MENU'},
- type: 1}],
- "headerType": "DOCUMENT",
- "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
+alpha.sendMessage(from, { contentText: tek1,
+buttons: [
+{buttonId: `ownerku`, buttonText: {displayText: 'Owner'}, type: 1},
+{buttonId: `menu`, buttonText: {displayText: 'MENU'}, type: 1}
+],
+ "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
  "mimetype": mimtip,
- "title": `${reki}`,
+ "title": `${ownername}`,
  "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
- "fileLength": 10000000000,
- "pageCount": 10000000000,
+ "fileLength": 100000000000,
+ "pageCount": 1000,
  "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
- "fileName": `${reki}`,
- "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
- "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC",
- "mediaKeyTimestamp": "1634472176",
+ "fileName": `${ownername}`,
+ "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176",
  "jpegThumbnail": fs.readFileSync(`image/miku.jpg`)}},
  MessageType.buttonsMessage,
  { quoted: fgclink,sendEphemeral: true,
  thumbnail: fs.readFileSync(`image/miku.jpg`),
  contextInfo: { forwardingScore: 508,
  isForwarded: true,
- externalAdReply: { title: `${reki}`,
- body: `${reki}`,
+ externalAdReply: { title: `${botname}`,
+ body: `${ownername}`,
  thumbnail: fs.readFileSync(`image/miku.jpg`),
  mediaType:"2",
  previewType: "VIDEO",
@@ -508,8 +502,8 @@ alpha.sendMessage(from,
  "mimetype": mimtip,
  "title": titel2,
  "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
- "fileLength": 10000000000,
- "pageCount": 10000000000,
+  "fileLength": 100000000000,
+ "pageCount": 1000,
  "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
  "fileName": `${ucapannya2}`,
  "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
@@ -1629,11 +1623,24 @@ alpha.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participan
 }
 
 const katalog = (teks) => {
-res = alpha.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Miku Bot_*", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftroli})
+res = alpha.prepareMessageFromContent(from,
+{ "orderMessage": { "itemCount": 321,
+ "message": teks,
+ "footerText": "*_© Miku Bot_*", 
+"thumbnail": thumbnail,
+ "surface": 'CATALOG' }
+}, {quoted:ftroli})
 alpha.relayWAMessage(res)
 }
 const grupinv = (teks) => {
-grup = alpha.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/JI25LDtPW784GAZoRD9fW9', "groupName": `${botname}`, "footerText": "*_© Miku Bot_*", "jpegThumbnail": thumbnail, "caption": teks}}, {quoted:fgclink})
+grup = alpha.prepareMessageFromContent(from,
+ { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us',
+ "inviteCode": 'https://chat.whatsapp.com/JI25LDtPW784GAZoRD9fW9',
+ "groupName": `${botname}`,
+ "footerText": "*_© Miku Bot_*",
+"jpegThumbnail": thumbnail,
+"caption": teks}
+}, {quoted:fgclink})
 alpha.relayWAMessage(grup)
 }
 
@@ -2279,12 +2286,40 @@ alpha.sendMessage(mek.key.remoteJid,`@${owner} Sedang Offline!\n\n *Alasan :* ${
 }
 }
 
+
+if (isGroup && !mek.key.fromMe && isAntiLink && !isGroupAdmins && !isOwner && !isCreator && isBotGroupAdmins){
+if (budy.includes('https://chat.whatsapp.com/')) {
+alpha.updatePresence(from, Presence.composing)
+if (!isGroup) return
+reply2(` *「 GROUP LINK DETECTOR 」*\nKamu mengirimkan link grup chat, maaf kamu di kick dari grup :(`)
+setTimeout( () => {
+reply2('_Tapi boong_')
+}, 30000)
+setTimeout( () => {
+reply2('_Yahaa_')
+}, 20000)
+setTimeout( () => {
+reply2('_Kamu mendapatkan chip_')
+}, 10000)
+setTimeout( () => {
+reply2('_Selamat_')
+}, 2500)
+setTimeout( () => {
+alpha.groupRemove(from, [sender])
+}, 0)
+}
+}
+
+
+/*
 if (isGroup && !mek.key.fromMe && isAntiLink && !isGroupAdmins && !isOwner && !isCreator && isBotGroupAdmins){
 if (chatxs.match(/(https:\/\/chat.whatsapp.com)/gi)) {
 reply2(`「 G R O U P L I N K D E T E C T O R 」\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
 alpha.groupRemove(from, [sender])
 }
 }
+*/
+
 if (isGroup && isAntivirtex && !mek.key.fromMe && !isOwner) {
 if (budy.length > 1000) {
 if (isGroupAdmins) return reply2("admin bebas");
@@ -2865,17 +2900,17 @@ fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
 if (asahotak.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
 jawaban = asahotak[sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-var ssnk0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
-var ssnk1 = [
+var atk0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var atk1 = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
 ]
-ssnk1_ = {
-contentText: ssnk0,
+atk1_ = {
+contentText: atk0,
 footerText: `${tampilTanggal}`,
-buttons: ssnk1,
+buttons: atk1,
 headerType: 1
 }
-alpha.sendMessage(from, ssnk1_, MessageType.buttonsMessage,{
+alpha.sendMessage(from, atk1_, MessageType.buttonsMessage,{
 "contextInfo": {
 "forwardingScore": 1000000000,isForwarded: true,
 "mentionedJid" : [sender]},
@@ -3510,8 +3545,8 @@ alpha.sendMessage(from,
  "mimetype": mimtip,
  "title": `${botname}`,
  "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=",
- "fileLength": 10000000000,
- "pageCount": 10000000000,
+  "fileLength": 100000000000,
+ "pageCount": 100,
  "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=",
  "fileName": `${ucapannya2}`,
  "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=",
@@ -10580,9 +10615,8 @@ case 'asupanbocil':
 case 'asupanukhty':
 case 'asupanrikagusriani':
 case 'asupanghea':
-asup_ = (`https://api.dapuhy.ga/api/asupan/${command}?apikey=${dapuhy}`) 
-const asup_1 = `Nih Asupan nya ${pushname}`
-asup_2 = await getBuffer(asup_)
+asup_2 = await getBuffer(`https://api.dapuhy.ga/api/asupan/${command}?apikey=${dapuhy}`) 
+asup_1 = `Nih Asupan nya ${pushname}`
 alpha.sendMessage(from, asup_2,video,{caption:asup1,quoted: fgclink})
 break
 
@@ -10981,8 +11015,7 @@ case 'underwater':
 case 'whitecube':
 case 'wolfmetal':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-poxy_ = (`https://api.dapuhy.ga/api/photooxy/${command}?text=${q}&apikey=${dapuhy}`);
-let poxy_1 = await getBuffer(poxy_);
+let poxy_1 = await getBuffer(`https://api.dapuhy.ga/api/photooxy/${command}?text=${q}&apikey=${dapuhy}`);
 const poxy_3 = await alpha.prepareMessage(from, poxy_1, MessageType.image, { thumbnail:thumb_oxy})
 let poxy_2 = poxy_3.message["ephemeralMessage"] ? poxy_3.message.ephemeralMessage : poxy_3
 
@@ -11108,8 +11141,7 @@ case 'xmascards':
 case 'yellowglass':
 case 'yellowjewelry':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-txtpr_ = (`https://api.dapuhy.ga/api/textpro/${command}?text=${q}&apikey=${dapuhy}`);
-let txtpr_1 = await getBuffer(txtpr_);
+let txtpr_1 = await getBuffer(`https://api.dapuhy.ga/api/textpro/${command}?text=${q}&apikey=${dapuhy}`);
 const txtpr_3 = await alpha.prepareMessage(from, txtpr_1, MessageType.image, { thumbnail:thumb_pro})
 let txtpr_2 = txtpr_3.message["ephemeralMessage"] ? txtpr_3.message.ephemeralMessage : txtpr_3
 
@@ -11188,8 +11220,7 @@ case 'wordgreen':
 case 'writingchalk':
 case 'zombie3d':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-ephto_ = (`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
-let ephto_1 = await getBuffer(ephto_);
+let ephto_1 = await getBuffer(`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
 const ephto_3 = await alpha.prepareMessage(from, ephto_1, MessageType.image, { thumbnail:thumb_epho})
 let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMessage : ephto_3
 
@@ -11239,8 +11270,7 @@ case 'planebanner':
 case 'rugbyball':
 case 'rustywriting':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-pfun_ = (`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
-let pfun_1 = await getBuffer(pfun_);
+let pfun_1 = await getBuffer(`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
 const pfun_3 = await alpha.prepareMessage(from, pfun_1, MessageType.image, { thumbnail:thumb_pfun})
 let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessage : pfun_3
 
@@ -11326,6 +11356,200 @@ quoted: fgclink, sendEphemeral: true
 break
 
 //LIST───────[ API ALPHA
+//2 TEXT
+case 'captain_as':
+case 'smoke':
+case 'tiktok2': 
+case 'arcade':
+case 'battlefield':
+case 'pubg':
+if (args.length < 1) return reply(lang.tahta(prefix, command))
+var m = q
+var m1 = m.split("|")[0];
+var m2 = m.split("|")[1]; 
+let oxy2_ = await getBuffer(`https://api-alphabot.herokuapp.com/api/photooxy/${command}?apikey=Alphabot&text=${m1}&text2=${m2}`)
+let oxy2_1 = await getBuffer(oxy2_);
+const oxy2_3 = await alpha.prepareMessage(from, oxy2_1, MessageType.image, { thumbnail:thumb_pro})
+let oxy2_2 = oxy2_3.message["ephemeralMessage"] ? oxy2_3.message.ephemeralMessage : oxy2_3
+
+oxy2_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const oxy2_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
+]
+
+const oxy2_7 = {
+contentText: oxy2_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: oxy2_6,
+headerType: 4,
+imageMessage: oxy2_2.message.imageMessage
+}
+
+alpha.sendMessage(from, oxy2_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_pro},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+//1 TEXT
+case '3dglowing':
+case '3dligth':
+case '3dnature':
+case '3dsummer':
+case 'avatar':
+case 'bcake':
+case 'burnpaper':
+case 'butterfly':
+case 'camouflage':
+case 'cemetery':
+case 'cname':
+case 'coffecup2':
+case 'coffeecup':
+case 'crisp':
+case 'embroidery':
+case 'flaming':
+case 'flower':
+case 'funnycup':
+case 'fur':
+case 'glowneon':
+case 'glowrainbow':
+case 'goldenrose':
+case 'graffiti':
+case 'harry':
+case 'heart':
+case 'honey':
+case 'luxury':
+case 'metallic':
+case 'nightsky':
+case 'rainbow':
+case 'romantic':
+case 'shadow':
+case 'simple':
+case 'smoke':
+case 'smokyneon':
+case 'striking':
+case 'sweet':
+case 'typography':
+case 'typography':
+case 'underfall':
+case 'underflower2':
+case 'underflower':
+case 'undergrass':
+case 'underwater':
+case 'vector':
+case 'vintage':
+case 'watermelon':
+case 'whitecube':
+case 'wolf_metal':
+case 'wood':
+case 'woodblock':
+case 'wooden':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+let oxxy_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/photooxy/${command}?apikey=Alphabot&text=${q}`);
+const oxxy_3 = await alpha.prepareMessage(from, oxxy_1, MessageType.image, { thumbnail:thumb_pro})
+let oxxy_2 = oxxy_3.message["ephemeralMessage"] ? oxxy_3.message.ephemeralMessage : oxxy_3
+
+oxxy_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const oxxy_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
+]
+
+const oxxy_7 = {
+contentText: oxxy_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: oxxy_6,
+headerType: 4,
+imageMessage: oxxy_2.message.imageMessage
+}
+
+alpha.sendMessage(from, oxxy_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_pro},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+//2 TEXT
+case 'halloween2':
+case 'horror':
+case 'game8bit':
+case 'layered':
+case 'glitch2':
+case 'coolg':
+case 'coolwg':
+case 'realistic':
+case 'space3d':
+case 'gtiktok':
+case 'stone':
+case 'marvel':
+case 'marvel2':
+case 'pornhub':
+case 'avengers':
+case 'metalr':
+case 'metalg':
+case 'metalg2':
+case 'halloween2':
+case 'lion':
+case 'wolf_bw':
+case 'wolf_g':
+case 'ninja':
+case '3dsteel':
+case 'horror2':
+case 'lava':
+case 'bagel':
+if (args.length < 1) return reply(lang.tahta(prefix, command))
+var m = q
+var m1 = m.split("|")[0];
+var m2 = m.split("|")[1]; 
+let tpr2_ = await getBuffer(`https://api-alphabot.herokuapp.com/api/textpro/${command}?apikey=Alphabot&text=${m1}&text2=${m2}`)
+
+let tpr2_1 = await getBuffer(tpr2_);
+const tpr2_3 = await alpha.prepareMessage(from, tpr2_1, MessageType.image, { thumbnail:thumb_pro})
+let tpr2_2 = tpr2_3.message["ephemeralMessage"] ? tpr2_3.message.ephemeralMessage : tpr2_3
+
+tpr2_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const tpr2_6 = [
+{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
+]
+
+const tpr2_7 = {
+contentText: tpr2_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: tpr2_6,
+headerType: 4,
+imageMessage: tpr2_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tpr2_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 1000000000,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_pro},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break 
+
+
 case '3000years':
 case 'approved':
 case 'beautiful':
@@ -11374,9 +11598,9 @@ sendStickerFromUrl(from, `https://api-alphabot.herokuapp.com/api/image_editor/${
 } else {
 reply2(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim`)
 }
-
 break
 
+//1 TEXT
 case '3dbox':
 case '3dchrome':
 case '3dglue':
@@ -11530,8 +11754,7 @@ case 'wood':
 case 'writing':
 case 'xmas':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-tpr_ = (`https://api-alphabot.herokuapp.com/api/textpro/${command}?text=${q}&apikey=Alphabot`);
-let tpr_1 = await getBuffer(tpr_);
+let tpr_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/textpro/${command}?text=${q}&apikey=Alphabot`);
 const tpr_3 = await alpha.prepareMessage(from, tpr_1, MessageType.image, { thumbnail:thumb_pro})
 let tpr_2 = tpr_3.message["ephemeralMessage"] ? tpr_3.message.ephemeralMessage : tpr_3
 
@@ -11562,91 +11785,6 @@ quoted: fgclink, sendEphemeral: true
 })
 break
 
-case '3dglowing':
-case '3dligth':
-case '3dnature':
-case '3dsummer':
-case 'avatar':
-case 'bcake':
-case 'burnpaper':
-case 'butterfly':
-case 'camouflage':
-case 'cemetery':
-case 'cname':
-case 'coffecup2':
-case 'coffeecup':
-case 'crisp':
-case 'embroidery':
-case 'flaming':
-case 'flower':
-case 'funnycup':
-case 'fur':
-case 'glowneon':
-case 'glowrainbow':
-case 'goldenrose':
-case 'graffiti':
-case 'harry':
-case 'heart':
-case 'honey':
-case 'luxury':
-case 'metallic':
-case 'nightsky':
-case 'rainbow':
-case 'romantic':
-case 'shadow':
-case 'simple':
-case 'smoke':
-case 'smokyneon':
-case 'striking':
-case 'sweet':
-case 'typography':
-case 'typography':
-case 'underfall':
-case 'underflower2':
-case 'underflower':
-case 'undergrass':
-case 'underwater':
-case 'vector':
-case 'vintage':
-case 'watermelon':
-case 'whitecube':
-case 'wolf_metal':
-case 'wood':
-case 'woodblock':
-case 'wooden':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
-oxxy_ = (`https://api-alphabot.herokuapp.com/api/photooxy/${command}?apikey=Alphabot&text=${q}`);
-let oxxy_1 = await getBuffer(oxxy_);
-const oxxy_3 = await alpha.prepareMessage(from, oxxy_1, MessageType.image, { thumbnail:thumb_pro})
-let oxxy_2 = oxxy_3.message["ephemeralMessage"] ? oxxy_3.message.ephemeralMessage : oxxy_3
-
-oxxy_5 =` *@${sender.split("@")[0]}* Dah selesai`
-const oxxy_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
-{buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
-]
-
-const oxxy_7 = {
-contentText: oxxy_5 ,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-buttons: oxxy_6,
-headerType: 4,
-imageMessage: oxxy_2.message.imageMessage
-}
-
-alpha.sendMessage(from, oxxy_7, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_pro},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
-break
-
 case 'quran':
 if(!q) return reply2(`*Cth :* ${prefix + command} 2|1`)
 qu = args.join(' ')
@@ -11659,7 +11797,7 @@ aud = qt.result.audio.primary
 taf = qt.result.surah.tafsir.id
 sur = qt.result.surah.name.long
 sur2 = qt.result.surah.name.transliteration.id
-var qur_0 = `*Silahkan Dipilih*`
+var qur_0 = `*🔖 Okey , Ditemukan Silahkan Dipilih*`
 var qur_1 = [
 {buttonId: 'Quran_text', buttonText: {displayText: '📖 Teks'}, type: 1},
 {buttonId: 'Quran_audio', buttonText: {displayText: '🎙️ Audio'}, type: 1}
@@ -11716,8 +11854,7 @@ case 'spank':
 case 'tits':
 case 'trap':
 case 'yuri':
-nsfw2_ = (`https://api-alphabot.herokuapp.com/api/nsfw/v2/${command}?apikey=Alphabot`);
-let nsfw2_1 = await getBuffer(nsfw2_);
+let nsfw2_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/nsfw/v2/${command}?apikey=Alphabot`);
 const nsfw2_3 = await alpha.prepareMessage(from, nsfw2_1, MessageType.image, { thumbnail:thumb_pro})
 let nsfw2_2 = nsfw2_3.message["ephemeralMessage"] ? nsfw2_3.message.ephemeralMessage : nsfw2_3
 
@@ -11789,7 +11926,7 @@ break
 case 'translate':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  Hello`)
 result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${q}&from=auto&to=id`)
-tee = `*Translate*\n• Bahasa ${result.language_from}\nKe\n• Indonesia *${result.language_to}*\n\n= *${result.translated}`
+tee = `*Hasil* : ${result.translated}`
 alpha.sendMessage(from, tee, text,{quoted: mek})
 break
 
@@ -11961,8 +12098,7 @@ alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , 
 break
 
 case 'anime':
-animek_1 = (`https://hadi-api.herokuapp.com/api/anime`);
-let animek_2 = await getBuffer(animek_1);
+let animek_2 = await getBuffer(`https://hadi-api.herokuapp.com/api/anime`);
 const animek_3 = await alpha.prepareMessage(from, animek_2, MessageType.image, { thumbnail:thumb_nime})
 let animek_4 = animek_3.message["ephemeralMessage"] ? animek_3.message.ephemeralMessage : animek_3
 animek_6 =`「 *Nih Hasilnya* 」
@@ -12071,41 +12207,31 @@ break
 
 //LIST───────[ API HARDIANTO
 case 'randomloli':
-fakestatus(mess.wait)
-aku = (`https://hardianto-chan.herokuapp.com/api/anime/loli?apikey=hardianto`)
-kon = await getBuffer(aku)
+kon = await getBuffer(`https://hardianto-chan.herokuapp.com/api/anime/loli?apikey=hardianto`)
 sendButImage(from, `Nih Kak`, `${footerr}`, kon, [{buttonId: `${prefix+command}`,buttonText: {displayText: 'Try Again ♻️',},type: 1}]) 
 break
 
 case 'nuliskiri':
 if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/nuliskiri?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
+anu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/nuliskiri?text=${c}&apikey=hardianto`)
 alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
 break
 
 case 'nuliskanan':
 if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/nuliskanan?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
+anu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/nuliskanan?text=${c}&apikey=hardianto`)
 alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
 break
 
 case 'foliokanan':
 if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/foliokanan?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
+anu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/foliokanan?text=${c}&apikey=hardianto`)
 alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
 break
 
 case 'foliokiri':
 if (!q) return reply2('Textnya mana gan?')
-
-kon = (`https://hardianto-chan.herokuapp.com/api/foliokiri?text=${c}&apikey=hardianto`)
-anu = await getBuffer(kon)
+anu = await getBuffer(`https://hardianto-chan.herokuapp.com/api/foliokiri?text=${c}&apikey=hardianto`)
 alpha.sendMessage(from, anu, image, { quoted: mek, thumbnail: thumb_nulis})
 break
 
@@ -12178,8 +12304,7 @@ break
 
 case 'qrcode':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
-getqr = (`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
-buff = await getBuffer(getqr)
+buff = await getBuffer(`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
 alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
 break
 
@@ -14914,8 +15039,7 @@ break
 
 case 'buatqr':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
-getqr = (`https://qrickit.com/api/qr.php?d=${encodeURIComponent(q)}`)
-buff = await getBuffer(getqr)
+buff = await getBuffer(`https://qrickit.com/api/qr.php?d=${encodeURIComponent(q)}`)
 alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
 break
 
@@ -15275,7 +15399,7 @@ break
 case 'mute':
 if (!isOwner && !mek.key.fromMe) return sticOwner(from)
 if (!isGroup) return reply2(mess.only.group)
-if (isMuted) return reply2(`udah mute`)
+if (isMuted) return reply2('Bot udah dimute di chat ini')
 mute.push(from)
 fs.writeFileSync('./database/mute.json', JSON.stringify(mute))
 reply2('Bot berhasil dimute di chat ini')
@@ -15911,7 +16035,7 @@ try {
 const input = args.join(" ")
 const filter1 = await ytsd.getFilters(input)
 const filters1 = filter1.get('Type').get('Video')
-const { items } = await ytsd(filters1.url, { limit: 10 })
+const { items } = await yts(filters1.url, { limit: 10 })
 let hehe = `* YOUTUBE SEARCH*
 * Search Query:* ${input}\n\n`
 for (let i = 0; i < items.length; i++) {
@@ -16848,8 +16972,7 @@ fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
 }
 if (q5 == "waifu_1"){
-wifu_1 = (`https://velgrynd.herokuapp.com/api/image/waifu`);
-let wifu_2 = await getBuffer(wifu_1);
+let wifu_2 = await getBuffer(`https://velgrynd.herokuapp.com/api/image/waifu`);
 const wifu_3 = await alpha.prepareMessage(from, wifu_2, MessageType.image, { thumbnail:thumb_nime})
 let wifu_4 = wifu_3.message["ephemeralMessage"] ? wifu_3.message.ephemeralMessage : wifu_3
 wifu_6 =`「 *Nih Hasilnya* 」
@@ -16881,8 +17004,7 @@ quoted: fgclink, sendEphemeral: true
 }
 
 if (q5 == "waifu_2"){
-wifu2_1 = (`https://api.lolhuman.xyz/api/random/waifu?apikey=${lolkey}`);
-let wifu2_2 = await getBuffer(wifu2_1);
+let wifu2_2 = await getBuffer(`https://api.lolhuman.xyz/api/random/waifu?apikey=${lolkey}`);
 const wifu2_3 = await alpha.prepareMessage(from, wifu2_2, MessageType.image, { thumbnail:thumb_nime})
 let wifu2_4 = wifu2_3.message["ephemeralMessage"] ? wifu2_3.message.ephemeralMessage : wifu2_3
 wifu2_6 =`「 *Nih Hasilnya* 」
@@ -17498,29 +17620,6 @@ alpha.sendMessage(from, buttonMessagee, MessageType.buttonsMessage,{
 quoted: fgclink, sendEphemeral: true
 })
 } 
-/*
-if (budy.includes('https://chat.whatsapp.com/')) {
-alpha.updatePresence(from, Presence.composing)
-if (!isGroup) return
-reply2(` *「 GROUP LINK DETECTOR 」*\nKamu mengirimkan link grup chat, maaf kamu di kick dari grup :(`)
-setTimeout( () => {
-reply2('_Tapi boong_')
-}, 30000)
-setTimeout( () => {
-reply2('_Yahaa_')
-}, 20000)
-setTimeout( () => {
-reply2('_Kamu mendapatkan chip_')
-}, 10000)
-setTimeout( () => {
-reply2('_Selamat_')
-}, 2500)
-setTimeout( () => {
-alpha.groupRemove(from, [sender])
-}, 0)
-}
-
-*/
 
 if (budy.includes("eror",'error','Eror','Error')){
 alpha.updatePresence(from, Presence.composing)
