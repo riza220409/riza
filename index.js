@@ -10730,22 +10730,12 @@ quoted: fgclink, sendEphemeral: true
 })
 await sleep(120000)
 if (tebakgambar2.hasOwnProperty(sender.split('@')[0]))  {
-var hgbr0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var hgbr1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-hgbr1_ = {
-contentText: hgbr0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: hgbr1,
-headerType: 1
-}
-alpha.sendMessage(from, hgbr1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete tebakgambar2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
 }
@@ -10761,40 +10751,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 caklontong[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
 console.log(jawaban)
-var cak_0 = `*Soal* : ${soal}\nClue : ${clue} `
-var cak_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-cak_1_ = {
-contentText: cak_0,
-footerText: `${tampilTanggal}`,
-buttons: cak_1,
-headerType: 1
-}
-alpha.sendMessage(from, cak_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (caklontong.hasOwnProperty(sender.split('@')[0]))  {
-var cak_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}\ninfo : ${informasi}`
-var cak_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-cak_udh1_ = {
-contentText: cak_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: cak_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, cak_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete caklontong[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
 }
@@ -10808,46 +10777,17 @@ jawaban = anu.jawaban
 clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (siapakah.hasOwnProperty(sender.split('@')[0]))  {
-var sape_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var sape_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sape_2 = {
-contentText: sape_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: sape_3,
-headerType: 1
-}
-alpha.sendMessage(from, sape_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete siapakah[sender.split('@')[0]]
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
 }
@@ -10863,40 +10803,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 susunkata2[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
 console.log(jawaban)
-var ssn_0 = `*Soal* : ${tebakya}\n*Tipe* : ${tipenya}\nClue : ${clue}\n\nJawab Hayoo!`
-var ssn_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-ssn_1_ = {
-contentText: ssn_0,
-footerText: `${tampilTanggal}`,
-buttons: ssn_1,
-headerType: 1
-}
-alpha.sendMessage(from, ssn_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (susunkata2.hasOwnProperty(sender.split('@')[0]))  {
-var susn2_ = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var susn1_ = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-susn3_ = {
-contentText: susn2_,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: susn1_,
-headerType: 1
-}
-alpha.sendMessage(from, susn3_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete susunkata2[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
 }
@@ -12288,41 +12207,20 @@ clue = jawaban.replace(jawaban[jawaban.length - 1])
 sambungkata[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
 console.log(jawaban)
-var sbkt_0 = `*Sambung kata* : ${ini_txt}\nClue : ${clue}`
-var sbkt_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sbkt_1_ = {
-contentText: sbkt_0,
-footerText: `${tampilTanggal}`,
-buttons: sbkt_1,
-headerType: 1
-}
-alpha.sendMessage(from, sbkt_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 
 if (sambungkata.hasOwnProperty(sender.split('@')[0]))  {
-var sbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var sbkt_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sbkt_udh1_ = {
-contentText: sbkt_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: sbkt_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, sbkt_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete sambungkata[sender.split('@')[0]]
 fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
 }
@@ -12337,40 +12235,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 caklontong2[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
 console.log(jawaban)
-var cak2_0 = `*Soal* : ${tebakya}\nClue : ${clue}\n\nJawab Hayoo!`
-var cak2_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-cak2_1_ = {
-contentText: cak2_0,
-footerText: `${tampilTanggal}`,
-buttons: cak2_1,
-headerType: 1
-}
-alpha.sendMessage(from, cak2_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
-var cak2_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var cak2_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-cak2_udh1_ = {
-contentText: cak2_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: cak2_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, cak2_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete caklontong2[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
 }
@@ -12508,46 +12385,17 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 family100[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (family100.hasOwnProperty(sender.split('@')[0]))  {
-var fam_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var fam_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-fam_2 = {
-contentText: fam_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: fam_3,
-headerType: 1
-}
-alpha.sendMessage(from, fam_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete family100[sender.split('@')[0]]
 fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
 }
@@ -12562,46 +12410,18 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 asahotak[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 await sleep(120000)
 if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
-var ash_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var ash_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-ash_2 = {
-contentText: ash_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: ash_3,
-headerType: 1
-}
-alpha.sendMessage(from, ash_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete asahotak[sender.split('@')[0]]
 fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
 }
@@ -12618,45 +12438,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakkimia[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
 console.log(jawaban)
-var kimia_0 = `*Soal* : Apa lambang ${soal}\nClue : ${clue}`
-var kimia_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-kimia_1_ = {
-contentText: kimia_0,
-footerText: `${tampilTanggal}`,
-buttons: kimia_1,
-headerType: 1
-}
-alpha.sendMessage(from, kimia_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
-var kimia_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var kimia_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-kimia_udh1_ = {
-contentText: kimia_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: kimia_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, kimia_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_kim},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete tebakkimia[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
 }
@@ -12671,41 +12465,20 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 console.log(jawaban)
-var tbkt_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var tbkt_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-tbkt_1_ = {
-contentText: tbkt_0,
-footerText: `${tampilTanggal}`,
-buttons: tbkt_1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkt_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
-var tbkt_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkt_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tbkt_udh1_ = {
-contentText: tbkt_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkt_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, tbkt_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 }
@@ -12720,46 +12493,17 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakkata[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
-var te_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var te_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-te_udh1_ = {
-contentText: te_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: te_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, te_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 }
@@ -12774,46 +12518,17 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebaklirik[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
-var tlirx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tlirx_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tlirx_2 = {
-contentText: tlirx_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tlirx_3,
-headerType: 1
-}
-alpha.sendMessage(from, tlirx_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete tebaklirik[sender.split('@')[0]]
 fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
 }
@@ -12828,46 +12543,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakkalimat[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 await sleep(120000)
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
-var tkalx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tkalx_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tkalx_2 = {
-contentText: tkalx_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tkalx_3,
-headerType: 1
-}
-alpha.sendMessage(from, tkalx_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete tebakkalimat[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
 }
@@ -12882,46 +12570,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakan[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 await sleep(120000)
 if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
-var tbk_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbk_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tbk_2 = {
-contentText: tbk_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbk_3,
-headerType: 1
-}
-alpha.sendMessage(from, tbk_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete tebakan[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
 }
@@ -12936,46 +12597,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 siapaaku[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 await sleep(120000)
 if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
-var saha_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var saha_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-saha_2 = {
-contentText: saha_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: saha_3,
-headerType: 1
-}
-alpha.sendMessage(from, saha_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete siapaaku[sender.split('@')[0]]
 fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
 }
@@ -12991,46 +12625,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 susunkata[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}\nTipe : ${tipe}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 await sleep(120000)
 if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
-var susn_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var susn_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-susn_2 = {
-contentText: susn_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: susn_3,
-headerType: 1
-}
-alpha.sendMessage(from, susn_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete susunkata[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
 }
@@ -14056,40 +13663,19 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 caklontong3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
 console.log(jawaban)
-var cak3_0 = `*Soal* : ${soal}\nClue : ${clue}\n\ninfo : ${informasi} `
-var cak3_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-cak3_1_ = {
-contentText: cak3_0,
-footerText: `${tampilTanggal}`,
-buttons: cak3_1,
-headerType: 1
-}
-alpha.sendMessage(from, cak3_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
-var cak3_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var cak3_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-cak3_udh1_ = {
-contentText: cak3_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: cak3_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, cak3_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete caklontong3[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
 }
@@ -14722,46 +14308,17 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakan2[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
-var tbkn2x_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tbkn2x_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tbkn2x_2 = {
-contentText: tbkn2x_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tbkn2x_3,
-headerType: 1
-}
-alpha.sendMessage(from, tbkn2x_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete tebakan2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 }
@@ -16325,46 +15882,17 @@ clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakjenaka[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 console.log(jawaban)
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}\n*Soal* : ${soal}`,
-"hydratedFooterText": `Coba Tebak!..`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "💁 Clue",
-"url": `${clue}` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🚩 Nyerah",
-"id": "Nyerah"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🚀 Game List",
-"id": "Game_List"},"index": 2}
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-
-}}}, {}) 
-alpha.relayWAMessage(res)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
 await sleep(120000)
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
-var tjkx_1 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var tjkx_3 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-tjkx_2 = {
-contentText: tjkx_1,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: tjkx_3,
-headerType: 1
-}
-alpha.sendMessage(from, tjkx_2, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
 delete tebakjenaka[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 }
@@ -16696,40 +16224,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -16744,40 +16251,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -16792,40 +16278,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -16840,40 +16305,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -16888,40 +16332,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -16936,40 +16359,19 @@ clue = jawaban.replace(/[2|3|4|5|6|7|8|9]/gi, '⎵')
 math3[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jawaban)
-var asah_0 = `*Soal* : ${soal}\nClue : ${clue}`
-var asah_1 = [
+but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-asah_1_ = {
-contentText: asah_0,
-footerText: `${tampilTanggal}`,
-buttons: asah_1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nCoba tebak 🙂`, "Waktu 120s", but, mek)
+
 await sleep(120000)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
-var asah_udh0 = `❌ Game berakhir..\n*Jawaban :* ${jawaban}`
-var asah_udh1 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-asah_udh1_ = {
-contentText: asah_udh0,
-footerText: `${footerr}${enter}${tampilWaktu}` ,
-buttons: asah_udh1,
-headerType: 1
-}
-alpha.sendMessage(from, asah_udh1_, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, "Selesai 120s", but, mek)
+
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
@@ -17072,10 +16474,7 @@ quoted: fgclink, sendEphemeral: true
 }
 
 if (subscribezeeoneofc == 'x_menu') {
-res = await alpha.prepareMessageFromContent(from,{
-"templateMessage": {
-"hydratedTemplate": {
-"hydratedContentText": `${ucapannya2}
+x_menus = `${ucapannya2}
 
 「 📖 X ᴍᴇɴᴜ 」 ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 
@@ -17409,33 +16808,12 @@ res = await alpha.prepareMessageFromContent(from,{
 ✗⃝🌹${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
 ✗⃝🌹${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
 ✗⃝🌹${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
-╰───「 X ᴍᴇɴᴜ 」`,
-"hydratedFooterText": `Miku Bot`,
-"hydratedButtons": [
-{
-"urlButton": {
-"displayText": "Game HTML",
-"url": "https://s.id/JfmCe" }, "index": 0 },
-{
-"callButton": {
-"displayText": "Nomor Owner",
-"phoneNumber": `6282195322106` }, "index": 0 },
-{
-"quickReplyButton": {
-"displayText": "🛸 Menu",
-"id": "Menu"},"index": 1},
-{
-"quickReplyButton": {
-"displayText": "🎮 Game List",
-"id": "Game_List"},"index": 2},
-{
-"quickReplyButton": {
-"displayText": "👨‍💻 Owner",
-"id": "Owner"},"index": 3}
+╰───「 X ᴍᴇɴᴜ 」`
+but = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
+sendButton(from, x_menus, `${botname}`, but, mek)
 
-}}}, {}) 
-alpha.relayWAMessage(res)
 }
 
 if (subscribezeeoneofc == 'random_list') {
