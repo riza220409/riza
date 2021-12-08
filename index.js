@@ -662,7 +662,7 @@ q4 = Object.keys(mek.message)[0] == "buttonsResponseMessage" ? mek.message.butto
 q5 = Object.keys(mek.message)[0] == "listResponseMessage" ? mek.message.listResponseMessage.singleSelectReply.selectedRowId: ""
 q6 = (type == 'listResponseMessage') ? mek.message.listResponseMessage.singleSelectReply.selectedRowId : ''
 q7 = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
-butresx = (type === 'buttonsResponseMessage') ? mek.message.listResponseMessage.singleSelectReply.selectedRowId : ''
+butresx = (type === 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
 ranstik = (type == 'listResponseMessage') ? mek.message.listResponseMessage.singleSelectReply.selectedRowId : ''
 
 const conts = mek.key.fromMe ? alpha.user.jid : alpha.contacts[sender] || { notify: jid.replace(/@.+/, '') }
