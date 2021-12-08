@@ -10748,7 +10748,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakgambar2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
@@ -10768,7 +10768,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong.hasOwnProperty(sender.split('@')[0]))  {
@@ -10776,7 +10776,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete caklontong[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
@@ -10794,14 +10794,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (siapakah.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete siapakah[sender.split('@')[0]]
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
 }
@@ -10820,7 +10820,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata2.hasOwnProperty(sender.split('@')[0]))  {
@@ -10828,7 +10828,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete susunkata2[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
@@ -12136,54 +12136,6 @@ buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
 alpha.sendMessage(from, buffer, sticker, { quoted: fgclink })
 break
 
-case 'smeme5':
-// if (!isPremium && !mek.key.fromMe) return reply2(mess.only.prem)
-try {
-if (!q) return reply2(`${prefix+command} Miku`)
-var bawah = q.replace('', '_').replace('\n','%5Cn').replace('?', '~q').replace('%', '~p').replace('&', '~a').replace('#', '~h').replace('/', '~s')
-if ( isQuotedImage) {
-// reply2(mess.wait)
-var imgbb = require('imgbb-uploader')
-let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-let media = await alpha.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", media)
-var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
-//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
-//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
-fs.writeFileSync('./sticker/${sender}.webp', sticknye)
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-if (error) return reply2(mess.error)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, { quoted: fgclink })
-})
-} else if (isQuotedSticker){
-// reply2(mess.wait)
-var imgbb = require('imgbb-uploader')
-let encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-let media = await alpha.downloadAndSaveMediaMessage(encmedia)
-let ran = getRandom('.png')
-exec(`ffmpeg -i ${media} ${ran}`, async (err) => {
-fs.unlinkSync(media)
-if (err) return reply2('Error')
-var tolink = await imgbb("3b8594f4cb11895f4084291bc655e510", ran)
-var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink.display_url}`
-//var short = await axios.get('https://tinyurl.com/api-create.php?url=' + sticknye)
-//var anuu = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lolkey}&img=${short.data}`)
-fs.writeFileSync('./sticker/smemek.webp', sticknye)
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/smemek.webp -o ./sticker/smemek.webp`, async (error) => {
-if (error) return reply2(mess.error)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: fgclink })
-fs.unlinkSync(ran)
-})
-})
-} else {
-reply2(`Reply gambar atau sticker dengan Caption ${prefix+command} teks`)
-}
-} catch (e) {
-return reply2(`${e}`)
-console.log(e)
-}
-break
-
 case 'qrcode':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
 buff = await getBuffer(`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
@@ -12224,7 +12176,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12233,7 +12185,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete sambungkata[sender.split('@')[0]]
 fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
@@ -12252,7 +12204,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
@@ -12260,7 +12212,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete caklontong2[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
@@ -12288,7 +12240,7 @@ const tttgbr_6 = [
 
 const tttgbr_7 = {
 contentText: tttgbr_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: tttgbr_6,
 headerType: 4,
 imageMessage: tttgbr_2.message.imageMessage
@@ -12311,7 +12263,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakgambar3[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
@@ -12338,7 +12290,7 @@ const tgbr_6 = [
 
 const tgbr_7 = {
 contentText: tgbr_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: tgbr_6,
 headerType: 4,
 imageMessage: tgbr_2.message.imageMessage
@@ -12361,7 +12313,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakgambar[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
@@ -12382,14 +12334,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (family100.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete family100[sender.split('@')[0]]
 fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
 }
@@ -12407,7 +12359,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
@@ -12415,7 +12367,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete asahotak[sender.split('@')[0]]
 fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
 }
@@ -12435,7 +12387,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
@@ -12443,7 +12395,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakkimia[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
@@ -12462,7 +12414,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12471,7 +12423,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
@@ -12490,14 +12442,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 }
@@ -12515,14 +12467,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete tebaklirik[sender.split('@')[0]]
 fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
 }
@@ -12540,7 +12492,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
@@ -12548,7 +12500,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakkalimat[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
@@ -12567,7 +12519,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
@@ -12575,7 +12527,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakan[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
@@ -12594,7 +12546,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
@@ -12602,7 +12554,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete siapaaku[sender.split('@')[0]]
 fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
@@ -12622,7 +12574,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
@@ -12630,7 +12582,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete susunkata[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
@@ -13608,7 +13560,7 @@ const gbr5_6 = [
 
 const gbr5_7 = {
 contentText: gbr5_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: gbr5_6,
 headerType: 4,
 imageMessage: gbr5_2.message.imageMessage
@@ -13631,7 +13583,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakgambar5[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
@@ -13650,7 +13602,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
@@ -13658,7 +13610,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete caklontong3[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
@@ -13684,7 +13636,7 @@ const tnim_6 = [
 
 const tnim_7 = {
 contentText: tnim_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: tnim_6,
 headerType: 4,
 imageMessage: tnim_2.message.imageMessage
@@ -13708,7 +13660,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakanime[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
@@ -14078,7 +14030,7 @@ const capt_6 = [
 
 const capt_7 = {
 contentText: capt_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: capt_6,
 headerType: 4,
 imageMessage: capt_2.message.imageMessage
@@ -14101,7 +14053,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete recaptcha[sender.split('@')[0]]
 fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
@@ -14128,7 +14080,7 @@ const tbra_6 = [
 
 const tbra_7 = {
 contentText: tbra_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: tbra_6,
 headerType: 4,
 imageMessage: tbra_2.message.imageMessage
@@ -14151,7 +14103,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakbendera[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
@@ -14178,7 +14130,7 @@ const gbr4_6 = [
 
 const gbr4_7 = {
 contentText: gbr4_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: gbr4_6,
 headerType: 4,
 imageMessage: gbr4_2.message.imageMessage
@@ -14201,7 +14153,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete tebakgambar4[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
@@ -14255,14 +14207,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete tebakan2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 }
@@ -14630,7 +14582,7 @@ const mat2_6 = [
 ]
 const mat2_7 = {
 contentText: mat2_5 ,
-footerText: `Waktu ${waktu_game}s`,
+footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
 buttons: mat2_6,
 headerType: 4,
 imageMessage: mat2_2.message.imageMessage
@@ -14653,7 +14605,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math2[sender.split('@')[0]]
 fs.writeFileSync("./game/math2.json", JSON.stringify(math2))
@@ -15924,14 +15876,14 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 delete tebakjenaka[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 }
@@ -15961,7 +15913,172 @@ list = []
                listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
                break
 
+case 'chat':
+              if (!isRegistered) return reply2('Blm regis')
+			if (args[0].startsWith('08')) return reply('Awali nomor dengan 62')
+            if (args[0].startsWith('+62')) return reply('Awali nomor dengan 62')
+			if (args.length < 1) return reply(`Penggunaan ${prefix}chat 62xnxx|teks`)
+            var pc = body.slice(6)
+            var nomor = pc.split("|")[0];
+            var org = pc.split("|")[1];
+            alpha.sendMessage(nomor+'@s.whatsapp.net', org, MessageType.text)   
+            reply(`Sukses mengirim chat:\n${org},@${nomor}`)
+            break
+            
+            
+            
+					case 'swm2':
+              if (!isRegistered) return reply2('Blm regis')
+						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+							ppp = `${args.join(' ')}`
+							const encmediax = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+							const mediax = await alpha.downloadAndSaveMediaMessage(encmediax, `./sticker/${sender}`)
+							const packname1 = ppp.split('|')[0]
+							const author1 = ppp.split('|')[1]
+							exif.create(packname1, author1, `stickwm_${sender}`)
+							await ffmpeg(`${mediax}`)
+									.input(mediax)
+									.on('start', function (cmd) {
+										console.log(`Started : ${cmd}`)
+									})
+									.on('error', function (err) {
+										console.log(`Error : ${err}`)
+										fs.unlinkSync(mediax)
+										reply(mess.error.api)
+									})
+									.on('end', function () {
+										console.log('Finish')
+										exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+											if (error) return reply(mess.error.api)
+											alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											fs.unlinkSync(mediax)	
+											fs.unlinkSync(`./sticker/${sender}.webp`)	
+											fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
+										})
+									})
+									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+									.toFormat('webp')
+									.save(`./sticker/${sender}.webp`)
+						} else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
+							wmsti = body.slice(11)
+							if (!wmsti.includes('|')) return reply(`Kirim gambar atau reply gambar dengan caption *${prefix}stickerwm nama|author*`)
+							const encmediax = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+							const mediax = await alpha.downloadAndSaveMediaMessage(encmediax, `./sticker/${sender}`)
+							const packname1 = wmsti.split('|')[0]
+							const author1 = wmsti.split('|')[1]
+							exif.create(packname1, author1, `stickwm_${sender}`)
+							sticWait(from)
+								await ffmpeg(`${mediax}`)
+									.inputFormat(mediax.split('.')[4])
+									.on('start', function (cmd) {
+										console.log(`Started : ${cmd}`)
+									})
+									.on('error', function (err) {
+										console.log(`Error : ${err}`)
+										fs.unlinkSync(mediax)
+										tipe = mediax.endsWith('.mp4') ? 'video' : 'gif'
+										reply(mess.error.api)
+									})
+									.on('end', function () {
+										console.log('Finish')
+										exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
+											if (error) return reply(mess.error.api)
+											alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											fs.unlinkSync(mediax)
+											fs.unlinkSync(`./sticker/${sender}.webp`)
+											fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
+										})
+									})
+									.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+									.toFormat('webp')
+									.save(`./sticker/${sender}.webp`)
+						} else {
+							reply(`Kirim gambar/video dengan caption ${prefix}stickerwm nama|author atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
+						}
+						break
+						
+case 'ultah':
+case 'hbd':
+if (args.length < 1) return reply2(`Usage : #ultah tahun-bulan-tanggal\nExample : #ultah 2004-01-12`)
+if (!args[0].includes("-")) return reply2(`Usage : #ultah tahun-bulan-tanggal\nExampla : #ultah 2006-01-12`)
+qq = q
+zodiakk = [
+["Capricorn", new Date(1970, 0, 1)],
+["Aquarius", new Date(1970, 0, 20)],
+["Pisces", new Date(1970, 1, 19)],
+["Aries", new Date(1970, 2, 21)],
+["Taurus", new Date(1970, 3, 21)],
+["Gemini", new Date(1970, 4, 21)],
+["Cancer", new Date(1970, 5, 22)],
+["Leo", new Date(1970, 6, 23)],
+["Virgo", new Date(1970, 7, 23)],
+["Libra", new Date(1970, 8, 23)],
+["Scorpio", new Date(1970, 9, 23)],
+["Sagittarius", new Date(1970, 10, 22)],
+["Capricorn", new Date(1970, 11, 22)]
+].reverse()
+function getZodiac(month, day) {
+dey = new Date(1970, month - 1, day)
+return zodiakk.find(([_,_d]) => dey >= _d)[0]
+}
+dateek = new Date(qq)
+if (dateek == 'Invalid Date') throw dateek
+let dd = new Date()
+let [tahun, bulan, tanggal] = [dd.getFullYear(), dd.getMonth() + 1, dd.getDate()]
+birth = [dateek.getFullYear(), dateek.getMonth() + 1, dateek.getDate()]
+zodiackk = getZodiac(birth[1], birth[2])
+ageD = new Date(d - dateek)
+agek = ageD.getFullYear() - new Date(1970, 0, 1).getFullYear()
+birthday = [tahun + (birth[1] < bulan), ...birth.slice(1)]
+cekusia = bulan === birth[1] && tanggal === birth[2] ? `Selamat ulang tahun yang ke-${agek} 🥳` : agek
+reply2(`
+*Lahir : ${birth.join(', ')}*
+*Ultah Mendatang : ${birthday.join(', ')}*
+*Usia : ${cekusia}*
+*Zodiak : ${zodiackk}*
+`.trim())
+break
 
+case 'vibra':
+case 'vibrato':
+if (isLimit(sender, isPremium, isOwner, limitawal, limit)) return reply(mess.limit)
+encmedx = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+medx = await alpha.downloadAndSaveMediaMessage(encmedx)
+ran = getRandom('.mp3')
+exec(`ffmpeg -i ${medx} -filter_complex "vibrato=f=16" ${ran}`, (err, stderr, stdout) => {
+	fs.unlinkSync(medx)
+	if (err) return reply('Error!')
+	hah = fs.readFileSync(ran)
+	alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, quoted: mek})
+	fs.unlinkSync(ran)
+	})
+	limitAdd(sender, limit)
+break
+
+case 'terjemahkan':
+case 'translet':
+									try {
+										if (args.length < 1)return reply(`Usage : #translate kode bahasa teks/reply pesan\nExample : #translate id why`)
+										if (Ofc.message.extendedTextMessage === undefined || Ofc.message.extendedTextMessage === null) {
+											tolang = args[0]
+trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${tolang}&apikey=${dapuhy}`)
+f = trsm_.from
+t = trsm_.to
+res = trsm_.result
+reply2(`Translate dari *${f}* ke *${t}*\n👉\n*${res}*`)
+											} else {
+												tolang = args[0]
+												entah = Ofc.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+												trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${tolang}&apikey=${dapuhy}`)
+f = trsm_.from
+t = trsm_.to
+res = trsm_.result
+reply2(`Translate dari *${f}* ke *${t}*\n👉\n*${res}*`)
+												}
+											} catch (e) {
+												reply(`${e}`)
+												}
+											break
 
 //Ends
 default:
@@ -16078,7 +16195,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16086,7 +16203,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16105,7 +16222,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16113,7 +16230,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16132,7 +16249,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16140,7 +16257,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16159,7 +16276,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16167,7 +16284,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16186,7 +16303,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16194,7 +16311,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16213,7 +16330,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16221,7 +16338,7 @@ but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Selesai ${waktu_game}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
