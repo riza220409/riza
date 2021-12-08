@@ -15952,7 +15952,7 @@ list = []
                        {
                         title: `${listmenuu[startnum++]}`,
                         description: `${dess}`,
-                        rowId: `${x}`
+                        rowId: 'rstik'
                       }
                     ]
                    }
@@ -15968,8 +15968,8 @@ default:
 
 
 //-----------------------[ STIKER ]-------------------//
-if (ranstik == ranstik){
-res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/${ranstik}`)
+if (ranstik == 'rstik'){
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/${x}`)
 inibuff = res.url
 sendStickerFromUrl(from, inibuff,{quoted: fgclink})
 }
