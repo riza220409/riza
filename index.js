@@ -223,8 +223,10 @@ ban = []
 limitawal = "50"
 gcounttprem = "55" 
 gcounttuser = "100" 
-waktu_game = "120000"
 
+e = [`💐`,`🌹`,`🥀`,`🌷`,`🌺`,`🌸`,`🏵️`,`🌻`,`🌼`,`💮`,`🍂`,`🍁`,`🌾`,`🌱`,`🌿`,`🍃`,`☘️`,`🌵`,`🌴`,`🌳`,`🌲`,`🏞️`,`⛰️`,`🌊`,`🌬️`,`🌀`,`❄️`,`☃️`,`🏔️`,`🔥`,`🌋`,`🏜️`,`🏖️`,`🌅`,`☀️`]
+let emoj = e[Math.floor(Math.random() * e.length)]
+let waktu_game = "120000"
 let multi = true
 let nopref = false
 let single = false
@@ -390,7 +392,7 @@ prefix = prefa
 const reply2 = (teks) => {
 alpha.sendMessage(from, teks, text, {
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -574,7 +576,9 @@ await alpha.updatePresence(from, Presence.recording)
 if (autoketik === false) return
 await alpha.updatePresence(from, Presence.composing)
 }
-body = type === "conversation" && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : type == "imageMessage" && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : type == "videoMessage" && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : type == "extendedTextMessage" && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : type == "buttonsResponseMessage" && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : type == "stickerMessage" && getCmd(mek.message[type].fileSha256.toString("base64")) !== null && getCmd(mek.message[type].fileSha256.toString("base64")) !== undefined ? getCmd(mek.message[type].fileSha256.toString("base64")) : "";
+
+body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(mek.message[type].fileSha256.toString('base64')) !== null && getCmd(mek.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message[type].fileSha256.toString('base64')) : ""
+// body = type === "conversation" && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : type == "imageMessage" && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : type == "videoMessage" && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : type == "extendedTextMessage" && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : type == "buttonsResponseMessage" && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : type == "stickerMessage" && getCmd(mek.message[type].fileSha256.toString("base64")) !== null && getCmd(mek.message[type].fileSha256.toString("base64")) !== undefined ? getCmd(mek.message[type].fileSha256.toString("base64")) : "";
 budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 chatxs = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'documentMessage') && mek.message.documentMessage.caption ? mek.message.documentMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ""
@@ -663,7 +667,6 @@ q3 = Object.keys(mek.message)[0] == "buttonsResponseMessage" ? mek.message.butto
 		butresx = (type === 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
 q6 = (type == 'listResponseMessage') ? mek.message.listResponseMessage.singleSelectReply.selectedRowId : ''
 q7 = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
-ranstik = (type == 'listResponseMessage') ? mek.message.listResponseMessage.singleSelectReply.selectedRowId : ''
 
 const conts = mek.key.fromMe ? alpha.user.jid : alpha.contacts[sender] || { notify: jid.replace(/@.+/, '') }
 const pushname = mek.key.fromMe ? alpha.user.name : conts.notify || conts.vname || conts.name || '-'
@@ -2640,7 +2643,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tgbr1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2666,7 +2669,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tgbr21_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2692,7 +2695,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tgbr31_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2718,7 +2721,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tgbr41_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2744,7 +2747,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tgbr51_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2770,7 +2773,7 @@ headerType: 1
 }
 alpha.sendMessage(from, cklt1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2796,7 +2799,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ckl21_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2822,7 +2825,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ckl31_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2848,7 +2851,7 @@ headerType: 1
 }
 alpha.sendMessage(from, jnk1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2874,7 +2877,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ssnk1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2900,7 +2903,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ssn21_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2926,7 +2929,7 @@ headerType: 1
 }
 alpha.sendMessage(from, atk1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2952,7 +2955,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tkim1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -2978,7 +2981,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tbkt_1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3004,7 +3007,7 @@ headerType: 1
 }
 alpha.sendMessage(from, skt1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3030,7 +3033,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tlir1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3056,7 +3059,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tkl1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3082,7 +3085,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tbkn1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3108,7 +3111,7 @@ headerType: 1
 }
 alpha.sendMessage(from, tbkn21_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3133,7 +3136,7 @@ headerType: 1
 }
 alpha.sendMessage(from, spa1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3159,7 +3162,7 @@ headerType: 1
 }
 alpha.sendMessage(from, mth1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3185,7 +3188,7 @@ headerType: 1
 }
 alpha.sendMessage(from, mth21_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3211,7 +3214,7 @@ headerType: 1
 }
 alpha.sendMessage(from, mth31_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3237,7 +3240,7 @@ headerType: 1
 }
 alpha.sendMessage(from, fmly1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3263,7 +3266,7 @@ headerType: 1
 }
 alpha.sendMessage(from, saha1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3289,7 +3292,7 @@ headerType: 1
 }
 alpha.sendMessage(from, anim1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3315,7 +3318,7 @@ headerType: 1
 }
 alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3341,7 +3344,7 @@ headerType: 1
 }
 alpha.sendMessage(from, capt1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -3488,7 +3491,7 @@ sn_ = await fetchJson('https://api.caranya.my.id/gen-password')
 let ran_blc = randomNomor(50)
 addBalance(sender, ran_blc, balance)
 fs.writeFileSync('./database/user/register.json', JSON.stringify(register))
-teks = `╭─⋆⸙ *Verification* ⋆⸙\n│📛 *Nama :* ${pushname}\n│#️⃣ *Nomor :* @${sender.split('@')[0]}\n│💌 *Bio :* ${bio_user}\n│🔑 *SN :* ${sn_.medium}\n│⏰ *Time :* ${wib} Wib\n╰⋆⸙ *Success*`
+teks = `╭────⋆⸙ *VERIFIED* ⸙⋆────╮\n│📛 *Nama :* ${pushname}\n│#️⃣ *Nomor :* @${sender.split('@')[0]}\n│💌 *Bio :* ${bio_user}\n│🔑 *SN :* ${sn_.medium}\n│⏰ *Time :* ${wib} Wib\n╰────⋆⸙ *SUCCES* ⸙⋆────╯`
 let papako = [{
 "buttonId": `menu`,
 "buttonText": {
@@ -3525,34 +3528,34 @@ alpha.sendMessage(from,
 
 「 *BOT INFO* 」
 
-*🔖 Creator :* _@${xtar.split('@')[0]}_
-*🔖 Powered :* _@${ini_mark.split('@')[0]}_
-*🔖 Mode :* _${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
-*🔖 Status :* _${offline ? 'OFFLINE' : 'ONLINE'}_
-*🔖 Prefix :* _${prefix}_
-*🔖 Group Chat :* _${giid.length}_
-*🔖 Private Chat :* _${totalchat.length - giid.length}_
-*🔖 Total Chat :* _${totalchat.length}_
-*🔖 Lib :* _Baileys_
-*🔖 Type :* _NodeJs_
-*🔖 Total hit :* _${hitall}_
-*🔖 Hit today :* _${hit_today.length}_
-*🔖 Speed :* _${latensii.toFixed(4)} Second_
-*🔖 Runtime :* _${kyun(anunya)}_
-*🔖 Battery :* _${isBattre}_
-*🔖 Charging :* _${isCharge}_
+*${emoj} Creator :* _@${xtar.split('@')[0]}_
+*${emoj} Powered :* _@${ini_mark.split('@')[0]}_
+*${emoj} Mode :* _${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
+*${emoj} Status :* _${offline ? 'OFFLINE' : 'ONLINE'}_
+*${emoj} Prefix :* _${prefix}_
+*${emoj} Group Chat :* _${giid.length}_
+*${emoj} Private Chat :* _${totalchat.length - giid.length}_
+*${emoj} Total Chat :* _${totalchat.length}_
+*${emoj} Lib :* _Baileys_
+*${emoj} Type :* _NodeJs_
+*${emoj} Total hit :* _${hitall}_
+*${emoj} Hit today :* _${hit_today.length}_
+*${emoj} Speed :* _${latensii.toFixed(4)} Second_
+*${emoj} Runtime :* _${kyun(anunya)}_
+*${emoj} Battery :* _${isBattre}_
+*${emoj} Charging :* _${isCharge}_
 
 「 *YOU INFO* 」
 
-*🔖 Kak :* _${pushname}_
-*🔖 Bio :* _${xbi ? `${xbi.status}` : '-'}_
-*🔖 Nomor :* _@${sender.split('@')[0]}_
-*🔖 Me :* _${mek.key.fromMe ? 'True' : 'False'}_
-*🔖 Owner :* _${isOwner ? 'True' : `False`}_
-*🔖 CoOwner :* _${isCreator ? 'True' : `False`}_`,
+*${emoj} Kak :* _${pushname}_
+*${emoj} Bio :* _${xbi ? `${xbi.status}` : '-'}_
+*${emoj} Nomor :* _@${sender.split('@')[0]}_
+*${emoj} Me :* _${mek.key.fromMe ? 'True' : 'False'}_
+*${emoj} Owner :* _${isOwner ? 'True' : `False`}_
+*${emoj} CoOwner :* _${isCreator ? 'True' : `False`}_`,
  buttons: [
-{buttonId: 'Xmen', buttonText: {displayText: '🛸 Menu'}, type: 1},
-{buttonId: 'x_menu', buttonText: {displayText: '🔥 Menu X'}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ],
  "headerType": "DOCUMENT",
  "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc",
@@ -3598,34 +3601,34 @@ ini_anu =`${ucapannya2} @${sender.split('@')[0]}
 
 「 *BOT INFO* 」
 
-*🔖 Creator :* _@${koko.split('@')[0]}_
-*🔖 Powered :* _@${ini_mark.split('@')[0]}_
-*🔖 Mode :* _${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
-*🔖 Status :* _${offline ? 'OFFLINE' : 'ONLINE'}_
-*🔖 Prefix :* _${prefix}_
-*🔖 Group Chat :* _${giid.length}_
-*🔖 Private Chat :* _${totalchat.length - giid.length}_
-*🔖 Total Chat :* _${totalchat.length}_
-*🔖 Lib :* _Baileys_
-*🔖 Type :* _NodeJs_
-*🔖 Total hit :* _${hitall}_
-*🔖 Hit today :* _${hit_today.length}_
-*🔖 Speed :* _${latensii.toFixed(4)} Second_
-*🔖 Runtime :* _${kyun(anunya)}_
-*🔖 Battery :* _${isBattre}_
-*🔖 Charging :* _${isCharge}_
+*${emoj} Creator :* _@${koko.split('@')[0]}_
+*${emoj} Powered :* _@${ini_mark.split('@')[0]}_
+*${emoj} Mode :* _${banChats ? 'SELF-MODE' : 'PUBLIC-MODE'}_
+*${emoj} Status :* _${offline ? 'OFFLINE' : 'ONLINE'}_
+*${emoj} Prefix :* _${prefix}_
+*${emoj} Group Chat :* _${giid.length}_
+*${emoj} Private Chat :* _${totalchat.length - giid.length}_
+*${emoj} Total Chat :* _${totalchat.length}_
+*${emoj} Lib :* _Baileys_
+*${emoj} Type :* _NodeJs_
+*${emoj} Total hit :* _${hitall}_
+*${emoj} Hit today :* _${hit_today.length}_
+*${emoj} Speed :* _${latensii.toFixed(4)} Second_
+*${emoj} Runtime :* _${kyun(anunya)}_
+*${emoj} Battery :* _${isBattre}_
+*${emoj} Charging :* _${isCharge}_
 
 「 *YOU INFO* 」
 
-*🔖 Kak :* _${pushname}_
-*🔖 Bio :* _${p1 ? `${p1.status}` : '-'}_
-*🔖 Nomor :* _@${sender.split('@')[0]}_
-*🔖 Me :* _${mek.key.fromMe ? 'True' : 'False'}_
-*🔖 Owner :* _${isOwner ? 'True' : `False`}_
-*🔖 CoOwner :* _${isCreator ? 'True' : `False`}_`
+*${emoj} Kak :* _${pushname}_
+*${emoj} Bio :* _${p1 ? `${p1.status}` : '-'}_
+*${emoj} Nomor :* _@${sender.split('@')[0]}_
+*${emoj} Me :* _${mek.key.fromMe ? 'True' : 'False'}_
+*${emoj} Owner :* _${isOwner ? 'True' : `False`}_
+*${emoj} CoOwner :* _${isCreator ? 'True' : `False`}_`
 const buttons = [
-{buttonId: 'Xmen', buttonText: {displayText: '🛸 Menu'}, type: 1},
-{buttonId: 'x_menu', buttonText: {displayText: '🔥 Menu X'}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 const btn = {
@@ -3644,7 +3647,7 @@ let bacotlu1 = media1.message["ephemeralMessage"] ? media1.message.ephemeralMess
 
 const buttons1 = [
 {buttonId: 'statiktiknya', buttonText:{displayText: '📱 Statistik'}, type: 1},
-{buttonId: 'Xmen', buttonText: {displayText: '🏷️ List Message'}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🏷️ List Message'}, type: 1}
 ]
 
 const btn1 = {
@@ -3658,7 +3661,7 @@ locationMessage: bacotlu1.message.locationMessage
 alpha.sendMessage(from, btn1, MessageType.buttonsMessage,{
 "contextInfo": {
 "externalAdReply": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
 "sourceUrl": apiku,
@@ -3694,7 +3697,7 @@ alpha.sendMessage(from, btn1, MessageType.buttonsMessage,{
 caption: '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡',
 "contextInfo": {
 text: 'hi',
-"forwardingScore": 1000000000,
+"forwardingScore": 999,
 isForwarded: true,
 sendEphemeral: true,
 "mentionedJid" : [sender,koko],
@@ -3751,7 +3754,7 @@ let papao = [{
 },
 "type": "RESPONSE"
 },{
-"buttonId": 'Xmen',
+"buttonId": 'x_menu',
 "buttonText": {
 "displayText": "🌹 List Message"
 },
@@ -3785,7 +3788,7 @@ headerType: 1
 }
 alpha.sendMessage(from, buttonMessagee, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -7051,7 +7054,7 @@ headerType: 1
 }
 alpha.sendMessage(from, butptonMessagee, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -7348,7 +7351,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
 Okelor = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
-teks=`*🌹 「 AUDIO TO URL 」 🌹*
+teks=`*${emoj} 「 AUDIO TO URL 」 ${emoj}*
 
 *$Url : ${Okelor.display_url}*`
 reply2(teks) 
@@ -7357,7 +7360,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
 qbc = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
-teks=`*🌹 「 IMAGE TO URL 」 🌹*
+teks=`*${emoj} 「 IMAGE TO URL 」 ${emoj}*
 
 *Url : ${qbc.display_url}*`
 reply2(teks)
@@ -7366,7 +7369,7 @@ ger = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
 ffff = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
-teks=`*🌹 「 VIDEO TO URL 」 🌹*
+teks=`*${emoj} 「 VIDEO TO URL 」 ${emoj}*
 
 *$Url : ${ffff.display_url}*`
 reply2(teks)
@@ -7375,7 +7378,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
 vrr = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
-teks=`*🌹 「 STICKER TO URL 」 🌹*
+teks=`*${emoj} 「 STICKER TO URL 」 ${emoj}*
 
 *Url : ${vrr.display_url}*`
 reply2(teks)
@@ -7520,9 +7523,9 @@ Anu = res[0].downloadUrl
 fto = potogw
 alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠 𝗠𝗣4*
 
-•🌹Priview : ${res[0].preview}
-•🌹Link : ${res[0].url}
-•🌹Linkdl : ${res[0].downloadUrl}
+•${emoj}Priview : ${res[0].preview}
+•${emoj}Link : ${res[0].url}
+•${emoj}Linkdl : ${res[0].downloadUrl}
 
 Please wait, the media file is being sent it may take a few minutes`, thumbnail:thumb_ig, contextInfo:{forwardingScore: 989, isForwarded: true}})
 sendMediaURL(from, Anu, 'Done!')
@@ -7537,9 +7540,9 @@ Anu = res.HD
 fto = potogw
 alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗠𝗣4*
 
-•🌹Normal : ${res.Normal_video}
-•🌹Hd : ${res.HD}
-•🌹Audio : ${res.audio}
+•${emoj}Normal : ${res.Normal_video}
+•${emoj}Hd : ${res.HD}
+•${emoj}Audio : ${res.audio}
 
 _Please wait, the media file is being sent it may take a few minutes`, thumbnail:thumb_fb, contextInfo:{forwardingScore: 989, isForwarded: true}})
 sendMediaURL(from, Anu, 'Done!')
@@ -7554,9 +7557,9 @@ Anu = res.HD
 fto = potogw
 alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 𝗠𝗣3*
 
-•🌹Normal : ${res.Normal_video}
-•🌹Hd : ${res.HD}
-•🌹Audio : ${res.audio}
+•${emoj}Normal : ${res.Normal_video}
+•${emoj}Hd : ${res.HD}
+•${emoj}Audio : ${res.audio}
 
 Please wait, the media file is being sent it may take a few minutes`, thumbnail:thumb_fb, contextInfo:{forwardingScore: 989, isForwarded: true}})
 khs = await getBuffer(Anu)
@@ -7586,13 +7589,13 @@ yta(yut.videos[0].url)
 const { thumb, title, filesizeF, filesize } = res
 const capti = `𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗣𝗟𝗔𝗬
 
-•🌹Judul : ${yut.all[0].title}
-•🌹ID Video : ${yut.all[0].videoId}
-•🌹️Diupload Pada : ${yut.all[0].ago}
-•🌹️Views : ${yut.all[0].views}
-•🌹Durasi : ${yut.all[0].timestamp}
-•🌹Channel : ${yut.all[0].author.name}
-•🌹Link Channel : ${yut.all[0].author.url}`
+•${emoj}Judul : ${yut.all[0].title}
+•${emoj}ID Video : ${yut.all[0].videoId}
+•${emoj}️Diupload Pada : ${yut.all[0].ago}
+•${emoj}️Views : ${yut.all[0].views}
+•${emoj}Durasi : ${yut.all[0].timestamp}
+•${emoj}Channel : ${yut.all[0].author.name}
+•${emoj}Link Channel : ${yut.all[0].author.url}`
 ya = await getBuffer(thumb)
 py =await alpha.prepareMessage(from, ya, image)
 gbutsan = [{buttonId: `${prefix}btnmusik ${yut.all[0].url}`, buttonText: {displayText: '🎵 Audio'}, type: 1},{buttonId: `${prefix}btnvideo ${yut.all[0].url}`, buttonText: {displayText: '🎥 Video'}, type: 1}]
@@ -7651,9 +7654,9 @@ hx.twitter(lin).then(res => {
 Anu = res.SD
 fto = potogw
 alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗧𝗪𝗜𝗧𝗧𝗘𝗥 𝗠𝗣4*
-•🌹Hd : ${res.HD}
-•🌹Sd : ${res.SD}
-•🌹Audio : ${res.audio}
+•${emoj}Hd : ${res.HD}
+•${emoj}Sd : ${res.SD}
+•${emoj}Audio : ${res.audio}
 
 Please wait, the media file is being sent it may take a few minutes`, thumbnail:thumb_tw, contextInfo:{forwardingScore: 989, isForwarded: true}})
 sendMediaURL(from, Anu, 'Done!')
@@ -7667,9 +7670,9 @@ hx.twitter(lin).then(async (res) => {
 Anu = res.SD
 fto = potogw
 alpha.sendMessage(from, fto, image, {quoted:mek, caption:`*𝗧𝗪𝗜𝗧𝗧𝗘𝗥 𝗠𝗣3*
-•🌹Hd : ${res.HD}
-•🌹Sd : ${res.SD}
-•🌹Audio : ${res.audio}
+•${emoj}Hd : ${res.HD}
+•${emoj}Sd : ${res.SD}
+•${emoj}Audio : ${res.audio}
 
 Please wait, the media file is being sent it may take a few minutes`, thumbnail:thumb_tw, contextInfo:{forwardingScore: 989, isForwarded: true}})
 khs = await getBuffer(Anu)
@@ -8214,7 +8217,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ramdom_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -8236,7 +8239,7 @@ headerType: 1
 }
 alpha.sendMessage(from, xmn_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -10601,12 +10604,10 @@ break
 case 'tr':
 if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Hello`)
 trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${q}&apikey=${dapuhy}`)
-f = trsm_.from
-t = trsm_.to
 res = trsm_.result
-var trsm_1 = `Translate dari *${f}* ke *${t}*\n👉\n*${res}*`
+var trsm_1 = `• ${res}`
 var trsm_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1}
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1}
 ]
 
 trsm_3 = {
@@ -10617,7 +10618,7 @@ headerType: 1
 }
 alpha.sendMessage(from, trsm_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -10651,7 +10652,7 @@ headerType: 1
 }
 alpha.sendMessage(from, qtlc_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -10677,7 +10678,7 @@ headerType: 1
 }
 alpha.sendMessage(from, crpn_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -10699,7 +10700,7 @@ headerType: 1
 }
 alpha.sendMessage(from, jgkt_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -10733,7 +10734,7 @@ imageMessage: ttgbr_2.message.imageMessage
 
 alpha.sendMessage(from, ttgbr_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -10768,7 +10769,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong.hasOwnProperty(sender.split('@')[0]))  {
@@ -10794,7 +10795,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (siapakah.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -10820,7 +10821,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata2.hasOwnProperty(sender.split('@')[0]))  {
@@ -10911,7 +10912,7 @@ let rdmg_1 = await getBuffer(rdmg_);
 alpha.sendMessage(from, rdmg_1, MessageType.image,{
 	caption : 'oke',
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -10952,7 +10953,7 @@ let poxy_2 = poxy_3.message["ephemeralMessage"] ? poxy_3.message.ephemeralMessag
 
 poxy_5 =`Nih @${sender.split("@")[0]} Dah selesai`
 const poxy_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -10966,7 +10967,7 @@ imageMessage: poxy_2.message.imageMessage
 
 alpha.sendMessage(from, poxy_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11078,7 +11079,7 @@ let txtpr_2 = txtpr_3.message["ephemeralMessage"] ? txtpr_3.message.ephemeralMes
 
 txtpr_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const txtpr_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `textpro_list`, buttonText: {displayText: 'Textpro List'}, type: 1}
 ]
 
@@ -11092,7 +11093,7 @@ imageMessage: txtpr_2.message.imageMessage
 
 alpha.sendMessage(from, txtpr_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11157,7 +11158,7 @@ let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMes
 
 ephto_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const ephto_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `ephoto_list`, buttonText: {displayText: 'Ephoto List'}, type: 1}
 ]
 
@@ -11171,7 +11172,7 @@ imageMessage: ephto_2.message.imageMessage
 
 alpha.sendMessage(from, ephto_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11207,7 +11208,7 @@ let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessag
 
 pfun_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const pfun_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `pfun_list`, buttonText: {displayText: 'Photofunia List'}, type: 1}
 ]
 
@@ -11221,7 +11222,7 @@ imageMessage: pfun_2.message.imageMessage
 
 alpha.sendMessage(from, pfun_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11250,7 +11251,7 @@ imageMessage: cwe_2.message.imageMessage
 }
 alpha.sendMessage(from, cwe_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11275,7 +11276,7 @@ imageMessage: cwo_2.message.imageMessage
 }
 alpha.sendMessage(from, cwo_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11305,7 +11306,7 @@ let oxy2_2 = oxy2_3.message["ephemeralMessage"] ? oxy2_3.message.ephemeralMessag
 
 oxy2_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const oxy2_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
 ]
 
@@ -11319,7 +11320,7 @@ imageMessage: oxy2_2.message.imageMessage
 
 alpha.sendMessage(from, oxy2_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11390,7 +11391,7 @@ let oxxy_2 = oxxy_3.message["ephemeralMessage"] ? oxxy_3.message.ephemeralMessag
 
 oxxy_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const oxxy_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
 ]
 
@@ -11404,7 +11405,7 @@ imageMessage: oxxy_2.message.imageMessage
 
 alpha.sendMessage(from, oxxy_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11455,7 +11456,7 @@ let tpr2_2 = tpr2_3.message["ephemeralMessage"] ? tpr2_3.message.ephemeralMessag
 
 tpr2_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const tpr2_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `oxylist`, buttonText: {displayText: 'Oxy List'}, type: 1}
 ]
 
@@ -11469,7 +11470,7 @@ imageMessage: tpr2_2.message.imageMessage
 
 alpha.sendMessage(from, tpr2_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11642,7 +11643,7 @@ let tpr_2 = tpr_3.message["ephemeralMessage"] ? tpr_3.message.ephemeralMessage :
 
 tpr_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const tpr_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `textpro_list`, buttonText: {displayText: 'Textpro List'}, type: 1}
 ]
 
@@ -11656,7 +11657,7 @@ imageMessage: tpr_2.message.imageMessage
 
 alpha.sendMessage(from, tpr_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11679,7 +11680,7 @@ aud = qt.result.audio.primary
 taf = qt.result.surah.tafsir.id
 sur = qt.result.surah.name.long
 sur2 = qt.result.surah.name.transliteration.id
-var qur_0 = `*?? Okey , Ditemukan Silahkan Dipilih*`
+var qur_0 = `*🌱 Okey , Ditemukan Silahkan Dipilih*`
 var qur_1 = [
 {buttonId: 'Quran_text', buttonText: {displayText: '📖 Teks'}, type: 1},
 {buttonId: 'Quran_audio', buttonText: {displayText: '🎙️ Audio'}, type: 1}
@@ -11692,7 +11693,7 @@ headerType: 1
 }
 alpha.sendMessage(from, qur_1_, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -11742,7 +11743,7 @@ let nsfw2_2 = nsfw2_3.message["ephemeralMessage"] ? nsfw2_3.message.ephemeralMes
 
 nsfw2_5 =` *@${sender.split("@")[0]}* Dah selesai`
 const nsfw2_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `nsfw_list`, buttonText: {displayText: 'Oxy List'}, type: 1}
 ]
 
@@ -11756,7 +11757,7 @@ imageMessage: nsfw2_2.message.imageMessage
 
 alpha.sendMessage(from, nsfw2_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11806,11 +11807,24 @@ alpha.sendMessage(from, buff, image, {quoted: fgclink, caption : `Dah selesai , 
 break
 
 case 'translate':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  Hello`)
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${q}&from=auto&to=id`)
-tee = `*Hasil* : ${result.translated}`
-alpha.sendMessage(from, tee, text,{quoted: mek})
-break
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Reply pesan yg ingin di translate!')
+ try{
+if ( args.length === 1 ){
+tekss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss)}&from=auto&to=id`)
+has = result.result.translated
+reply2(`*Hasil* : ${has}`)
+} else if(args.length > 0 ) {
+ngab = args.join(' ')
+tekss2 = ngab.split(' ')[0];
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss2)}&from=auto&to=id`)
+has = result.result.translated
+reply2(`*Hasil* : ${has}`)
+						}
+						} catch (e){
+reply2(mess.error.api)
+}
+				  break
 
 case 'tinyurl':
 // reply2(mess.wait)
@@ -11864,7 +11878,7 @@ let rdm_1 = await getBuffer(wflar);
 alpha.sendMessage(from, rdm_1, MessageType.image,{
 	caption : 'oke',
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11881,7 +11895,7 @@ let hdw_1 = await getBuffer(hdw_);
 alpha.sendMessage(from, hdw_1, MessageType.image,{
 	caption : 'oke',
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11898,7 +11912,7 @@ let wnim_1 = await getBuffer(wnim_);
 alpha.sendMessage(from, wnim_1, MessageType.image,{
 	caption : 'oke',
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -11986,7 +12000,7 @@ let animek_4 = animek_3.message["ephemeralMessage"] ? animek_3.message.ephemeral
 animek_6 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const animek_7 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -12000,7 +12014,7 @@ imageMessage: animek_4.message.imageMessage
 
 alpha.sendMessage(from, animek_8, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12059,7 +12073,7 @@ cu += `*Kota*: ${c.kota}
 }
 var cuac_1 = `${ucapannya2}\n ${cu}`
 var cuac_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -12071,7 +12085,7 @@ headerType: 1
 }
 alpha.sendMessage(from, cuac_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -12176,7 +12190,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12204,7 +12218,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
@@ -12240,7 +12254,7 @@ const tttgbr_6 = [
 
 const tttgbr_7 = {
 contentText: tttgbr_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: tttgbr_6,
 headerType: 4,
 imageMessage: tttgbr_2.message.imageMessage
@@ -12248,7 +12262,7 @@ imageMessage: tttgbr_2.message.imageMessage
 
 alpha.sendMessage(from, tttgbr_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12290,7 +12304,7 @@ const tgbr_6 = [
 
 const tgbr_7 = {
 contentText: tgbr_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: tgbr_6,
 headerType: 4,
 imageMessage: tgbr_2.message.imageMessage
@@ -12298,7 +12312,7 @@ imageMessage: tgbr_2.message.imageMessage
 
 alpha.sendMessage(from, tgbr_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12334,7 +12348,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (family100.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12359,7 +12373,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
@@ -12387,7 +12401,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
@@ -12414,7 +12428,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12442,7 +12456,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12467,7 +12481,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12492,7 +12506,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
@@ -12519,7 +12533,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
@@ -12546,7 +12560,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
@@ -12574,7 +12588,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
@@ -12711,7 +12725,7 @@ rnim_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rnim_1, MessageType.image,{caption:rnim_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12737,7 +12751,7 @@ rcat_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rcat_1, MessageType.image,{caption:rcat_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12763,7 +12777,7 @@ rdog_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rdog_1, MessageType.image,{caption:rdog_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12789,7 +12803,7 @@ rfox_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rfox_1, MessageType.image,{caption:rfox_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12815,7 +12829,7 @@ rkoa_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rkoa_1, MessageType.image,{caption:rkoa_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12841,7 +12855,7 @@ rpan_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rpan_1, MessageType.image,{caption:rpan_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12867,7 +12881,7 @@ rred_5 =`「 *Nih Hasilnya* 」
 
 alpha.sendMessage(from, rred_1, MessageType.image,{caption:rred_5,
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -12983,7 +12997,7 @@ for (let g of gcwa_.data) {
 gece += `*Nama*: ${g.judul}\n*Link*: ${g.link}\n\n`}
 var gcwa_1 = `${ucapannya2}\n ${gece}`
 var gcwa_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -12995,7 +13009,7 @@ headerType: 1
 }
 alpha.sendMessage(from, gcwa_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13018,7 +13032,7 @@ headerType: 1
 }
 alpha.sendMessage(from, gsrch_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13037,7 +13051,7 @@ ${t.Judul}
 
 var topnim_1 = `${ucapannya2}\n ${nimr}`
 var topnim_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13049,7 +13063,7 @@ headerType: 1
 }
 alpha.sendMessage(from, topnim_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13073,7 +13087,7 @@ headerType: 1
 }
 alpha.sendMessage(from, rbuc_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13097,7 +13111,7 @@ headerType: 1
 }
 alpha.sendMessage(from, fakta_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13121,7 +13135,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ktbjk_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13145,7 +13159,7 @@ headerType: 1
 }
 alpha.sendMessage(from, motvas_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13169,7 +13183,7 @@ headerType: 1
 }
 alpha.sendMessage(from, pntn_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13206,7 +13220,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ssfile_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13240,7 +13254,7 @@ imageMessage: modd_2.message.imageMessage
 
 alpha.sendMessage(from, modd_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13270,7 +13284,7 @@ headerType: 1
 }
 alpha.sendMessage(from, md5_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13294,7 +13308,7 @@ headerType: 1
 }
 alpha.sendMessage(from, artikt_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13318,7 +13332,7 @@ headerType: 1
 }
 alpha.sendMessage(from, artimp_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13342,7 +13356,7 @@ headerType: 1
 }
 alpha.sendMessage(from, artinm_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13375,7 +13389,7 @@ headerType: 1
 }
 alpha.sendMessage(from, amzn_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13408,7 +13422,7 @@ headerType: 1
 }
 alpha.sendMessage(from, ipgeo_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13427,7 +13441,7 @@ smhdku_5 =`${ucapannya2}
 • *Description :*
 ${smhdku_.desc}`
 const smhdku_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13441,7 +13455,7 @@ imageMessage: smhdku_2.message.imageMessage
 
 alpha.sendMessage(from, smhdku_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13467,7 +13481,7 @@ zy += `
 `}
 var lzy_1 = `${ucapannya2}\n ${zy}`
 var lzy_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13479,7 +13493,7 @@ headerType: 1
 }
 alpha.sendMessage(from, lzy_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13497,7 +13511,7 @@ y_ += `
 `}
 var yw_1 = `${ucapannya2}\n ${y_}`
 var yw_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13509,7 +13523,7 @@ headerType: 1
 }
 alpha.sendMessage(from, yw_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13535,7 +13549,7 @@ headerType: 1
 }
 alpha.sendMessage(from, zdiak_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -13560,7 +13574,7 @@ const gbr5_6 = [
 
 const gbr5_7 = {
 contentText: gbr5_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: gbr5_6,
 headerType: 4,
 imageMessage: gbr5_2.message.imageMessage
@@ -13568,7 +13582,7 @@ imageMessage: gbr5_2.message.imageMessage
 
 alpha.sendMessage(from, gbr5_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13602,7 +13616,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
@@ -13636,7 +13650,7 @@ const tnim_6 = [
 
 const tnim_7 = {
 contentText: tnim_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: tnim_6,
 headerType: 4,
 imageMessage: tnim_2.message.imageMessage
@@ -13644,7 +13658,7 @@ imageMessage: tnim_2.message.imageMessage
 
 alpha.sendMessage(from, tnim_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13689,7 +13703,7 @@ imageMessage: wnime_2.message.imageMessage
 
 alpha.sendMessage(from, wnime_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13722,7 +13736,7 @@ imageMessage: shta_2.message.imageMessage
 
 alpha.sendMessage(from, shta_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13755,7 +13769,7 @@ imageMessage: neku_2.message.imageMessage
 
 alpha.sendMessage(from, neku_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13788,7 +13802,7 @@ imageMessage: kmn_2.message.imageMessage
 
 alpha.sendMessage(from, kmn_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13821,7 +13835,7 @@ imageMessage: loly_2.message.imageMessage
 
 alpha.sendMessage(from, loly_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13854,7 +13868,7 @@ imageMessage: hsb_2.message.imageMessage
 
 alpha.sendMessage(from, hsb_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13889,7 +13903,7 @@ imageMessage: cehor_2.message.imageMessage
 
 alpha.sendMessage(from, cehor_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13922,7 +13936,7 @@ imageMessage: drjok_2.message.imageMessage
 
 alpha.sendMessage(from, drjok_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13949,7 +13963,7 @@ let xnsfw_2 = xnsfw_3.message["ephemeralMessage"] ? xnsfw_3.message.ephemeralMes
 xnsfw_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const xnsfw_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13963,7 +13977,7 @@ imageMessage: xnsfw_2.message.imageMessage
 
 alpha.sendMessage(from, xnsfw_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -13984,7 +13998,7 @@ let gimg_2 = gimg_3.message["ephemeralMessage"] ? gimg_3.message.ephemeralMessag
 gimg_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const gimg_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -13998,7 +14012,7 @@ imageMessage: gimg_2.message.imageMessage
 
 alpha.sendMessage(from, gimg_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14030,7 +14044,7 @@ const capt_6 = [
 
 const capt_7 = {
 contentText: capt_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: capt_6,
 headerType: 4,
 imageMessage: capt_2.message.imageMessage
@@ -14038,7 +14052,7 @@ imageMessage: capt_2.message.imageMessage
 
 alpha.sendMessage(from, capt_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14080,7 +14094,7 @@ const tbra_6 = [
 
 const tbra_7 = {
 contentText: tbra_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: tbra_6,
 headerType: 4,
 imageMessage: tbra_2.message.imageMessage
@@ -14088,7 +14102,7 @@ imageMessage: tbra_2.message.imageMessage
 
 alpha.sendMessage(from, tbra_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14130,7 +14144,7 @@ const gbr4_6 = [
 
 const gbr4_7 = {
 contentText: gbr4_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: gbr4_6,
 headerType: 4,
 imageMessage: gbr4_2.message.imageMessage
@@ -14138,7 +14152,7 @@ imageMessage: gbr4_2.message.imageMessage
 
 alpha.sendMessage(from, gbr4_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14207,7 +14221,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -14363,7 +14377,7 @@ const w_1 = [
 const w_2 = [{title: "🌹 ⸙ WAIFU ⸙ 🌹", rows: w_1}]
 const w_3 = {
 buttonText: '🔥 Waifu Disini!',
-description: `*${ucapannya2} @${sender.split("@")[0]}*\n\nSilahkan pilih jenis waifu dibawah, dan jangan spam bot agar tidak delay saat mengirim pesan 🚀`,
+description: `*${ucapannya2} @${sender.split("@")[0]}*\n\n⌕ *MENU WAIFU*`,
 sections: w_2,
 footerText: `${footerr}${enter}${tampilWaktu}`,
 listType: 1
@@ -14371,14 +14385,14 @@ listType: 1
 
 await alpha.sendMessage(from, w_3, MessageType.listMessage, {
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
 break
 
 case 'pinterest':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} noob`) 
+if(!q) return fakestatus(`??️Hint : ${prefix + command} noob`) 
 let ran_ = await hx.pinterest(q);
 let dom_= ran_[Math.floor(Math.random() * ran_.length)];
 let pinterest_1 = await getBuffer(dom_)
@@ -14387,7 +14401,7 @@ let pinterest_2 = pinterest_3.message["ephemeralMessage"] ? pinterest_3.message.
 pinterest_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const pinterest_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -14401,7 +14415,7 @@ imageMessage: pinterest_2.message.imageMessage
 
 alpha.sendMessage(from, pinterest_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14520,7 +14534,7 @@ for (let ex of rexdl_.result) {
 rex += `*Nama*: ${ex.title}\n*Link*: ${ex.url_download}\n\n`}
 var rexdl_1 = `${ucapannya2}\n ${rex}`
 var rexdl_2 = [
-{buttonId: 'Xmen' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -14532,7 +14546,7 @@ headerType: 1
 }
 alpha.sendMessage(from, rexdl_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -14558,7 +14572,7 @@ listType: 1
 
 await alpha.sendMessage(from, math3_3, MessageType.listMessage, {
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -14582,7 +14596,7 @@ const mat2_6 = [
 ]
 const mat2_7 = {
 contentText: mat2_5 ,
-footerText: `Waktu ${waktu_game(body.slice[0, 3])}s`,
+footerText: `Waktu ${waktu_game}ms`,
 buttons: mat2_6,
 headerType: 4,
 imageMessage: mat2_2.message.imageMessage
@@ -14590,7 +14604,7 @@ imageMessage: mat2_2.message.imageMessage
 
 alpha.sendMessage(from, mat2_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14631,7 +14645,7 @@ headerType: 1
 }
 alpha.sendMessage(from, facten_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -14657,7 +14671,7 @@ headerType: 1
 }
 alpha.sendMessage(from, umur_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -14685,7 +14699,7 @@ headerType: 1
 }
 alpha.sendMessage(from, gen_3, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -14700,7 +14714,7 @@ let ajg2 = ajg1.message["ephemeralMessage"] ? ajg1.message.ephemeralMessage : aj
 ajg3 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const ajg4 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -14714,7 +14728,7 @@ imageMessage: ajg2.message.imageMessage
 
 alpha.sendMessage(from, ajg5, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -14747,7 +14761,7 @@ ipinf_5 =`「 *Nih Hasilnya* 」
 • Kode pos : ${ipe6}
 • Timezone : ${ipe7}`
 const ipinf_6 = [
-{buttonId: 'Xmen', buttonText: {displayText: `⬅️ Menu`}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: `⬅️ Menu`}, type: 1},
 {buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
 ]
 
@@ -14760,7 +14774,7 @@ headerType: 1
 
 alpha.sendMessage(from, ipinf_7, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -15694,7 +15708,7 @@ Judul : ${get_resultP.judul}
 Link : ${get_resultP.url_audio}
 `
 alpha.sendMessage(from, textP, text,{contextInfo:{
-"forwardingScore": 1000000000,
+"forwardingScore": 999,
 isForwarded: false,
 sendEphemeral: false,
 "externalAdReply": {
@@ -15709,7 +15723,7 @@ sendEphemeral: false,
 get_audio = await getBuffer(get_resultP.url_audio)
 alpha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, filename: `${get_resultP.title}.mp3`, quoted: mek})
 break
-
+/*
 case 'ts':
 try{
 if ( args.length === 1 ){
@@ -15732,11 +15746,12 @@ reply2(res.text)
 reply2(mess.error.api)
 }
 break
+*/
 
 case 'stk':
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encstk_ = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const stk_ = await kurr.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
+const stk_ = await alpha.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
 await ffmpeg(`${stk_}`)
 .input(stk_)
 .on('start', function (cmd) {
@@ -15751,7 +15766,7 @@ reply2(mess.error.api)
 console.log('Finish')
 exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 if (error) return reply2(mess.error.api)
-kurr.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 fs.unlinkSync(stk_)	
 fs.unlinkSync(`./sticker/${sender}.webp`)	
 })
@@ -15761,7 +15776,7 @@ fs.unlinkSync(`./sticker/${sender}.webp`)
 .save(`./sticker/${sender}.webp`)
 } else if ((isMedia && mek.message.videoMessage.fileLength < 1000000000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 1000000000000)) {
 const encstk_ = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const stk_ = await kurr.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
+const stk_ = await alpha.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
 
 await ffmpeg(`${stk_}`)
 .inputFormat(stk_.split('.')[4])
@@ -15778,7 +15793,7 @@ reply2(mess.error.api)
 console.log('Finish')
 exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 if (error) return reply2(mess.error.api)
-kurr.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 fs.unlinkSync(stk_)
 fs.unlinkSync(`./sticker/${sender}.webp`)
 })
@@ -15853,7 +15868,7 @@ let npl = `${g.manga_name} ${g.manga_url}`
 }
 await alpha.sendMessage(from, npl, MessageType.text, {
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -15876,7 +15891,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -15889,29 +15904,6 @@ fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 }
 break
 
-case 'randomstik':
-case 'randomstiker':
-case 'randomsticker':
-list = []
-               listmenu = [`angry`,`anime`,`bite`,`bored`,`bread`,`chocolate`,`cookie`,`cuddle`,`dance`,`drunk`,`happy`,`kill`,`kiss`,`laugh`,`lick`,`lonely`,`pat`,`poke`,`pregnant`,`punch`,`run`,`satouselfies`,`sleep`,`spank`,`spit`,`steal`,`tickle`]
-               listmenuu = [`🔖Angry`,`🔖Anime`,`🔖Bite`,`🔖Bored`,`🔖Bread`,`🔖Chocolate`,`🔖Cookie`,`🔖Cuddle`,`🔖Dance`,`🔖Drunk`,`🔖Happy`,`🔖Kill`,`🔖Kiss`,`🔖Laugh`,`🔖Lick`,`🔖Lonely`,`🔖Pat`,`🔖Poke`,`🔖Pregnant`,`🔖Punch`,`🔖Run`,`🔖Satouselfies`,`🔖Sleep`,`🔖Spank`,`🔖Spit`,`🔖Steal`,`🔖Tickle`]
-               dess = ``
-               nombor = 1
-               startnum = 0
-               for (let x of listmenu) {
-               const yy = {title: 'Menu ' + nombor++,
-                    rows: [
-                       {
-                        title: `${listmenuu[startnum++]}`,
-                        description: `${dess}`,
-                        rowId: 'rstik'
-                      }
-                    ]
-                   }
-                        list.push(yy)
-           }
-               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
-               break
 
 case 'chat':
               if (!isRegistered) return reply2('Blm regis')
@@ -16055,41 +16047,50 @@ exec(`ffmpeg -i ${medx} -filter_complex "vibrato=f=16" ${ran}`, (err, stderr, st
 	limitAdd(sender, limit)
 break
 
-case 'terjemahkan':
-case 'translet':
-									try {
-										if (args.length < 1)return reply(`Usage : #translate kode bahasa teks/reply pesan\nExample : #translate id why`)
-										if (Ofc.message.extendedTextMessage === undefined || Ofc.message.extendedTextMessage === null) {
-											tolang = args[0]
-trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${tolang}&apikey=${dapuhy}`)
-f = trsm_.from
-t = trsm_.to
-res = trsm_.result
-reply2(`Translate dari *${f}* ke *${t}*\n👉\n*${res}*`)
-											} else {
-												tolang = args[0]
-												entah = Ofc.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-												trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${tolang}&apikey=${dapuhy}`)
-f = trsm_.from
-t = trsm_.to
-res = trsm_.result
-reply2(`Translate dari *${f}* ke *${t}*\n👉\n*${res}*`)
-												}
-											} catch (e) {
-												reply(`${e}`)
-												}
-											break
+
+case 'randomstik':
+case 'randomstiker':
+case 'randomsticker':
+var ranstik = ["angry","anime","bite","bored","bread","chocolate","cookie","cuddle","dance","drunk","happy","kill","kiss","laugh","lick","lonely","pat","poke","pregnant","punch","run","satouselfies","sleep","spank","spit","steal","tickle"]
+pfft = ranstik[Math.floor(Math.random() * ranstik.length)]
+res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/${pfft}`)
+inibuff = res.url
+sendStickerFromUrl(from, inibuff,{quoted: fgclink})
+break
+
+
+case 'game':
+case 'games':
+list = []
+               listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`]
+               listmenuu = [`Asahotak`,`Caklontong`,`Caklontong2`,`Caklontong3`,`Family100`,`Math`,`Math2`,`Recaptcha`,`Sambungkata`,`Siapaaku`,`Siapakahaku`,`Susunkata`,`Susunkata2`,`Tebakan`,`Tebakan2`,`Tebakanime`,`Tebakbendera`,`Tebakgambar`,`Tebakgambar2`,`Tebakgambar3`,`Tebakgambar4`,`Tebakgambar5`,`Tebakjenaka`,`Tebakkalimat`,`Tebakkata`,`Tebakkata2`,`Tebakkimia`,`Tebaklirik`]
+               nombor = 1
+               startnum = 0
+               for (let x of listmenu) {
+               const yy = {title: 'Game ke' + nombor++,
+                    rows: [
+                       {
+                        title: `${listmenuu[startnum++]}`,
+                        description: ``,
+                        rowId: `${prefix}${x}`
+                      }
+                    ]
+                   }
+                        list.push(yy)
+           }
+               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
+               break
+
+
+
+
 
 //Ends
 default:
 
 
 //-----------------------[ STIKER ]-------------------//
-if (ranstik == 'rstik'){
-res = await fetchJson(`https://api.satou-chan.xyz/api/endpoint/${x}`)
-inibuff = res.url
-sendStickerFromUrl(from, inibuff,{quoted: fgclink})
-}
+
 
 //______________//
 
@@ -16104,83 +16105,59 @@ reply2('Oke bg')
 if (subscribezeeoneofc == "list_game"){
 lis2 = `*🎮 LIST GAMES 🎮*
 
-• asahotak
-• caklontong
-• caklontong2
-• caklontong3
-• family100
-• math
-• math2
-• math3
-• recaptcha
-• xsambungkata
-• siapaaku
-• siapakah
-• susunkata
-• susunkata2
-• tebakan
-• tebakan2
-• tebakanime
-• tebakbendera
-• tebakgambar
-• tebakgambar2
-• tebakgambar3
-• tebakgambar4
-• tebakgambar5
-• tebakjenaka
-• tebakkalimat
-• tebakkata
-• tebakkimia
-• tebaklirik
+${emoj} asahotak
+${emoj} caklontong
+${emoj} caklontong2
+${emoj} caklontong3
+${emoj} family100
+${emoj} math
+${emoj} math2
+${emoj} recaptcha
+${emoj} sambungkata
+${emoj} siapaaku
+${emoj} siapakahaku
+${emoj} susunkata
+${emoj} susunkata2
+${emoj} tebakan
+${emoj} tebakan2
+${emoj} tebakanime
+${emoj} tebakbendera
+${emoj} tebakgambar
+${emoj} tebakgambar2
+${emoj} tebakgambar3
+${emoj} tebakgambar4
+${emoj} tebakgambar5
+${emoj} tebakjenaka
+${emoj} tebakkalimat
+${emoj} tebakkata
+${emoj} tebakkata2
+${emoj} tebakkimia
+${emoj} tebaklirik
 
 *SELAMAT BERMAIN*`
 reply2(lis2)
 
 }
 
-if (subscribezeeoneofc == 'Xmen') {
-const rownya = [
-{title: 'All menu bot', description: "🐣 All menu bot", rowId:"0"},
-{title: 'animemenu', rowId:"0"},
-{title: 'asupan menu', rowId:"0"},
-{title: 'convertmenu', rowId:"0"},
-{title: 'downloadmenu', rowId:"0"},
-{title: 'funmenu', rowId:"0"},
-{title: 'gacha cecan', rowId:"0"},
-{title: 'gacha cogan', rowId:"0"},
-{title: 'image effect', rowId:"0"},
-{title: 'makermenu', rowId:"0"},
-{title: 'nsfw menu', rowId:"0"},
-{title: 'othermenu', rowId:"0"},
-{title: 'ownermenu', rowId:"0"},
-{title: 'quotesmenu', rowId:"0"},
-{title: 'set sticker cmd', rowId:"0"},
-{title: 'storagemenu', rowId:"0"},
-{title: 'tagmenu', rowId:"0"},
-{title: 'telegram sticker', rowId:"0"},
-{title: 'upmenu', rowId:"0"}
-]
-
-const secnya = [{title: "🌹 ⸙ 𝐂𝐌𝐃 𝐁𝐎𝐓 ⸙ 🌹", rows: rownya}]
-
-const buttnya = {
-buttonText: '🔥 Klik Disini!',
-description: `*${ucapannya2} @${sender.split("@")[0]}*\n\nSilahkan pilih jenis menu dibawah, dan jangan spam bot agar tidak delay saat mengirim pesan 🚀`,
-sections: secnya,
-footerText: `${footerr}${enter}${tampilWaktu}`,
-listType: 1
-}
-await alpha.sendMessage(from, buttnya, MessageType.listMessage, {
-"contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [sender]},
-quoted: fgclink, sendEphemeral: true
-})
+if (subscribezeeoneofc == 'x_menu') {
+list = []
+               listmenu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
+               listmenuu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
+               nombor = 1
+               e = [`💐`,`🌹`,`🥀`,`🌷`,`🌺`,`🌸`,`🏵️`,`🌻`,`🌼`,`💮`,`🍂`,`🍁`,`🌾`,`🌱`,`🌿`,`🍃`,`☘️`,`🌵`,`🌴`,`🌳`,`🌲`,`🏞️`,`⛰️`,`🌊`,`🌬️`,`🌀`,`❄️`,`☃️`,`🏔️`,`🔥`,`🌋`,`🏜️`,`🏖️`,`🌅`,`☀️`]
+               emm = e[Math.floor(Math.random() * e.length)]
+               startnum = 0
+               for (let x of listmenuu) {
+               const yy = {title: `${emm} Sub Menu ke` + nombor++  ,
+                    rows: [
+                       {
+                        title: `${listmenu[startnum++]}`
+                      }
+                    ]
+                   }
+                        list.push(yy)
+           }
+               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
 }
 
 if (q5 == "very_easy"){
@@ -16195,7 +16172,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16222,7 +16199,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16249,7 +16226,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16276,7 +16253,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16303,7 +16280,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16330,7 +16307,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game(body.slice[0, 3])}s`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16365,7 +16342,7 @@ imageMessage: wifu_4.message.imageMessage
 
 alpha.sendMessage(from, wifu_8, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -16397,7 +16374,7 @@ imageMessage: wifu2_4.message.imageMessage
 
 alpha.sendMessage(from, wifu2_8, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -16430,7 +16407,7 @@ imageMessage: wifu3_4.message.imageMessage
 
 alpha.sendMessage(from, wifu3_8, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "externalAdReply": {
 "title": `${ucapannya2}` ,
 "body": `${botname}`,
@@ -16441,7 +16418,7 @@ quoted: fgclink, sendEphemeral: true
 })
 }
 
-if (subscribezeeoneofc == 'x_menu') {
+if (subscribezeeoneofc == 'menu_x') {
 x_menus = `${ucapannya2}
 
 「 📖 X ᴍᴇɴᴜ 」 ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
@@ -16451,336 +16428,336 @@ x_menus = `${ucapannya2}
 🄴🅁🅁🄾🅁
 
 「 Isʟᴀᴍɪ 」
-✗⃝🌹${prefix}xʟɪsᴛsᴜʀᴀʜ
-✗⃝🌹${prefix}xᴀsᴍᴀᴜʟʜᴜsɴᴀ
-✗⃝🌹${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ
-✗⃝🌹${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-✗⃝🌹${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/1|2
-✗⃝🌹${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ
-✗⃝🌹${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-✗⃝🌹${prefix}xᴋɪsᴀʜɴᴀʙɪ ɴᴀᴍᴀ_ɴᴀʙɪ
-✗⃝🌹${prefix}xᴊᴀᴅᴡᴀʟsʜᴏʟᴀᴛ ᴅᴀᴇʀᴀʜ
+✗⃝${emoj}${prefix}xʟɪsᴛsᴜʀᴀʜ
+✗⃝${emoj}${prefix}xᴀsᴍᴀᴜʟʜᴜsɴᴀ
+✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ
+✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
+✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/1|2
+✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ
+✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
+✗⃝${emoj}${prefix}xᴋɪsᴀʜɴᴀʙɪ ɴᴀᴍᴀ_ɴᴀʙɪ
+✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟsʜᴏʟᴀᴛ ᴅᴀᴇʀᴀʜ
 
 「 Dᴏᴡɴʟᴏᴀᴅᴇʀ 」
-✗⃝🌹${prefix}xʏᴛsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xʏᴛᴘʟᴀʏ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xʏᴛᴍᴘ3 ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝🌹${prefix}xʏᴛᴍᴘ4 ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝🌹${prefix}xᴛɪᴋᴛᴏᴋɴᴏᴡᴍ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝🌹${prefix}xᴛɪᴋᴛᴏᴋᴍᴜsɪᴄ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝🌹${prefix}xɪɢᴅʟ ᴜʀʟ_ᴘᴏsᴛ
-✗⃝🌹${prefix}xғʙᴅʟ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝🌹${prefix}xᴊᴏᴏxᴘʟᴀʏ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xsᴘᴏᴛɪғʏ ᴜʀʟ_ᴍᴜsɪᴄ
-✗⃝🌹${prefix}xsᴘᴏᴛɪғʏsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴘɪɴᴛᴇʀᴇsᴛ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴘɪɴᴛᴇʀᴇsᴛᴅʟ ᴜʀʟ_ᴘɪɴᴛᴇʀᴇsᴛ
-✗⃝🌹${prefix}xᴘɪxɪᴠ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴘɪxɪᴠᴅʟ ᴜʀʟ_ᴘɪxɪᴠ
-✗⃝🌹${prefix}xᴢɪᴘᴘʏsʜᴀʀᴇ ᴜʀʟ_ᴢɪᴘᴘʏsʜᴀʀᴇ
-✗⃝🌹${prefix}xᴛᴇʟᴇsᴛɪᴄᴋᴇʀ ᴜʀʟ_ᴘᴀᴄᴋ
+✗⃝${emoj}${prefix}xʏᴛsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xʏᴛᴘʟᴀʏ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xʏᴛᴍᴘ3 ᴜʀʟ_ᴠɪᴅᴇᴏ
+✗⃝${emoj}${prefix}xʏᴛᴍᴘ4 ᴜʀʟ_ᴠɪᴅᴇᴏ
+✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋɴᴏᴡᴍ ᴜʀʟ_ᴠɪᴅᴇᴏ
+✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋᴍᴜsɪᴄ ᴜʀʟ_ᴠɪᴅᴇᴏ
+✗⃝${emoj}${prefix}xɪɢᴅʟ ᴜʀʟ_ᴘᴏsᴛ
+✗⃝${emoj}${prefix}xғʙᴅʟ ᴜʀʟ_ᴠɪᴅᴇᴏ
+✗⃝${emoj}${prefix}xᴊᴏᴏxᴘʟᴀʏ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xsᴘᴏᴛɪғʏ ᴜʀʟ_ᴍᴜsɪᴄ
+✗⃝${emoj}${prefix}xsᴘᴏᴛɪғʏsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴘɪɴᴛᴇʀᴇsᴛ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴘɪɴᴛᴇʀᴇsᴛᴅʟ ᴜʀʟ_ᴘɪɴᴛᴇʀᴇsᴛ
+✗⃝${emoj}${prefix}xᴘɪxɪᴠ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴘɪxɪᴠᴅʟ ᴜʀʟ_ᴘɪxɪᴠ
+✗⃝${emoj}${prefix}xᴢɪᴘᴘʏsʜᴀʀᴇ ᴜʀʟ_ᴢɪᴘᴘʏsʜᴀʀᴇ
+✗⃝${emoj}${prefix}xᴛᴇʟᴇsᴛɪᴄᴋᴇʀ ᴜʀʟ_ᴘᴀᴄᴋ
 
 「 Mᴏᴠɪᴇ & Sᴛᴏʀʏ 」
-✗⃝🌹${prefix}xᴅʀᴀᴋᴏʀᴏɴɢᴏɪɴɢ
-✗⃝🌹${prefix}xʟᴋ21 ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴡᴀᴛᴛᴘᴀᴅ ᴜʀʟ_ᴡᴀᴛᴛᴘᴀᴅ
-✗⃝🌹${prefix}xᴡᴀᴛᴛᴘᴀᴅsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴄᴇʀᴘᴇɴ
-✗⃝🌹${prefix}xᴄᴇʀɪᴛᴀʜᴏʀᴏʀ
+✗⃝${emoj}${prefix}xᴅʀᴀᴋᴏʀᴏɴɢᴏɪɴɢ
+✗⃝${emoj}${prefix}xʟᴋ21 ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴡᴀᴛᴛᴘᴀᴅ ᴜʀʟ_ᴡᴀᴛᴛᴘᴀᴅ
+✗⃝${emoj}${prefix}xᴡᴀᴛᴛᴘᴀᴅsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴄᴇʀᴘᴇɴ
+✗⃝${emoj}${prefix}xᴄᴇʀɪᴛᴀʜᴏʀᴏʀ
 
 「 Sᴇᴀʀᴄʜɪɴɢ 」
-✗⃝🌹${prefix}xsʜᴏᴘᴇᴇ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɢᴏᴏɢʟᴇ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɢɪᴍᴀɢᴇ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɢɪᴍᴀɢᴇ2 ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴋᴏɴᴀᴄʜᴀɴ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴘʟᴀʏsᴛᴏʀᴇ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xsᴛɪᴄᴋᴇʀᴡᴀ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ2 ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xsʜᴏᴘᴇᴇ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɢᴏᴏɢʟᴇ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɢɪᴍᴀɢᴇ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɢɪᴍᴀɢᴇ2 ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴋᴏɴᴀᴄʜᴀɴ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴘʟᴀʏsᴛᴏʀᴇ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xsᴛɪᴄᴋᴇʀᴡᴀ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ2 ϙᴜᴇʀʏ
 
 「 Rᴀɴᴅᴏᴍ Tᴇxᴛ 」
-✗⃝🌹${prefix}xϙᴜᴏᴛᴇs
-✗⃝🌹${prefix}xϙᴜᴏᴛᴇsᴅɪʟᴀɴ
-✗⃝🌹${prefix}xϙᴜᴏᴛᴇsᴀɴɪᴍᴇ
-✗⃝🌹${prefix}xϙᴜᴏᴛᴇsɪᴍᴀɢᴇ
-✗⃝🌹${prefix}xғᴀᴋᴛᴀᴜɴɪᴋ
-✗⃝🌹${prefix}xᴋᴀᴛᴀʙɪᴊᴀᴋ
-✗⃝🌹${prefix}xᴘᴀɴᴛᴜɴ
-✗⃝🌹${prefix}xʙᴜᴄɪɴ
-✗⃝🌹${prefix}xʀᴀɴᴅᴏᴍɴᴀᴍᴀ
+✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇs
+✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsᴅɪʟᴀɴ
+✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsᴀɴɪᴍᴇ
+✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsɪᴍᴀɢᴇ
+✗⃝${emoj}${prefix}xғᴀᴋᴛᴀᴜɴɪᴋ
+✗⃝${emoj}${prefix}xᴋᴀᴛᴀʙɪᴊᴀᴋ
+✗⃝${emoj}${prefix}xᴘᴀɴᴛᴜɴ
+✗⃝${emoj}${prefix}xʙᴜᴄɪɴ
+✗⃝${emoj}${prefix}xʀᴀɴᴅᴏᴍɴᴀᴍᴀ
 
 「 AɴɪMᴀɴɢᴀ 」
-✗⃝🌹${prefix}xᴡᴀɪᴛ
-✗⃝🌹${prefix}xᴍᴀɴɢᴀ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴀɴɪᴍᴇ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴄʜᴀʀᴀᴄᴛᴇʀ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴋᴜsᴏɴɪᴍᴇ ᴜʀʟ_ᴋᴜsᴏɴɪᴍᴇ
-✗⃝🌹${prefix}xᴋᴜsᴏɴɪᴍᴇsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜ ᴜʀʟ_ᴏᴛᴀᴋᴜᴅᴇsᴜ
-✗⃝🌹${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɴʜᴇɴᴛᴀɪ ᴋᴏᴅᴇ_ʙᴏᴍ
-✗⃝🌹${prefix}xɴʜᴇɴᴛᴀɪᴘᴅғ ᴋᴏᴅᴇ_ʙᴏᴍ
-✗⃝🌹${prefix}xɴʜᴇɴᴛᴀɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɴᴇᴋᴏᴘᴏɪ ᴜʀʟ
-✗⃝🌹${prefix}xɴᴇᴋᴏᴘᴏɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴡᴀɪᴛ
+✗⃝${emoj}${prefix}xᴍᴀɴɢᴀ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴀɴɪᴍᴇ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴄʜᴀʀᴀᴄᴛᴇʀ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴋᴜsᴏɴɪᴍᴇ ᴜʀʟ_ᴋᴜsᴏɴɪᴍᴇ
+✗⃝${emoj}${prefix}xᴋᴜsᴏɴɪᴍᴇsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜ ᴜʀʟ_ᴏᴛᴀᴋᴜᴅᴇsᴜ
+✗⃝${emoj}${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪ ᴋᴏᴅᴇ_ʙᴏᴍ
+✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪᴘᴅғ ᴋᴏᴅᴇ_ʙᴏᴍ
+✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɴᴇᴋᴏᴘᴏɪ ᴜʀʟ
+✗⃝${emoj}${prefix}xɴᴇᴋᴏᴘᴏɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
 
 「 Iɴғᴏʀᴍᴀᴛɪᴏɴ 」
-✗⃝🌹${prefix}xᴋʙʙɪ
-✗⃝🌹${prefix}xʙʀᴀɪɴʟʏ2
-✗⃝🌹${prefix}xᴊᴀʀᴀᴋ
-✗⃝🌹${prefix}xᴜʀʙᴀɴᴅɪᴄᴛɪᴏɴᴀʀʏ
-✗⃝🌹${prefix}xᴊᴀᴅᴡᴀʟᴛᴠ ᴄʜᴀɴɴᴇʟ
-✗⃝🌹${prefix}xᴊᴀᴅᴡᴀʟᴛᴠɴᴏᴡ
-✗⃝🌹${prefix}xᴊᴀᴅᴡᴀʟʙᴏʟᴀ
-✗⃝🌹${prefix}xϙʀʀᴇᴀᴅᴇʀ
-✗⃝🌹${prefix}xʜᴇʀᴏᴍʟ ʜᴇʀᴏ_ɴᴀᴍᴇ
-✗⃝🌹${prefix}xᴍʟsᴛᴀʟᴋ ɪᴅ/sᴇʀᴠᴇʀ
-✗⃝🌹${prefix}xɢᴇɴsʜɪɴ ᴄʜᴀʀᴀᴄᴛᴇʀ
-✗⃝🌹${prefix}xᴡɪᴋɪᴘᴇᴅɪᴀ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴛʀᴀɴsʟᴀᴛᴇ ᴋᴏᴅᴇ_ɴᴇɢᴀʀᴀ ᴛᴇxᴛ
-✗⃝🌹${prefix}xʙʀᴀɪɴʟʏ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɴᴇᴡsɪɴғᴏ
-✗⃝🌹${prefix}xᴄɴɴɪɴᴅᴏɴᴇsɪᴀ
-✗⃝🌹${prefix}xᴄɴɴɴᴀsɪᴏɴᴀʟ
-✗⃝🌹${prefix}xᴄɴɴɪɴᴛᴇʀɴᴀsɪᴏɴᴀʟ
-✗⃝🌹${prefix}xɪɴғᴏɢᴇᴍᴘᴀ
-✗⃝🌹${prefix}xʟɪʀɪᴋ ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xᴄᴜᴀᴄᴀ ᴅᴀᴇʀᴀʜ
-✗⃝🌹${prefix}xᴋᴏᴅᴇᴘᴏs ϙᴜᴇʀʏ
-✗⃝🌹${prefix}xɪɴᴅʙᴇᴀsɪsᴡᴀ
-✗⃝🌹${prefix}xʜᴏᴀx
-✗⃝🌹${prefix}xɴsғᴡᴄʜᴇᴄᴋ
-✗⃝🌹${prefix}xᴏᴄʀ
+✗⃝${emoj}${prefix}xᴋʙʙɪ
+✗⃝${emoj}${prefix}xʙʀᴀɪɴʟʏ2
+✗⃝${emoj}${prefix}xᴊᴀʀᴀᴋ
+✗⃝${emoj}${prefix}xᴜʀʙᴀɴᴅɪᴄᴛɪᴏɴᴀʀʏ
+✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟᴛᴠ ᴄʜᴀɴɴᴇʟ
+✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟᴛᴠɴᴏᴡ
+✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟʙᴏʟᴀ
+✗⃝${emoj}${prefix}xϙʀʀᴇᴀᴅᴇʀ
+✗⃝${emoj}${prefix}xʜᴇʀᴏᴍʟ ʜᴇʀᴏ_ɴᴀᴍᴇ
+✗⃝${emoj}${prefix}xᴍʟsᴛᴀʟᴋ ɪᴅ/sᴇʀᴠᴇʀ
+✗⃝${emoj}${prefix}xɢᴇɴsʜɪɴ ᴄʜᴀʀᴀᴄᴛᴇʀ
+✗⃝${emoj}${prefix}xᴡɪᴋɪᴘᴇᴅɪᴀ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴛʀᴀɴsʟᴀᴛᴇ ᴋᴏᴅᴇ_ɴᴇɢᴀʀᴀ ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xʙʀᴀɪɴʟʏ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɴᴇᴡsɪɴғᴏ
+✗⃝${emoj}${prefix}xᴄɴɴɪɴᴅᴏɴᴇsɪᴀ
+✗⃝${emoj}${prefix}xᴄɴɴɴᴀsɪᴏɴᴀʟ
+✗⃝${emoj}${prefix}xᴄɴɴɪɴᴛᴇʀɴᴀsɪᴏɴᴀʟ
+✗⃝${emoj}${prefix}xɪɴғᴏɢᴇᴍᴘᴀ
+✗⃝${emoj}${prefix}xʟɪʀɪᴋ ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xᴄᴜᴀᴄᴀ ᴅᴀᴇʀᴀʜ
+✗⃝${emoj}${prefix}xᴋᴏᴅᴇᴘᴏs ϙᴜᴇʀʏ
+✗⃝${emoj}${prefix}xɪɴᴅʙᴇᴀsɪsᴡᴀ
+✗⃝${emoj}${prefix}xʜᴏᴀx
+✗⃝${emoj}${prefix}xɴsғᴡᴄʜᴇᴄᴋ
+✗⃝${emoj}${prefix}xᴏᴄʀ
 
 「 Eɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ 」
-✗⃝🌹${prefix}xᴀsᴜᴘᴀɴ
-✗⃝🌹${prefix}xᴡᴀɴᴄᴀᴋ
-✗⃝🌹${prefix}xᴀᴋɪɴᴀᴛᴏʀ
-✗⃝🌹${prefix}xᴄᴀɴᴄᴇʟᴀᴋɪɴᴀᴛᴏʀ
+✗⃝${emoj}${prefix}xᴀsᴜᴘᴀɴ
+✗⃝${emoj}${prefix}xᴡᴀɴᴄᴀᴋ
+✗⃝${emoj}${prefix}xᴀᴋɪɴᴀᴛᴏʀ
+✗⃝${emoj}${prefix}xᴄᴀɴᴄᴇʟᴀᴋɪɴᴀᴛᴏʀ
 
 「 Cʀᴇᴀᴛᴏʀ 」
-✗⃝🌹${prefix}xᴛᴛᴘ ᴛᴇxᴛ
-✗⃝🌹${prefix}xᴛᴛᴘ2 ᴛᴇxᴛ
-✗⃝🌹${prefix}xᴛᴛᴘ3 ᴛᴇxᴛ
-✗⃝🌹${prefix}xᴛᴛᴘ4 ᴛᴇxᴛ
-✗⃝🌹${prefix}xᴀᴛᴛᴘ ᴛᴇxᴛ
-✗⃝🌹${prefix}xsᴍᴏᴊɪ ᴇᴍᴏᴊɪ
-✗⃝🌹${prefix}xғᴀᴋᴇᴅᴏɴᴀʟᴅ ᴛᴇxᴛ
-✗⃝🌹${prefix}xᴋᴛᴘᴍᴀᴋᴇʀ
+✗⃝${emoj}${prefix}xᴛᴛᴘ ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xᴛᴛᴘ2 ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xᴛᴛᴘ3 ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xᴛᴛᴘ4 ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xᴀᴛᴛᴘ ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xsᴍᴏᴊɪ ᴇᴍᴏᴊɪ
+✗⃝${emoj}${prefix}xғᴀᴋᴇᴅᴏɴᴀʟᴅ ᴛᴇxᴛ
+✗⃝${emoj}${prefix}xᴋᴛᴘᴍᴀᴋᴇʀ
 
 「 Pʀɪᴍʙᴏɴ 」
-✗⃝🌹${prefix}xᴀʀᴛɪɴᴀᴍᴀ ɴᴀᴍᴇ
-✗⃝🌹${prefix}xᴊᴏᴅᴏʜ ɴᴀᴍᴇ1 & ɴᴀᴍᴇ2 
-✗⃝🌹${prefix}xᴡᴇᴛᴏɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-✗⃝🌹${prefix}xᴊᴀᴅɪᴀɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-✗⃝🌹${prefix}xᴛᴇʙᴀᴋᴜᴍᴜʀ ɴᴀᴍᴇ
+✗⃝${emoj}${prefix}xᴀʀᴛɪɴᴀᴍᴀ ɴᴀᴍᴇ
+✗⃝${emoj}${prefix}xᴊᴏᴅᴏʜ ɴᴀᴍᴇ1 & ɴᴀᴍᴇ2 
+✗⃝${emoj}${prefix}xᴡᴇᴛᴏɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
+✗⃝${emoj}${prefix}xᴊᴀᴅɪᴀɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
+✗⃝${emoj}${prefix}xᴛᴇʙᴀᴋᴜᴍᴜʀ ɴᴀᴍᴇ
 
 「 Oᴛʜᴇʀ 」
-✗⃝🌹${prefix}xssᴡᴇʙ ʟɪɴᴋ
-✗⃝🌹${prefix}xssᴡᴇʙ2 ʟɪɴᴋ
-✗⃝🌹${prefix}xsʜᴏʀᴛʟɪɴᴋ ʟɪɴᴋ
-✗⃝🌹${prefix}xsᴘᴀᴍsᴍs ɴᴏᴍᴏʀ
+✗⃝${emoj}${prefix}xssᴡᴇʙ ʟɪɴᴋ
+✗⃝${emoj}${prefix}xssᴡᴇʙ2 ʟɪɴᴋ
+✗⃝${emoj}${prefix}xsʜᴏʀᴛʟɪɴᴋ ʟɪɴᴋ
+✗⃝${emoj}${prefix}xsᴘᴀᴍsᴍs ɴᴏᴍᴏʀ
 
 「 Tᴇxᴛ Pʀᴏ Mᴇ 」
-✗⃝🌹${prefix}xʙʟᴀᴄᴋᴘɪɴᴋ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғᴜᴛᴜʀᴇɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴀɴᴅᴡʀɪᴛɪɴɢ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴀɴᴅsᴜᴍᴍᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍᴇᴛᴀʟᴅᴀʀᴋ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴇᴏɴʟɪɢʜᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴏʟᴏɢʀᴀᴘʜɪᴄ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛᴇxᴛ1917 _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍɪɴɪᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴅᴇʟᴜxᴇsɪʟᴠᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴀʟʟᴏᴡᴇᴇɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴊᴏᴋᴇʀʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙᴏᴋᴇʜ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛᴏxɪᴄ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴛʀᴀᴡʙᴇʀʀʏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙᴏx3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʀᴏᴀᴅᴡᴀʀɴɪɴɢ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙʀᴇᴀᴋᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɪᴄᴇᴄᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴜxᴜʀʏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄʟᴏᴜᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴜᴍᴍᴇʀsᴀɴᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴏʀʀᴏʀʙʟᴏᴏᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛʜᴜɴᴅᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍᴀɢᴍᴀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɪᴍᴘʀᴇssɪᴠᴇɢʟɪᴛᴄʜ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғᴏɢɢʏᴡɪɴᴅᴏᴡ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴏɴᴅᴇʀғᴜʟɢʀᴀғғɪᴛɪ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴘᴏʀɴʜᴜʙ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xɢʟɪᴛᴄʜ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴀᴠᴇɴɢᴇʀ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xsᴘᴀᴄᴇ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xɴɪɴᴊᴀʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xʟɪᴏɴʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴡᴏʟғʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xsᴛᴇᴇʟ3ᴅ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴡᴀʟʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴄᴏᴏʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xʙʟᴀᴄᴋᴘɪɴᴋ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴇᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғᴜᴛᴜʀᴇɴᴇᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴀɴᴅᴡʀɪᴛɪɴɢ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴀɴᴅsᴜᴍᴍᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍᴇᴛᴀʟᴅᴀʀᴋ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴇᴏɴʟɪɢʜᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴏʟᴏɢʀᴀᴘʜɪᴄ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛᴇxᴛ1917 _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍɪɴɪᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴅᴇʟᴜxᴇsɪʟᴠᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴀʟʟᴏᴡᴇᴇɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴊᴏᴋᴇʀʟᴏɢᴏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙᴏᴋᴇʜ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛᴏxɪᴄ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴛʀᴀᴡʙᴇʀʀʏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙᴏx3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʀᴏᴀᴅᴡᴀʀɴɪɴɢ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙʀᴇᴀᴋᴡᴀʟʟ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɪᴄᴇᴄᴏʟᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴜxᴜʀʏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄʟᴏᴜᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀsᴀɴᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴏʀʀᴏʀʙʟᴏᴏᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛʜᴜɴᴅᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍᴀɢᴍᴀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɪᴍᴘʀᴇssɪᴠᴇɢʟɪᴛᴄʜ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғᴏɢɢʏᴡɪɴᴅᴏᴡ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴏɴᴅᴇʀғᴜʟɢʀᴀғғɪᴛɪ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴘᴏʀɴʜᴜʙ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xɢʟɪᴛᴄʜ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴀᴠᴇɴɢᴇʀ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xsᴘᴀᴄᴇ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xɴɪɴᴊᴀʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xʟɪᴏɴʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴡᴏʟғʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xsᴛᴇᴇʟ3ᴅ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴡᴀʟʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴄᴏᴏʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
 
 「 Pʜᴏᴛᴏ Oxʏ 」
-✗⃝🌹${prefix}xsʜᴀᴅᴏᴡ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴜᴘ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴜᴘ1 _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʀᴏᴍᴀɴᴄᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴍᴏᴋᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙᴜʀɴᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴏᴠᴇᴍᴇssᴀɢᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴜɴᴅᴇʀɢʀᴀss _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴏᴠᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴏғғᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴏᴏᴅʜᴇᴀʀᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴏᴏᴅᴇɴʙᴏᴀʀᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴜᴍᴍᴇʀ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴏʟғᴍᴇᴛᴀʟ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴀᴛᴜʀᴇ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴜɴᴅᴇʀᴡᴀᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢᴏʟᴅᴇʀʀᴏsᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴜᴍᴍᴇʀɴᴀᴛᴜʀᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғᴀʟʟʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғʟᴀᴍᴍɪɴɢ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴀʀᴠᴇᴅᴡᴏᴏᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛɪᴋᴛᴏᴋ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴀʀᴄᴀᴅᴇ8ʙɪᴛ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xʙᴀᴛᴛʟᴇғɪᴇʟᴅ4 ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝🌹${prefix}xᴘᴜʙɢ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xsʜᴀᴅᴏᴡ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄᴜᴘ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄᴜᴘ1 _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʀᴏᴍᴀɴᴄᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴍᴏᴋᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙᴜʀɴᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴏᴠᴇᴍᴇssᴀɢᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴜɴᴅᴇʀɢʀᴀss _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴏᴠᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄᴏғғᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴏᴏᴅʜᴇᴀʀᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴏᴏᴅᴇɴʙᴏᴀʀᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴏʟғᴍᴇᴛᴀʟ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴀᴛᴜʀᴇ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴜɴᴅᴇʀᴡᴀᴛᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢᴏʟᴅᴇʀʀᴏsᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀɴᴀᴛᴜʀᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғᴀʟʟʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғʟᴀᴍᴍɪɴɢ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄᴀʀᴠᴇᴅᴡᴏᴏᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴀʀᴄᴀᴅᴇ8ʙɪᴛ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xʙᴀᴛᴛʟᴇғɪᴇʟᴅ4 ᴛᴇxᴛ1 ᴛᴇxᴛ2
+✗⃝${emoj}${prefix}xᴘᴜʙɢ ᴛᴇxᴛ1 ᴛᴇxᴛ2
 
 「 Eᴘʜᴏᴛᴏ 360 」
-✗⃝🌹${prefix}xᴡᴇᴛɢʟᴀss _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍᴜʟᴛɪᴄᴏʟᴏʀ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴜxᴜʀʏɢᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢᴀʟᴀxʏᴡᴀʟʟᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟɪɢʜᴛᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙᴇᴀᴜᴛɪғᴜʟғʟᴏᴡᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴘᴜᴘᴘʏᴄᴜᴛᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʀᴏʏᴀʟᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴇᴀʀᴛsʜᴀᴘᴇᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙɪʀᴛʜᴅᴀʏᴄᴀᴋᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢᴀʟᴀxʏsᴛʏʟᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʜᴏʟᴏɢʀᴀᴍ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢʟᴏssʏᴄʜʀᴏᴍᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢʀᴇᴇɴʙᴜsʜ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍᴇᴛᴀʟʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɴᴏᴇʟᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢʟɪᴛᴛᴇʀɢᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛᴇxᴛᴄᴀᴋᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsᴛᴀʀsɴɪɢʜᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡᴏᴏᴅᴇɴ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴛᴇxᴛʙʏɴᴀᴍᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴡʀɪᴛᴇɢᴀʟᴀᴄʏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢᴀʟᴀxʏʙᴀᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsɴᴏᴡ3ᴅ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʙɪʀᴛʜᴅᴀʏᴅᴀʏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴀᴏᴠᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴏɢᴏɢᴀᴍɪɴɢ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xғᴘsʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴀᴠᴀᴛᴀʀʟᴏʟɴᴇᴡ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xʟᴏʟʙᴀɴɴᴇʀ _ᴛᴇxᴛ_
-✗⃝🌹${prefix}xᴀᴠᴀᴛᴀʀᴅᴏᴛᴀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴇᴛɢʟᴀss _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍᴜʟᴛɪᴄᴏʟᴏʀ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴜxᴜʀʏɢᴏʟᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢᴀʟᴀxʏᴡᴀʟʟᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟɪɢʜᴛᴛᴇxᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙᴇᴀᴜᴛɪғᴜʟғʟᴏᴡᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴘᴜᴘᴘʏᴄᴜᴛᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʀᴏʏᴀʟᴛᴇxᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴇᴀʀᴛsʜᴀᴘᴇᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙɪʀᴛʜᴅᴀʏᴄᴀᴋᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢᴀʟᴀxʏsᴛʏʟᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʜᴏʟᴏɢʀᴀᴍ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢʟᴏssʏᴄʜʀᴏᴍᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢʀᴇᴇɴʙᴜsʜ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍᴇᴛᴀʟʟᴏɢᴏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɴᴏᴇʟᴛᴇxᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢʟɪᴛᴛᴇʀɢᴏʟᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛᴇxᴛᴄᴀᴋᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsᴛᴀʀsɴɪɢʜᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡᴏᴏᴅᴇɴ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴛᴇxᴛʙʏɴᴀᴍᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴡʀɪᴛᴇɢᴀʟᴀᴄʏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢᴀʟᴀxʏʙᴀᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsɴᴏᴡ3ᴅ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʙɪʀᴛʜᴅᴀʏᴅᴀʏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴀᴏᴠᴡᴀʟʟ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴏɢᴏɢᴀᴍɪɴɢ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xғᴘsʟᴏɢᴏ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴀᴠᴀᴛᴀʀʟᴏʟɴᴇᴡ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xʟᴏʟʙᴀɴɴᴇʀ _ᴛᴇxᴛ_
+✗⃝${emoj}${prefix}xᴀᴠᴀᴛᴀʀᴅᴏᴛᴀ _ᴛᴇxᴛ_
 
 「 Rᴀɴᴅᴏᴍ Iᴍᴀɢᴇ 」
-✗⃝🌹${prefix}xʙᴊ
-✗⃝🌹${prefix}xᴇʀᴏ
-✗⃝🌹${prefix}xᴄᴜᴍ
-✗⃝🌹${prefix}xʟᴇs
-✗⃝🌹${prefix}xɴᴇᴋᴏ
-✗⃝🌹${prefix}xғᴇᴇᴛ
-✗⃝🌹${prefix}xʏᴜʀɪ
-✗⃝🌹${prefix}xᴛʀᴀᴘ
-✗⃝🌹${prefix}xɴɢɪғ
-✗⃝🌹${prefix}xʟᴇᴡᴅ
-✗⃝🌹${prefix}xғᴇᴇᴅ
-✗⃝🌹${prefix}xᴇʀᴏɴ
-✗⃝🌹${prefix}xsᴏʟᴏ
-✗⃝🌹${prefix}xɢᴀsᴍ
-✗⃝🌹${prefix}xᴘᴏᴋᴇ
-✗⃝🌹${prefix}xᴀɴᴀʟ
-✗⃝🌹${prefix}xʜᴏʟᴏ
-✗⃝🌹${prefix}xᴋᴇᴛᴀ
-✗⃝🌹${prefix}xᴛɪᴛs
-✗⃝🌹${prefix}xᴋᴜɴɪ
-✗⃝🌹${prefix}xᴋɪss
-✗⃝🌹${prefix}xᴇʀᴏᴋ
-✗⃝🌹${prefix}xsᴍᴜɢ
-✗⃝🌹${prefix}xʙᴀᴋᴀ
-✗⃝🌹${prefix}xsᴏʟᴏɢ
-✗⃝🌹${prefix}xғᴇᴇᴛɢ
-✗⃝🌹${prefix}xʟᴇᴡᴅᴋ
-✗⃝🌹${prefix}xᴡᴀɪғᴜ
-✗⃝🌹${prefix}xᴘᴜssʏ
-✗⃝🌹${prefix}xᴛɪᴄᴋʟᴇ
-✗⃝🌹${prefix}xғᴇᴍᴅᴏᴍ
-✗⃝🌹${prefix}xᴄᴜᴅᴅʟᴇ
-✗⃝🌹${prefix}xʜᴇɴᴛᴀɪ
-✗⃝🌹${prefix}xᴇʀᴏʏᴜʀɪ
-✗⃝🌹${prefix}xᴄᴜᴍ_ᴊᴘɢ
-✗⃝🌹${prefix}xʙʟᴏᴡᴊᴏʙ
-✗⃝🌹${prefix}xᴇʀᴏғᴇᴇᴛ
-✗⃝🌹${prefix}xʜᴏʟᴏᴇʀᴏ
-✗⃝🌹${prefix}xᴄʟᴀssɪᴄ
-✗⃝🌹${prefix}xᴇʀᴏᴋᴇᴍᴏ
-✗⃝🌹${prefix}xғᴏx_ɢɪʀʟ
-✗⃝🌹${prefix}xғᴜᴛᴀɴᴀʀɪ
-✗⃝🌹${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-✗⃝🌹${prefix}xʟᴇᴡᴅᴋᴇᴍᴏ
-✗⃝🌹${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀ
-✗⃝🌹${prefix}xᴘᴜssʏ_ᴊᴘɢ
-✗⃝🌹${prefix}xᴋᴇᴍᴏɴᴏᴍɪᴍɪ
-✗⃝🌹${prefix}xɴsғᴡ_ᴀᴠᴀᴛᴀʀ
-✗⃝🌹${prefix}xɴsғᴡ_ɴᴇᴋᴏ_ɢɪғ
-✗⃝🌹${prefix}xʀᴀɴᴅᴏᴍ_ʜᴇɴᴛᴀɪ_ɢɪғ
+✗⃝${emoj}${prefix}xʙᴊ
+✗⃝${emoj}${prefix}xᴇʀᴏ
+✗⃝${emoj}${prefix}xᴄᴜᴍ
+✗⃝${emoj}${prefix}xʟᴇs
+✗⃝${emoj}${prefix}xɴᴇᴋᴏ
+✗⃝${emoj}${prefix}xғᴇᴇᴛ
+✗⃝${emoj}${prefix}xʏᴜʀɪ
+✗⃝${emoj}${prefix}xᴛʀᴀᴘ
+✗⃝${emoj}${prefix}xɴɢɪғ
+✗⃝${emoj}${prefix}xʟᴇᴡᴅ
+✗⃝${emoj}${prefix}xғᴇᴇᴅ
+✗⃝${emoj}${prefix}xᴇʀᴏɴ
+✗⃝${emoj}${prefix}xsᴏʟᴏ
+✗⃝${emoj}${prefix}xɢᴀsᴍ
+✗⃝${emoj}${prefix}xᴘᴏᴋᴇ
+✗⃝${emoj}${prefix}xᴀɴᴀʟ
+✗⃝${emoj}${prefix}xʜᴏʟᴏ
+✗⃝${emoj}${prefix}xᴋᴇᴛᴀ
+✗⃝${emoj}${prefix}xᴛɪᴛs
+✗⃝${emoj}${prefix}xᴋᴜɴɪ
+✗⃝${emoj}${prefix}xᴋɪss
+✗⃝${emoj}${prefix}xᴇʀᴏᴋ
+✗⃝${emoj}${prefix}xsᴍᴜɢ
+✗⃝${emoj}${prefix}xʙᴀᴋᴀ
+✗⃝${emoj}${prefix}xsᴏʟᴏɢ
+✗⃝${emoj}${prefix}xғᴇᴇᴛɢ
+✗⃝${emoj}${prefix}xʟᴇᴡᴅᴋ
+✗⃝${emoj}${prefix}xᴡᴀɪғᴜ
+✗⃝${emoj}${prefix}xᴘᴜssʏ
+✗⃝${emoj}${prefix}xᴛɪᴄᴋʟᴇ
+✗⃝${emoj}${prefix}xғᴇᴍᴅᴏᴍ
+✗⃝${emoj}${prefix}xᴄᴜᴅᴅʟᴇ
+✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ
+✗⃝${emoj}${prefix}xᴇʀᴏʏᴜʀɪ
+✗⃝${emoj}${prefix}xᴄᴜᴍ_ᴊᴘɢ
+✗⃝${emoj}${prefix}xʙʟᴏᴡᴊᴏʙ
+✗⃝${emoj}${prefix}xᴇʀᴏғᴇᴇᴛ
+✗⃝${emoj}${prefix}xʜᴏʟᴏᴇʀᴏ
+✗⃝${emoj}${prefix}xᴄʟᴀssɪᴄ
+✗⃝${emoj}${prefix}xᴇʀᴏᴋᴇᴍᴏ
+✗⃝${emoj}${prefix}xғᴏx_ɢɪʀʟ
+✗⃝${emoj}${prefix}xғᴜᴛᴀɴᴀʀɪ
+✗⃝${emoj}${prefix}xʜᴏʟᴏʟᴇᴡᴅ
+✗⃝${emoj}${prefix}xʟᴇᴡᴅᴋᴇᴍᴏ
+✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀ
+✗⃝${emoj}${prefix}xᴘᴜssʏ_ᴊᴘɢ
+✗⃝${emoj}${prefix}xᴋᴇᴍᴏɴᴏᴍɪᴍɪ
+✗⃝${emoj}${prefix}xɴsғᴡ_ᴀᴠᴀᴛᴀʀ
+✗⃝${emoj}${prefix}xɴsғᴡ_ɴᴇᴋᴏ_ɢɪғ
+✗⃝${emoj}${prefix}xʀᴀɴᴅᴏᴍ_ʜᴇɴᴛᴀɪ_ɢɪғ
 
 「 Rᴀɴᴅᴏᴍ NSFW 」
-✗⃝🌹${prefix}xɴᴇᴋᴏ
-✗⃝🌹${prefix}xᴡᴀɪғᴜ
-✗⃝🌹${prefix}xʟᴏʟɪ
-✗⃝🌹${prefix}xᴄʜɪɪsᴀɪʜᴇɴᴛᴀɪ
-✗⃝🌹${prefix}xᴛʀᴀᴘ
-✗⃝🌹${prefix}xʙʟᴏᴡᴊᴏʙ
-✗⃝🌹${prefix}xʏᴀᴏɪ
-✗⃝🌹${prefix}xᴇᴄᴄʜɪ
-✗⃝🌹${prefix}xʜᴇɴᴛᴀɪ
-✗⃝🌹${prefix}xᴀʜᴇɢᴀᴏ
-✗⃝🌹${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-✗⃝🌹${prefix}xsɪᴅᴇᴏᴘᴘᴀɪ
-✗⃝🌹${prefix}xᴀɴɪᴍᴇғᴇᴇᴛs
-✗⃝🌹${prefix}xᴀɴɪᴍᴇʙᴏᴏᴛʏ
-✗⃝🌹${prefix}xᴀɴɪᴍᴇᴛʜɪɢʜss
-✗⃝🌹${prefix}xʜᴇɴᴛᴀɪᴘᴀʀᴀᴅɪsᴇ
-✗⃝🌹${prefix}xᴀɴɪᴍᴇᴀʀᴍᴘɪᴛs
-✗⃝🌹${prefix}xʜᴇɴᴛᴀɪғᴇᴍᴅᴏᴍ
-✗⃝🌹${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
-✗⃝🌹${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
-✗⃝🌹${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
+✗⃝${emoj}${prefix}xɴᴇᴋᴏ
+✗⃝${emoj}${prefix}xᴡᴀɪғᴜ
+✗⃝${emoj}${prefix}xʟᴏʟɪ
+✗⃝${emoj}${prefix}xᴄʜɪɪsᴀɪʜᴇɴᴛᴀɪ
+✗⃝${emoj}${prefix}xᴛʀᴀᴘ
+✗⃝${emoj}${prefix}xʙʟᴏᴡᴊᴏʙ
+✗⃝${emoj}${prefix}xʏᴀᴏɪ
+✗⃝${emoj}${prefix}xᴇᴄᴄʜɪ
+✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ
+✗⃝${emoj}${prefix}xᴀʜᴇɢᴀᴏ
+✗⃝${emoj}${prefix}xʜᴏʟᴏʟᴇᴡᴅ
+✗⃝${emoj}${prefix}xsɪᴅᴇᴏᴘᴘᴀɪ
+✗⃝${emoj}${prefix}xᴀɴɪᴍᴇғᴇᴇᴛs
+✗⃝${emoj}${prefix}xᴀɴɪᴍᴇʙᴏᴏᴛʏ
+✗⃝${emoj}${prefix}xᴀɴɪᴍᴇᴛʜɪɢʜss
+✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪᴘᴀʀᴀᴅɪsᴇ
+✗⃝${emoj}${prefix}xᴀɴɪᴍᴇᴀʀᴍᴘɪᴛs
+✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪғᴇᴍᴅᴏᴍ
+✗⃝${emoj}${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
+✗⃝${emoj}${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
+✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
 ╰───「 X ᴍᴇɴᴜ 」`
 but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
-sendButton(from, x_menus, `${botname}`, but, mek)
+sendButton(from, x_menus, `${botname}`, but, fgclink)
 
 }
 
@@ -16788,23 +16765,24 @@ if (subscribezeeoneofc == 'random_list') {
 rlist_1 = `${ucapannya2}
 *List Command*
 
-✗⃝🌹 ${prefix}ajg
-✗⃝🌹 ${prefix}fact
-✗⃝🌹 ${prefix}gender
-✗⃝🌹 ${prefix}umur
-✗⃝🌹 ${prefix}bucin2
-✗⃝🌹 ${prefix}cehor
-✗⃝🌹 ${prefix}darkjoke2
-✗⃝🌹 ${prefix}fakta
-✗⃝🌹 ${prefix}husbu2
-✗⃝🌹 ${prefix}katabijak
-✗⃝🌹 ${prefix}kemono
-✗⃝🌹 ${prefix}loli2
-✗⃝🌹 ${prefix}motivasi
-✗⃝🌹 ${prefix}neko2
-✗⃝🌹 ${prefix}pantun
-✗⃝🌹 ${prefix}shota
-✗⃝🌹 ${prefix}wallanime`
+✗⃝${emoj} ${prefix}ajg
+✗⃝${emoj} ${prefix}fact
+✗⃝${emoj} ${prefix}gender
+✗⃝${emoj} ${prefix}umur
+✗⃝${emoj} ${prefix}bucin2
+✗⃝${emoj} ${prefix}cehor
+✗⃝${emoj} ${prefix}darkjoke2
+✗⃝${emoj} ${prefix}fakta
+✗⃝${emoj} ${prefix}husbu2
+✗⃝${emoj} ${prefix}katabijak
+✗⃝${emoj} ${prefix}kemono
+✗⃝${emoj} ${prefix}loli2
+✗⃝${emoj} ${prefix}motivasi
+✗⃝${emoj} ${prefix}neko2
+✗⃝${emoj} ${prefix}pantun
+✗⃝${emoj} ${prefix}shota
+✗⃝${emoj} ${prefix}wallanime`
+
 reply2(rlist_1)
 }
 
@@ -16931,7 +16909,7 @@ headerType: 1
 }
 alpha.sendMessage(from, buttonMessagee, MessageType.buttonsMessage,{
 "contextInfo": {
-"forwardingScore": 1000000000,isForwarded: true,
+"forwardingScore": 999,isForwarded: true,
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -16963,7 +16941,7 @@ addBalance(sender, ran_blc, balance)
 addLevelingId(sender)
 sn_ = await fetchJson('https://api.caranya.my.id/gen-password')
 fs.writeFileSync('./database/user/register.json', JSON.stringify(register))
-teks = `╭─⋆⸙ *Verification* ⋆⸙\n│📛 *Nama :* ${pushname}\n│#️⃣ *Nomor :* @${sender.split('@')[0]}\n│💌 *Bio :* ${bio_user}\n│🔑 *SN :* ${sn_.medium}\n│⏰ *Time :* ${wib} Wib\n╰⋆⸙ *Success*`
+teks = `╭────⋆⸙ *VERIFIED* ⸙⋆────╮\n│📛 *Nama :* ${pushname}\n│#️⃣ *Nomor :* @${sender.split('@')[0]}\n│💌 *Bio :* ${bio_user}\n│🔑 *SN :* ${sn_.medium}\n│⏰ *Time :* ${wib} Wib\n╰────⋆⸙ *SUCCES* ⸙⋆────╯`
 let papako = [{
 "buttonId": `menu`,
 "buttonText": {
