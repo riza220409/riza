@@ -169,6 +169,12 @@ const tebakkata = JSON.parse(fs.readFileSync('./game/tebakkata.json'))
 const tebakkimia = JSON.parse(fs.readFileSync('./game/tebakkimia.json'))
 const tebaklirik = JSON.parse(fs.readFileSync('./game/tebaklirik.json'))
 const tebakbendera = JSON.parse(fs.readFileSync('./game/tebakbendera.json'))
+const tebakaplikasi = JSON.parse(fs.readFileSync('./game/tebakaplikasi.json'))
+const tebakgabut = JSON.parse(fs.readFileSync('./game/tebakgabut.json'))
+const tebakkabupaten = JSON.parse(fs.readFileSync('./game/tebakkabupaten.json'))
+const tebaklucu = JSON.parse(fs.readFileSync('./game/tebaklucu.json'))
+const tebaklagu = JSON.parse(fs.readFileSync('./game/tebaklagu.json'))
+const teswibu = JSON.parse(fs.readFileSync('./game/teswibu.json'))
 
 // END
 const akinator = JSON.parse(fs.readFileSync('./src/akinator.json'))
@@ -497,6 +503,7 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
 "sections": list}}, {quoted: fgclink})
             return alpha.relayWAMessage(po, {waitForAck: true})
         }
+
 
 const sendButtDoc = (from, titel2) => {
 const mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/zip","application/pdf"]
@@ -3328,6 +3335,32 @@ fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
 // reply
 }
 
+// TEBAKKABUPATEN
+if (tebakkabupaten.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = tebakkabupaten[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var htbr0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var htbr1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+htbr1_ = {
+contentText: htbr0,
+footerText: `${tampilTanggal}`,
+buttons: htbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakkabupaten[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkabupaten.json", JSON.stringify(tebakkabupaten))
+}
+// reply
+}
+
 // RECAPTCHA
 if (recaptcha.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
 jawaban = recaptcha[sender.split('@')[0]]
@@ -3353,6 +3386,137 @@ fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
 }
 // reply
 }
+
+// TEBAKAPLIKASI
+if (tebakaplikasi.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = tebakaplikasi[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var htbr0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var htbr1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+htbr1_ = {
+contentText: htbr0,
+footerText: `${tampilTanggal}`,
+buttons: htbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakaplikasi[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakaplikasi.json", JSON.stringify(tebakaplikasi))
+}
+// reply
+}
+
+// TEBAKGABUT
+if (tebakgabut.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = tebakgabut[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var tgbt0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var tgbt1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+tgbt1_ = {
+contentText: tgbt0,
+footerText: `${tampilTanggal}`,
+buttons: tgbt1,
+headerType: 1
+}
+alpha.sendMessage(from, tgbt1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebakgabut[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgabut.json", JSON.stringify(tebakgabut))
+}
+// reply
+}
+
+// TEBAKLAGU
+if (tebaklagu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = tebaklagu[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var htbr0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var htbr1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+htbr1_ = {
+contentText: htbr0,
+footerText: `${tampilTanggal}`,
+buttons: htbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebaklagu[sender.split('@')[0]]
+fs.writeFileSync("./game/tebaklagu.json", JSON.stringify(tebaklagu))
+}
+// reply
+}
+
+// TEBAKLUCU
+if (tebaklucu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = tebaklucu[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var htbr0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var htbr1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+htbr1_ = {
+contentText: htbr0,
+footerText: `${tampilTanggal}`,
+buttons: htbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete tebaklucu[sender.split('@')[0]]
+fs.writeFileSync("./game/tebaklucu.json", JSON.stringify(tebaklucu))
+}
+// reply
+}
+
+// TESWIBU
+if (teswibu.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+jawaban = teswibu[sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+var htbr0 = `☑️ *Jawaban Benar*\nOleh @${sender.split("@")[0]} Selamat ya kak 🐦`
+var htbr1 = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 Game List'}, type: 1}
+]
+htbr1_ = {
+contentText: htbr0,
+footerText: `${tampilTanggal}`,
+buttons: htbr1,
+headerType: 1
+}
+alpha.sendMessage(from, htbr1_, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+delete teswibu[sender.split('@')[0]]
+fs.writeFileSync("./game/teswibu.json", JSON.stringify(teswibu))
+}
+// reply
+}
+
 ///function
 //========================================================================================================================//
 colors = ['red', 'white', 'black', 'blue', 'yellow', 'green']
@@ -8119,6 +8283,163 @@ alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration:
 fs.unlinkSync(ran)
 	})
 break
+
+case 'bazz':
+encvoice_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice_ = await alpha.downloadAndSaveMediaMessage(encvoice_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice_} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'blown':
+encvoice1_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice1_ = await alpha.downloadAndSaveMediaMessage(encvoice1_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice1_} -af acrusher=.1:1:64:0:log ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice1_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'deep':
+encvoice2_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice2_ = await alpha.downloadAndSaveMediaMessage(encvoice2_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice2_} -af atempo=4/4,asetrate=44500*2/3 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice2_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'earrape':
+encvoice3_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice3_ = await alpha.downloadAndSaveMediaMessage(encvoice3_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice3_} -af volume=12 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice3_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'fast':
+encvoice4_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice4_ = await alpha.downloadAndSaveMediaMessage(encvoice4_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice4_} -filter:a "atempo=1.63,asetrate=44100 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice4_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'fat':
+encvoice5_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice5_ = await alpha.downloadAndSaveMediaMessage(encvoice5_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice5_} -filter:a "atempo=1.6,asetrate=2210 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice5_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'nightcore':
+encvoice6_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice6_ = await alpha.downloadAndSaveMediaMessage(encvoice6_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice6_} -filter:a atempo=1.06,asetrate=44100*1.25 ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice6_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'reverse':
+encvoice7_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice7_ = await alpha.downloadAndSaveMediaMessage(encvoice7_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice7_} -filter_complex "areverse" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice7_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'robot':
+encvoice8_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice8_ = await alpha.downloadAndSaveMediaMessage(encvoice8_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice8_} -filter_complex "afftfilt=real=\'hypot(re,im)*sin(0)\':imag=\'hypot(re,im)*cos(0)\':win_size=512:overlap=0.75" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice8_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'slow':
+encvoice9_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice9_ = await alpha.downloadAndSaveMediaMessage(encvoice9_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice9_} -filter:a "atempo=0.7,asetrate=44100" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice9_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'smooth':
+encvoice10_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice10_ = await alpha.downloadAndSaveMediaMessage(encvoice10_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice10_} -filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice10_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
+case 'chipmunk':
+encvoice11_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	voice11_ = await alpha.downloadAndSaveMediaMessage(encvoice11_)
+	ran = getRandom('.mp3')
+	exec(`ffmpeg -i ${voice11_} -filter:a "atempo=0.5,asetrate=65100" ${ran}`, (err, stderr, stdout) => {
+fs.unlinkSync(voice11_)
+if (err) return reply('Error!')
+hah = fs.readFileSync(ran)
+alpha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, duration: 444441600, quoted:mek})
+fs.unlinkSync(ran)
+	})
+break
+
 case 'bass':                 
               
 					encmediao = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -8220,6 +8541,41 @@ headerType: 1
 alpha.sendMessage(from, ramdom_3, MessageType.buttonsMessage,{
 "contextInfo": {
 "forwardingScore": 999,isForwarded: true,
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+break
+
+case 'randomimage':
+pilih_dulu = "cosplay, husbu, loli, milf, neko, nekonime, shota, waifu"
+if(!q) return reply2(`🏷️Hint : ${prefix + command} ${pilih_dulu}`)
+let rimg_1 = await getBuffer(`https://kuontol-api.herokuapp.com/api/randomimage/${q}`);
+const rimg_3 = await alpha.prepareMessage(from, rimg_1, MessageType.image, { thumbnail:thumb_pro})
+let rimg_2 = rimg_3.message["ephemeralMessage"] ? rimg_3.message.ephemeralMessage : rimg_3
+
+rimg_5 =` *@${sender.split("@")[0]}* Dah selesai`
+const rimg_6 = [
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
+]
+
+const rimg_7 = {
+contentText: rimg_5 ,
+footerText: `${footerr}${enter}${tampilWaktu}`,
+buttons: rimg_6,
+headerType: 4,
+imageMessage: rimg_2.message.imageMessage
+}
+
+alpha.sendMessage(from, rimg_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_pro},
 "mentionedJid" : [sender]},
 quoted: fgclink, sendEphemeral: true
 })
@@ -12631,6 +12987,91 @@ fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
 }
 break
 
+case 'tebakgabut':
+if (tebakgabut.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tgbt_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebakgabut`);
+soal = tgbt_.soal
+jawaban = tgbt_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakgabut[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakgabut.json", JSON.stringify(tebakgabut))
+console.log(jawaban)
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+
+await sleep(`${waktu_game}`)
+if (tebakgabut.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+
+delete tebakgabut[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakgabut.json", JSON.stringify(tebakgabut))
+}
+break
+
+case 'tebaklucu':
+if (tebaklucu.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tblc_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebaktebaklucu`);
+soal = tblc_.soal
+jawaban = tblc_.jawaban
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebaklucu[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebaklucu.json", JSON.stringify(tebaklucu))
+console.log(jawaban)
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+
+await sleep(`${waktu_game}`)
+if (tebaklucu.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+
+delete tebaklucu[sender.split('@')[0]]
+fs.writeFileSync("./game/tebaklucu.json", JSON.stringify(tebaklucu))
+}
+break
+
+case 'teswibu':
+if (teswibu.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+twb_ = await fetchJson(`https://velgrynd.herokuapp.com/api/teswibu`);
+soal = twb_.pertanyaan
+ja = twb_.jawaban
+jawaban = ja[Math.floor(Math.random() * ja.length)]
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+teswibu[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/teswibu.json", JSON.stringify(teswibu))
+console.log(jawaban)
+but = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+await sleep(`${waktu_game}`)
+if (teswibu.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+delete teswibu[sender.split('@')[0]]
+fs.writeFileSync("./game/teswibu.json", JSON.stringify(teswibu))
+}
+break
+
+
+
 //LIST───────[ API SOME RANDOM
 case 'blue':
 // case 'blur':
@@ -14121,10 +14562,12 @@ break
 
 case 'tebakbendera':
 if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbra_ = await fetchJson(`http://api.zekais.com/randomcountry?apikey=CsapIPYk`);
-let tbra_1 = await getBuffer(tbra_.result.flag);
-clu = tbra_.result.alpha_code
-jawaban = tbra_.result.name
+tbra_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebakbendera`)
+ben = tbra_.bendera
+jawaban = tbra_.nama
+bng = await fetchJson(`https://api.lolhuman.xyz/api/smoji3/${encodeURI(ben)}?apikey=${lolkey}`)
+bg = bng.result.emoji.whatsapp
+let tbra_1 = await getBuffer(bg);
 clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
 tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
 fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
@@ -14132,7 +14575,7 @@ console.log(jawaban)
 const tbra_3 = await alpha.prepareMessage(from, tbra_1, MessageType.image, { thumbnail:thumb_flag})
 let tbra_2 = tbra_3.message["ephemeralMessage"] ? tbra_3.message.ephemeralMessage : tbra_3
 
-tbra_5 =`*Clue :* ${clu}\nCoba tebak 🙂`
+tbra_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
 const tbra_6 = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
@@ -14167,6 +14610,57 @@ sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${w
 
 delete tebakbendera[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
+}
+break
+
+case 'tebakkabupaten':
+if (tebakkabupaten.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tkab_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebakkabupaten`)
+bg = tkab_.image
+jawaban = tkab_.jawaban
+let tkab_1 = await getBuffer(bg);
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakkabupaten[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakkabupaten.json", JSON.stringify(tebakkabupaten))
+console.log(jawaban)
+const tkab_3 = await alpha.prepareMessage(from, tkab_1, MessageType.image, { thumbnail:thumb_flag})
+let tkab_2 = tkab_3.message["ephemeralMessage"] ? tkab_3.message.ephemeralMessage : tkab_3
+
+tkab_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
+const tkab_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tkab_7 = {
+contentText: tkab_5 ,
+footerText: `Waktu ${waktu_game}ms`,
+buttons: tkab_6,
+headerType: 4,
+imageMessage: tkab_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tkab_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_flag},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(`${waktu_game}`)
+if (tebakkabupaten.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+
+delete tebakkabupaten[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakkabupaten.json", JSON.stringify(tebakkabupaten))
 }
 break
 
@@ -14282,6 +14776,83 @@ fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 }
 break
 
+case 'tebakaplikasi':
+if (tebakaplikasi.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tapp_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebakaplikasi`)
+app = tapp_.image
+jawaban = tapp_.jawaban
+let tapp_1 = await getBuffer(app);
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebakbendera[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
+console.log(jawaban)
+const tapp_3 = await alpha.prepareMessage(from, tapp_1, MessageType.image, { thumbnail:thumb_flag})
+let tapp_2 = tapp_3.message["ephemeralMessage"] ? tapp_3.message.ephemeralMessage : tapp_3
+
+tapp_5 =`*Clue :* ${clue}\nCoba tebak 🙂`
+const tapp_6 = [
+{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+]
+
+const tapp_7 = {
+contentText: tapp_5 ,
+footerText: `Waktu ${waktu_game}ms`,
+buttons: tapp_6,
+headerType: 4,
+imageMessage: tapp_2.message.imageMessage
+}
+
+alpha.sendMessage(from, tapp_7, MessageType.buttonsMessage,{
+"contextInfo": {
+"forwardingScore": 999,isForwarded: true,
+"externalAdReply": {
+"title": `${ucapannya2}` ,
+"body": `${botname}`,
+"sourceUrl": apiku,
+"thumbnail": thumb_flag},
+"mentionedJid" : [sender]},
+quoted: fgclink, sendEphemeral: true
+})
+await sleep(`${waktu_game}`)
+if (tebakaplikasi.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+
+delete tebakaplikasi[sender.split('@')[0]]
+fs.writeFileSync("./game/tebakaplikasi.json", JSON.stringify(tebakaplikasi))
+}
+break
+
+case 'tebaklagu':
+if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
+tgu_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebaklagu`);
+let lgu = tgu_.lagu
+soal = tgu_.artis
+jawaban = tgu_.judul
+clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
+tebaklagu[sender.split('@')[0]] = jawaban.toLowerCase()
+fs.writeFileSync("./game/tebaklagu.json", JSON.stringify(tebaklagu))
+console.log(jawaban)
+song_nya = await getBuffer(`${lgu}`)
+alpha.sendMessage(from, song_nya, MessageType.audio, {quoted: fgclink, mimetype: 'audio/mp4', ptt:true, duration: 444441600})
+reply2(clue)
+await sleep(`${waktu_game}`)
+if (tebaklagu.hasOwnProperty(sender.split('@')[0]))  {
+but = [
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
+]
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
+
+delete tebaklagu[sender.split('@')[0]]
+fs.writeFileSync("./game/tebaklagu.json", JSON.stringify(tebaklagu))
+}
+break
 //───────────────[ FITUR MAKER ]───────────────//
 
 case 'wanted':
@@ -15933,7 +16504,7 @@ break
 
 case 'tebakjenaka':
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tjk_ = await fetchJson(`https://janbot-api.herokuapp.com/api/kuis/tebakjenaka`);
+tjk_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/tebakjenaka`);
 soal = tjk_.pertanyaan
 jawaban = tjk_.jawaban
 clue = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '⎵')
@@ -16134,6 +16705,59 @@ list = []
                listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
                break
 
+case '3d-nature':
+case '3d-summer':
+case '3d-wooden':
+case 'between':
+case 'burn-paper':
+case 'butterfly':
+case 'cemetery':
+case 'coffe-cup-2':
+case 'coffe-cup':
+case 'crisp-chrome':
+case 'crossfire':
+case 'cup':
+case 'dark-metal':
+case 'double-romantic':
+case 'flaming':
+case 'flower-heart':
+case 'funny-cup':
+case 'fur':
+case 'glow-metallic':
+case 'glow-rainbow':
+case 'glowing-neon':
+case 'golden-roses':
+case 'gradient':
+case 'graffiti-cover':
+case 'harrypotter':
+case 'lol-coverglowing':
+case 'lol-pentakill':
+case 'lol-rankboder':
+case 'love-text':
+case 'luxury':
+case 'naruto-banner':
+case 'neon-light':
+case 'night-sky':
+case 'party':
+case 'rainbow-shine':
+case 'romantic':
+case 'shadow':
+case 'silk':
+case 'smoke':
+case 'smoke':
+case 'sweetcandy':
+case 'undergrass':
+case 'underwater':
+case 'waterlemon':
+case 'wolf-metal':
+case 'wood-heart':
+case 'woodblock':
+case 'wooden-boards':
+case 'write-birthday':
+if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+ini_buffer = await getBuffer(`https://kuontol-api.herokuapp.com/api/photooxy/${command}?text=${q}`)
+alpha.sendMessage(from, ini_buffer, image, {quoted: fgclink, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxy_list* untuk melihat menu yang lain`})
+break
 
 
 
@@ -16945,7 +17569,7 @@ fakeitem(teks)
 if (subscribezeeoneofc == "ownerku"){
 console.log(color('[ CMD ]', 'aqua'), 'Ownerbot', color(pushname))
 
-ini_ownerNumber = [`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`]
+ini_ownerNumber = [`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`]
 let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname_ = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
