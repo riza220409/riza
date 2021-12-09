@@ -8207,7 +8207,9 @@ case 'random':
 var ramdom_1 = `${ucapannya2}
 @${sender.split("@")[0]} Silahkan Klik Dibawah \nUntuk Melihat Menu Random`
 var ramdom_2 = [
-{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1}
+{buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 ramdom_3 = {
 contentText: ramdom_1,
@@ -8228,7 +8230,8 @@ case 'xmenu':
 var xmn_1 = `${ucapannya2}
 *@${sender.split("@")[0]}*`
 var xmn_2 = [
-{buttonId: 'x_menu', buttonText: {displayText: '🔥 X Menu'}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 xmn_3 = {
@@ -10607,7 +10610,8 @@ trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to
 res = trsm_.result
 var trsm_1 = `• ${res}`
 var trsm_2 = [
-{buttonId: 'x_menu' , buttonText: {displayText: `⬅️ Menu`}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 trsm_3 = {
@@ -10641,7 +10645,9 @@ qtlc_ = await fetchJson(`https://api.dapuhy.ga/api/fun/quoteslucu?apikey=${dapuh
 var qtlc_1 = `${ucapannya2}
 *${qtlc_.quotes}*`
 var qtlc_2 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 qtlc_3 = {
@@ -10667,7 +10673,9 @@ var crpn_1 = `${ucapannya2}
 
 • *Cerpen :* ${crpn_.cerita}`
 var crpn_2 = [
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 crpn_3 = {
@@ -10689,7 +10697,9 @@ if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Merdeka`)
 jgkt_ = await fetchJson(`https://api.dapuhy.ga/api/fun/jagokata?query=${q}&apikey=${dapuhy}`)
 var jgkt_1 = `• *Result :* ${jgkt_.result}`
 var jgkt_2 = [
-{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command} ${q}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1},
+{buttonId: 'menu_x', buttonText: {displayText: '🔥 Menu X'}, type: 1}
 ]
 
 jgkt_3 = {
@@ -10747,9 +10757,10 @@ await sleep(`${waktu_game}`)
 if (tebakgambar2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakgambar2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
@@ -10775,9 +10786,10 @@ await sleep(`${waktu_game}`)
 if (caklontong.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete caklontong[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
@@ -10800,9 +10812,10 @@ await sleep(`${waktu_game}`)
 if (siapakah.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete siapakah[sender.split('@')[0]]
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
 }
@@ -10827,9 +10840,10 @@ await sleep(`${waktu_game}`)
 if (susunkata2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete susunkata2[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
@@ -12197,9 +12211,10 @@ await sleep(`${waktu_game}`)
 if (sambungkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete sambungkata[sender.split('@')[0]]
 fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
@@ -12224,9 +12239,10 @@ await sleep(`${waktu_game}`)
 if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete caklontong2[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
@@ -12275,9 +12291,10 @@ await sleep(`${waktu_game}`)
 if (tebakgambar3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakgambar3[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
@@ -12325,9 +12342,10 @@ await sleep(`${waktu_game}`)
 if (tebakgambar.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakgambar[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar.json", JSON.stringify(tebakgambar))
@@ -12353,9 +12371,10 @@ await sleep(`${waktu_game}`)
 if (family100.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete family100[sender.split('@')[0]]
 fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
 }
@@ -12379,9 +12398,10 @@ await sleep(`${waktu_game}`)
 if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete asahotak[sender.split('@')[0]]
 fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
 }
@@ -12407,9 +12427,10 @@ await sleep(`${waktu_game}`)
 if (tebakkimia.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakkimia[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
@@ -12435,9 +12456,10 @@ await sleep(`${waktu_game}`)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
@@ -12461,9 +12483,10 @@ await sleep(`${waktu_game}`)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete tebakkata[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 }
@@ -12486,9 +12509,10 @@ await sleep(`${waktu_game}`)
 if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete tebaklirik[sender.split('@')[0]]
 fs.writeFileSync("./game/tebaklirik.json", JSON.stringify(tebaklirik))
 }
@@ -12512,9 +12536,10 @@ await sleep(`${waktu_game}`)
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakkalimat[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
@@ -12539,9 +12564,10 @@ await sleep(`${waktu_game}`)
 if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakan[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
@@ -12566,9 +12592,10 @@ await sleep(`${waktu_game}`)
 if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete siapaaku[sender.split('@')[0]]
 fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
@@ -12594,9 +12621,10 @@ await sleep(`${waktu_game}`)
 if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete susunkata[sender.split('@')[0]]
 fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
@@ -13076,7 +13104,8 @@ var rbuc_1 = `${ucapannya2}
 *${rbuc_.bucin}*`
 var rbuc_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 rbuc_3 = {
@@ -13100,7 +13129,8 @@ var fakta_1 = `${ucapannya2}
 *${fakta_.fakta}*`
 var fakta_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 fakta_3 = {
@@ -13124,7 +13154,8 @@ var ktbjk_1 = `${ucapannya2}
 *${ktbjk_.katabijak}*`
 var ktbjk_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 ktbjk_3 = {
@@ -13148,7 +13179,8 @@ var motvas_1 = `${ucapannya2}
 *${motvas_.motivasi}*`
 var motvas_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 motvas_3 = {
@@ -13172,7 +13204,8 @@ var pntn_1 = `${ucapannya2}
 ${pntn_.pantun}`
 var pntn_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 pntn_3 = {
@@ -13595,9 +13628,10 @@ await sleep(`${waktu_game}`)
 if (tebakgambar5.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakgambar5[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar5.json", JSON.stringify(tebakgambar5))
@@ -13622,9 +13656,10 @@ await sleep(`${waktu_game}`)
 if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete caklontong3[sender.split('@')[0]]
 fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
@@ -13672,9 +13707,10 @@ await sleep(`${waktu_game}`)
 if (tebakanime.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakanime[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakanime.json", JSON.stringify(tebakanime))
@@ -13690,7 +13726,8 @@ wnime_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const wnime_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const wnime_7 = {
@@ -13723,7 +13760,8 @@ shta_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const shta_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const shta_7 = {
@@ -13756,7 +13794,8 @@ neku_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const neku_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const neku_7 = {
@@ -13789,7 +13828,8 @@ kmn_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const kmn_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const kmn_7 = {
@@ -13822,7 +13862,8 @@ loly_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const loly_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const loly_7 = {
@@ -13855,7 +13896,8 @@ hsb_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const hsb_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const hsb_7 = {
@@ -13890,7 +13932,8 @@ cehor_5 =`「 *Nih Hasilnya* 」
 *🔖 Desc :* ${cehor_.desc}`
 const cehor_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const cehor_7 = {
@@ -13923,7 +13966,8 @@ drjok_5 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const drjok_6 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const drjok_7 = {
@@ -14065,9 +14109,10 @@ await sleep(`${waktu_game}`)
 if (recaptcha.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete recaptcha[sender.split('@')[0]]
 fs.writeFileSync("./game/recaptcha.json", JSON.stringify(recaptcha))
@@ -14115,9 +14160,10 @@ await sleep(`${waktu_game}`)
 if (tebakbendera.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakbendera[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakbendera.json", JSON.stringify(tebakbendera))
@@ -14165,9 +14211,10 @@ await sleep(`${waktu_game}`)
 if (tebakgambar4.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete tebakgambar4[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar4.json", JSON.stringify(tebakgambar4))
@@ -14226,9 +14273,10 @@ await sleep(`${waktu_game}`)
 if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete tebakan2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 }
@@ -14617,9 +14665,10 @@ await sleep(`${waktu_game}`)
 if (math2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math2[sender.split('@')[0]]
 fs.writeFileSync("./game/math2.json", JSON.stringify(math2))
@@ -14634,7 +14683,8 @@ var facten_1 = `${ucapannya2}
 _${facten_.fact}_`
 var facten_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 facten_3 = {
@@ -14660,7 +14710,8 @@ var umur_1 = `${ucapannya2}
 adalah : ${umur_.age}`
 var umur_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 umur_3 = {
@@ -14688,7 +14739,8 @@ Gender : ${gen_.gender}
 Kecocokan : ${gen_.probability}%`
 var gen_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 gen_3 = {
@@ -15896,9 +15948,10 @@ await sleep(`${waktu_game}`)
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 delete tebakjenaka[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 }
@@ -16178,9 +16231,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16205,9 +16259,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16232,9 +16287,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16259,9 +16315,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16286,9 +16343,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16313,9 +16371,10 @@ await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
 but = [
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game(body.slice[0, 3])}s`, but, fgclink)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jawaban}`, `Waktu habis ${waktu_game}ms`, but, mek)
 
 delete math3[sender.split('@')[0]]
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
@@ -16329,7 +16388,8 @@ wifu_6 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const wifu_7 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const wifu_8 = {
@@ -16361,7 +16421,8 @@ wifu2_6 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const wifu2_7 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const wifu2_8 = {
@@ -16394,7 +16455,8 @@ wifu3_6 =`「 *Nih Hasilnya* 」
 *🔖 Kak :* _@${sender.split("@")[0]}_`
 const wifu3_7 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
-{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1}
+{buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
+{buttonId: 'x_menu', buttonText: {displayText: '🛸 Menu'}, type: 1}
 ]
 
 const wifu3_8 = {
@@ -16428,331 +16490,331 @@ x_menus = `${ucapannya2}
 🄴🅁🅁🄾🅁
 
 「 Isʟᴀᴍɪ 」
-✗⃝${emoj}${prefix}xʟɪsᴛsᴜʀᴀʜ
-✗⃝${emoj}${prefix}xᴀsᴍᴀᴜʟʜᴜsɴᴀ
-✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ
-✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/1|2
-✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ
-✗⃝${emoj}${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-✗⃝${emoj}${prefix}xᴋɪsᴀʜɴᴀʙɪ ɴᴀᴍᴀ_ɴᴀʙɪ
-✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟsʜᴏʟᴀᴛ ᴅᴀᴇʀᴀʜ
+${emoj} ${prefix}xʟɪsᴛsᴜʀᴀʜ
+${emoj} ${prefix}xᴀsᴍᴀᴜʟʜᴜsɴᴀ
+${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ
+${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
+${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/1|2
+${emoj} ${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ
+${emoj} ${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
+${emoj} ${prefix}xᴋɪsᴀʜɴᴀʙɪ ɴᴀᴍᴀ_ɴᴀʙɪ
+${emoj} ${prefix}xᴊᴀᴅᴡᴀʟsʜᴏʟᴀᴛ ᴅᴀᴇʀᴀʜ
 
 「 Dᴏᴡɴʟᴏᴀᴅᴇʀ 」
-✗⃝${emoj}${prefix}xʏᴛsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xʏᴛᴘʟᴀʏ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xʏᴛᴍᴘ3 ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝${emoj}${prefix}xʏᴛᴍᴘ4 ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋɴᴏᴡᴍ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋᴍᴜsɪᴄ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝${emoj}${prefix}xɪɢᴅʟ ᴜʀʟ_ᴘᴏsᴛ
-✗⃝${emoj}${prefix}xғʙᴅʟ ᴜʀʟ_ᴠɪᴅᴇᴏ
-✗⃝${emoj}${prefix}xᴊᴏᴏxᴘʟᴀʏ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xsᴘᴏᴛɪғʏ ᴜʀʟ_ᴍᴜsɪᴄ
-✗⃝${emoj}${prefix}xsᴘᴏᴛɪғʏsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴘɪɴᴛᴇʀᴇsᴛ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴘɪɴᴛᴇʀᴇsᴛᴅʟ ᴜʀʟ_ᴘɪɴᴛᴇʀᴇsᴛ
-✗⃝${emoj}${prefix}xᴘɪxɪᴠ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴘɪxɪᴠᴅʟ ᴜʀʟ_ᴘɪxɪᴠ
-✗⃝${emoj}${prefix}xᴢɪᴘᴘʏsʜᴀʀᴇ ᴜʀʟ_ᴢɪᴘᴘʏsʜᴀʀᴇ
-✗⃝${emoj}${prefix}xᴛᴇʟᴇsᴛɪᴄᴋᴇʀ ᴜʀʟ_ᴘᴀᴄᴋ
+${emoj} ${prefix}xʏᴛsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xʏᴛᴘʟᴀʏ ϙᴜᴇʀʏ
+${emoj} ${prefix}xʏᴛᴍᴘ3 ᴜʀʟ_ᴠɪᴅᴇᴏ
+${emoj} ${prefix}xʏᴛᴍᴘ4 ᴜʀʟ_ᴠɪᴅᴇᴏ
+${emoj} ${prefix}xᴛɪᴋᴛᴏᴋɴᴏᴡᴍ ᴜʀʟ_ᴠɪᴅᴇᴏ
+${emoj} ${prefix}xᴛɪᴋᴛᴏᴋᴍᴜsɪᴄ ᴜʀʟ_ᴠɪᴅᴇᴏ
+${emoj} ${prefix}xɪɢᴅʟ ᴜʀʟ_ᴘᴏsᴛ
+${emoj} ${prefix}xғʙᴅʟ ᴜʀʟ_ᴠɪᴅᴇᴏ
+${emoj} ${prefix}xᴊᴏᴏxᴘʟᴀʏ ϙᴜᴇʀʏ
+${emoj} ${prefix}xsᴘᴏᴛɪғʏ ᴜʀʟ_ᴍᴜsɪᴄ
+${emoj} ${prefix}xsᴘᴏᴛɪғʏsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴘɪɴᴛᴇʀᴇsᴛ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴘɪɴᴛᴇʀᴇsᴛᴅʟ ᴜʀʟ_ᴘɪɴᴛᴇʀᴇsᴛ
+${emoj} ${prefix}xᴘɪxɪᴠ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴘɪxɪᴠᴅʟ ᴜʀʟ_ᴘɪxɪᴠ
+${emoj} ${prefix}xᴢɪᴘᴘʏsʜᴀʀᴇ ᴜʀʟ_ᴢɪᴘᴘʏsʜᴀʀᴇ
+${emoj} ${prefix}xᴛᴇʟᴇsᴛɪᴄᴋᴇʀ ᴜʀʟ_ᴘᴀᴄᴋ
 
 「 Mᴏᴠɪᴇ & Sᴛᴏʀʏ 」
-✗⃝${emoj}${prefix}xᴅʀᴀᴋᴏʀᴏɴɢᴏɪɴɢ
-✗⃝${emoj}${prefix}xʟᴋ21 ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴡᴀᴛᴛᴘᴀᴅ ᴜʀʟ_ᴡᴀᴛᴛᴘᴀᴅ
-✗⃝${emoj}${prefix}xᴡᴀᴛᴛᴘᴀᴅsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴄᴇʀᴘᴇɴ
-✗⃝${emoj}${prefix}xᴄᴇʀɪᴛᴀʜᴏʀᴏʀ
+${emoj} ${prefix}xᴅʀᴀᴋᴏʀᴏɴɢᴏɪɴɢ
+${emoj} ${prefix}xʟᴋ21 ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴡᴀᴛᴛᴘᴀᴅ ᴜʀʟ_ᴡᴀᴛᴛᴘᴀᴅ
+${emoj} ${prefix}xᴡᴀᴛᴛᴘᴀᴅsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴄᴇʀᴘᴇɴ
+${emoj} ${prefix}xᴄᴇʀɪᴛᴀʜᴏʀᴏʀ
 
 「 Sᴇᴀʀᴄʜɪɴɢ 」
-✗⃝${emoj}${prefix}xsʜᴏᴘᴇᴇ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɢᴏᴏɢʟᴇ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɢɪᴍᴀɢᴇ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɢɪᴍᴀɢᴇ2 ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴋᴏɴᴀᴄʜᴀɴ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴘʟᴀʏsᴛᴏʀᴇ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xsᴛɪᴄᴋᴇʀᴡᴀ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ2 ϙᴜᴇʀʏ
+${emoj} ${prefix}xsʜᴏᴘᴇᴇ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɢᴏᴏɢʟᴇ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɢɪᴍᴀɢᴇ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɢɪᴍᴀɢᴇ2 ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴋᴏɴᴀᴄʜᴀɴ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴘʟᴀʏsᴛᴏʀᴇ ϙᴜᴇʀʏ
+${emoj} ${prefix}xsᴛɪᴄᴋᴇʀᴡᴀ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ2 ϙᴜᴇʀʏ
 
 「 Rᴀɴᴅᴏᴍ Tᴇxᴛ 」
-✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇs
-✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsᴅɪʟᴀɴ
-✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsᴀɴɪᴍᴇ
-✗⃝${emoj}${prefix}xϙᴜᴏᴛᴇsɪᴍᴀɢᴇ
-✗⃝${emoj}${prefix}xғᴀᴋᴛᴀᴜɴɪᴋ
-✗⃝${emoj}${prefix}xᴋᴀᴛᴀʙɪᴊᴀᴋ
-✗⃝${emoj}${prefix}xᴘᴀɴᴛᴜɴ
-✗⃝${emoj}${prefix}xʙᴜᴄɪɴ
-✗⃝${emoj}${prefix}xʀᴀɴᴅᴏᴍɴᴀᴍᴀ
+${emoj} ${prefix}xϙᴜᴏᴛᴇs
+${emoj} ${prefix}xϙᴜᴏᴛᴇsᴅɪʟᴀɴ
+${emoj} ${prefix}xϙᴜᴏᴛᴇsᴀɴɪᴍᴇ
+${emoj} ${prefix}xϙᴜᴏᴛᴇsɪᴍᴀɢᴇ
+${emoj} ${prefix}xғᴀᴋᴛᴀᴜɴɪᴋ
+${emoj} ${prefix}xᴋᴀᴛᴀʙɪᴊᴀᴋ
+${emoj} ${prefix}xᴘᴀɴᴛᴜɴ
+${emoj} ${prefix}xʙᴜᴄɪɴ
+${emoj} ${prefix}xʀᴀɴᴅᴏᴍɴᴀᴍᴀ
 
 「 AɴɪMᴀɴɢᴀ 」
-✗⃝${emoj}${prefix}xᴡᴀɪᴛ
-✗⃝${emoj}${prefix}xᴍᴀɴɢᴀ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴀɴɪᴍᴇ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴄʜᴀʀᴀᴄᴛᴇʀ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴋᴜsᴏɴɪᴍᴇ ᴜʀʟ_ᴋᴜsᴏɴɪᴍᴇ
-✗⃝${emoj}${prefix}xᴋᴜsᴏɴɪᴍᴇsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜ ᴜʀʟ_ᴏᴛᴀᴋᴜᴅᴇsᴜ
-✗⃝${emoj}${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪ ᴋᴏᴅᴇ_ʙᴏᴍ
-✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪᴘᴅғ ᴋᴏᴅᴇ_ʙᴏᴍ
-✗⃝${emoj}${prefix}xɴʜᴇɴᴛᴀɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɴᴇᴋᴏᴘᴏɪ ᴜʀʟ
-✗⃝${emoj}${prefix}xɴᴇᴋᴏᴘᴏɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴡᴀɪᴛ
+${emoj} ${prefix}xᴍᴀɴɢᴀ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴀɴɪᴍᴇ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴄʜᴀʀᴀᴄᴛᴇʀ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴋᴜsᴏɴɪᴍᴇ ᴜʀʟ_ᴋᴜsᴏɴɪᴍᴇ
+${emoj} ${prefix}xᴋᴜsᴏɴɪᴍᴇsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜ ᴜʀʟ_ᴏᴛᴀᴋᴜᴅᴇsᴜ
+${emoj} ${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɴʜᴇɴᴛᴀɪ ᴋᴏᴅᴇ_ʙᴏᴍ
+${emoj} ${prefix}xɴʜᴇɴᴛᴀɪᴘᴅғ ᴋᴏᴅᴇ_ʙᴏᴍ
+${emoj} ${prefix}xɴʜᴇɴᴛᴀɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɴᴇᴋᴏᴘᴏɪ ᴜʀʟ
+${emoj} ${prefix}xɴᴇᴋᴏᴘᴏɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
 
 「 Iɴғᴏʀᴍᴀᴛɪᴏɴ 」
-✗⃝${emoj}${prefix}xᴋʙʙɪ
-✗⃝${emoj}${prefix}xʙʀᴀɪɴʟʏ2
-✗⃝${emoj}${prefix}xᴊᴀʀᴀᴋ
-✗⃝${emoj}${prefix}xᴜʀʙᴀɴᴅɪᴄᴛɪᴏɴᴀʀʏ
-✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟᴛᴠ ᴄʜᴀɴɴᴇʟ
-✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟᴛᴠɴᴏᴡ
-✗⃝${emoj}${prefix}xᴊᴀᴅᴡᴀʟʙᴏʟᴀ
-✗⃝${emoj}${prefix}xϙʀʀᴇᴀᴅᴇʀ
-✗⃝${emoj}${prefix}xʜᴇʀᴏᴍʟ ʜᴇʀᴏ_ɴᴀᴍᴇ
-✗⃝${emoj}${prefix}xᴍʟsᴛᴀʟᴋ ɪᴅ/sᴇʀᴠᴇʀ
-✗⃝${emoj}${prefix}xɢᴇɴsʜɪɴ ᴄʜᴀʀᴀᴄᴛᴇʀ
-✗⃝${emoj}${prefix}xᴡɪᴋɪᴘᴇᴅɪᴀ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴛʀᴀɴsʟᴀᴛᴇ ᴋᴏᴅᴇ_ɴᴇɢᴀʀᴀ ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xʙʀᴀɪɴʟʏ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɴᴇᴡsɪɴғᴏ
-✗⃝${emoj}${prefix}xᴄɴɴɪɴᴅᴏɴᴇsɪᴀ
-✗⃝${emoj}${prefix}xᴄɴɴɴᴀsɪᴏɴᴀʟ
-✗⃝${emoj}${prefix}xᴄɴɴɪɴᴛᴇʀɴᴀsɪᴏɴᴀʟ
-✗⃝${emoj}${prefix}xɪɴғᴏɢᴇᴍᴘᴀ
-✗⃝${emoj}${prefix}xʟɪʀɪᴋ ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xᴄᴜᴀᴄᴀ ᴅᴀᴇʀᴀʜ
-✗⃝${emoj}${prefix}xᴋᴏᴅᴇᴘᴏs ϙᴜᴇʀʏ
-✗⃝${emoj}${prefix}xɪɴᴅʙᴇᴀsɪsᴡᴀ
-✗⃝${emoj}${prefix}xʜᴏᴀx
-✗⃝${emoj}${prefix}xɴsғᴡᴄʜᴇᴄᴋ
-✗⃝${emoj}${prefix}xᴏᴄʀ
+${emoj} ${prefix}xᴋʙʙɪ
+${emoj} ${prefix}xʙʀᴀɪɴʟʏ2
+${emoj} ${prefix}xᴊᴀʀᴀᴋ
+${emoj} ${prefix}xᴜʀʙᴀɴᴅɪᴄᴛɪᴏɴᴀʀʏ
+${emoj} ${prefix}xᴊᴀᴅᴡᴀʟᴛᴠ ᴄʜᴀɴɴᴇʟ
+${emoj} ${prefix}xᴊᴀᴅᴡᴀʟᴛᴠɴᴏᴡ
+${emoj} ${prefix}xᴊᴀᴅᴡᴀʟʙᴏʟᴀ
+${emoj} ${prefix}xϙʀʀᴇᴀᴅᴇʀ
+${emoj} ${prefix}xʜᴇʀᴏᴍʟ ʜᴇʀᴏ_ɴᴀᴍᴇ
+${emoj} ${prefix}xᴍʟsᴛᴀʟᴋ ɪᴅ/sᴇʀᴠᴇʀ
+${emoj} ${prefix}xɢᴇɴsʜɪɴ ᴄʜᴀʀᴀᴄᴛᴇʀ
+${emoj} ${prefix}xᴡɪᴋɪᴘᴇᴅɪᴀ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴛʀᴀɴsʟᴀᴛᴇ ᴋᴏᴅᴇ_ɴᴇɢᴀʀᴀ ᴛᴇxᴛ
+${emoj} ${prefix}xʙʀᴀɪɴʟʏ ϙᴜᴇʀʏ
+${emoj} ${prefix}xɴᴇᴡsɪɴғᴏ
+${emoj} ${prefix}xᴄɴɴɪɴᴅᴏɴᴇsɪᴀ
+${emoj} ${prefix}xᴄɴɴɴᴀsɪᴏɴᴀʟ
+${emoj} ${prefix}xᴄɴɴɪɴᴛᴇʀɴᴀsɪᴏɴᴀʟ
+${emoj} ${prefix}xɪɴғᴏɢᴇᴍᴘᴀ
+${emoj} ${prefix}xʟɪʀɪᴋ ϙᴜᴇʀʏ
+${emoj} ${prefix}xᴄᴜᴀᴄᴀ ᴅᴀᴇʀᴀʜ
+${emoj} ${prefix}xᴋᴏᴅᴇᴘᴏs ϙᴜᴇʀʏ
+${emoj} ${prefix}xɪɴᴅʙᴇᴀsɪsᴡᴀ
+${emoj} ${prefix}xʜᴏᴀx
+${emoj} ${prefix}xɴsғᴡᴄʜᴇᴄᴋ
+${emoj} ${prefix}xᴏᴄʀ
 
 「 Eɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ 」
-✗⃝${emoj}${prefix}xᴀsᴜᴘᴀɴ
-✗⃝${emoj}${prefix}xᴡᴀɴᴄᴀᴋ
-✗⃝${emoj}${prefix}xᴀᴋɪɴᴀᴛᴏʀ
-✗⃝${emoj}${prefix}xᴄᴀɴᴄᴇʟᴀᴋɪɴᴀᴛᴏʀ
+${emoj} ${prefix}xᴀsᴜᴘᴀɴ
+${emoj} ${prefix}xᴡᴀɴᴄᴀᴋ
+${emoj} ${prefix}xᴀᴋɪɴᴀᴛᴏʀ
+${emoj} ${prefix}xᴄᴀɴᴄᴇʟᴀᴋɪɴᴀᴛᴏʀ
 
 「 Cʀᴇᴀᴛᴏʀ 」
-✗⃝${emoj}${prefix}xᴛᴛᴘ ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xᴛᴛᴘ2 ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xᴛᴛᴘ3 ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xᴛᴛᴘ4 ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xᴀᴛᴛᴘ ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xsᴍᴏᴊɪ ᴇᴍᴏᴊɪ
-✗⃝${emoj}${prefix}xғᴀᴋᴇᴅᴏɴᴀʟᴅ ᴛᴇxᴛ
-✗⃝${emoj}${prefix}xᴋᴛᴘᴍᴀᴋᴇʀ
+${emoj} ${prefix}xᴛᴛᴘ ᴛᴇxᴛ
+${emoj} ${prefix}xᴛᴛᴘ2 ᴛᴇxᴛ
+${emoj} ${prefix}xᴛᴛᴘ3 ᴛᴇxᴛ
+${emoj} ${prefix}xᴛᴛᴘ4 ᴛᴇxᴛ
+${emoj} ${prefix}xᴀᴛᴛᴘ ᴛᴇxᴛ
+${emoj} ${prefix}xsᴍᴏᴊɪ ᴇᴍᴏᴊɪ
+${emoj} ${prefix}xғᴀᴋᴇᴅᴏɴᴀʟᴅ ᴛᴇxᴛ
+${emoj} ${prefix}xᴋᴛᴘᴍᴀᴋᴇʀ
 
 「 Pʀɪᴍʙᴏɴ 」
-✗⃝${emoj}${prefix}xᴀʀᴛɪɴᴀᴍᴀ ɴᴀᴍᴇ
-✗⃝${emoj}${prefix}xᴊᴏᴅᴏʜ ɴᴀᴍᴇ1 & ɴᴀᴍᴇ2 
-✗⃝${emoj}${prefix}xᴡᴇᴛᴏɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-✗⃝${emoj}${prefix}xᴊᴀᴅɪᴀɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-✗⃝${emoj}${prefix}xᴛᴇʙᴀᴋᴜᴍᴜʀ ɴᴀᴍᴇ
+${emoj} ${prefix}xᴀʀᴛɪɴᴀᴍᴀ ɴᴀᴍᴇ
+${emoj} ${prefix}xᴊᴏᴅᴏʜ ɴᴀᴍᴇ1 & ɴᴀᴍᴇ2 
+${emoj} ${prefix}xᴡᴇᴛᴏɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
+${emoj} ${prefix}xᴊᴀᴅɪᴀɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
+${emoj} ${prefix}xᴛᴇʙᴀᴋᴜᴍᴜʀ ɴᴀᴍᴇ
 
 「 Oᴛʜᴇʀ 」
-✗⃝${emoj}${prefix}xssᴡᴇʙ ʟɪɴᴋ
-✗⃝${emoj}${prefix}xssᴡᴇʙ2 ʟɪɴᴋ
-✗⃝${emoj}${prefix}xsʜᴏʀᴛʟɪɴᴋ ʟɪɴᴋ
-✗⃝${emoj}${prefix}xsᴘᴀᴍsᴍs ɴᴏᴍᴏʀ
+${emoj} ${prefix}xssᴡᴇʙ ʟɪɴᴋ
+${emoj} ${prefix}xssᴡᴇʙ2 ʟɪɴᴋ
+${emoj} ${prefix}xsʜᴏʀᴛʟɪɴᴋ ʟɪɴᴋ
+${emoj} ${prefix}xsᴘᴀᴍsᴍs ɴᴏᴍᴏʀ
 
 「 Tᴇxᴛ Pʀᴏ Mᴇ 」
-✗⃝${emoj}${prefix}xʙʟᴀᴄᴋᴘɪɴᴋ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғᴜᴛᴜʀᴇɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴀɴᴅᴡʀɪᴛɪɴɢ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴀɴᴅsᴜᴍᴍᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍᴇᴛᴀʟᴅᴀʀᴋ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴇᴏɴʟɪɢʜᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴏʟᴏɢʀᴀᴘʜɪᴄ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛᴇxᴛ1917 _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍɪɴɪᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴅᴇʟᴜxᴇsɪʟᴠᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴀʟʟᴏᴡᴇᴇɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴊᴏᴋᴇʀʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙᴏᴋᴇʜ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛᴏxɪᴄ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴛʀᴀᴡʙᴇʀʀʏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙᴏx3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʀᴏᴀᴅᴡᴀʀɴɪɴɢ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙʀᴇᴀᴋᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɪᴄᴇᴄᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴜxᴜʀʏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄʟᴏᴜᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀsᴀɴᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴏʀʀᴏʀʙʟᴏᴏᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛʜᴜɴᴅᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍᴀɢᴍᴀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɪᴍᴘʀᴇssɪᴠᴇɢʟɪᴛᴄʜ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғᴏɢɢʏᴡɪɴᴅᴏᴡ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴏɴᴅᴇʀғᴜʟɢʀᴀғғɪᴛɪ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴘᴏʀɴʜᴜʙ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xɢʟɪᴛᴄʜ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴀᴠᴇɴɢᴇʀ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xsᴘᴀᴄᴇ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xɴɪɴᴊᴀʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xʟɪᴏɴʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴡᴏʟғʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xsᴛᴇᴇʟ3ᴅ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴡᴀʟʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴄᴏᴏʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xʙʟᴀᴄᴋᴘɪɴᴋ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴇᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғᴜᴛᴜʀᴇɴᴇᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴀɴᴅᴡʀɪᴛɪɴɢ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴀɴᴅsᴜᴍᴍᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍᴇᴛᴀʟᴅᴀʀᴋ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴇᴏɴʟɪɢʜᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴏʟᴏɢʀᴀᴘʜɪᴄ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛᴇxᴛ1917 _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍɪɴɪᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴅᴇʟᴜxᴇsɪʟᴠᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴀʟʟᴏᴡᴇᴇɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴊᴏᴋᴇʀʟᴏɢᴏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙᴏᴋᴇʜ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛᴏxɪᴄ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴛʀᴀᴡʙᴇʀʀʏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙᴏx3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʀᴏᴀᴅᴡᴀʀɴɪɴɢ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙʀᴇᴀᴋᴡᴀʟʟ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɪᴄᴇᴄᴏʟᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴜxᴜʀʏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄʟᴏᴜᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴜᴍᴍᴇʀsᴀɴᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴏʀʀᴏʀʙʟᴏᴏᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛʜᴜɴᴅᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍᴀɢᴍᴀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɪᴍᴘʀᴇssɪᴠᴇɢʟɪᴛᴄʜ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғᴏɢɢʏᴡɪɴᴅᴏᴡ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴏɴᴅᴇʀғᴜʟɢʀᴀғғɪᴛɪ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴘᴏʀɴʜᴜʙ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xɢʟɪᴛᴄʜ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴀᴠᴇɴɢᴇʀ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xsᴘᴀᴄᴇ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xɴɪɴᴊᴀʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xʟɪᴏɴʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴡᴏʟғʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xsᴛᴇᴇʟ3ᴅ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴡᴀʟʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴄᴏᴏʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
 
 「 Pʜᴏᴛᴏ Oxʏ 」
-✗⃝${emoj}${prefix}xsʜᴀᴅᴏᴡ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄᴜᴘ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄᴜᴘ1 _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʀᴏᴍᴀɴᴄᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴍᴏᴋᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙᴜʀɴᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴏᴠᴇᴍᴇssᴀɢᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴜɴᴅᴇʀɢʀᴀss _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴏᴠᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄᴏғғᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴏᴏᴅʜᴇᴀʀᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴏᴏᴅᴇɴʙᴏᴀʀᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴏʟғᴍᴇᴛᴀʟ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴀᴛᴜʀᴇ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴜɴᴅᴇʀᴡᴀᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢᴏʟᴅᴇʀʀᴏsᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴜᴍᴍᴇʀɴᴀᴛᴜʀᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғᴀʟʟʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғʟᴀᴍᴍɪɴɢ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄᴀʀᴠᴇᴅᴡᴏᴏᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛɪᴋᴛᴏᴋ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴀʀᴄᴀᴅᴇ8ʙɪᴛ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xʙᴀᴛᴛʟᴇғɪᴇʟᴅ4 ᴛᴇxᴛ1 ᴛᴇxᴛ2
-✗⃝${emoj}${prefix}xᴘᴜʙɢ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xsʜᴀᴅᴏᴡ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄᴜᴘ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄᴜᴘ1 _ᴛᴇxᴛ_
+${emoj} ${prefix}xʀᴏᴍᴀɴᴄᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴍᴏᴋᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙᴜʀɴᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴏᴠᴇᴍᴇssᴀɢᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴜɴᴅᴇʀɢʀᴀss _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴏᴠᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄᴏғғᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴏᴏᴅʜᴇᴀʀᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴏᴏᴅᴇɴʙᴏᴀʀᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴜᴍᴍᴇʀ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴏʟғᴍᴇᴛᴀʟ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴀᴛᴜʀᴇ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴜɴᴅᴇʀᴡᴀᴛᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢᴏʟᴅᴇʀʀᴏsᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴜᴍᴍᴇʀɴᴀᴛᴜʀᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғᴀʟʟʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
+${emoj} ${prefix}xғʟᴀᴍᴍɪɴɢ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄᴀʀᴠᴇᴅᴡᴏᴏᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛɪᴋᴛᴏᴋ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴀʀᴄᴀᴅᴇ8ʙɪᴛ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xʙᴀᴛᴛʟᴇғɪᴇʟᴅ4 ᴛᴇxᴛ1 ᴛᴇxᴛ2
+${emoj} ${prefix}xᴘᴜʙɢ ᴛᴇxᴛ1 ᴛᴇxᴛ2
 
 「 Eᴘʜᴏᴛᴏ 360 」
-✗⃝${emoj}${prefix}xᴡᴇᴛɢʟᴀss _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍᴜʟᴛɪᴄᴏʟᴏʀ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴜxᴜʀʏɢᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢᴀʟᴀxʏᴡᴀʟʟᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟɪɢʜᴛᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙᴇᴀᴜᴛɪғᴜʟғʟᴏᴡᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴘᴜᴘᴘʏᴄᴜᴛᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʀᴏʏᴀʟᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴇᴀʀᴛsʜᴀᴘᴇᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙɪʀᴛʜᴅᴀʏᴄᴀᴋᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢᴀʟᴀxʏsᴛʏʟᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʜᴏʟᴏɢʀᴀᴍ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢʟᴏssʏᴄʜʀᴏᴍᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢʀᴇᴇɴʙᴜsʜ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍᴇᴛᴀʟʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɴᴏᴇʟᴛᴇxᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢʟɪᴛᴛᴇʀɢᴏʟᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛᴇxᴛᴄᴀᴋᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsᴛᴀʀsɴɪɢʜᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡᴏᴏᴅᴇɴ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴛᴇxᴛʙʏɴᴀᴍᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴡʀɪᴛᴇɢᴀʟᴀᴄʏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢᴀʟᴀxʏʙᴀᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsɴᴏᴡ3ᴅ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʙɪʀᴛʜᴅᴀʏᴅᴀʏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴀᴏᴠᴡᴀʟʟ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴏɢᴏɢᴀᴍɪɴɢ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xғᴘsʟᴏɢᴏ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴀᴠᴀᴛᴀʀʟᴏʟɴᴇᴡ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xʟᴏʟʙᴀɴɴᴇʀ _ᴛᴇxᴛ_
-✗⃝${emoj}${prefix}xᴀᴠᴀᴛᴀʀᴅᴏᴛᴀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴇᴛɢʟᴀss _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍᴜʟᴛɪᴄᴏʟᴏʀ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴜxᴜʀʏɢᴏʟᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢᴀʟᴀxʏᴡᴀʟʟᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟɪɢʜᴛᴛᴇxᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙᴇᴀᴜᴛɪғᴜʟғʟᴏᴡᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴘᴜᴘᴘʏᴄᴜᴛᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʀᴏʏᴀʟᴛᴇxᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴇᴀʀᴛsʜᴀᴘᴇᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙɪʀᴛʜᴅᴀʏᴄᴀᴋᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢᴀʟᴀxʏsᴛʏʟᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʜᴏʟᴏɢʀᴀᴍ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢʟᴏssʏᴄʜʀᴏᴍᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢʀᴇᴇɴʙᴜsʜ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍᴇᴛᴀʟʟᴏɢᴏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɴᴏᴇʟᴛᴇxᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢʟɪᴛᴛᴇʀɢᴏʟᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛᴇxᴛᴄᴀᴋᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsᴛᴀʀsɴɪɢʜᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡᴏᴏᴅᴇɴ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴛᴇxᴛʙʏɴᴀᴍᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴡʀɪᴛᴇɢᴀʟᴀᴄʏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢᴀʟᴀxʏʙᴀᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsɴᴏᴡ3ᴅ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʙɪʀᴛʜᴅᴀʏᴅᴀʏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴀᴏᴠᴡᴀʟʟ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴏɢᴏɢᴀᴍɪɴɢ _ᴛᴇxᴛ_
+${emoj} ${prefix}xғᴘsʟᴏɢᴏ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴀᴠᴀᴛᴀʀʟᴏʟɴᴇᴡ _ᴛᴇxᴛ_
+${emoj} ${prefix}xʟᴏʟʙᴀɴɴᴇʀ _ᴛᴇxᴛ_
+${emoj} ${prefix}xᴀᴠᴀᴛᴀʀᴅᴏᴛᴀ _ᴛᴇxᴛ_
 
 「 Rᴀɴᴅᴏᴍ Iᴍᴀɢᴇ 」
-✗⃝${emoj}${prefix}xʙᴊ
-✗⃝${emoj}${prefix}xᴇʀᴏ
-✗⃝${emoj}${prefix}xᴄᴜᴍ
-✗⃝${emoj}${prefix}xʟᴇs
-✗⃝${emoj}${prefix}xɴᴇᴋᴏ
-✗⃝${emoj}${prefix}xғᴇᴇᴛ
-✗⃝${emoj}${prefix}xʏᴜʀɪ
-✗⃝${emoj}${prefix}xᴛʀᴀᴘ
-✗⃝${emoj}${prefix}xɴɢɪғ
-✗⃝${emoj}${prefix}xʟᴇᴡᴅ
-✗⃝${emoj}${prefix}xғᴇᴇᴅ
-✗⃝${emoj}${prefix}xᴇʀᴏɴ
-✗⃝${emoj}${prefix}xsᴏʟᴏ
-✗⃝${emoj}${prefix}xɢᴀsᴍ
-✗⃝${emoj}${prefix}xᴘᴏᴋᴇ
-✗⃝${emoj}${prefix}xᴀɴᴀʟ
-✗⃝${emoj}${prefix}xʜᴏʟᴏ
-✗⃝${emoj}${prefix}xᴋᴇᴛᴀ
-✗⃝${emoj}${prefix}xᴛɪᴛs
-✗⃝${emoj}${prefix}xᴋᴜɴɪ
-✗⃝${emoj}${prefix}xᴋɪss
-✗⃝${emoj}${prefix}xᴇʀᴏᴋ
-✗⃝${emoj}${prefix}xsᴍᴜɢ
-✗⃝${emoj}${prefix}xʙᴀᴋᴀ
-✗⃝${emoj}${prefix}xsᴏʟᴏɢ
-✗⃝${emoj}${prefix}xғᴇᴇᴛɢ
-✗⃝${emoj}${prefix}xʟᴇᴡᴅᴋ
-✗⃝${emoj}${prefix}xᴡᴀɪғᴜ
-✗⃝${emoj}${prefix}xᴘᴜssʏ
-✗⃝${emoj}${prefix}xᴛɪᴄᴋʟᴇ
-✗⃝${emoj}${prefix}xғᴇᴍᴅᴏᴍ
-✗⃝${emoj}${prefix}xᴄᴜᴅᴅʟᴇ
-✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ
-✗⃝${emoj}${prefix}xᴇʀᴏʏᴜʀɪ
-✗⃝${emoj}${prefix}xᴄᴜᴍ_ᴊᴘɢ
-✗⃝${emoj}${prefix}xʙʟᴏᴡᴊᴏʙ
-✗⃝${emoj}${prefix}xᴇʀᴏғᴇᴇᴛ
-✗⃝${emoj}${prefix}xʜᴏʟᴏᴇʀᴏ
-✗⃝${emoj}${prefix}xᴄʟᴀssɪᴄ
-✗⃝${emoj}${prefix}xᴇʀᴏᴋᴇᴍᴏ
-✗⃝${emoj}${prefix}xғᴏx_ɢɪʀʟ
-✗⃝${emoj}${prefix}xғᴜᴛᴀɴᴀʀɪ
-✗⃝${emoj}${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-✗⃝${emoj}${prefix}xʟᴇᴡᴅᴋᴇᴍᴏ
-✗⃝${emoj}${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀ
-✗⃝${emoj}${prefix}xᴘᴜssʏ_ᴊᴘɢ
-✗⃝${emoj}${prefix}xᴋᴇᴍᴏɴᴏᴍɪᴍɪ
-✗⃝${emoj}${prefix}xɴsғᴡ_ᴀᴠᴀᴛᴀʀ
-✗⃝${emoj}${prefix}xɴsғᴡ_ɴᴇᴋᴏ_ɢɪғ
-✗⃝${emoj}${prefix}xʀᴀɴᴅᴏᴍ_ʜᴇɴᴛᴀɪ_ɢɪғ
+${emoj} ${prefix}xʙᴊ
+${emoj} ${prefix}xᴇʀᴏ
+${emoj} ${prefix}xᴄᴜᴍ
+${emoj} ${prefix}xʟᴇs
+${emoj} ${prefix}xɴᴇᴋᴏ
+${emoj} ${prefix}xғᴇᴇᴛ
+${emoj} ${prefix}xʏᴜʀɪ
+${emoj} ${prefix}xᴛʀᴀᴘ
+${emoj} ${prefix}xɴɢɪғ
+${emoj} ${prefix}xʟᴇᴡᴅ
+${emoj} ${prefix}xғᴇᴇᴅ
+${emoj} ${prefix}xᴇʀᴏɴ
+${emoj} ${prefix}xsᴏʟᴏ
+${emoj} ${prefix}xɢᴀsᴍ
+${emoj} ${prefix}xᴘᴏᴋᴇ
+${emoj} ${prefix}xᴀɴᴀʟ
+${emoj} ${prefix}xʜᴏʟᴏ
+${emoj} ${prefix}xᴋᴇᴛᴀ
+${emoj} ${prefix}xᴛɪᴛs
+${emoj} ${prefix}xᴋᴜɴɪ
+${emoj} ${prefix}xᴋɪss
+${emoj} ${prefix}xᴇʀᴏᴋ
+${emoj} ${prefix}xsᴍᴜɢ
+${emoj} ${prefix}xʙᴀᴋᴀ
+${emoj} ${prefix}xsᴏʟᴏɢ
+${emoj} ${prefix}xғᴇᴇᴛɢ
+${emoj} ${prefix}xʟᴇᴡᴅᴋ
+${emoj} ${prefix}xᴡᴀɪғᴜ
+${emoj} ${prefix}xᴘᴜssʏ
+${emoj} ${prefix}xᴛɪᴄᴋʟᴇ
+${emoj} ${prefix}xғᴇᴍᴅᴏᴍ
+${emoj} ${prefix}xᴄᴜᴅᴅʟᴇ
+${emoj} ${prefix}xʜᴇɴᴛᴀɪ
+${emoj} ${prefix}xᴇʀᴏʏᴜʀɪ
+${emoj} ${prefix}xᴄᴜᴍ_ᴊᴘɢ
+${emoj} ${prefix}xʙʟᴏᴡᴊᴏʙ
+${emoj} ${prefix}xᴇʀᴏғᴇᴇᴛ
+${emoj} ${prefix}xʜᴏʟᴏᴇʀᴏ
+${emoj} ${prefix}xᴄʟᴀssɪᴄ
+${emoj} ${prefix}xᴇʀᴏᴋᴇᴍᴏ
+${emoj} ${prefix}xғᴏx_ɢɪʀʟ
+${emoj} ${prefix}xғᴜᴛᴀɴᴀʀɪ
+${emoj} ${prefix}xʜᴏʟᴏʟᴇᴡᴅ
+${emoj} ${prefix}xʟᴇᴡᴅᴋᴇᴍᴏ
+${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀ
+${emoj} ${prefix}xᴘᴜssʏ_ᴊᴘɢ
+${emoj} ${prefix}xᴋᴇᴍᴏɴᴏᴍɪᴍɪ
+${emoj} ${prefix}xɴsғᴡ_ᴀᴠᴀᴛᴀʀ
+${emoj} ${prefix}xɴsғᴡ_ɴᴇᴋᴏ_ɢɪғ
+${emoj} ${prefix}xʀᴀɴᴅᴏᴍ_ʜᴇɴᴛᴀɪ_ɢɪғ
 
 「 Rᴀɴᴅᴏᴍ NSFW 」
-✗⃝${emoj}${prefix}xɴᴇᴋᴏ
-✗⃝${emoj}${prefix}xᴡᴀɪғᴜ
-✗⃝${emoj}${prefix}xʟᴏʟɪ
-✗⃝${emoj}${prefix}xᴄʜɪɪsᴀɪʜᴇɴᴛᴀɪ
-✗⃝${emoj}${prefix}xᴛʀᴀᴘ
-✗⃝${emoj}${prefix}xʙʟᴏᴡᴊᴏʙ
-✗⃝${emoj}${prefix}xʏᴀᴏɪ
-✗⃝${emoj}${prefix}xᴇᴄᴄʜɪ
-✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ
-✗⃝${emoj}${prefix}xᴀʜᴇɢᴀᴏ
-✗⃝${emoj}${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-✗⃝${emoj}${prefix}xsɪᴅᴇᴏᴘᴘᴀɪ
-✗⃝${emoj}${prefix}xᴀɴɪᴍᴇғᴇᴇᴛs
-✗⃝${emoj}${prefix}xᴀɴɪᴍᴇʙᴏᴏᴛʏ
-✗⃝${emoj}${prefix}xᴀɴɪᴍᴇᴛʜɪɢʜss
-✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪᴘᴀʀᴀᴅɪsᴇ
-✗⃝${emoj}${prefix}xᴀɴɪᴍᴇᴀʀᴍᴘɪᴛs
-✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪғᴇᴍᴅᴏᴍ
-✗⃝${emoj}${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
-✗⃝${emoj}${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
-✗⃝${emoj}${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
+${emoj} ${prefix}xɴᴇᴋᴏ
+${emoj} ${prefix}xᴡᴀɪғᴜ
+${emoj} ${prefix}xʟᴏʟɪ
+${emoj} ${prefix}xᴄʜɪɪsᴀɪʜᴇɴᴛᴀɪ
+${emoj} ${prefix}xᴛʀᴀᴘ
+${emoj} ${prefix}xʙʟᴏᴡᴊᴏʙ
+${emoj} ${prefix}xʏᴀᴏɪ
+${emoj} ${prefix}xᴇᴄᴄʜɪ
+${emoj} ${prefix}xʜᴇɴᴛᴀɪ
+${emoj} ${prefix}xᴀʜᴇɢᴀᴏ
+${emoj} ${prefix}xʜᴏʟᴏʟᴇᴡᴅ
+${emoj} ${prefix}xsɪᴅᴇᴏᴘᴘᴀɪ
+${emoj} ${prefix}xᴀɴɪᴍᴇғᴇᴇᴛs
+${emoj} ${prefix}xᴀɴɪᴍᴇʙᴏᴏᴛʏ
+${emoj} ${prefix}xᴀɴɪᴍᴇᴛʜɪɢʜss
+${emoj} ${prefix}xʜᴇɴᴛᴀɪᴘᴀʀᴀᴅɪsᴇ
+${emoj} ${prefix}xᴀɴɪᴍᴇᴀʀᴍᴘɪᴛs
+${emoj} ${prefix}xʜᴇɴᴛᴀɪғᴇᴍᴅᴏᴍ
+${emoj} ${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
+${emoj} ${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
+${emoj} ${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
 ╰───「 X ᴍᴇɴᴜ 」`
 but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
@@ -16765,23 +16827,23 @@ if (subscribezeeoneofc == 'random_list') {
 rlist_1 = `${ucapannya2}
 *List Command*
 
-✗⃝${emoj} ${prefix}ajg
-✗⃝${emoj} ${prefix}fact
-✗⃝${emoj} ${prefix}gender
-✗⃝${emoj} ${prefix}umur
-✗⃝${emoj} ${prefix}bucin2
-✗⃝${emoj} ${prefix}cehor
-✗⃝${emoj} ${prefix}darkjoke2
-✗⃝${emoj} ${prefix}fakta
-✗⃝${emoj} ${prefix}husbu2
-✗⃝${emoj} ${prefix}katabijak
-✗⃝${emoj} ${prefix}kemono
-✗⃝${emoj} ${prefix}loli2
-✗⃝${emoj} ${prefix}motivasi
-✗⃝${emoj} ${prefix}neko2
-✗⃝${emoj} ${prefix}pantun
-✗⃝${emoj} ${prefix}shota
-✗⃝${emoj} ${prefix}wallanime`
+${emoj} ${prefix}ajg
+${emoj} ${prefix}fact
+${emoj} ${prefix}gender
+${emoj} ${prefix}umur
+${emoj} ${prefix}bucin2
+${emoj} ${prefix}cehor
+${emoj} ${prefix}darkjoke2
+${emoj} ${prefix}fakta
+${emoj} ${prefix}husbu2
+${emoj} ${prefix}katabijak
+${emoj} ${prefix}kemono
+${emoj} ${prefix}loli2
+${emoj} ${prefix}motivasi
+${emoj} ${prefix}neko2
+${emoj} ${prefix}pantun
+${emoj} ${prefix}shota
+${emoj} ${prefix}wallanime`
 
 reply2(rlist_1)
 }
