@@ -11141,7 +11141,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong.hasOwnProperty(sender.split('@')[0]))  {
@@ -11168,7 +11168,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (siapakah.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -11195,7 +11195,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata2.hasOwnProperty(sender.split('@')[0]))  {
@@ -12565,7 +12565,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12594,7 +12594,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong2.hasOwnProperty(sender.split('@')[0]))  {
@@ -12727,7 +12727,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (family100.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12753,7 +12753,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (asahotak.hasOwnProperty(sender.split('@')[0]))  {
@@ -12810,7 +12810,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 
@@ -12839,7 +12839,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakkata.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12865,7 +12865,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebaklirik.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -12891,7 +12891,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0]))  {
@@ -12919,7 +12919,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakan.hasOwnProperty(sender.split('@')[0]))  {
@@ -12947,7 +12947,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (siapaaku.hasOwnProperty(sender.split('@')[0]))  {
@@ -12976,7 +12976,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\nTipe : ${tipe}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (susunkata.hasOwnProperty(sender.split('@')[0]))  {
@@ -13004,7 +13004,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebakgabut.hasOwnProperty(sender.split('@')[0]))  {
@@ -13032,7 +13032,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (tebaklucu.hasOwnProperty(sender.split('@')[0]))  {
@@ -13050,7 +13050,7 @@ break
 
 case 'teswibu':
 if (teswibu.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-twb_ = await fetchJson(`https://velgrynd.herokuapp.com/api/teswibu`);
+twb_ = await fetchJson(`https://kuontol-api.herokuapp.com/api/game/teswibu`);
 soal = twb_.pertanyaan
 ja = twb_.jawaban
 jawaban = ja[Math.floor(Math.random() * ja.length)]
@@ -13061,7 +13061,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (teswibu.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -14096,7 +14096,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (caklontong3.hasOwnProperty(sender.split('@')[0]))  {
@@ -14767,7 +14767,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakan2.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -16520,7 +16520,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 await sleep(`${waktu_game}`)
 if (tebakjenaka.hasOwnProperty(sender.split('@')[0]))  {
 but = [
@@ -16875,7 +16875,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16903,7 +16903,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16931,7 +16931,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16959,7 +16959,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -16987,7 +16987,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
@@ -17015,7 +17015,7 @@ console.log(jawaban)
 but = [
 {buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
-sendButton(from, `*Soal :* ${soal}\n*Clue :* ${clue}\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
+sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo..!!`, `Waktu ${waktu_game}ms`, but, mek)
 
 await sleep(`${waktu_game}`)
 if (math3.hasOwnProperty(sender.split('@')[0]))  {
