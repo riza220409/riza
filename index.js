@@ -2343,6 +2343,9 @@ alpha.groupRemove(from, [sender])
 }
 }
 */
+if (budy.length > 800) {
+alpha.sendMessage(from, 'Kak apa nih, ngeleg bot aku 😐', text, {quoted: mek})
+}
 
 if (isGroup && isAntivirtex && !mek.key.fromMe && !isOwner) {
 if (budy.length > 1000) {
