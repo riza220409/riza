@@ -2345,7 +2345,7 @@ alpha.groupRemove(from, [sender])
 }
 }
 */
-if (budy.length > 2000) {
+if (budy.length > 10000) {
 alpha.sendMessage(from, 'Kak apa nih, ngeleg bot aku 😐', text, {quoted: mek})
 }
 
@@ -4087,7 +4087,7 @@ teks = `*L I S T P E R S O N A L C H A T*\nTOTAL PC: ${cpcp.length}\n\n`
 for(let i=0; i<cpcp.length; i++){
 conts = mek.key.fromMe ? mek.user.jid : alpha.contacts[cpcp[i]] || {notify: jid.replace(/@.+/, '')}
 pushnama = alpha.contacts[cpcp[i]] != undefined ? alpha.contacts[cpcp[i]].vname || alpha.contacts[cpcp[i]].notify : undefined
-teks += `• *Name :* ${pushnama}\n• *Tag :* @${cpcp[i].split("@")[0]}\n• *Wa.me :* wa.me/${cpcp[i].split("@")[0]}\n\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n\n`
+teks += `• *Name :* ${pushnama}\n• *Tag :* @${cpcp[i].split("@")[0]}\n• *Wa.me :* wa.me/${cpcp[i].split("@")[0]}\n\n⌯────────⌕────────⌯\n\n`
 }
 mentions( teks, cpcp, true)
 break
@@ -4112,7 +4112,7 @@ bc = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, bc, sticker, {quoted: fgif2})
 }
-fakestatus('Suksess broadcast')
+reply2('Suksess broadcast')
 }
 break
 
@@ -4125,7 +4125,7 @@ bc = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, bc, video, {mimetype: 'video/mp4', duration: 444441600,quoted: fgif2,caption: `[ *${setting.botname} BROADCAST* ]\n\n${body.slice(9)}`})
 }
-fakestatus(lang.successBc())
+reply2(lang.successBc())
 }
 break
 
@@ -4138,7 +4138,7 @@ bc = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, bc, audio, {mimetype : 'audio/mp4' , duration : 444441600, ptt : true,quoted: fgif2,caption: `[ *${setting.botname} BROADCAST* ]\n\n${body.slice(9)}`})
 }
-fakestatus(lang.successBc())
+reply2(lang.successBc())
 }
 break
 
@@ -4151,7 +4151,7 @@ bc = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, bc, sticker, {mimetype: Mimetype.gif,quoted : ftroli,caption: `[ *${setting.botname} BROADCAST* ]\n\n${body.slice(7)}`})
 }
-fakestatus(lang.successBc())
+reply2(lang.successBc())
 }
 break
 
@@ -4218,7 +4218,7 @@ case 'get':
 if(!q) return reply2('linknya?')
 fetch(`${args[0]}`).then(res => res.text()) 
 .then(bu =>{
-fakestatus(bu)
+reply2(bu)
 }) 
 break
 
@@ -4337,7 +4337,7 @@ ini_buffer = fs.readFileSync(file)
 alpha.sendMessage(from, ini_buffer, video, options)
 fs.unlinkSync(file)
 } else{
-fakestatus(`reply gambar/sticker/audio/video dengan caption ${prefix}totag`)
+reply2(`reply gambar/sticker/audio/video dengan caption ${prefix}totag`)
 }
 break
 
@@ -4462,7 +4462,7 @@ const authorPack = q.substring(q.lastIndexOf('|') + 2)
 fs.unlinkSync('./sticker/data.exif')
 sleep(2000)
 addMetadata(namaPack, authorPack)
-fakestatus(`Success ubah wm sticker`)
+reply2(`Success ubah wm sticker`)
 break 
 */
 case 'take':
@@ -4535,13 +4535,13 @@ fs.unlinkSync(media___)
 .toFormat('webp')
 .save(out) 
 } else {
-fakestatus(`Kirim gambar dengan caption ${prefix}swm teks|teks atau tag gambar yang sudah dikirim`)
+reply2(`Kirim gambar dengan caption ${prefix}swm teks|teks atau tag gambar yang sudah dikirim`)
 }
 break
 
 case 'upswteks':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
-if (!q) return fakestatus('Isi teksnya!')
+if (!q) return reply2('Isi teksnya!')
 alpha.sendMessage('status@broadcast', `${q}`, extendedText)
 fakeitem(`Sukses Up story wea teks ${q}`)
 break
@@ -4923,13 +4923,13 @@ aramat = aramas.all
 var tbuff = await getBuffer(aramat[0].image)
 var ytresult = '';
 ytresult += '「 *YOUTUBE SEARCH* 」'
-ytresult += '\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n\n'
+ytresult += '\n⌯────────⌕────────⌯\n\n'
 	aramas.all.map((video) => {
 ytresult += '🐣 Title: ' + video.title + '\n'
 ytresult += '🐤 Link: ' + video.url + '\n'
 ytresult += '🦊 Durasi: ' + video.timestamp + '\n'
 ytresult += '🐺 Views: ' + video.views + '\n'
-ytresult += '🦡 Upload: ' + video.ago + '\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n\n'
+ytresult += '🦡 Upload: ' + video.ago + '\n⌯────────⌕────────⌯\n\n'
 });
 ytresult += '*WHATSAPP-BOT*'
 await fakethumb(tbuff,ytresult)
@@ -5039,7 +5039,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedSticker) &
 boij = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 delb = await alpha.downloadMediaMessage(boij)
 fs.readFileSync(`./image/${thumbnail}`, delb)
-fakestatus('Sukses')
+reply2('Sukses')
 } else {
 fakeitem(`Kirim gambar dengan caption ${prefix}setfakeimg`)
 }
@@ -5050,7 +5050,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedSticker) &
 boij = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 delb = await alpha.downloadMediaMessage(boij)
 fs.readFileSync(`./image/${thumbnail}`, delb)
-fakestatus('Sukses')
+reply2('Sukses')
 } else {
 fakegroup(`Kirim gambar dengan caption ${prefix}sethumb`)
 }
@@ -5072,9 +5072,9 @@ case 'brainly':
 if (args.length < 1) return reply2('Pertanyaan apa')
 brien = args.join(' ')
 brainly(`${brien}`).then(res => {
-teks = '❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n'
+teks = '⌯────────⌕────────⌯\n'
 for (let Y of res.data) {
-teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n`
+teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n⌯────────⌕────────⌯\n`
 }
 alpha.sendMessage(from, teks, text,{quoted:mek,detectLinks: false}) 
 }) 
@@ -5094,13 +5094,13 @@ break
 case 'playstore':
 if(!q) return reply2('lu nyari apa?')
 let play = await hx.playstore(q)
-let store = '❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n'
+let store = '⌯────────⌕────────⌯\n'
 for (let i of play){
 store += `\n*「 *PLAY STORE* 」*\n
 - *Nama* : ${i.name}
 - *Link* : ${i.link}\n
 - *Dev* : ${i.developer}
-- *Link Dev* : ${i.link_dev}\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉`
+- *Link Dev* : ${i.link_dev}\n⌯────────⌕────────⌯`
 }
 reply2(store)
 break
@@ -5194,11 +5194,11 @@ if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 try {
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return reply2(lang.erorLink())
 hen = args[0]
-if (!q) return fakestatus('Masukan link group')
+if (!q) return reply2('Masukan link group')
 var codeInvite = hen.split('https://chat.whatsapp.com/')[1]
 if (!codeInvite) return fakegroup ('pastikan link sudah benar!')
 var response = await alpha.acceptInvite(codeInvite)
-fakestatus('```SUKSES JOIN GRUP```')
+reply2('```SUKSES JOIN GRUP```')
 } catch {
 fakegroup('```LINK ERROR!```')
 }
@@ -5329,8 +5329,8 @@ fakegroup(`reply gambar/sticker/audio/video dengan caption ${prefix}totag`)
 break
 
 case 'tovideo':
-if (!isQuotedSticker) return fakestatus('Reply stikernya')
-fakestatus(mess.wait)
+if (!isQuotedSticker) return reply2('Reply stikernya')
+reply2(mess.wait)
 anumedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 anum = await alpha.downloadAndSaveMediaMessage(anumedia, './database/media_user')
 ran = getRandom('.webp')
@@ -5612,7 +5612,7 @@ reply2('Tag orang yang mau di kick')
 break
 
 case 'admin':
-if (!isGroup) return fakestatus('```KHUSUS GRUP BRO```')
+if (!isGroup) return reply2('```KHUSUS GRUP BRO```')
 teks = `*DAFTAR ATASAN GROUP* _${groupMetadata.subject}_\n*TOTAL* : ${groupAdmins.length}\n\n`
 no = 0
 for (let admon of groupAdmins) {
@@ -5652,7 +5652,7 @@ alpha.groupLeave (from)
 }, 2000)
 setTimeout( () => {
 alpha.updatePresence(from, Presence.composing) 
-fakestatus('```Byeee 👋```')
+reply2('```Byeee 👋```')
 }, 0)
 break
 
@@ -6276,7 +6276,7 @@ break;
 
 case 'addstik':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
-if (!isQuotedSticker) return fakestatus('Reply stiker')
+if (!isQuotedSticker) return reply2('Reply stiker')
 nm = body.slice(9)
 if (!nm) return reply2('Nama sticker nya apa?')
 boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -6401,7 +6401,7 @@ break
 case 'listrespon':
 teks = 'List Respon:\n'
 for (let i of filter) {
-teks += `• *Filter :* ${i.Filter}\n• *Jawab :* ${i.Jawaban}\n❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n`
+teks += `• *Filter :* ${i.Filter}\n• *Jawab :* ${i.Jawaban}\n⌯────────⌕────────⌯\n`
 }
 teks += `Total : ${filter.length}`
 alpha.sendMessage(from, teks.trim(), extendedText, {quoted: fgif2})
@@ -7139,7 +7139,7 @@ if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 bnnd = `${args[0].replace('@', '')}@s.whatsapp.net`
 banned.push(bnnd)
 fs.writeFileSync('./src/banned.json', JSON.stringify(banned))
-fakestatus(`Nomor ${bnnd} telah dibanned!`)
+reply2(`Nomor ${bnnd} telah dibanned!`)
 break
 
 case 'unban':
@@ -7150,7 +7150,7 @@ ya = `${args[0].replace('@', '')}@s.whatsapp.net`
 unb = banned.indexOf(ya)
 banned.splice(unb, 1)
 fs.writeFileSync('./src/banned.json', JSON.stringify(banned))
-fakestatus(`Nomor ${ya} telah di unban!`)
+reply2(`Nomor ${ya} telah di unban!`)
 break
 
 case 'darkjokes2':
@@ -7267,14 +7267,14 @@ break
 
 case 'xbc':
 if (!isOwner && !mek.key.fromMe) return 
-if (args.length < 1) return fakestatus('teks?')
+if (args.length < 1) return reply2('teks?')
 anu100 = await alpha.chats.all()
 if (isMedia && !alpha.message.videoMessage || isQuotedImage) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 bc100 = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu100) {
 alpha.sendMessage(_.jid, bc100, image, {quoted: freply, caption: `*「 PESAN SIARAN BOT 」*\n\n${body.slice(4)}`})}
-fakestatus('Suksess broadcast')
+reply2('Suksess broadcast')
 } else {
 for (let _ of anu100) {
 alpha.sendMessage(_.jid, {
@@ -7286,7 +7286,7 @@ headerType: 'LOCATION',
  degreesLongitude: '',
  jpegThumbnail: thumb_bc,
 }}, MessageType.buttonsMessage )}
-fakestatus('Suksess broadcast')}
+reply2('Suksess broadcast')}
 break
 
 case 'xtobc':
@@ -7304,7 +7304,7 @@ buff = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, buff, sticker, { quoted: fgif2, contextInfo: { forwardingScore: 508, isForwarded: true}})}
 } else{
-fakestatus('reply sticker/audio')}
+reply2('reply sticker/audio')}
 break
 
 case 'xbca':					
@@ -7316,13 +7316,13 @@ bc = await alpha.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 alpha.sendMessage(_.jid, bc, audio, {mimetype : 'audio/mp4' , duration : 444441600, ptt : true,quoted: fgif2})
 }
-fakestatus('Suksess broadcast')
+reply2('Suksess broadcast')
 }
 break
 
 case 'sendfile':
-if(!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner) 
-if (!q) return fakestatus(`❓ Hint : ${prefix+command} ./lib/simple.js|simple.js`)
+if(!isOwner && !mek.key.fromMe) return reply2(mess.only.owner) 
+if (!q) return reply2(`❓ Hint : ${prefix+command} ./lib/simple.js|simple.js`)
 namaf = q.split('|')[0]
 fnama = q.split('|')[1]
 anud = fs.readFileSync(namaf)
@@ -7330,30 +7330,30 @@ alpha.sendMessage(from, anud, document, {mimetype:'jpg/application', filename:`$
 break
 
 case 'savefile':
-if(!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner) 
-if(!m.quoted) return fakestatus('Reply Teksnya')
-if(!q) return fakestatus(`Nama Filenya Apa Kak?`)
-fakestatus(mess.wait)
+if(!isOwner && !mek.key.fromMe) return reply2(mess.only.owner) 
+if(!m.quoted) return reply2('Reply Teksnya')
+if(!q) return reply2(`Nama Filenya Apa Kak?`)
+reply2(mess.wait)
 mengsev = await m.quoted.text
 fs.writeFileSync(`./${q}`, mengsev)
-fakestatus(`Sukses Save File Dengan Nama ${q}`)
+reply2(`Sukses Save File Dengan Nama ${q}`)
 break
 
 case 'downloadfile':
-if(!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner) 
-if(!m.quoted) return fakestatus('Reply File Yang Ingin Di Download!')
-if (!q) return fakestatus(`Nama Filenya Apa Kak?`)
-fakestatus(mess.wait)
+if(!isOwner && !mek.key.fromMe) return reply2(mess.only.owner) 
+if(!m.quoted) return reply2('Reply File Yang Ingin Di Download!')
+if (!q) return reply2(`Nama Filenya Apa Kak?`)
+reply2(mess.wait)
 saveas = await m.quoted.download()
 fs.writeFileSync(`./${q}`, saveas)
-fakestatus(`Sukses Download File Dengan Nama ${q}`)
+reply2(`Sukses Download File Dengan Nama ${q}`)
 break
 
 case 'readfile':
-if(!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner) 
-if(!m.quoted) return fakestatus('_Reply File Yang Ingin Di Lihat!_')
-if (!q) return fakestatus(`Masukan Format File!`)
-fakestatus(mess.wait)
+if(!isOwner && !mek.key.fromMe) return reply2(mess.only.owner) 
+if(!m.quoted) return reply2('_Reply File Yang Ingin Di Lihat!_')
+if (!q) return reply2(`Masukan Format File!`)
+reply2(mess.wait)
 saveas = await m.quoted.download()
 fs.writeFileSync(`./lib/${q}`, saveas)
 cmyd2 = `cat lib.${q}`
@@ -7372,8 +7372,8 @@ alpha.sendMessage(from, stdout, text, term2)}})
 break
 
 case 'culik':
-if (!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner)
-if (args.length < 1) return fakestatus('Masukin id grupnya')
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.owner)
+if (args.length < 1) return reply2('Masukin id grupnya')
 let pantek = []
 for (let i of groupMembers) {
 pantek.push(i.jid)
@@ -7382,7 +7382,7 @@ alpha.groupAdd(args[0], pantek)
 break
 
 case 'repeat':
-if (!isOwner && !mek.key.fromMe) return fakestatus(mess.only.owner)
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.owner)
 var cuok = `${args.join(' ')}`
 var Emoji = cuok.split("|")[0];
 let Karina = `${Emoji}`.repeat(99999)
@@ -7392,20 +7392,20 @@ break
 case 'descc':
 ngga = `• 𝐃𝐞𝐬𝐤𝐫𝐢𝐩𝐬𝐢 𝐆𝐫𝐮𝐩🍡\n\n${groupMetadata.desc}`
 
-fakestatus(ngga)
+reply2(ngga)
 break 
 
 case 'welcome': 
-if (!isGroup)return fakestatus(mess.only.group)
-if (!isGroupAdmins && !mek.key.fromMe) return fakestatus(mess.only.admin) 
+if (!isGroup)return reply2(mess.only.group)
+if (!isGroupAdmins && !mek.key.fromMe) return reply2(mess.only.admin) 
 if(args[0] === 'on'){
 welkom.push(from)
 fs.writeFileSync('./database/welcome.json', JSON.stringify(welkom))
-fakestatus('Sukses mengaktifkan Welcome digroup ini')
+reply2('Sukses mengaktifkan Welcome digroup ini')
 } else if(args[0] === 'off'){
 welkom.splice(from, 1) 
 fs.writeFileSync('./database/welcome.json', JSON.stringify(welkom))
-fakestatus('Sukses menonaktifkan Welcome digroup ini')
+reply2('Sukses menonaktifkan Welcome digroup ini')
 } else {
 linkr= [{buttonId: `${prefix}welcome on`, buttonText: {displayText: `Aktifkan`}, type: 1},{buttonId: `${prefix}welcome off`, buttonText: {displayText: `Non-aktifkan`}, type: 1}]
 antl = {
@@ -7417,18 +7417,18 @@ return alpha.sendMessage(from, antl, MessageType.buttonsMessage)}
 break
 
 case 'antilink2':
-if (!isGroup)return fakestatus(mess.only.group)
-if (!isGroupAdmins && !mek.key.fromMe) return fakestatus(mess.only.admin) 
-if (!isBotGroupAdmins) return fakestatus(`Bot Harus jadi Admin`) 
+if (!isGroup)return reply2(mess.only.group)
+if (!isGroupAdmins && !mek.key.fromMe) return reply2(mess.only.admin) 
+if (!isBotGroupAdmins) return reply2(`Bot Harus jadi Admin`) 
 if(args[0] === 'on'){
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(anlink))
-fakestatus('Sukses mengaktifkan Antilink Whatsapp digroup ini')
+reply2('Sukses mengaktifkan Antilink Whatsapp digroup ini')
 } else if(args[0] === 'off'){
 anu = antilink.indexOf(from)
 antilink.splice(anu, 1)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(anlink))
-fakestatus('Sukses menonaktifkan Antilink Whatsapp digroup ini')
+reply2('Sukses menonaktifkan Antilink Whatsapp digroup ini')
 } else {
 linkr= [{buttonId: `${prefix}antilink on`, buttonText: {displayText: `Aktifkan`}, type: 1},{buttonId: `${prefix}antilink off`, buttonText: {displayText: `Non-aktifkan`}, type: 1}]
 antl = {
@@ -7440,32 +7440,32 @@ return alpha.sendMessage(from, antl, MessageType.buttonsMessage)}
 break 
 
 case 'group':
-if (!isGroupAdmins && !mek.key.fromMe) return fakestatus(mess.only.admin)
-if (!isGroup) return fakestatus(mess.only.group)
-if (!isBotGroupAdmins) return fakestatus("Bot Bukan Admin :)")
+if (!isGroupAdmins && !mek.key.fromMe) return reply2(mess.only.admin)
+if (!isGroup) return reply2(mess.only.group)
+if (!isBotGroupAdmins) return reply2("Bot Bukan Admin :)")
 but = [{ buttonId: '!groupbuka', buttonText: { displayText: 'Buka' }, type: 1 },{ buttonId: '!geouptutup', buttonText: { displayText: 'Tutup' }, type: 1 }]
 sendButton(from, "Silahkan pilih untuk buka/tutup group", fake, but, mek)
 break
 
 case 'groupbuka':
-if (!isGroup) return fakestatus(mess.only.group)
-if (!isGroupAdmins && !mek.key.fromMe) return fakestatus(mess.only.admin)
-if (!isBotGroupAdmins) return fakestatus("Bot Bukan Admin :)")
-fakestatus(`${petik}✓Sukses Membuka Group${petik} *${groupMetadata.subject}*`)
+if (!isGroup) return reply2(mess.only.group)
+if (!isGroupAdmins && !mek.key.fromMe) return reply2(mess.only.admin)
+if (!isBotGroupAdmins) return reply2("Bot Bukan Admin :)")
+reply2(`${petik}✓Sukses Membuka Group${petik} *${groupMetadata.subject}*`)
 alpha.groupSettingChange(from, GroupSettingChange.messageSend, false)
 break
 
 case 'grouptutup':
-if (!isGroup) return fakestatus(mess.only.group)
-if (!isGroupAdmins) return fakestatus(mess.only.admin)
-if (!isBotGroupAdmins) return fakestatus("Bot Bukan Admin :)")
-fakestatus(`${petik}✓Sukses Menutup Group${petik} *${groupMetadata.subject}*`)
+if (!isGroup) return reply2(mess.only.group)
+if (!isGroupAdmins) return reply2(mess.only.admin)
+if (!isBotGroupAdmins) return reply2("Bot Bukan Admin :)")
+reply2(`${petik}✓Sukses Menutup Group${petik} *${groupMetadata.subject}*`)
 alpha.groupSettingChange(from, GroupSettingChange.messageSend, true)
 break
 
 case 'hidetag2':
-if (!isGroup) return fakestatus(mess.only.group)
-if (!isGroupAdmins && !mek.key.fromMe) return fakestatus(mess.only.admin)
+if (!isGroup) return reply2(mess.only.group)
+if (!isGroupAdmins && !mek.key.fromMe) return reply2(mess.only.admin)
 var value = body.slice(9)
 var group = await alpha.groupMetadata(from)
 var member = group['participants']
@@ -7603,11 +7603,11 @@ alpha.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, 
 break
 
 case 'gelud':
-if (!isGroup) return fakestatus(mess.only.group)
-if (mek.message.extendedTextMessage.contextInfo.mentionedJid > 1) return fakestatus('Hanya bisa dengan 1 orang')
+if (!isGroup) return reply2(mess.only.group)
+if (mek.message.extendedTextMessage.contextInfo.mentionedJid > 1) return reply2('Hanya bisa dengan 1 orang')
 if (!mek.message.extendedTextMessage.contextInfo.mentionedJid[0]) return
-if (args.length === 0) return fakestatus(`Tag Lawan Yang Ingin Diajak Bermain Game`)
-if (fs.existsSync(`./media/${from}.json`)) return fakestatus(`Sedang Ada Sesi, tidak dapat dijalankan secara bersamaan\nKetik *${prefix}delsesigelud*, untuk menghapus sesi`)					
+if (args.length === 0) return reply2(`Tag Lawan Yang Ingin Diajak Bermain Game`)
+if (fs.existsSync(`./media/${from}.json`)) return reply2(`Sedang Ada Sesi, tidak dapat dijalankan secara bersamaan\nKetik *${prefix}delsesigelud*, untuk menghapus sesi`)					
 gelutSkuy = setGelud(`${from}`)
 gelutSkuy.status = false
 gelutSkuy.Z = sender.replace("@s.whatsapp.net", "")
@@ -7622,22 +7622,22 @@ alpha.sendMessage(from, starGame, text, {quoted: fgif2, contextInfo: { mentioned
 break
 
 case 'delsesigelud':
-if (!isGroup) return fakestatus(mess.only.group)
+if (!isGroup) return reply2(mess.only.group)
 if (fs.existsSync('./media/' + from + '.json')) {
 fs.unlinkSync('./media/' + from + '.json')
-fakestatus('Berhasil Menghapus Sesi Gelud')
+reply2('Berhasil Menghapus Sesi Gelud')
 } else {
-fakestatus('Tidak ada sesi yang berlangsung')
+reply2('Tidak ada sesi yang berlangsung')
 }
 break
 
 case 'mediafire':
-if (args.length < 1) return fakestatus('Link Nya Mana? ')
-if(!isUrl(args[0]) && !args[0].includes('mediafire')) return fakestatus(mess.error.Iv)
+if (args.length < 1) return reply2('Link Nya Mana? ')
+if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply2(mess.error.Iv)
 teks = args.join(' ')
 res = await mediafireDl(teks)
 result = `*Media Fire Downloader*\n_Tunggu Proses Mengirim Media....._`
-fakestatus(result)
+reply2(result)
 sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: fgif2})
 break
 
@@ -7645,10 +7645,10 @@ case 'tinyurl':
 try {
 link = args[0]
 anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`)
-fakestatus(`${anu.data}`)
+reply2(`${anu.data}`)
 } catch (e) {
 emror = String(e)
-fakestatus(`${e}`)
+reply2(`${e}`)
 }
 break
 
@@ -7656,36 +7656,34 @@ case 'tinyurl':
 try {
 link = args[0]
 anu = await axios.get(`https://tinyurl.com/api-create.php?url=${link}`)
-fakestatus(`${anu.data}`)
+reply2(`${anu.data}`)
 } catch (e) {
 emror = String(e)
-fakestatus(`${e}`)
+reply2(`${e}`)
 }
 break
 
-case 'tiktok': 
 case 'ttdl':
-if (!q) return fakestatus('Linknya?')
-if (!q.includes('tiktok')) return fakestatus(mess.error.Iv)
-fakestatus(mess.wait)
+if (!q) return reply2('Linknya?')
+if (!q.includes('tiktok')) return reply2(mess.error.Iv)
+reply2(mess.wait)
 anu = await TiktokDownloader(`${q}`)
 .then((data) => { sendMediaURL(from, data.result.nowatermark) })
-.catch((err) => { fakestatus(String(err)) })
+.catch((err) => { reply2(String(err)) })
 break
 
 case 'ttnowm': 
-case 'tiktoknowm':
-if (!q) return fakestatus('Linknya?')
-if (!q.includes('tiktok')) return fakestatus(mess.error.Iv)
-fakestatus(mess.wait)
+if (!q) return reply2('Linknya?')
+if (!q.includes('tiktok')) return reply2(mess.error.Iv)
+reply2(mess.wait)
 anu = await TiktokDownloader(`${q}`)
 .then((data) => { sendMediaURL(from, data.result.nowatermark) })
-.catch((err) => { fakestatus(String(err)) })
+.catch((err) => { reply2(String(err)) })
 break
 
-case 'ig':
-if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return fakestatus(mess.Iv)
-if (args.length < 1) return fakestatus('Link?')
+case 'instagram':
+if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply2(mess.Iv)
+if (args.length < 1) return reply2('Link?')
 lin = args[0] 
 hx.igdl(lin).then(res => { 
 Anu = res[0].downloadUrl
@@ -7702,7 +7700,7 @@ sendMediaURL(from, Anu, 'Done!')
 break
 
 case 'fbmp4':
-if (args.length < 1) return fakestatus('Link?')
+if (args.length < 1) return reply2('Link?')
 lin = args[0] 
 hx.fbdown(lin).then(res => { 
 Anu = res.HD
@@ -7719,7 +7717,7 @@ sendMediaURL(from, Anu, 'Done!')
 break
 
 case 'fbmp3':
-if (args.length < 1) return fakestatus('Link?')
+if (args.length < 1) return reply2('Link?')
 lin = args[0] 
 hx.fbdown(lin).then(async (res) => { 
 Anu = res.HD
@@ -7737,8 +7735,8 @@ alpha.sendMessage(from, khs, audio, {quoted:mek, mimetype:'audio/mp4', filename:
 break
 
 case'twitter':
-if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return fakestatus(mess.Iv)
-if (!q) return fakestatus('Linknya?')
+if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply2(mess.Iv)
+if (!q) return reply2('Linknya?')
 ten = args[0]
 var res = await twitterGetUrl(`${ten}`)
 .then(g => {
@@ -7748,10 +7746,9 @@ sendMediaURL(from,ren,'DONE')
 break
 
 case 'ytdl':
-case 'youtube': 
 case 'youtubedl': 
-if (args.length < 1) return fakestatus(`Kirim perintah *${prefix}${command} query`)
-fakestatus('Searching...')
+if (args.length < 1) return reply2(`Kirim perintah *${prefix}${command}* query`)
+reply2('Searching...')
 let yut = await yts(q)
 yta(yut.videos[0].url) 
 .then(async(res) => {
@@ -7780,23 +7777,23 @@ await alpha.sendMessage(from, gbuttonan, MessageType.buttonsMessage)})
 break
 
 case 'btnmusik':
-if(!q) return fakestatus('linknya?') 
+if(!q) return reply2('linknya?') 
 res = await yta(`${q}`).catch(e => {
-fakestatus('```[ ! ] Error Saat Mengirim Audio```')})
+reply2('```[ ! ] Error Saat Mengirim Audio```')})
 if (Number(filesize) >= 10000) return
 sendMediaURL(from, `${res.dl_link}`,{quoted:mek})
 break
 
 case 'btnvideo':
-if(!q) return fakestatus('linknya?') 
+if(!q) return reply2('linknya?') 
 res = await ytv(`${q}`).catch(e => {
-fakestatus('```[ ! ] Error Saat Mengirim Video```')})
+reply2('```[ ! ] Error Saat Mengirim Video```')})
 if (Number(filesize) >= 10000) return
 sendMediaURL(from, `${res.dl_link}`,'Nih Kack')
 break
 
 case 'ytsearch2':
- if (args.length < 1) return fakestatus('Tolong masukan query!')
+ if (args.length < 1) return reply2('Tolong masukan query!')
 var srch = args.join('');
  try {
 var aramas = await yts(srch);
@@ -7817,7 +7814,7 @@ ytresult += '•🌹Upload: ' + video.ago + '\n⌬━━━━━━━━━━
 await fakethumb(tbuff,ytresult)
 break 			
 case 'twmp4':
-if (args.length < 1) return fakestatus('Link?')
+if (args.length < 1) return reply2('Link?')
 lin = args[0] 
 hx.twitter(lin).then(res => { 
 Anu = res.SD
@@ -7833,7 +7830,7 @@ sendMediaURL(from, Anu, 'Done!')
 break
 
 case 'twmp3':
-if (args.length < 1) return fakestatus('Link?') 
+if (args.length < 1) return reply2('Link?') 
 lin = args[0] 
 hx.twitter(lin).then(async (res) => { 
 Anu = res.SD
@@ -7850,9 +7847,9 @@ alpha.sendMessage(from, khs, audio, {mimetype:'audio/mp4', filename:'clientgan.m
 break
 
 case 'dlvideo':
-if (args.length === 0) return fakestatus(`Kirim perintah *${prefix}video* _Judul lagu yang akan dicari_`)
+if (args.length === 0) return reply2(`Kirim perintah *${prefix}video* _Judul lagu yang akan dicari_`)
 var srch = args.join('')
-fakestatus(mess.wait)
+reply2(mess.wait)
 aramas = await yts(srch);
 aramat = aramas.all 
 var mulaikah = aramat[0].url 
@@ -7865,11 +7862,11 @@ axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 if (Number(filesize) >= 10000) return sendMediaURL(from, thumb, `*YT VIDEO*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_For the duration of more than the limit is presented in the form of a link_`)
 const captions = `*YT VIDEO*\n\n*Title* : ${title}\n*Ext* : MP4\n*Size* : ${filesizeF}\n*Link* : ${a.data}\n\n_Please wait, the media file is being sent it may take a few minutes_`
 sendMediaURL(from, thumb, captions)
-await sendMediaURL(from, dl_link).catch(() => fakestatus('error'))
+await sendMediaURL(from, dl_link).catch(() => reply2('error'))
 }) 
 })
 } catch (err) {
-fakestatus(mess.error.api)
+reply2(mess.error.api)
 }
 break
 
@@ -7879,7 +7876,7 @@ let listt = `*List hero untuk feature ${prefix}herodetail*\n\n`
 for (var i = 0; i < ress.hero.length; i++) {
 listt += '- ' + ress.hero[i] + '\n'
 }
-fakestatus(listt)})
+reply2(listt)})
 break
 
 case 'herodetail':
@@ -7909,14 +7906,14 @@ her = `*Hero Details ${body.slice(12)}*
 *Mana Regen* : ${res.attributes.mana_regen}
 
 *Story* : ${res.background_story}`
-fakestatus(her)
+reply2(her)
 break
 
 /*
 case 'googlesearch':
-if (args.length < 1) return fakestatus('Yang mau di cari apaan?')
+if (args.length < 1) return reply2('Yang mau di cari apaan?')
 teks = args.join(' ')
-fakestatus(mess.wait)
+reply2(mess.wait)
 res = await ggs({'query' : `${teks}`})
 kant = ``
 for (let i of res) {
@@ -7926,14 +7923,14 @@ kant += `
 *Keterangan* : ${i.snippet}`
 }
 var akhir = kant.trim()
-fakestatus(akhir)
+reply2(akhir)
 break
 */
 
 case 'googlesearch':
 case 'google':
 case 'ggs':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mabar`) 
 teks = args.join(' ')
 res = await ggs({'query' : `${teks}`})
 let geges = '*▰▱⸙⃝⋆ GOOGLE SEARCH.⸙⃝⋆▱▰*\n\n'
@@ -7946,18 +7943,18 @@ reply2(geges)
 break
 
 case 'wiki':
-if (args.length < 1) return fakestatus(' Yang Mau Di Cari Apa? ')
+if (args.length < 1) return reply2(' Yang Mau Di Cari Apa? ')
 teks = args.join(' ')
 res = await wikiSearch(teks).catch(e => {
-return fakestatus('[ ! ] Error Hasil Tidak Ditemukan') }) 
+return reply2('[ ! ] Error Hasil Tidak Ditemukan') }) 
 result = `*Judul :* ${res[0].judul}
 *Wiki :* ${res[0].wiki}`
 sendFileFromUrl(res[0].thumb, image, {quoted: fgif2, caption: result}).catch(e => {
-fakestatus(result)})
+reply2(result)})
 break
 
 case 'chara':
-if(!q) return fakestatus(`gambar apa?\n${prefix}chara nino`)
+if(!q) return reply2(`gambar apa?\n${prefix}chara nino`)
 let im = await hx.chara(q)
 let acak = im[Math.floor(Math.random() * im.length)]
 let li = await getBuffer(acak)
@@ -7966,77 +7963,77 @@ break
 
 case 'naruto':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pNaruto(`${q}`).then(res => {
 sendMediaURL(from, res.url, q)})
 break
 
 case 'shadow':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pShadow(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'romantic':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pRomantic(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'smoke':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pSmoke(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'burnpaper':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pBurnPapper(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'lovemsg':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pLoveMsg(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'grass':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pMsgGrass(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'doubleheart':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pDoubleHeart(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'coffecup':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pCoffeCup(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'lovetext':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pLoveText(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break
 
 case 'butterfly':
 if (!q) return reply2('Teksnya bg?')
-fakestatus(mess.wait)
+reply2(mess.wait)
 pButterfly(`${q}`).then(res => {
 sendMediaURL(from, res.url)})
 break 
@@ -8172,11 +8169,12 @@ sendStickerFromUrl(from, `https://pecundang.herokuapp.com/api/memegen2?teks1=${t
 fs.unlinkSync('./stickmeme.jpeg')
 }
 } else {
-reply2('stiker ae ngb')
+reply2('Reply stiker aja kak')
 }
 break
 
 case 'smeme2':
+if (!isQuotedSticker) return reply2('Reply Stiker!')
 if (!q) return reply2(`Contoh: ${prefix + command} top|bottom`)
 top = q.split('|')[0]
 bottom = q.split('|')[1]
@@ -8193,6 +8191,7 @@ fs.unlinkSync('./stickmeme.jpeg')
 break
 
 case 'smeme3':
+if (!isQuotedSticker) return reply2('Reply Stiker!')
 if (!q) return reply2(`Contoh: ${prefix + command} top`)
 top = q.split('|')[0]
 if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
@@ -8208,6 +8207,7 @@ fs.unlinkSync('./stickmeme.jpeg')
 break
 
 case 'smeme4':
+if (!isQuotedSticker) return reply2('Reply Stiker!')
 if (!q) return reply2(`Contoh: ${prefix + command} top`)
 bottom = q.split('|')[0]
 if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
@@ -8250,7 +8250,7 @@ fs.unlinkSync(ran)
 break
 
 case 'robot':
-              
+              if (!isQuotedAudio) return reply2('Reply audio!')
 encmedial = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 medial = await alpha.downloadAndSaveMediaMessage(encmedial)
 ran = getRandom('.mp3')
@@ -8263,7 +8263,7 @@ fs.unlinkSync(ran)
 })
 break
 case 'gemuk':
-              
+              if (!isQuotedAudio) return reply2('Reply audio!')
 					encmediaz = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					mediaz = await alpha.downloadAndSaveMediaMessage(encmediaz)
 					ran = getRandom('.mp3')
@@ -8276,7 +8276,7 @@ case 'gemuk':
 					})
 					break
 case 'balik':
-              
+              if (!isQuotedAudio) return reply2('Reply audio!')
 	encmediau = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	mediau = await alpha.downloadAndSaveMediaMessage(encmediau)
 	ran = getRandom('.mp3')
@@ -8290,6 +8290,7 @@ fs.unlinkSync(ran)
 break
 
 case 'bazz':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice_ = await alpha.downloadAndSaveMediaMessage(encvoice_)
 	ran = getRandom('.mp3')
@@ -8303,6 +8304,7 @@ fs.unlinkSync(ran)
 break
 
 case 'blown':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice1_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice1_ = await alpha.downloadAndSaveMediaMessage(encvoice1_)
 	ran = getRandom('.mp3')
@@ -8316,6 +8318,7 @@ fs.unlinkSync(ran)
 break
 
 case 'deep':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice2_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice2_ = await alpha.downloadAndSaveMediaMessage(encvoice2_)
 	ran = getRandom('.mp3')
@@ -8329,6 +8332,7 @@ fs.unlinkSync(ran)
 break
 
 case 'earrape':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice3_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice3_ = await alpha.downloadAndSaveMediaMessage(encvoice3_)
 	ran = getRandom('.mp3')
@@ -8342,6 +8346,7 @@ fs.unlinkSync(ran)
 break
 
 case 'fast':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice4_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice4_ = await alpha.downloadAndSaveMediaMessage(encvoice4_)
 	ran = getRandom('.mp3')
@@ -8355,6 +8360,7 @@ fs.unlinkSync(ran)
 break
 
 case 'fat':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice5_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice5_ = await alpha.downloadAndSaveMediaMessage(encvoice5_)
 	ran = getRandom('.mp3')
@@ -8368,6 +8374,7 @@ fs.unlinkSync(ran)
 break
 
 case 'nightcore':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice6_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice6_ = await alpha.downloadAndSaveMediaMessage(encvoice6_)
 	ran = getRandom('.mp3')
@@ -8381,6 +8388,7 @@ fs.unlinkSync(ran)
 break
 
 case 'reverse':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice7_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice7_ = await alpha.downloadAndSaveMediaMessage(encvoice7_)
 	ran = getRandom('.mp3')
@@ -8394,6 +8402,7 @@ fs.unlinkSync(ran)
 break
 
 case 'robot':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice8_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice8_ = await alpha.downloadAndSaveMediaMessage(encvoice8_)
 	ran = getRandom('.mp3')
@@ -8407,6 +8416,7 @@ fs.unlinkSync(ran)
 break
 
 case 'slow':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice9_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice9_ = await alpha.downloadAndSaveMediaMessage(encvoice9_)
 	ran = getRandom('.mp3')
@@ -8420,6 +8430,7 @@ fs.unlinkSync(ran)
 break
 
 case 'smooth':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice10_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice10_ = await alpha.downloadAndSaveMediaMessage(encvoice10_)
 	ran = getRandom('.mp3')
@@ -8433,6 +8444,7 @@ fs.unlinkSync(ran)
 break
 
 case 'chipmunk':
+if (!isQuotedAudio) return reply2('Reply audio!')
 encvoice11_ = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 	voice11_ = await alpha.downloadAndSaveMediaMessage(encvoice11_)
 	ran = getRandom('.mp3')
@@ -8446,7 +8458,7 @@ fs.unlinkSync(ran)
 break
 
 case 'bass':                 
-              
+              if (!isQuotedAudio) return reply2('Reply audio!')
 					encmediao = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					mediao = await alpha.downloadAndSaveMediaMessage(encmediao)
 					ran = getRandom('.mp3')
@@ -8460,6 +8472,7 @@ case 'bass':
 				break
 				
 case 'ngebass':
+if (!isQuotedAudio) return reply2('Reply audio!')
 if (!Number(args[0])) return reply2(`Example : ${prefix + command} 50`)
 baas = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 baaas = await alpha.downloadAndSaveMediaMessage(baas)
@@ -8477,6 +8490,7 @@ break
 case 'detikvn':
 case 'setdetikvn':
 case 'setdurasi':
+if (!isQuotedAudio) return reply2('Reply audio!')
 if (!Number(args[0])) return reply2(`EXAMPLE : ${prefix + command} 50`)
 detvn = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 detikv = await alpha.downloadAndSaveMediaMessage(detvn)
@@ -9418,10 +9432,10 @@ get_result = await fetchJson(`https://api.lolhuman.xyz/api/brainly2?apikey=${lol
 lala = get_result.result
 ini_txt = "Beberapa Pembahasan Dari Brainly :\n\n"
 for (var x of lala) {
-ini_txt += `❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n`
+ini_txt += `⌯────────⌕────────⌯\n`
 ini_txt += `${petik}Pertanyaan :${petik}\n${x.question.content}\n\n`
 ini_txt += `${petik}Jawaban :${petik}\n${x.answer[0].content}\n`
-ini_txt += `❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n\n`
+ini_txt += `⌯────────⌕────────⌯\n\n`
 }
 reply2(ini_txt)
 break
@@ -9442,13 +9456,13 @@ ini_txt += `${petik}◪ Garis Lintang :${petik} ${x.to.latitude}\n`
 ini_txt += `${petik}◪ Garis Bujur :${petik} ${x.to.longitude}\n\n`
 ini_txt += `${petik}◪ Jarak Tempuh :${petik} ${x.jarak}\n`
 ini_txt += `${petik}◪ Waktu Tempuh :${petik}\n`
-ini_txt += ` ❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n`
+ini_txt += ` ⌯────────⌕────────⌯\n`
 ini_txt += `❍┤ Kereta Api : ${x.kereta_api}\n`
 ini_txt += `❍┤ Pesawat : ${x.pesawat}\n`
 ini_txt += `❍┤ Mobil : ${x.mobil}\n`
 ini_txt += `❍┤ Motor : ${x.motor}\n`
 ini_txt += `❍┤ Jalan Kaki : ${x.jalan_kaki}\n`
-ini_txt += ` ❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉\n`
+ini_txt += ` ⌯────────⌕────────⌯\n`
 reply2(ini_txt)
 break
 
@@ -10901,7 +10915,7 @@ break
 
 //LIST───────[ API DAPUHY
 case 'happymod': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} free fire`)
+if (args.length == 0) return reply2(`🏷️Hint : ${prefix + command} free fire`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.dapuhy.ga/api/search/happymod?query=${query}&apikey=${dapuhy}`, {method: 'get'})
 kontol = get_result.result
@@ -10910,11 +10924,11 @@ for (var x of kontol) {
 ini_txt += `${x.title}\n`
 ini_txt += `${x.url}\n\n`
 }
-fakestatus(ini_txt)
+reply2(ini_txt)
 break
 
 case 'klikmanga': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+if (args.length == 0) return reply2(`🏷️Hint : ${prefix + command} naruto`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/klikmanga?query=${query}&apikey=${dapuhy}`, {method: 'get'})
 kontol = get_result.result
@@ -10928,11 +10942,11 @@ ini_txt += `${x.release}\n`
 ini_txt += `${x.desc}\n`
 ini_txt += `${x.url}\n\n`
 }
-fakestatus(ini_txt)
+reply2(ini_txt)
 break
 
 case 'kiryu': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+if (args.length == 0) return reply2(`🏷️Hint : ${prefix + command} naruto`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/kiryuu?query=${query}&apikey=${dapuhy}`, {method: 'get'})
 kontol = get_result.result
@@ -10943,11 +10957,11 @@ ini_txt += `${x.episode}\n`
 ini_txt += `${x.rating}\n`
 ini_txt += `${x.url}\n\n`
 }
-fakestatus(ini_txt)
+reply2(ini_txt)
 break
 
 case 'animeplanet': 
-if (args.length == 0) return fakestatus(`🏷️Hint : ${prefix + command} naruto`)
+if (args.length == 0) return reply2(`🏷️Hint : ${prefix + command} naruto`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.dapuhy.ga/api/manga/animeplanet?query=${query}&apikey=${dapuhy}`, {method: 'get'})
 kontol = get_result.result
@@ -10956,7 +10970,7 @@ for (var x of kontol) {
 ini_txt += `${x.title}\n`
 ini_txt += `${x.url}\n\n`
 }
-fakestatus(ini_txt)
+reply2(ini_txt)
 break
 
 case 'say':
@@ -10966,7 +10980,7 @@ alpha.sendMessage(from, say_, MessageType.audio, {quoted: fgif2, mimetype: 'audi
 break
 
 case 'tr':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Hello`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Hello`)
 trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${q}&apikey=${dapuhy}`)
 res = trsm_.result
 var trsm_1 = `• ${res}`
@@ -11001,7 +11015,7 @@ alpha.sendMessage(from, asup_2,video,{caption:asup1,quoted: fgif2})
 break
 
 case 'quoteslucu':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command}`) 
 qtlc_ = await fetchJson(`https://api.dapuhy.ga/api/fun/quoteslucu?apikey=${dapuhy}`)
 var qtlc_1 = `${ucapannya2}
 *${qtlc_.quotes}*`
@@ -11026,7 +11040,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'cerpen':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command}`) 
 crpn_ = await fetchJson(`https://api.dapuhy.ga/api/fun/cerpen?apikey=${dapuhy}`)
 var crpn_1 = `${ucapannya2}
 • *Judul :* ${crpn_.judul}
@@ -11054,7 +11068,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'jagokata':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Merdeka`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Merdeka`) 
 jgkt_ = await fetchJson(`https://api.dapuhy.ga/api/fun/jagokata?query=${q}&apikey=${dapuhy}`)
 var jgkt_1 = `• *Result :* ${jgkt_.result}`
 var jgkt_2 = [
@@ -11321,7 +11335,7 @@ case 'undergrass':
 case 'underwater':
 case 'whitecube':
 case 'wolfmetal':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let poxy_1 = await getBuffer(`https://api.dapuhy.ga/api/photooxy/${command}?text=${q}&apikey=${dapuhy}`);
 const poxy_3 = await alpha.prepareMessage(from, poxy_1, MessageType.image, { thumbnail:thumb_oxy})
 let poxy_2 = poxy_3.message["ephemeralMessage"] ? poxy_3.message.ephemeralMessage : poxy_3
@@ -11447,7 +11461,7 @@ case 'writing':
 case 'xmascards':
 case 'yellowglass':
 case 'yellowjewelry':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let txtpr_1 = await getBuffer(`https://api.dapuhy.ga/api/textpro/${command}?text=${q}&apikey=${dapuhy}`);
 const txtpr_3 = await alpha.prepareMessage(from, txtpr_1, MessageType.image, { thumbnail:thumb_pro})
 let txtpr_2 = txtpr_3.message["ephemeralMessage"] ? txtpr_3.message.ephemeralMessage : txtpr_3
@@ -11526,7 +11540,7 @@ case 'wooden3d':
 case 'wordgreen':
 case 'writingchalk':
 case 'zombie3d':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let ephto_1 = await getBuffer(`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
 const ephto_3 = await alpha.prepareMessage(from, ephto_1, MessageType.image, { thumbnail:thumb_epho})
 let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMessage : ephto_3
@@ -11576,7 +11590,7 @@ case 'pendant':
 case 'planebanner':
 case 'rugbyball':
 case 'rustywriting':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let pfun_1 = await getBuffer(`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
 const pfun_3 = await alpha.prepareMessage(from, pfun_1, MessageType.image, { thumbnail:thumb_pfun})
 let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessage : pfun_3
@@ -11759,7 +11773,7 @@ case 'wolf_metal':
 case 'wood':
 case 'woodblock':
 case 'wooden':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let oxxy_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/photooxy/${command}?apikey=Alphabot&text=${q}`);
 const oxxy_3 = await alpha.prepareMessage(from, oxxy_1, MessageType.image, { thumbnail:thumb_pro})
 let oxxy_2 = oxxy_3.message["ephemeralMessage"] ? oxxy_3.message.ephemeralMessage : oxxy_3
@@ -12011,7 +12025,7 @@ case 'wonderfulg':
 case 'wood':
 case 'writing':
 case 'xmas':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 let tpr_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/textpro/${command}?text=${q}&apikey=Alphabot`);
 const tpr_3 = await alpha.prepareMessage(from, tpr_1, MessageType.image, { thumbnail:thumb_pro})
 let tpr_2 = tpr_3.message["ephemeralMessage"] ? tpr_3.message.ephemeralMessage : tpr_3
@@ -12172,7 +12186,7 @@ alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Screenshot from 
 break
 
 case 'ss':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} url|desktop|on`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} url|desktop|on`)
 pe = args.join(' ')
 tes1 = pe.split('|')[0]
 tes2 = pe.split('|')[1]
@@ -12363,7 +12377,7 @@ case 'woodblock-effect':
 case 'wooden-3d-black':
 case 'wooden-boards':
 case 'write-stars':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 buff = await getBuffer(`https://hadi-api.herokuapp.com/api/photoxy/${command}?teks=${q}`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxylist* untuk melihat menu yang lain`})
 break
@@ -12401,21 +12415,21 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'enc64':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mobil`) 
 enc = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=enc`)
 hsl = `*Hasil Enc :* ${enc.result.enc}`
 reply2(hsl)
 break
 
 case 'dec64':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mobil`) 
 dec = await fetchJson(`https://hadi-api.herokuapp.com/api/base64?teks=${q}&method=dec`)
 hsl = `*Hasil Dec :* ${dec.result.dec}`
 reply2(hsl)
 break
 
 case 'chord':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} kangen`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} kangen`)
 crd = await fetchJson(`https://hadi-api.herokuapp.com/api/chord?q=${q}`);
 crdd = crd.result
 crddd = `${ucapannya2}
@@ -12424,7 +12438,7 @@ reply2(crddd)
 break
 
 case 'covid':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Indonesia `)
 cvd1 = await fetchJson(`https://hadi-api.herokuapp.com/api/corohelp?negara=${q}`);
 cvd2 = cvd1.result
 cvd3 = `${ucapannya2}
@@ -12438,7 +12452,7 @@ reply2(cvd3)
 break
 
 case 'cuaca':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Sulawesi Selatan`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Sulawesi Selatan`) 
 cuac_ = await fetchJson(`https://hadi-api.herokuapp.com/api/cuaca?prov=${q}`)
 let cu = `「 *CUACA* 」
 ${cuac_.powered_by}\n\n`
@@ -12468,7 +12482,7 @@ break
 
 case 'font':
 case 'font2':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Indonesia `)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Indonesia `)
 fnt1 = await fetchJson(`https://hadi-api.herokuapp.com/api/font2?teks=${q}`);
 fnt2 = fnt1.result
 fnt3 = `${ucapannya2}
@@ -12520,13 +12534,13 @@ alpha.sendMessage(from, anu1, sticker, {quoted: fgif2})
 break
 
 case 'attp':
-if (args.length == 0) return fakestatus(`Example: ${prefix + command} Hai`)
+if (args.length == 0) return reply2(`Example: ${prefix + command} Hai`)
 buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
 alpha.sendMessage(from, buffer, sticker, { quoted: fgif2 })
 break
 
 case 'qrcode':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command}  hai bg`)
 buff = await getBuffer(`https://api.lolhuman.xyz/api/qrcode?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
 alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
 break
@@ -13464,7 +13478,7 @@ break
 
 //LIST───────[ API X REST
 case 'gcwa':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mabar`) 
 gcwa_ = await fetchJson(`https://x-restapi.herokuapp.com/api/search-grup?q=${q}&apikey=BETA`)
 let gece = '「 *GC WA* 」\n\n'
 for (let g of gcwa_.data) {
@@ -13490,7 +13504,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'gsearch':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mabar`) 
 gsrch_ = await fetchJson(`https://x-restapi.herokuapp.com/api/google-search?q=${q}&apikey=BETA`)
 var gsrch_1 = `${ucapannya2}\n *Judul :*\n${gsrch_.data.title}\n*Link :* ${gsrch_.data.link}\n*Desc :* ${gsrch_.data.desc}`
 var gsrch_2 = [
@@ -13546,7 +13560,7 @@ break
 case 'bucin':
 rbuc_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-bucin?apikey=BETA`)
 var rbuc_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *${rbuc_.bucin}*`
 var rbuc_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
@@ -13571,7 +13585,7 @@ break
 case 'fakta':
 fakta_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-fakta?apikey=BETA`)
 var fakta_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *${fakta_.fakta}*`
 var fakta_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
@@ -13596,7 +13610,7 @@ break
 case 'katabijak':
 ktbjk_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-katabijak?apikey=BETA`)
 var ktbjk_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *${ktbjk_.katabijak}*`
 var ktbjk_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
@@ -13621,7 +13635,7 @@ break
 case 'motivasi':
 motvas_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
 var motvas_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *${motvas_.motivasi}*`
 var motvas_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
@@ -13646,7 +13660,7 @@ break
 case 'pantun':
 pntn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/random-pantun?apikey=BETA`)
 var pntn_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 ${pntn_.pantun}`
 var pntn_2 = [
 {buttonId: 'random_list', buttonText: {displayText: 'Random List'}, type: 1},
@@ -13669,7 +13683,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'ssticker':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} pentol`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} pentol`) 
 var ano = await fetchJson(`https://x-restapi.herokuapp.com/api/search-sticker?q=${q}&apikey=BETA`)
 wifegerak = ano.data.url
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -13677,7 +13691,7 @@ sendStickerUrl(from, wifegerakx)
 break
 
 case 'ssfile':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mabar`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mabar`) 
 ssfile_ = await fetchJson(`https://x-restapi.herokuapp.com/api/sfile-search?q=wa&apikey=BETA`)
 let sfile_ = '「 *Hasil* 」\n\n'
 for (let s of ssfile_.data) {
@@ -13706,7 +13720,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'moddroid':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} wa`) 
 smodd_ = await fetchJson(`https://x-restapi.herokuapp.com/api/moddroid-search?q=${q}&apikey=BETA`);
 let modd_1 = await getBuffer('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_NhIOLV738PJvKb_rkFDsIohJj-vZWihlaQ&usqp=CAU');
 const modd_3 = await alpha.prepareMessage(from, modd_1, MessageType.image, { thumbnail:fthumb_mod})
@@ -13745,7 +13759,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'md5enc':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Say no to drug`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Say no to drug`) 
 md5_ = await fetchJson(`https://x-restapi.herokuapp.com/api/md5-encrypt?teks=${q}&apikey=BETA`)
 var md5_1 = `${ucapannya2}
 *Hasil :*
@@ -13770,7 +13784,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'artikata':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} wibu`) 
 artikt_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=${q}&apikey=BETA`)
 var artikt_1 = `${ucapannya2}
 *Arti Kata ${q} :*
@@ -13794,7 +13808,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'artimimpi':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} wibu`) 
 artimp_ = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-mimpi?q=${q}&apikey=BETA`)
 var artimp_1 = `${ucapannya2}
 *Arti Mimpi ${q} :*
@@ -13818,7 +13832,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'artinama':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wibu`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} wibu`) 
 artinm_ = await fetchJson(`https://x-restapi.herokuapp.com/api/artinama?q=${q}&apikey=BETA`)
 var artinm_1 = `${ucapannya2}
 *Arti Nama ${q} :*
@@ -13842,7 +13856,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'amazon':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} iPhone`) 
 amzn_ = await fetchJson(`https://x-restapi.herokuapp.com/api/amazon?q=${q}&apikey=BETA`)
 var amzn_1 = `${ucapannya2}
 *Results ${q} :*
@@ -13875,7 +13889,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'ipgeo':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} iPhone`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} iPhone`) 
 ipgeo_ = await fetchJson(`https://x-restapi.herokuapp.com/api/ipgeolocation?ip=${q}&apikey=BETA`)
 var ipgeo_1 = `${ucapannya2}
 *Results ${q} :*
@@ -13908,7 +13922,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'samehadaku':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} wa`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} wa`) 
 smhdku_ = await fetchJson(`https://x-restapi.herokuapp.com/api/samehadaku-search?q=${q}&apikey=BETA`);
 let smhdku_1 = await getBuffer(smhdku_.image);
 const smhdku_3 = await alpha.prepareMessage(from, smhdku_1, MessageType.image, { thumbnail:thumb_sam})
@@ -13946,7 +13960,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'thelazy':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mobil`) 
 lzy_ = await fetchJson(`https://x-restapi.herokuapp.com/api/thelazy-search?q=${q}&apikey=BETA`)
 let zy = '「 *THELAZY* 」\n\n'
 for (let l of lzy_.data) {
@@ -13979,7 +13993,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'youwatch':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} mobil`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} mobil`) 
 yw_ = await fetchJson(`https://x-restapi.herokuapp.com/api/youwatch-search?q=${q}&apikey=BETA`)
 let y_ = '「 *YOUWATCH* 」\n\n'
 for (let y of yw_.data) {
@@ -14009,7 +14023,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'zodiak':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} leo`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} leo`) 
 zdiak_ = await fetchJson(`https://x-restapi.herokuapp.com/api/zodiak?q=${q}&apikey=BETA`)
 var zdiak_1 = `${ucapannya2}
 *Results ${q} :*
@@ -14930,7 +14944,7 @@ case 'water':
 case 'blackbird':
 case 'smurf':
 case 'memories':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} noob`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} noob`) 
 anuk = `https://kocakz.herokuapp.com/api/flamingtext/${command}?text=${q}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -14985,7 +14999,7 @@ alpha.sendMessage(from, ini_buffer, MessageType.image,{quoted: fgif2})
 break
 
 case 'sertitolol':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 buff = await getBuffer(`https://mysakura.herokuapp.com/api/serti/tolol?text=${q}&apikey=sakura404`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Ketik *.serti* untuk melihat list , Req by: ${pushname}`})
 break
@@ -15016,7 +15030,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'pinterest':
-if(!q) return fakestatus(`??️Hint : ${prefix + command} noob`) 
+if(!q) return reply2(`??️Hint : ${prefix + command} noob`) 
 let ran_ = await hx.pinterest(q);
 let dom_= ran_[Math.floor(Math.random() * ran_.length)];
 let pinterest_1 = await getBuffer(dom_)
@@ -15051,7 +15065,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'fancytext':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} noob`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} noob`) 
 fan = await fetchJson(`https://kocakz.herokuapp.com/api/random/text/fancytext?text=${q}`)
 fanc = fan.result
 reply2(fanc)
@@ -15119,7 +15133,7 @@ alpha.sendMessage(from, options, text)
 break
 
 case 'calc':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} 2*4`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command} 2*4`)
 lator = args.join(' ')
 calcu = await fetchText(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(lator)}`)
 alpha.sendMessage(from,`Hasilnya : *${calcu}*`, MessageType.text, {quoted: mek})
@@ -15132,26 +15146,26 @@ reply2(link_simi.success)
 break
 
 case 'buatqr':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command}  hai bg`)
 buff = await getBuffer(`https://qrickit.com/api/qr.php?d=${encodeURIComponent(q)}`)
 alpha.sendMessage(from, buff, MessageType.image,{ quoted: mek})
 break
 
 case 'kata':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  hai bg`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command}  hai bg`)
 qr = await fetchJson(`https://www.translated.net/hts/?f=quote&s=en-US&t=id-ID&w=Hai&cid=htsdemo&p=htsdemo5&of=json&text=${encodeURIComponent(q)}`)
 qry = `*Jumlah kata :* ${qr.words}`
 alpha.sendMessage(from, qry , text, {quoted: mek})
 break
 
 case 'getvn':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command}  nama vn\nCek ketik .listvn`)
+if(!q) return reply2(`🏷️Hint : ${prefix + command}  nama vn\nCek ketik .listvn`)
 get_vn = fs.readFileSync(`./media/audio/${q}.mp3`)
 alpha.sendMessage(from, get_vn, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true, duration: 444441600})
 break
 
 case 'rexdl':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} pou`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} pou`) 
 rexdl_ = await fetchJson(`https://api.caranya.my.id/rexdl/search?q=${q}`)
 let rex = '「 *REXDL* 」\n\n'
 for (let ex of rexdl_.result) {
@@ -15254,7 +15268,7 @@ break
 case 'fact':
 facten_ = await fetchJson(`https://catfact.ninja/fact`)
 var facten_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *English Fact*
 _${facten_.fact}_`
 var facten_2 = [
@@ -15278,10 +15292,10 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'umur':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Wahyu`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Wahyu`) 
 umur_ = await fetchJson(`https://api.agify.io/?name=${q}`)
 var umur_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *Umur* ${umur_.name}
 adalah : ${umur_.age}`
 var umur_2 = [
@@ -15305,10 +15319,10 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'gender':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Wahyu`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Wahyu`) 
 gen_ = await fetchJson(`https://api.genderize.io/?name=${q}`)
 var gen_1 = `${ucapannya2}
-❉⸙⃝⋆▰▰▱▱▣▣▱▱▰▰⸙⃝⋆❉
+⌯────────⌕────────⌯
 *Biodata*  :
 Nama : ${gen_.name}
 Gender : ${gen_.gender}
@@ -15368,7 +15382,7 @@ quoted: fgif2, sendEphemeral: true
 break
 
 case 'ipinfo':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} 161.185.160.93`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} 161.185.160.93`) 
 let ipinf_1 = await fetchJson(`https://ipinfo.io/${q}/geo`)
 ipe = ipinf_1.ip
 ipe1 = ipinf_1.city
@@ -16760,7 +16774,7 @@ case 'wood-heart':
 case 'woodblock':
 case 'wooden-boards':
 case 'write-birthday':
-if(!q) return fakestatus(`🏷️Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`🏷️Hint : ${prefix + command} Miku Bot`) 
 ini_buffer = await getBuffer(`https://kuontol-api.herokuapp.com/api/photooxy/${command}?text=${q}`)
 alpha.sendMessage(from, ini_buffer, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxy_list* untuk melihat menu yang lain`})
 break
@@ -17131,341 +17145,342 @@ quoted: fgif2, sendEphemeral: true
 }
 
 if (subscribezeeoneofc == 'menu_x') {
-x_menus = `${ucapannya2}
+x_menus = `*DON'T SPAM YA KAK*
+${ucapannya2}
 
-「 📖 X ᴍᴇɴᴜ 」 ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+╭⋆⸙「 Islami 」
+│⌯ ${prefix}listsurah
+│⌯ ${prefix}asmaulhusna
+│⌯ ${prefix}alquran no_surah
+│⌯ ${prefix}alquran no_surah/no_ayat
+│⌯ ${prefix}alquran no_surah/no_ayat1-no_ayat2
+│⌯ ${prefix}alquranaudio no_surah
+│⌯ ${prefix}alquranaudio no_surah/no_ayat
+│⌯ ${prefix}kisahnabi nama_nabi
+│⌯ ${prefix}jadwalsholat daerah
+␥
 
-🄹🄸🄺🄰 🄻🄰🄼🄰 
-🄼🅄🄽🄶🄺🄸🄽
-🄴🅁🅁🄾🅁
+╭⋆⸙「 Downloader 」
+│⌯ ${prefix}ytsearch query
+│⌯ ${prefix}ytplay query
+│⌯ ${prefix}ytmp3 url_video
+│⌯ ${prefix}ytmp4 url_video
+│⌯ ${prefix}tiktoknowm url_video
+│⌯ ${prefix}tiktokmusic url_video
+│⌯ ${prefix}igdl url_post
+│⌯ ${prefix}fbdl url_video
+│⌯ ${prefix}jooxplay query
+│⌯ ${prefix}spotify url_music
+│⌯ ${prefix}spotifysearch query
+│⌯ ${prefix}pinterest query
+│⌯ ${prefix}pinterestdl url_pinterest
+│⌯ ${prefix}pixiv query
+│⌯ ${prefix}pixivdl url_pixiv
+│⌯ ${prefix}zippyshare url_zippyshare
+│⌯ ${prefix}telesticker url_pack
+␥
 
-「 Isʟᴀᴍɪ 」
-${emoj} ${prefix}xʟɪsᴛsᴜʀᴀʜ
-${emoj} ${prefix}xᴀsᴍᴀᴜʟʜᴜsɴᴀ
-${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ
-${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-${emoj} ${prefix}xᴀʟϙᴜʀᴀɴ ɴᴏ_sᴜʀᴀʜ/1|2
-${emoj} ${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ
-${emoj} ${prefix}xᴀʟϙᴜʀᴀɴᴀᴜᴅɪᴏ ɴᴏ_sᴜʀᴀʜ/ɴᴏ_ᴀʏᴀᴛ
-${emoj} ${prefix}xᴋɪsᴀʜɴᴀʙɪ ɴᴀᴍᴀ_ɴᴀʙɪ
-${emoj} ${prefix}xᴊᴀᴅᴡᴀʟsʜᴏʟᴀᴛ ᴅᴀᴇʀᴀʜ
+╭⋆⸙「 Movie & Story 」
+│⌯ ${prefix}drakorongoing
+│⌯ ${prefix}lk21 query
+│⌯ ${prefix}wattpad url_wattpad
+│⌯ ${prefix}wattpadsearch query
+│⌯ ${prefix}cerpen
+│⌯ ${prefix}ceritahoror
+␥
 
-「 Dᴏᴡɴʟᴏᴀᴅᴇʀ 」
-${emoj} ${prefix}xʏᴛsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xʏᴛᴘʟᴀʏ ϙᴜᴇʀʏ
-${emoj} ${prefix}xʏᴛᴍᴘ3 ᴜʀʟ_ᴠɪᴅᴇᴏ
-${emoj} ${prefix}xʏᴛᴍᴘ4 ᴜʀʟ_ᴠɪᴅᴇᴏ
-${emoj} ${prefix}xᴛɪᴋᴛᴏᴋɴᴏᴡᴍ ᴜʀʟ_ᴠɪᴅᴇᴏ
-${emoj} ${prefix}xᴛɪᴋᴛᴏᴋᴍᴜsɪᴄ ᴜʀʟ_ᴠɪᴅᴇᴏ
-${emoj} ${prefix}xɪɢᴅʟ ᴜʀʟ_ᴘᴏsᴛ
-${emoj} ${prefix}xғʙᴅʟ ᴜʀʟ_ᴠɪᴅᴇᴏ
-${emoj} ${prefix}xᴊᴏᴏxᴘʟᴀʏ ϙᴜᴇʀʏ
-${emoj} ${prefix}xsᴘᴏᴛɪғʏ ᴜʀʟ_ᴍᴜsɪᴄ
-${emoj} ${prefix}xsᴘᴏᴛɪғʏsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴘɪɴᴛᴇʀᴇsᴛ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴘɪɴᴛᴇʀᴇsᴛᴅʟ ᴜʀʟ_ᴘɪɴᴛᴇʀᴇsᴛ
-${emoj} ${prefix}xᴘɪxɪᴠ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴘɪxɪᴠᴅʟ ᴜʀʟ_ᴘɪxɪᴠ
-${emoj} ${prefix}xᴢɪᴘᴘʏsʜᴀʀᴇ ᴜʀʟ_ᴢɪᴘᴘʏsʜᴀʀᴇ
-${emoj} ${prefix}xᴛᴇʟᴇsᴛɪᴄᴋᴇʀ ᴜʀʟ_ᴘᴀᴄᴋ
+╭⋆⸙「 Searching 」
+│⌯ ${prefix}shopee query
+│⌯ ${prefix}google query
+│⌯ ${prefix}gimage query
+│⌯ ${prefix}gimage2 query
+│⌯ ${prefix}konachan query
+│⌯ ${prefix}playstore query
+│⌯ ${prefix}stickerwa query
+│⌯ ${prefix}wallpapersearch query
+│⌯ ${prefix}wallpapersearch2 query
+␥
 
-「 Mᴏᴠɪᴇ & Sᴛᴏʀʏ 」
-${emoj} ${prefix}xᴅʀᴀᴋᴏʀᴏɴɢᴏɪɴɢ
-${emoj} ${prefix}xʟᴋ21 ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴡᴀᴛᴛᴘᴀᴅ ᴜʀʟ_ᴡᴀᴛᴛᴘᴀᴅ
-${emoj} ${prefix}xᴡᴀᴛᴛᴘᴀᴅsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴄᴇʀᴘᴇɴ
-${emoj} ${prefix}xᴄᴇʀɪᴛᴀʜᴏʀᴏʀ
+╭⋆⸙「 Random Text 」
+│⌯ ${prefix}quotes
+│⌯ ${prefix}quotesdilan
+│⌯ ${prefix}quotesanime
+│⌯ ${prefix}quotesimage
+│⌯ ${prefix}faktaunik
+│⌯ ${prefix}katabijak
+│⌯ ${prefix}pantun
+│⌯ ${prefix}bucin
+│⌯ ${prefix}randomnama
+␥
 
-「 Sᴇᴀʀᴄʜɪɴɢ 」
-${emoj} ${prefix}xsʜᴏᴘᴇᴇ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɢᴏᴏɢʟᴇ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɢɪᴍᴀɢᴇ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɢɪᴍᴀɢᴇ2 ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴋᴏɴᴀᴄʜᴀɴ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴘʟᴀʏsᴛᴏʀᴇ ϙᴜᴇʀʏ
-${emoj} ${prefix}xsᴛɪᴄᴋᴇʀᴡᴀ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀsᴇᴀʀᴄʜ2 ϙᴜᴇʀʏ
+╭⋆⸙「 AniManga 」
+│⌯ ${prefix}wait
+│⌯ ${prefix}manga query
+│⌯ ${prefix}anime query
+│⌯ ${prefix}character query
+│⌯ ${prefix}kusonime url_kusonime
+│⌯ ${prefix}kusonimesearch query
+│⌯ ${prefix}otakudesu url_otakudesu
+│⌯ ${prefix}otakudesusearch query
+│⌯ ${prefix}nhentai kode_bom
+│⌯ ${prefix}nhentaipdf kode_bom
+│⌯ ${prefix}nhentaisearch query
+│⌯ ${prefix}nekopoi url
+│⌯ ${prefix}nekopoisearch query
+␥
 
-「 Rᴀɴᴅᴏᴍ Tᴇxᴛ 」
-${emoj} ${prefix}xϙᴜᴏᴛᴇs
-${emoj} ${prefix}xϙᴜᴏᴛᴇsᴅɪʟᴀɴ
-${emoj} ${prefix}xϙᴜᴏᴛᴇsᴀɴɪᴍᴇ
-${emoj} ${prefix}xϙᴜᴏᴛᴇsɪᴍᴀɢᴇ
-${emoj} ${prefix}xғᴀᴋᴛᴀᴜɴɪᴋ
-${emoj} ${prefix}xᴋᴀᴛᴀʙɪᴊᴀᴋ
-${emoj} ${prefix}xᴘᴀɴᴛᴜɴ
-${emoj} ${prefix}xʙᴜᴄɪɴ
-${emoj} ${prefix}xʀᴀɴᴅᴏᴍɴᴀᴍᴀ
+╭⋆⸙「 Information 」
+│⌯ ${prefix}kbbi
+│⌯ ${prefix}brainly2
+│⌯ ${prefix}jarak
+│⌯ ${prefix}urbandictionary
+│⌯ ${prefix}jadwaltv channel
+│⌯ ${prefix}jadwaltvnow
+│⌯ ${prefix}jadwalbola
+│⌯ ${prefix}qrreader
+│⌯ ${prefix}heroml hero_name
+│⌯ ${prefix}mlstalk id/server
+│⌯ ${prefix}genshin character
+│⌯ ${prefix}wikipedia query
+│⌯ ${prefix}translate kode_negara text
+│⌯ ${prefix}brainly query
+│⌯ ${prefix}newsinfo
+│⌯ ${prefix}cnnindonesia
+│⌯ ${prefix}cnnnasional
+│⌯ ${prefix}cnninternasional
+│⌯ ${prefix}infogempa
+│⌯ ${prefix}lirik query
+│⌯ ${prefix}cuaca daerah
+│⌯ ${prefix}kodepos query
+│⌯ ${prefix}indbeasiswa
+│⌯ ${prefix}hoax
+│⌯ ${prefix}nsfwcheck
+│⌯ ${prefix}ocr
+␥
 
-「 AɴɪMᴀɴɢᴀ 」
-${emoj} ${prefix}xᴡᴀɪᴛ
-${emoj} ${prefix}xᴍᴀɴɢᴀ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴀɴɪᴍᴇ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴄʜᴀʀᴀᴄᴛᴇʀ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴋᴜsᴏɴɪᴍᴇ ᴜʀʟ_ᴋᴜsᴏɴɪᴍᴇ
-${emoj} ${prefix}xᴋᴜsᴏɴɪᴍᴇsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜ ᴜʀʟ_ᴏᴛᴀᴋᴜᴅᴇsᴜ
-${emoj} ${prefix}xᴏᴛᴀᴋᴜᴅᴇsᴜsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɴʜᴇɴᴛᴀɪ ᴋᴏᴅᴇ_ʙᴏᴍ
-${emoj} ${prefix}xɴʜᴇɴᴛᴀɪᴘᴅғ ᴋᴏᴅᴇ_ʙᴏᴍ
-${emoj} ${prefix}xɴʜᴇɴᴛᴀɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɴᴇᴋᴏᴘᴏɪ ᴜʀʟ
-${emoj} ${prefix}xɴᴇᴋᴏᴘᴏɪsᴇᴀʀᴄʜ ϙᴜᴇʀʏ
+╭⋆⸙「 Entertainment 」
+│⌯ ${prefix}asupan
+│⌯ ${prefix}wancak
+│⌯ ${prefix}tebakgambar
+│⌯ ${prefix}canceltebakgambar
+│⌯ ${prefix}akinator
+│⌯ ${prefix}cancelakinator
+␥
 
-「 Iɴғᴏʀᴍᴀᴛɪᴏɴ 」
-${emoj} ${prefix}xᴋʙʙɪ
-${emoj} ${prefix}xʙʀᴀɪɴʟʏ2
-${emoj} ${prefix}xᴊᴀʀᴀᴋ
-${emoj} ${prefix}xᴜʀʙᴀɴᴅɪᴄᴛɪᴏɴᴀʀʏ
-${emoj} ${prefix}xᴊᴀᴅᴡᴀʟᴛᴠ ᴄʜᴀɴɴᴇʟ
-${emoj} ${prefix}xᴊᴀᴅᴡᴀʟᴛᴠɴᴏᴡ
-${emoj} ${prefix}xᴊᴀᴅᴡᴀʟʙᴏʟᴀ
-${emoj} ${prefix}xϙʀʀᴇᴀᴅᴇʀ
-${emoj} ${prefix}xʜᴇʀᴏᴍʟ ʜᴇʀᴏ_ɴᴀᴍᴇ
-${emoj} ${prefix}xᴍʟsᴛᴀʟᴋ ɪᴅ/sᴇʀᴠᴇʀ
-${emoj} ${prefix}xɢᴇɴsʜɪɴ ᴄʜᴀʀᴀᴄᴛᴇʀ
-${emoj} ${prefix}xᴡɪᴋɪᴘᴇᴅɪᴀ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴛʀᴀɴsʟᴀᴛᴇ ᴋᴏᴅᴇ_ɴᴇɢᴀʀᴀ ᴛᴇxᴛ
-${emoj} ${prefix}xʙʀᴀɪɴʟʏ ϙᴜᴇʀʏ
-${emoj} ${prefix}xɴᴇᴡsɪɴғᴏ
-${emoj} ${prefix}xᴄɴɴɪɴᴅᴏɴᴇsɪᴀ
-${emoj} ${prefix}xᴄɴɴɴᴀsɪᴏɴᴀʟ
-${emoj} ${prefix}xᴄɴɴɪɴᴛᴇʀɴᴀsɪᴏɴᴀʟ
-${emoj} ${prefix}xɪɴғᴏɢᴇᴍᴘᴀ
-${emoj} ${prefix}xʟɪʀɪᴋ ϙᴜᴇʀʏ
-${emoj} ${prefix}xᴄᴜᴀᴄᴀ ᴅᴀᴇʀᴀʜ
-${emoj} ${prefix}xᴋᴏᴅᴇᴘᴏs ϙᴜᴇʀʏ
-${emoj} ${prefix}xɪɴᴅʙᴇᴀsɪsᴡᴀ
-${emoj} ${prefix}xʜᴏᴀx
-${emoj} ${prefix}xɴsғᴡᴄʜᴇᴄᴋ
-${emoj} ${prefix}xᴏᴄʀ
+╭⋆⸙「 Creator 」
+│⌯ ${prefix}ttp text
+│⌯ ${prefix}ttp2 text
+│⌯ ${prefix}ttp3 text
+│⌯ ${prefix}ttp4 text
+│⌯ ${prefix}attp text
+│⌯ ${prefix}smoji emoji
+│⌯ ${prefix}fakedonald text
+│⌯ ${prefix}ktpmaker
+␥
 
-「 Eɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ 」
-${emoj} ${prefix}xᴀsᴜᴘᴀɴ
-${emoj} ${prefix}xᴡᴀɴᴄᴀᴋ
-${emoj} ${prefix}xᴀᴋɪɴᴀᴛᴏʀ
-${emoj} ${prefix}xᴄᴀɴᴄᴇʟᴀᴋɪɴᴀᴛᴏʀ
+╭⋆⸙「 Primbon 」
+│⌯ ${prefix}artinama name
+│⌯ ${prefix}jodoh name1 & name2 
+│⌯ ${prefix}weton tanggal bulan tahun
+│⌯ ${prefix}jadian tanggal bulan tahun
+│⌯ ${prefix}tebakumur name
+␥
 
-「 Cʀᴇᴀᴛᴏʀ 」
-${emoj} ${prefix}xᴛᴛᴘ ᴛᴇxᴛ
-${emoj} ${prefix}xᴛᴛᴘ2 ᴛᴇxᴛ
-${emoj} ${prefix}xᴛᴛᴘ3 ᴛᴇxᴛ
-${emoj} ${prefix}xᴛᴛᴘ4 ᴛᴇxᴛ
-${emoj} ${prefix}xᴀᴛᴛᴘ ᴛᴇxᴛ
-${emoj} ${prefix}xsᴍᴏᴊɪ ᴇᴍᴏᴊɪ
-${emoj} ${prefix}xғᴀᴋᴇᴅᴏɴᴀʟᴅ ᴛᴇxᴛ
-${emoj} ${prefix}xᴋᴛᴘᴍᴀᴋᴇʀ
+╭⋆⸙「 Other 」
+│⌯ ${prefix}ssweb link
+│⌯ ${prefix}ssweb2 link
+│⌯ ${prefix}shortlink link
+│⌯ ${prefix}spamsms nomor
+␥
 
-「 Pʀɪᴍʙᴏɴ 」
-${emoj} ${prefix}xᴀʀᴛɪɴᴀᴍᴀ ɴᴀᴍᴇ
-${emoj} ${prefix}xᴊᴏᴅᴏʜ ɴᴀᴍᴇ1 & ɴᴀᴍᴇ2 
-${emoj} ${prefix}xᴡᴇᴛᴏɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-${emoj} ${prefix}xᴊᴀᴅɪᴀɴ ᴛᴀɴɢɢᴀʟ ʙᴜʟᴀɴ ᴛᴀʜᴜɴ
-${emoj} ${prefix}xᴛᴇʙᴀᴋᴜᴍᴜʀ ɴᴀᴍᴇ
+╭⋆⸙「 Text Pro Me 」
+│⌯ ${prefix}blackpink text
+│⌯ ${prefix}neon text
+│⌯ ${prefix}greenneon text
+│⌯ ${prefix}advanceglow text
+│⌯ ${prefix}futureneon text
+│⌯ ${prefix}sandwriting text
+│⌯ ${prefix}sandsummer text
+│⌯ ${prefix}sandengraved text
+│⌯ ${prefix}metaldark text
+│⌯ ${prefix}neonlight text
+│⌯ ${prefix}holographic text
+│⌯ ${prefix}text1917 text
+│⌯ ${prefix}minion text
+│⌯ ${prefix}deluxesilver text
+│⌯ ${prefix}newyearcard text
+│⌯ ${prefix}bloodfrosted text
+│⌯ ${prefix}halloween text
+│⌯ ${prefix}jokerlogo text
+│⌯ ${prefix}fireworksparkle text
+│⌯ ${prefix}natureleaves text
+│⌯ ${prefix}bokeh text
+│⌯ ${prefix}toxic text
+│⌯ ${prefix}strawberry text
+│⌯ ${prefix}box3d text
+│⌯ ${prefix}roadwarning text
+│⌯ ${prefix}breakwall text
+│⌯ ${prefix}icecold text
+│⌯ ${prefix}luxury text
+│⌯ ${prefix}cloud text
+│⌯ ${prefix}summersand text
+│⌯ ${prefix}horrorblood text
+│⌯ ${prefix}thunder text
+│⌯ ${prefix}pornhub text1 text2
+│⌯ ${prefix}glitch text1 text2
+│⌯ ${prefix}avenger text1 text2
+│⌯ ${prefix}space text1 text2
+│⌯ ${prefix}ninjalogo text1 text2
+│⌯ ${prefix}marvelstudio text1 text2
+│⌯ ${prefix}lionlogo text1 text2
+│⌯ ${prefix}wolflogo text1 text2
+│⌯ ${prefix}steel3d text1 text2
+│⌯ ${prefix}wallgravity text1 text2
+␥
 
-「 Oᴛʜᴇʀ 」
-${emoj} ${prefix}xssᴡᴇʙ ʟɪɴᴋ
-${emoj} ${prefix}xssᴡᴇʙ2 ʟɪɴᴋ
-${emoj} ${prefix}xsʜᴏʀᴛʟɪɴᴋ ʟɪɴᴋ
-${emoj} ${prefix}xsᴘᴀᴍsᴍs ɴᴏᴍᴏʀ
+╭⋆⸙「 Photo Oxy 」
+│⌯ ${prefix}shadow text
+│⌯ ${prefix}cup text
+│⌯ ${prefix}cup1 text
+│⌯ ${prefix}romance text
+│⌯ ${prefix}smoke text
+│⌯ ${prefix}burnpaper text
+│⌯ ${prefix}lovemessage text
+│⌯ ${prefix}undergrass text
+│⌯ ${prefix}love text
+│⌯ ${prefix}coffe text
+│⌯ ${prefix}woodheart text
+│⌯ ${prefix}woodenboard text
+│⌯ ${prefix}summer3d text
+│⌯ ${prefix}wolfmetal text
+│⌯ ${prefix}nature3d text
+│⌯ ${prefix}underwater text
+│⌯ ${prefix}golderrose text
+│⌯ ${prefix}summernature text
+│⌯ ${prefix}letterleaves text
+│⌯ ${prefix}glowingneon text
+│⌯ ${prefix}fallleaves text
+│⌯ ${prefix}flamming text
+│⌯ ${prefix}harrypotter text
+│⌯ ${prefix}carvedwood text
+│⌯ ${prefix}tiktok text1 text2
+│⌯ ${prefix}arcade8bit text1 text2
+│⌯ ${prefix}battlefield4 text1 text2
+│⌯ ${prefix}pubg text1 text2
+␥
 
-「 Tᴇxᴛ Pʀᴏ Mᴇ 」
-${emoj} ${prefix}xʙʟᴀᴄᴋᴘɪɴᴋ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴇᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғᴜᴛᴜʀᴇɴᴇᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴀɴᴅᴡʀɪᴛɪɴɢ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴀɴᴅsᴜᴍᴍᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍᴇᴛᴀʟᴅᴀʀᴋ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴇᴏɴʟɪɢʜᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴏʟᴏɢʀᴀᴘʜɪᴄ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛᴇxᴛ1917 _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍɪɴɪᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴅᴇʟᴜxᴇsɪʟᴠᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴀʟʟᴏᴡᴇᴇɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴊᴏᴋᴇʀʟᴏɢᴏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙᴏᴋᴇʜ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛᴏxɪᴄ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴛʀᴀᴡʙᴇʀʀʏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙᴏx3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʀᴏᴀᴅᴡᴀʀɴɪɴɢ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙʀᴇᴀᴋᴡᴀʟʟ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɪᴄᴇᴄᴏʟᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴜxᴜʀʏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄʟᴏᴜᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴜᴍᴍᴇʀsᴀɴᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴏʀʀᴏʀʙʟᴏᴏᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛʜᴜɴᴅᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍᴀɢᴍᴀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɪᴍᴘʀᴇssɪᴠᴇɢʟɪᴛᴄʜ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғᴏɢɢʏᴡɪɴᴅᴏᴡ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴏɴᴅᴇʀғᴜʟɢʀᴀғғɪᴛɪ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴘᴏʀɴʜᴜʙ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xɢʟɪᴛᴄʜ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴀᴠᴇɴɢᴇʀ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xsᴘᴀᴄᴇ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xɴɪɴᴊᴀʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xʟɪᴏɴʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴡᴏʟғʟᴏɢᴏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xsᴛᴇᴇʟ3ᴅ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴡᴀʟʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴄᴏᴏʟɢʀᴀᴠɪᴛʏ ᴛᴇxᴛ1 ᴛᴇxᴛ2
+╭⋆⸙「 Ephoto 360 」
+│⌯ ${prefix}wetglass text
+│⌯ ${prefix}multicolor3d text
+│⌯ ${prefix}watercolor text
+│⌯ ${prefix}luxurygold text
+│⌯ ${prefix}galaxywallpaper text
+│⌯ ${prefix}lighttext text
+│⌯ ${prefix}beautifulflower text
+│⌯ ${prefix}puppycute text
+│⌯ ${prefix}royaltext text
+│⌯ ${prefix}heartshaped text
+│⌯ ${prefix}birthdaycake text
+│⌯ ${prefix}galaxystyle text
+│⌯ ${prefix}hologram3d text
+│⌯ ${prefix}greenneon text
+│⌯ ${prefix}glossychrome text
+│⌯ ${prefix}greenbush text
+│⌯ ${prefix}metallogo text
+│⌯ ${prefix}noeltext text
+│⌯ ${prefix}glittergold text
+│⌯ ${prefix}textcake text
+│⌯ ${prefix}starsnight text
+│⌯ ${prefix}wooden3d text
+│⌯ ${prefix}textbyname text
+│⌯ ${prefix}writegalacy text
+│⌯ ${prefix}galaxybat text
+│⌯ ${prefix}snow3d text
+│⌯ ${prefix}birthdayday text
+│⌯ ${prefix}goldplaybutton text
+│⌯ ${prefix}silverplaybutton text
+│⌯ ${prefix}freefire text
+␥
 
-「 Pʜᴏᴛᴏ Oxʏ 」
-${emoj} ${prefix}xsʜᴀᴅᴏᴡ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄᴜᴘ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄᴜᴘ1 _ᴛᴇxᴛ_
-${emoj} ${prefix}xʀᴏᴍᴀɴᴄᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴍᴏᴋᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙᴜʀɴᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴏᴠᴇᴍᴇssᴀɢᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴜɴᴅᴇʀɢʀᴀss _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴏᴠᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄᴏғғᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴏᴏᴅʜᴇᴀʀᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴏᴏᴅᴇɴʙᴏᴀʀᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴜᴍᴍᴇʀ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴏʟғᴍᴇᴛᴀʟ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴀᴛᴜʀᴇ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴜɴᴅᴇʀᴡᴀᴛᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢᴏʟᴅᴇʀʀᴏsᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴜᴍᴍᴇʀɴᴀᴛᴜʀᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғᴀʟʟʟᴇᴀᴠᴇs _ᴛᴇxᴛ_
-${emoj} ${prefix}xғʟᴀᴍᴍɪɴɢ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴀʀʀʏᴘᴏᴛᴛᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄᴀʀᴠᴇᴅᴡᴏᴏᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛɪᴋᴛᴏᴋ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴀʀᴄᴀᴅᴇ8ʙɪᴛ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xʙᴀᴛᴛʟᴇғɪᴇʟᴅ4 ᴛᴇxᴛ1 ᴛᴇxᴛ2
-${emoj} ${prefix}xᴘᴜʙɢ ᴛᴇxᴛ1 ᴛᴇxᴛ2
-
-「 Eᴘʜᴏᴛᴏ 360 」
-${emoj} ${prefix}xᴡᴇᴛɢʟᴀss _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍᴜʟᴛɪᴄᴏʟᴏʀ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴀᴛᴇʀᴄᴏʟᴏʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴜxᴜʀʏɢᴏʟᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢᴀʟᴀxʏᴡᴀʟʟᴘᴀᴘᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟɪɢʜᴛᴛᴇxᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙᴇᴀᴜᴛɪғᴜʟғʟᴏᴡᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴘᴜᴘᴘʏᴄᴜᴛᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʀᴏʏᴀʟᴛᴇxᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴇᴀʀᴛsʜᴀᴘᴇᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙɪʀᴛʜᴅᴀʏᴄᴀᴋᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢᴀʟᴀxʏsᴛʏʟᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʜᴏʟᴏɢʀᴀᴍ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢʀᴇᴇɴɴᴇᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢʟᴏssʏᴄʜʀᴏᴍᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢʀᴇᴇɴʙᴜsʜ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍᴇᴛᴀʟʟᴏɢᴏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɴᴏᴇʟᴛᴇxᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢʟɪᴛᴛᴇʀɢᴏʟᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛᴇxᴛᴄᴀᴋᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsᴛᴀʀsɴɪɢʜᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡᴏᴏᴅᴇɴ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴛᴇxᴛʙʏɴᴀᴍᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴡʀɪᴛᴇɢᴀʟᴀᴄʏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢᴀʟᴀxʏʙᴀᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsɴᴏᴡ3ᴅ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʙɪʀᴛʜᴅᴀʏᴅᴀʏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xɢᴏʟᴅᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xsɪʟᴠᴇʀᴘʟᴀʏʙᴜᴛᴛᴏɴ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғʀᴇᴇғɪʀᴇ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴄᴀʀᴛᴏᴏɴɢʀᴀᴠɪᴛʏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴀɴᴏɴʏᴍʜᴀᴄᴋᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴍʟᴡᴀʟʟ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴘᴜʙɢᴍᴀsᴋᴏᴛ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴀᴏᴠᴡᴀʟʟ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴏɢᴏɢᴀᴍɪɴɢ _ᴛᴇxᴛ_
-${emoj} ${prefix}xғᴘsʟᴏɢᴏ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴀᴠᴀᴛᴀʀʟᴏʟɴᴇᴡ _ᴛᴇxᴛ_
-${emoj} ${prefix}xʟᴏʟʙᴀɴɴᴇʀ _ᴛᴇxᴛ_
-${emoj} ${prefix}xᴀᴠᴀᴛᴀʀᴅᴏᴛᴀ _ᴛᴇxᴛ_
-
-「 Rᴀɴᴅᴏᴍ Iᴍᴀɢᴇ 」
-${emoj} ${prefix}xʙᴊ
-${emoj} ${prefix}xᴇʀᴏ
-${emoj} ${prefix}xᴄᴜᴍ
-${emoj} ${prefix}xʟᴇs
-${emoj} ${prefix}xɴᴇᴋᴏ
-${emoj} ${prefix}xғᴇᴇᴛ
-${emoj} ${prefix}xʏᴜʀɪ
-${emoj} ${prefix}xᴛʀᴀᴘ
-${emoj} ${prefix}xɴɢɪғ
-${emoj} ${prefix}xʟᴇᴡᴅ
-${emoj} ${prefix}xғᴇᴇᴅ
-${emoj} ${prefix}xᴇʀᴏɴ
-${emoj} ${prefix}xsᴏʟᴏ
-${emoj} ${prefix}xɢᴀsᴍ
-${emoj} ${prefix}xᴘᴏᴋᴇ
-${emoj} ${prefix}xᴀɴᴀʟ
-${emoj} ${prefix}xʜᴏʟᴏ
-${emoj} ${prefix}xᴋᴇᴛᴀ
-${emoj} ${prefix}xᴛɪᴛs
-${emoj} ${prefix}xᴋᴜɴɪ
-${emoj} ${prefix}xᴋɪss
-${emoj} ${prefix}xᴇʀᴏᴋ
-${emoj} ${prefix}xsᴍᴜɢ
-${emoj} ${prefix}xʙᴀᴋᴀ
-${emoj} ${prefix}xsᴏʟᴏɢ
-${emoj} ${prefix}xғᴇᴇᴛɢ
-${emoj} ${prefix}xʟᴇᴡᴅᴋ
-${emoj} ${prefix}xᴡᴀɪғᴜ
-${emoj} ${prefix}xᴘᴜssʏ
-${emoj} ${prefix}xᴛɪᴄᴋʟᴇ
-${emoj} ${prefix}xғᴇᴍᴅᴏᴍ
-${emoj} ${prefix}xᴄᴜᴅᴅʟᴇ
-${emoj} ${prefix}xʜᴇɴᴛᴀɪ
-${emoj} ${prefix}xᴇʀᴏʏᴜʀɪ
-${emoj} ${prefix}xᴄᴜᴍ_ᴊᴘɢ
-${emoj} ${prefix}xʙʟᴏᴡᴊᴏʙ
-${emoj} ${prefix}xᴇʀᴏғᴇᴇᴛ
-${emoj} ${prefix}xʜᴏʟᴏᴇʀᴏ
-${emoj} ${prefix}xᴄʟᴀssɪᴄ
-${emoj} ${prefix}xᴇʀᴏᴋᴇᴍᴏ
-${emoj} ${prefix}xғᴏx_ɢɪʀʟ
-${emoj} ${prefix}xғᴜᴛᴀɴᴀʀɪ
-${emoj} ${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-${emoj} ${prefix}xʟᴇᴡᴅᴋᴇᴍᴏ
-${emoj} ${prefix}xᴡᴀʟʟᴘᴀᴘᴇʀ
-${emoj} ${prefix}xᴘᴜssʏ_ᴊᴘɢ
-${emoj} ${prefix}xᴋᴇᴍᴏɴᴏᴍɪᴍɪ
-${emoj} ${prefix}xɴsғᴡ_ᴀᴠᴀᴛᴀʀ
-${emoj} ${prefix}xɴsғᴡ_ɴᴇᴋᴏ_ɢɪғ
-${emoj} ${prefix}xʀᴀɴᴅᴏᴍ_ʜᴇɴᴛᴀɪ_ɢɪғ
-
-「 Rᴀɴᴅᴏᴍ NSFW 」
-${emoj} ${prefix}xɴᴇᴋᴏ
-${emoj} ${prefix}xᴡᴀɪғᴜ
-${emoj} ${prefix}xʟᴏʟɪ
-${emoj} ${prefix}xᴄʜɪɪsᴀɪʜᴇɴᴛᴀɪ
-${emoj} ${prefix}xᴛʀᴀᴘ
-${emoj} ${prefix}xʙʟᴏᴡᴊᴏʙ
-${emoj} ${prefix}xʏᴀᴏɪ
-${emoj} ${prefix}xᴇᴄᴄʜɪ
-${emoj} ${prefix}xʜᴇɴᴛᴀɪ
-${emoj} ${prefix}xᴀʜᴇɢᴀᴏ
-${emoj} ${prefix}xʜᴏʟᴏʟᴇᴡᴅ
-${emoj} ${prefix}xsɪᴅᴇᴏᴘᴘᴀɪ
-${emoj} ${prefix}xᴀɴɪᴍᴇғᴇᴇᴛs
-${emoj} ${prefix}xᴀɴɪᴍᴇʙᴏᴏᴛʏ
-${emoj} ${prefix}xᴀɴɪᴍᴇᴛʜɪɢʜss
-${emoj} ${prefix}xʜᴇɴᴛᴀɪᴘᴀʀᴀᴅɪsᴇ
-${emoj} ${prefix}xᴀɴɪᴍᴇᴀʀᴍᴘɪᴛs
-${emoj} ${prefix}xʜᴇɴᴛᴀɪғᴇᴍᴅᴏᴍ
-${emoj} ${prefix}xʟᴇᴡᴅᴀɴɪᴍᴇɢɪʀʟs
-${emoj} ${prefix}xʙɪɢᴀɴɪᴍᴇᴛɪᴅᴅɪᴇs
-${emoj} ${prefix}xʜᴇɴᴛᴀɪ4ᴇᴠᴇʀʏᴏɴᴇ
-╰───「 X ᴍᴇɴᴜ 」`
+╭⋆⸙「 Random Image  」
+│⌯ ${prefix}art
+│⌯ ${prefix}bts
+│⌯ ${prefix}exo
+│⌯ ${prefix}elf
+│⌯ ${prefix}loli
+│⌯ ${prefix}neko
+│⌯ ${prefix}waifu
+│⌯ ${prefix}shota
+│⌯ ${prefix}husbu
+│⌯ ${prefix}sagiri
+│⌯ ${prefix}shinobu
+│⌯ ${prefix}megumin
+│⌯ ${prefix}wallnime
+│⌯ ${prefix}chiisaihentai
+│⌯ ${prefix}trap
+│⌯ ${prefix}blowjob
+│⌯ ${prefix}yaoi
+│⌯ ${prefix}ecchi
+│⌯ ${prefix}hentai
+│⌯ ${prefix}ahegao
+│⌯ ${prefix}hololewd
+│⌯ ${prefix}sideoppai
+│⌯ ${prefix}animefeets
+│⌯ ${prefix}animebooty
+│⌯ ${prefix}animethighss
+│⌯ ${prefix}hentaiparadise
+│⌯ ${prefix}animearmpits
+│⌯ ${prefix}hentaifemdom
+│⌯ ${prefix}lewdanimegirls
+│⌯ ${prefix}biganimetiddies
+│⌯ ${prefix}animebellybutton
+│⌯ ${prefix}hentai4everyone
+│⌯ ${prefix}bj
+│⌯ ${prefix}ero
+│⌯ ${prefix}cum
+│⌯ ${prefix}feet
+│⌯ ${prefix}yuri
+│⌯ ${prefix}trap
+│⌯ ${prefix}lewd
+│⌯ ${prefix}feed
+│⌯ ${prefix}eron
+│⌯ ${prefix}solo
+│⌯ ${prefix}gasm
+│⌯ ${prefix}poke
+│⌯ ${prefix}anal
+│⌯ ${prefix}holo
+│⌯ ${prefix}tits
+│⌯ ${prefix}kuni
+│⌯ ${prefix}kiss
+│⌯ ${prefix}erok
+│⌯ ${prefix}smug
+│⌯ ${prefix}baka
+│⌯ ${prefix}solog
+│⌯ ${prefix}feetg
+│⌯ ${prefix}lewdk
+│⌯ ${prefix}waifu
+│⌯ ${prefix}pussy
+│⌯ ${prefix}femdom
+│⌯ ${prefix}cuddle
+│⌯ ${prefix}hentai
+│⌯ ${prefix}eroyuri
+│⌯ ${prefix}cum_jpg
+│⌯ ${prefix}blowjob
+│⌯ ${prefix}erofeet
+│⌯ ${prefix}holoero
+│⌯ ${prefix}classic
+│⌯ ${prefix}erokemo
+│⌯ ${prefix}fox_girl
+│⌯ ${prefix}futanari
+│⌯ ${prefix}lewdkemo
+│⌯ ${prefix}wallpaper
+│⌯ ${prefix}pussy_jpg
+│⌯ ${prefix}kemonomimi
+│⌯ ${prefix}nsfw_avatar
+│⌯ ${prefix}ngif
+│⌯ ${prefix}nsfw_neko_gif
+│⌯ ${prefix}random_hentai_gif
+╰───「 MikuBot 」`
 but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
 ]
@@ -17524,7 +17539,7 @@ alpha.sendMessage(from, getaudio, audio, {mimetype:'audio/mp4', quoted: fgif2, p
 if (fs.existsSync(`./media/${from}.json`)) {
 gelutSkuy = setGelud(`${from}`)
 if (sender == `${gelutSkuy.Y}@s.whatsapp.net` && budy.toLowerCase() == 'y') {
-if (gelutSkuy.status) return fakestatus(`Game telah dimulai sebelumnya!`)
+if (gelutSkuy.status) return reply2(`Game telah dimulai sebelumnya!`)
 gelutSkuy.status = true
 rand0m = [ gelutSkuy.Z, gelutSkuy.Y ]
 winR = rand0m[Math.floor(Math.random() * rand0m.length)]
@@ -17671,6 +17686,7 @@ sendButLocation(from, teks , `Makasih Udah Verifikasi 😉\n${botname}™© | By
 }
 
 // AUTO REPLY by Piyo >_<
+
 if (budy == 'p') {
 alpha.sendMessage(from, `Salam yg bener kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
 }
