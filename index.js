@@ -7595,21 +7595,21 @@ case 'apakah':
 apakah = body.slice(1)
 const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
 const kah = apa[Math.floor(Math.random() * apa.length)]
-reply2(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah)
+reply2('*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah)
 break
 
 case 'cekganteng':
 ganteng = body.slice(1)
 const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const teng = gan[Math.floor(Math.random() * gan.length)]
-reply2(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%')
+reply2('*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%')
 break
 
 case 'cekcantik':
 cantik = body.slice(1)
 const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const tik = can[Math.floor(Math.random() * can.length)]
-reply2(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%')
+reply2('*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%')
 break
 
 case 'hobby':
@@ -7622,7 +7622,7 @@ case 'bisakah':
 bisakah = body.slice(1)
 const bisa =['Bisa','Tidak Bisa','Coba Ulangi','Ya mana gw tau']
 const keh = bisa[Math.floor(Math.random() * bisa.length)]
-reply2(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh)
+reply2('*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh)
 break
 
 case 'citacita': 
@@ -7636,7 +7636,7 @@ case 'kapankah':
 kapankah = body.slice(1)
 const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
 const koh = kapan[Math.floor(Math.random() * kapan.length)]
-reply2(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh)
+reply2('*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh)
 break
 
 case 'gelud':
@@ -15189,7 +15189,7 @@ alpha.sendMessage(from,`Hasilnya : *${calcu}*`, MessageType.text, {quoted: mek})
 break
 
 case 'hay':
-if(!q) return reply2(`🏷️Hint : ${prefix + command} halo sim`)
+if(!q) return reply2(`??️Hint : ${prefix + command} halo sim`)
 let link_simi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
 reply2(link_simi.success)
 break
