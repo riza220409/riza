@@ -7558,34 +7558,34 @@ case 'apakah':
 apakah = body.slice(1)
 const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
 const kah = apa[Math.floor(Math.random() * apa.length)]
-alpha.sendMessage(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah, text, { quoted: fgif2 })
+reply2(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah)
 break
 
 case 'cekganteng':
 ganteng = body.slice(1)
 const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const teng = gan[Math.floor(Math.random() * gan.length)]
-alpha.sendMessage(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%', text, { quoted: fgif2 })
+reply2(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%')
 break
 
 case 'cekcantik':
 cantik = body.slice(1)
 const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const tik = can[Math.floor(Math.random() * can.length)]
-alpha.sendMessage(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%', text, { quoted: fgif2 })
+reply2(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%')
 break
 
 case 'hobby':
 const kan =['Coli','baca buku','Tadi','ngeliat org mandi','Nonton bokep','sepedaan','Baca wattpad','belajar','Main discord','menabung']
 const hooo = kan[Math.floor(Math.random() * kan.length)]
-alpha.sendMessage(from, 'Pertanyaan : *hoby*\n\nJawaban : '+ hooo, text, { quoted: fgif2 })
+alpha.sendMessage(from, 'Pertanyaan : *hoby*\n\nJawaban : '+ hooo)
 break
 
 case 'bisakah':
 bisakah = body.slice(1)
 const bisa =['Bisa','Tidak Bisa','Coba Ulangi','Ya mana gw tau']
 const keh = bisa[Math.floor(Math.random() * bisa.length)]
-alpha.sendMessage(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh, text, { quoted: fgif2 })
+reply2(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh)
 break
 
 case 'citacita': 
@@ -7599,7 +7599,7 @@ case 'kapankah':
 kapankah = body.slice(1)
 const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
 const koh = kapan[Math.floor(Math.random() * kapan.length)]
-alpha.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, { quoted: fgif2 })
+reply2(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh)
 break
 
 case 'gelud':
@@ -7663,7 +7663,9 @@ reply2(`${e}`)
 }
 break
 
-case 'ttdl':
+case 'tiktokk':
+                   case 'tiktokdl':
+                   case 'ttdl':
 if (!q) return reply2('Linknya?')
 if (!q.includes('tiktok')) return reply2(mess.error.Iv)
 reply2(mess.wait)
@@ -7673,6 +7675,7 @@ anu = await TiktokDownloader(`${q}`)
 break
 
 case 'ttnowm': 
+case 'tiknowm': 
 if (!q) return reply2('Linknya?')
 if (!q.includes('tiktok')) return reply2(mess.error.Iv)
 reply2(mess.wait)
@@ -7681,6 +7684,7 @@ anu = await TiktokDownloader(`${q}`)
 .catch((err) => { reply2(String(err)) })
 break
 
+case 'igdl':
 case 'instagram':
 if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply2(mess.Iv)
 if (args.length < 1) return reply2('Link?')
@@ -7735,6 +7739,8 @@ alpha.sendMessage(from, khs, audio, {quoted:mek, mimetype:'audio/mp4', filename:
 break
 
 case'twitter':
+case'twit':
+case'tw':
 if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply2(mess.Iv)
 if (!q) return reply2('Linknya?')
 ten = args[0]
@@ -7746,7 +7752,9 @@ sendMediaURL(from,ren,'DONE')
 break
 
 case 'ytdl':
+case 'youtube':
 case 'youtubedl': 
+case 'playt':
 if (args.length < 1) return reply2(`Kirim perintah *${prefix}${command}* query`)
 reply2('Searching...')
 let yut = await yts(q)
@@ -7793,6 +7801,7 @@ sendMediaURL(from, `${res.dl_link}`,'Nih Kack')
 break
 
 case 'ytsearch2':
+case 'yts2':
  if (args.length < 1) return reply2('Tolong masukan query!')
 var srch = args.join('');
  try {
@@ -7814,6 +7823,7 @@ ytresult += '•🌹Upload: ' + video.ago + '\n⌬━━━━━━━━━━
 await fakethumb(tbuff,ytresult)
 break 			
 case 'twmp4':
+case 'twittermp4':
 if (args.length < 1) return reply2('Link?')
 lin = args[0] 
 hx.twitter(lin).then(res => { 
@@ -7830,6 +7840,7 @@ sendMediaURL(from, Anu, 'Done!')
 break
 
 case 'twmp3':
+case 'twittermp3':
 if (args.length < 1) return reply2('Link?') 
 lin = args[0] 
 hx.twitter(lin).then(async (res) => { 
@@ -7847,6 +7858,7 @@ alpha.sendMessage(from, khs, audio, {mimetype:'audio/mp4', filename:'clientgan.m
 break
 
 case 'dlvideo':
+case 'video':
 if (args.length === 0) return reply2(`Kirim perintah *${prefix}video* _Judul lagu yang akan dicari_`)
 var srch = args.join('')
 reply2(mess.wait)
@@ -7933,7 +7945,7 @@ case 'ggs':
 if(!q) return reply2(`🏷️Hint : ${prefix + command} mabar`) 
 teks = args.join(' ')
 res = await ggs({'query' : `${teks}`})
-let geges = '*▰▱⸙⃝⋆ GOOGLE SEARCH.⸙⃝⋆▱▰*\n\n'
+let geges = '*⌯────────⌕────────⌯*\n\n'
 for (let i of res) {
 geges += `*Judul* : ${i.title}
 *Link* : ${i.link}
@@ -17149,337 +17161,337 @@ x_menus = `*DON'T SPAM YA KAK*
 ${ucapannya2}
 
 ╭⋆⸙「 Islami 」
-│⌯ ${prefix}listsurah
-│⌯ ${prefix}asmaulhusna
-│⌯ ${prefix}alquran no_surah
-│⌯ ${prefix}alquran no_surah/no_ayat
-│⌯ ${prefix}alquran no_surah/no_ayat1-no_ayat2
-│⌯ ${prefix}alquranaudio no_surah
-│⌯ ${prefix}alquranaudio no_surah/no_ayat
-│⌯ ${prefix}kisahnabi nama_nabi
-│⌯ ${prefix}jadwalsholat daerah
+│⌯ ${prefix}xlistsurah
+│⌯ ${prefix}xasmaulhusna
+│⌯ ${prefix}xalquran no_surah
+│⌯ ${prefix}xalquran no_surah/no_ayat
+│⌯ ${prefix}xalquran no_surah/no_ayat1-no_ayat2
+│⌯ ${prefix}xalquranaudio no_surah
+│⌯ ${prefix}xalquranaudio no_surah/no_ayat
+│⌯ ${prefix}xkisahnabi nama_nabi
+│⌯ ${prefix}xjadwalsholat daerah
 ␥
 
 ╭⋆⸙「 Downloader 」
-│⌯ ${prefix}ytsearch query
-│⌯ ${prefix}ytplay query
-│⌯ ${prefix}ytmp3 url_video
-│⌯ ${prefix}ytmp4 url_video
-│⌯ ${prefix}tiktoknowm url_video
-│⌯ ${prefix}tiktokmusic url_video
-│⌯ ${prefix}igdl url_post
-│⌯ ${prefix}fbdl url_video
-│⌯ ${prefix}jooxplay query
-│⌯ ${prefix}spotify url_music
-│⌯ ${prefix}spotifysearch query
-│⌯ ${prefix}pinterest query
-│⌯ ${prefix}pinterestdl url_pinterest
-│⌯ ${prefix}pixiv query
-│⌯ ${prefix}pixivdl url_pixiv
-│⌯ ${prefix}zippyshare url_zippyshare
-│⌯ ${prefix}telesticker url_pack
+│⌯ ${prefix}xytsearch query
+│⌯ ${prefix}xytplay query
+│⌯ ${prefix}xytmp3 url_video
+│⌯ ${prefix}xytmp4 url_video
+│⌯ ${prefix}xtiktoknowm url_video
+│⌯ ${prefix}xtiktokmusic url_video
+│⌯ ${prefix}xigdl url_post
+│⌯ ${prefix}xfbdl url_video
+│⌯ ${prefix}xjooxplay query
+│⌯ ${prefix}xspotify url_music
+│⌯ ${prefix}xspotifysearch query
+│⌯ ${prefix}xpinterest query
+│⌯ ${prefix}xpinterestdl url_pinterest
+│⌯ ${prefix}xpixiv query
+│⌯ ${prefix}xpixivdl url_pixiv
+│⌯ ${prefix}xzippyshare url_zippyshare
+│⌯ ${prefix}xtelesticker url_pack
 ␥
 
 ╭⋆⸙「 Movie & Story 」
-│⌯ ${prefix}drakorongoing
-│⌯ ${prefix}lk21 query
-│⌯ ${prefix}wattpad url_wattpad
-│⌯ ${prefix}wattpadsearch query
-│⌯ ${prefix}cerpen
-│⌯ ${prefix}ceritahoror
+│⌯ ${prefix}xdrakorongoing
+│⌯ ${prefix}xlk21 query
+│⌯ ${prefix}xwattpad url_wattpad
+│⌯ ${prefix}xwattpadsearch query
+│⌯ ${prefix}xcerpen
+│⌯ ${prefix}xceritahoror
 ␥
 
 ╭⋆⸙「 Searching 」
-│⌯ ${prefix}shopee query
-│⌯ ${prefix}google query
-│⌯ ${prefix}gimage query
-│⌯ ${prefix}gimage2 query
-│⌯ ${prefix}konachan query
-│⌯ ${prefix}playstore query
-│⌯ ${prefix}stickerwa query
-│⌯ ${prefix}wallpapersearch query
-│⌯ ${prefix}wallpapersearch2 query
+│⌯ ${prefix}xshopee query
+│⌯ ${prefix}xgoogle query
+│⌯ ${prefix}xgimage query
+│⌯ ${prefix}xgimage2 query
+│⌯ ${prefix}xkonachan query
+│⌯ ${prefix}xplaystore query
+│⌯ ${prefix}xstickerwa query
+│⌯ ${prefix}xwallpapersearch query
+│⌯ ${prefix}xwallpapersearch2 query
 ␥
 
 ╭⋆⸙「 Random Text 」
-│⌯ ${prefix}quotes
-│⌯ ${prefix}quotesdilan
-│⌯ ${prefix}quotesanime
-│⌯ ${prefix}quotesimage
-│⌯ ${prefix}faktaunik
-│⌯ ${prefix}katabijak
-│⌯ ${prefix}pantun
-│⌯ ${prefix}bucin
-│⌯ ${prefix}randomnama
+│⌯ ${prefix}xquotes
+│⌯ ${prefix}xquotesdilan
+│⌯ ${prefix}xquotesanime
+│⌯ ${prefix}xquotesimage
+│⌯ ${prefix}xfaktaunik
+│⌯ ${prefix}xkatabijak
+│⌯ ${prefix}xpantun
+│⌯ ${prefix}xbucin
+│⌯ ${prefix}xrandomnama
 ␥
 
 ╭⋆⸙「 AniManga 」
-│⌯ ${prefix}wait
-│⌯ ${prefix}manga query
-│⌯ ${prefix}anime query
-│⌯ ${prefix}character query
-│⌯ ${prefix}kusonime url_kusonime
-│⌯ ${prefix}kusonimesearch query
-│⌯ ${prefix}otakudesu url_otakudesu
-│⌯ ${prefix}otakudesusearch query
-│⌯ ${prefix}nhentai kode_bom
-│⌯ ${prefix}nhentaipdf kode_bom
-│⌯ ${prefix}nhentaisearch query
-│⌯ ${prefix}nekopoi url
-│⌯ ${prefix}nekopoisearch query
+│⌯ ${prefix}xwait
+│⌯ ${prefix}xmanga query
+│⌯ ${prefix}xanime query
+│⌯ ${prefix}xcharacter query
+│⌯ ${prefix}xkusonime url_kusonime
+│⌯ ${prefix}xkusonimesearch query
+│⌯ ${prefix}xotakudesu url_otakudesu
+│⌯ ${prefix}xotakudesusearch query
+│⌯ ${prefix}xnhentai kode_bom
+│⌯ ${prefix}xnhentaipdf kode_bom
+│⌯ ${prefix}xnhentaisearch query
+│⌯ ${prefix}xnekopoi url
+│⌯ ${prefix}xnekopoisearch query
 ␥
 
 ╭⋆⸙「 Information 」
-│⌯ ${prefix}kbbi
-│⌯ ${prefix}brainly2
-│⌯ ${prefix}jarak
-│⌯ ${prefix}urbandictionary
-│⌯ ${prefix}jadwaltv channel
-│⌯ ${prefix}jadwaltvnow
-│⌯ ${prefix}jadwalbola
-│⌯ ${prefix}qrreader
-│⌯ ${prefix}heroml hero_name
-│⌯ ${prefix}mlstalk id/server
-│⌯ ${prefix}genshin character
-│⌯ ${prefix}wikipedia query
-│⌯ ${prefix}translate kode_negara text
-│⌯ ${prefix}brainly query
-│⌯ ${prefix}newsinfo
-│⌯ ${prefix}cnnindonesia
-│⌯ ${prefix}cnnnasional
-│⌯ ${prefix}cnninternasional
-│⌯ ${prefix}infogempa
-│⌯ ${prefix}lirik query
-│⌯ ${prefix}cuaca daerah
-│⌯ ${prefix}kodepos query
-│⌯ ${prefix}indbeasiswa
-│⌯ ${prefix}hoax
-│⌯ ${prefix}nsfwcheck
-│⌯ ${prefix}ocr
+│⌯ ${prefix}xkbbi
+│⌯ ${prefix}xbrainly2
+│⌯ ${prefix}xjarak
+│⌯ ${prefix}xurbandictionary
+│⌯ ${prefix}xjadwaltv channel
+│⌯ ${prefix}xjadwaltvnow
+│⌯ ${prefix}xjadwalbola
+│⌯ ${prefix}xqrreader
+│⌯ ${prefix}xheroml hero_name
+│⌯ ${prefix}xmlstalk id/server
+│⌯ ${prefix}xgenshin character
+│⌯ ${prefix}xwikipedia query
+│⌯ ${prefix}xtranslate kode_negara text
+│⌯ ${prefix}xbrainly query
+│⌯ ${prefix}xnewsinfo
+│⌯ ${prefix}xcnnindonesia
+│⌯ ${prefix}xcnnnasional
+│⌯ ${prefix}xcnninternasional
+│⌯ ${prefix}xinfogempa
+│⌯ ${prefix}xlirik query
+│⌯ ${prefix}xcuaca daerah
+│⌯ ${prefix}xkodepos query
+│⌯ ${prefix}xindbeasiswa
+│⌯ ${prefix}xhoax
+│⌯ ${prefix}xnsfwcheck
+│⌯ ${prefix}xocr
 ␥
 
 ╭⋆⸙「 Entertainment 」
-│⌯ ${prefix}asupan
-│⌯ ${prefix}wancak
-│⌯ ${prefix}tebakgambar
-│⌯ ${prefix}canceltebakgambar
-│⌯ ${prefix}akinator
-│⌯ ${prefix}cancelakinator
+│⌯ ${prefix}xasupan
+│⌯ ${prefix}xwancak
+│⌯ ${prefix}xtebakgambar
+│⌯ ${prefix}xcanceltebakgambar
+│⌯ ${prefix}xakinator
+│⌯ ${prefix}xcancelakinator
 ␥
 
 ╭⋆⸙「 Creator 」
-│⌯ ${prefix}ttp text
-│⌯ ${prefix}ttp2 text
-│⌯ ${prefix}ttp3 text
-│⌯ ${prefix}ttp4 text
-│⌯ ${prefix}attp text
-│⌯ ${prefix}smoji emoji
-│⌯ ${prefix}fakedonald text
-│⌯ ${prefix}ktpmaker
+│⌯ ${prefix}xttp text
+│⌯ ${prefix}xttp2 text
+│⌯ ${prefix}xttp3 text
+│⌯ ${prefix}xttp4 text
+│⌯ ${prefix}xattp text
+│⌯ ${prefix}xsmoji emoji
+│⌯ ${prefix}xfakedonald text
+│⌯ ${prefix}xktpmaker
 ␥
 
 ╭⋆⸙「 Primbon 」
-│⌯ ${prefix}artinama name
-│⌯ ${prefix}jodoh name1 & name2 
-│⌯ ${prefix}weton tanggal bulan tahun
-│⌯ ${prefix}jadian tanggal bulan tahun
-│⌯ ${prefix}tebakumur name
+│⌯ ${prefix}xartinama name
+│⌯ ${prefix}xjodoh name1 & name2 
+│⌯ ${prefix}xweton tanggal bulan tahun
+│⌯ ${prefix}xjadian tanggal bulan tahun
+│⌯ ${prefix}xtebakumur name
 ␥
 
 ╭⋆⸙「 Other 」
-│⌯ ${prefix}ssweb link
-│⌯ ${prefix}ssweb2 link
-│⌯ ${prefix}shortlink link
-│⌯ ${prefix}spamsms nomor
+│⌯ ${prefix}xssweb link
+│⌯ ${prefix}xssweb2 link
+│⌯ ${prefix}xshortlink link
+│⌯ ${prefix}xspamsms nomor
 ␥
 
 ╭⋆⸙「 Text Pro Me 」
-│⌯ ${prefix}blackpink text
-│⌯ ${prefix}neon text
-│⌯ ${prefix}greenneon text
-│⌯ ${prefix}advanceglow text
-│⌯ ${prefix}futureneon text
-│⌯ ${prefix}sandwriting text
-│⌯ ${prefix}sandsummer text
-│⌯ ${prefix}sandengraved text
-│⌯ ${prefix}metaldark text
-│⌯ ${prefix}neonlight text
-│⌯ ${prefix}holographic text
-│⌯ ${prefix}text1917 text
-│⌯ ${prefix}minion text
-│⌯ ${prefix}deluxesilver text
-│⌯ ${prefix}newyearcard text
-│⌯ ${prefix}bloodfrosted text
-│⌯ ${prefix}halloween text
-│⌯ ${prefix}jokerlogo text
-│⌯ ${prefix}fireworksparkle text
-│⌯ ${prefix}natureleaves text
-│⌯ ${prefix}bokeh text
-│⌯ ${prefix}toxic text
-│⌯ ${prefix}strawberry text
-│⌯ ${prefix}box3d text
-│⌯ ${prefix}roadwarning text
-│⌯ ${prefix}breakwall text
-│⌯ ${prefix}icecold text
-│⌯ ${prefix}luxury text
-│⌯ ${prefix}cloud text
-│⌯ ${prefix}summersand text
-│⌯ ${prefix}horrorblood text
-│⌯ ${prefix}thunder text
-│⌯ ${prefix}pornhub text1 text2
-│⌯ ${prefix}glitch text1 text2
-│⌯ ${prefix}avenger text1 text2
-│⌯ ${prefix}space text1 text2
-│⌯ ${prefix}ninjalogo text1 text2
-│⌯ ${prefix}marvelstudio text1 text2
-│⌯ ${prefix}lionlogo text1 text2
-│⌯ ${prefix}wolflogo text1 text2
-│⌯ ${prefix}steel3d text1 text2
-│⌯ ${prefix}wallgravity text1 text2
+│⌯ ${prefix}xblackpink text
+│⌯ ${prefix}xneon text
+│⌯ ${prefix}xgreenneon text
+│⌯ ${prefix}xadvanceglow text
+│⌯ ${prefix}xfutureneon text
+│⌯ ${prefix}xsandwriting text
+│⌯ ${prefix}xsandsummer text
+│⌯ ${prefix}xsandengraved text
+│⌯ ${prefix}xmetaldark text
+│⌯ ${prefix}xneonlight text
+│⌯ ${prefix}xholographic text
+│⌯ ${prefix}xtext1917 text
+│⌯ ${prefix}xminion text
+│⌯ ${prefix}xdeluxesilver text
+│⌯ ${prefix}xnewyearcard text
+│⌯ ${prefix}xbloodfrosted text
+│⌯ ${prefix}xhalloween text
+│⌯ ${prefix}xjokerlogo text
+│⌯ ${prefix}xfireworksparkle text
+│⌯ ${prefix}xnatureleaves text
+│⌯ ${prefix}xbokeh text
+│⌯ ${prefix}xtoxic text
+│⌯ ${prefix}xstrawberry text
+│⌯ ${prefix}xbox3d text
+│⌯ ${prefix}xroadwarning text
+│⌯ ${prefix}xbreakwall text
+│⌯ ${prefix}xicecold text
+│⌯ ${prefix}xluxury text
+│⌯ ${prefix}xcloud text
+│⌯ ${prefix}xsummersand text
+│⌯ ${prefix}xhorrorblood text
+│⌯ ${prefix}xthunder text
+│⌯ ${prefix}xpornhub text1 text2
+│⌯ ${prefix}xglitch text1 text2
+│⌯ ${prefix}xavenger text1 text2
+│⌯ ${prefix}xspace text1 text2
+│⌯ ${prefix}xninjalogo text1 text2
+│⌯ ${prefix}xmarvelstudio text1 text2
+│⌯ ${prefix}xlionlogo text1 text2
+│⌯ ${prefix}xwolflogo text1 text2
+│⌯ ${prefix}xsteel3d text1 text2
+│⌯ ${prefix}xwallgravity text1 text2
 ␥
 
 ╭⋆⸙「 Photo Oxy 」
-│⌯ ${prefix}shadow text
-│⌯ ${prefix}cup text
-│⌯ ${prefix}cup1 text
-│⌯ ${prefix}romance text
-│⌯ ${prefix}smoke text
-│⌯ ${prefix}burnpaper text
-│⌯ ${prefix}lovemessage text
-│⌯ ${prefix}undergrass text
-│⌯ ${prefix}love text
-│⌯ ${prefix}coffe text
-│⌯ ${prefix}woodheart text
-│⌯ ${prefix}woodenboard text
-│⌯ ${prefix}summer3d text
-│⌯ ${prefix}wolfmetal text
-│⌯ ${prefix}nature3d text
-│⌯ ${prefix}underwater text
-│⌯ ${prefix}golderrose text
-│⌯ ${prefix}summernature text
-│⌯ ${prefix}letterleaves text
-│⌯ ${prefix}glowingneon text
-│⌯ ${prefix}fallleaves text
-│⌯ ${prefix}flamming text
-│⌯ ${prefix}harrypotter text
-│⌯ ${prefix}carvedwood text
-│⌯ ${prefix}tiktok text1 text2
-│⌯ ${prefix}arcade8bit text1 text2
-│⌯ ${prefix}battlefield4 text1 text2
-│⌯ ${prefix}pubg text1 text2
+│⌯ ${prefix}xshadow text
+│⌯ ${prefix}xcup text
+│⌯ ${prefix}xcup1 text
+│⌯ ${prefix}xromance text
+│⌯ ${prefix}xsmoke text
+│⌯ ${prefix}xburnpaper text
+│⌯ ${prefix}xlovemessage text
+│⌯ ${prefix}xundergrass text
+│⌯ ${prefix}xlove text
+│⌯ ${prefix}xcoffe text
+│⌯ ${prefix}xwoodheart text
+│⌯ ${prefix}xwoodenboard text
+│⌯ ${prefix}xsummer3d text
+│⌯ ${prefix}xwolfmetal text
+│⌯ ${prefix}xnature3d text
+│⌯ ${prefix}xunderwater text
+│⌯ ${prefix}xgolderrose text
+│⌯ ${prefix}xsummernature text
+│⌯ ${prefix}xletterleaves text
+│⌯ ${prefix}xglowingneon text
+│⌯ ${prefix}xfallleaves text
+│⌯ ${prefix}xflamming text
+│⌯ ${prefix}xharrypotter text
+│⌯ ${prefix}xcarvedwood text
+│⌯ ${prefix}xtiktok text1 text2
+│⌯ ${prefix}xarcade8bit text1 text2
+│⌯ ${prefix}xbattlefield4 text1 text2
+│⌯ ${prefix}xpubg text1 text2
 ␥
 
 ╭⋆⸙「 Ephoto 360 」
-│⌯ ${prefix}wetglass text
-│⌯ ${prefix}multicolor3d text
-│⌯ ${prefix}watercolor text
-│⌯ ${prefix}luxurygold text
-│⌯ ${prefix}galaxywallpaper text
-│⌯ ${prefix}lighttext text
-│⌯ ${prefix}beautifulflower text
-│⌯ ${prefix}puppycute text
-│⌯ ${prefix}royaltext text
-│⌯ ${prefix}heartshaped text
-│⌯ ${prefix}birthdaycake text
-│⌯ ${prefix}galaxystyle text
-│⌯ ${prefix}hologram3d text
-│⌯ ${prefix}greenneon text
-│⌯ ${prefix}glossychrome text
-│⌯ ${prefix}greenbush text
-│⌯ ${prefix}metallogo text
-│⌯ ${prefix}noeltext text
-│⌯ ${prefix}glittergold text
-│⌯ ${prefix}textcake text
-│⌯ ${prefix}starsnight text
-│⌯ ${prefix}wooden3d text
-│⌯ ${prefix}textbyname text
-│⌯ ${prefix}writegalacy text
-│⌯ ${prefix}galaxybat text
-│⌯ ${prefix}snow3d text
-│⌯ ${prefix}birthdayday text
-│⌯ ${prefix}goldplaybutton text
-│⌯ ${prefix}silverplaybutton text
-│⌯ ${prefix}freefire text
+│⌯ ${prefix}xwetglass text
+│⌯ ${prefix}xmulticolor3d text
+│⌯ ${prefix}xwatercolor text
+│⌯ ${prefix}xluxurygold text
+│⌯ ${prefix}xgalaxywallpaper text
+│⌯ ${prefix}xlighttext text
+│⌯ ${prefix}xbeautifulflower text
+│⌯ ${prefix}xpuppycute text
+│⌯ ${prefix}xroyaltext text
+│⌯ ${prefix}xheartshaped text
+│⌯ ${prefix}xbirthdaycake text
+│⌯ ${prefix}xgalaxystyle text
+│⌯ ${prefix}xhologram3d text
+│⌯ ${prefix}xgreenneon text
+│⌯ ${prefix}xglossychrome text
+│⌯ ${prefix}xgreenbush text
+│⌯ ${prefix}xmetallogo text
+│⌯ ${prefix}xnoeltext text
+│⌯ ${prefix}xglittergold text
+│⌯ ${prefix}xtextcake text
+│⌯ ${prefix}xstarsnight text
+│⌯ ${prefix}xwooden3d text
+│⌯ ${prefix}xtextbyname text
+│⌯ ${prefix}xwritegalacy text
+│⌯ ${prefix}xgalaxybat text
+│⌯ ${prefix}xsnow3d text
+│⌯ ${prefix}xbirthdayday text
+│⌯ ${prefix}xgoldplaybutton text
+│⌯ ${prefix}xsilverplaybutton text
+│⌯ ${prefix}xfreefire text
 ␥
 
 ╭⋆⸙「 Random Image  」
-│⌯ ${prefix}art
-│⌯ ${prefix}bts
-│⌯ ${prefix}exo
-│⌯ ${prefix}elf
-│⌯ ${prefix}loli
-│⌯ ${prefix}neko
-│⌯ ${prefix}waifu
-│⌯ ${prefix}shota
-│⌯ ${prefix}husbu
-│⌯ ${prefix}sagiri
-│⌯ ${prefix}shinobu
-│⌯ ${prefix}megumin
-│⌯ ${prefix}wallnime
-│⌯ ${prefix}chiisaihentai
-│⌯ ${prefix}trap
-│⌯ ${prefix}blowjob
-│⌯ ${prefix}yaoi
-│⌯ ${prefix}ecchi
-│⌯ ${prefix}hentai
-│⌯ ${prefix}ahegao
-│⌯ ${prefix}hololewd
-│⌯ ${prefix}sideoppai
-│⌯ ${prefix}animefeets
-│⌯ ${prefix}animebooty
-│⌯ ${prefix}animethighss
-│⌯ ${prefix}hentaiparadise
-│⌯ ${prefix}animearmpits
-│⌯ ${prefix}hentaifemdom
-│⌯ ${prefix}lewdanimegirls
-│⌯ ${prefix}biganimetiddies
-│⌯ ${prefix}animebellybutton
-│⌯ ${prefix}hentai4everyone
-│⌯ ${prefix}bj
-│⌯ ${prefix}ero
-│⌯ ${prefix}cum
-│⌯ ${prefix}feet
-│⌯ ${prefix}yuri
-│⌯ ${prefix}trap
-│⌯ ${prefix}lewd
-│⌯ ${prefix}feed
-│⌯ ${prefix}eron
-│⌯ ${prefix}solo
-│⌯ ${prefix}gasm
-│⌯ ${prefix}poke
-│⌯ ${prefix}anal
-│⌯ ${prefix}holo
-│⌯ ${prefix}tits
-│⌯ ${prefix}kuni
-│⌯ ${prefix}kiss
-│⌯ ${prefix}erok
-│⌯ ${prefix}smug
-│⌯ ${prefix}baka
-│⌯ ${prefix}solog
-│⌯ ${prefix}feetg
-│⌯ ${prefix}lewdk
-│⌯ ${prefix}waifu
-│⌯ ${prefix}pussy
-│⌯ ${prefix}femdom
-│⌯ ${prefix}cuddle
-│⌯ ${prefix}hentai
-│⌯ ${prefix}eroyuri
-│⌯ ${prefix}cum_jpg
-│⌯ ${prefix}blowjob
-│⌯ ${prefix}erofeet
-│⌯ ${prefix}holoero
-│⌯ ${prefix}classic
-│⌯ ${prefix}erokemo
-│⌯ ${prefix}fox_girl
-│⌯ ${prefix}futanari
-│⌯ ${prefix}lewdkemo
-│⌯ ${prefix}wallpaper
-│⌯ ${prefix}pussy_jpg
-│⌯ ${prefix}kemonomimi
-│⌯ ${prefix}nsfw_avatar
-│⌯ ${prefix}ngif
-│⌯ ${prefix}nsfw_neko_gif
-│⌯ ${prefix}random_hentai_gif
+│⌯ ${prefix}xart
+│⌯ ${prefix}xbts
+│⌯ ${prefix}xexo
+│⌯ ${prefix}xelf
+│⌯ ${prefix}xloli
+│⌯ ${prefix}xneko
+│⌯ ${prefix}xwaifu
+│⌯ ${prefix}xshota
+│⌯ ${prefix}xhusbu
+│⌯ ${prefix}xsagiri
+│⌯ ${prefix}xshinobu
+│⌯ ${prefix}xmegumin
+│⌯ ${prefix}xwallnime
+│⌯ ${prefix}xchiisaihentai
+│⌯ ${prefix}xtrap
+│⌯ ${prefix}xblowjob
+│⌯ ${prefix}xyaoi
+│⌯ ${prefix}xecchi
+│⌯ ${prefix}xhentai
+│⌯ ${prefix}xahegao
+│⌯ ${prefix}xhololewd
+│⌯ ${prefix}xsideoppai
+│⌯ ${prefix}xanimefeets
+│⌯ ${prefix}xanimebooty
+│⌯ ${prefix}xanimethighss
+│⌯ ${prefix}xhentaiparadise
+│⌯ ${prefix}xanimearmpits
+│⌯ ${prefix}xhentaifemdom
+│⌯ ${prefix}xlewdanimegirls
+│⌯ ${prefix}xbiganimetiddies
+│⌯ ${prefix}xanimebellybutton
+│⌯ ${prefix}xhentai4everyone
+│⌯ ${prefix}xbj
+│⌯ ${prefix}xero
+│⌯ ${prefix}xcum
+│⌯ ${prefix}xfeet
+│⌯ ${prefix}xyuri
+│⌯ ${prefix}xtrap
+│⌯ ${prefix}xlewd
+│⌯ ${prefix}xfeed
+│⌯ ${prefix}xeron
+│⌯ ${prefix}xsolo
+│⌯ ${prefix}xgasm
+│⌯ ${prefix}xpoke
+│⌯ ${prefix}xanal
+│⌯ ${prefix}xholo
+│⌯ ${prefix}xtits
+│⌯ ${prefix}xkuni
+│⌯ ${prefix}xkiss
+│⌯ ${prefix}xerok
+│⌯ ${prefix}xsmug
+│⌯ ${prefix}xbaka
+│⌯ ${prefix}xsolog
+│⌯ ${prefix}xfeetg
+│⌯ ${prefix}xlewdk
+│⌯ ${prefix}xwaifu
+│⌯ ${prefix}xpussy
+│⌯ ${prefix}xfemdom
+│⌯ ${prefix}xcuddle
+│⌯ ${prefix}xhentai
+│⌯ ${prefix}xeroyuri
+│⌯ ${prefix}xcum_jpg
+│⌯ ${prefix}xblowjob
+│⌯ ${prefix}xerofeet
+│⌯ ${prefix}xholoero
+│⌯ ${prefix}xclassic
+│⌯ ${prefix}xerokemo
+│⌯ ${prefix}xfox_girl
+│⌯ ${prefix}xfutanari
+│⌯ ${prefix}xlewdkemo
+│⌯ ${prefix}xwallpaper
+│⌯ ${prefix}xpussy_jpg
+│⌯ ${prefix}xkemonomimi
+│⌯ ${prefix}xnsfw_avatar
+│⌯ ${prefix}xngif
+│⌯ ${prefix}xnsfw_neko_gif
+│⌯ ${prefix}xrandom_hentai_gif
 ╰───「 MikuBot 」`
 but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List Game'}, type: 1}
