@@ -497,7 +497,7 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
             let po = alpha.prepareMessageFromContent(from, {
 "listMessage": {"title": title,
 "description": desc,
-"buttonText": "Pilih Disini",
+"buttonText": `${emoj} Disini`,
 "footerText": `${ownername}`,
 "listType": "SINGLE_SELECT",
 "sections": list}}, {quoted: fgclink})
@@ -16346,6 +16346,7 @@ sendEphemeral: false,
 get_audio = await getBuffer(get_resultP.url_audio)
 alpha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, filename: `${get_resultP.title}.mp3`, quoted: mek})
 break
+
 /*
 case 'ts':
 try{
@@ -16686,12 +16687,12 @@ break
 case 'game':
 case 'games':
 list = []
-               listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`]
-               listmenuu = [`Asahotak`,`Caklontong`,`Caklontong2`,`Caklontong3`,`Family100`,`Math`,`Math2`,`Recaptcha`,`Sambungkata`,`Siapaaku`,`Siapakahaku`,`Susunkata`,`Susunkata2`,`Tebakan`,`Tebakan2`,`Tebakanime`,`Tebakbendera`,`Tebakgambar`,`Tebakgambar2`,`Tebakgambar3`,`Tebakgambar4`,`Tebakgambar5`,`Tebakjenaka`,`Tebakkalimat`,`Tebakkata`,`Tebakkata2`,`Tebakkimia`,`Tebaklirik`]
+listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`,`tebakaplikasi`,`tebakgabut`,`tebakkabupaten`,`tebaklucu`,`tebaklagu`,`teswibu`]
+listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`${emoj} Cak lontong3`,`${emoj} Family 100`,`${emoj} Math`,`${emoj} Math 2`,`${emoj} Recaptcha`,`${emoj} Sambung kata`,`${emoj} Siapa aku`,`${emoj} Siapakah aku`,`${emoj} Susun kata`,`${emoj} Susun kata2`,`${emoj} Tebakan`,`${emoj} Tebakan2`,`${emoj} Tebak anime`,`${emoj} Tebak bendera`,`${emoj} Tebak gambar`,`${emoj} Tebak gambar2`,`${emoj} Tebak gambar3`,`${emoj} Tebak gambar4`,`${emoj} Tebak gambar5`,`${emoj} Tebak jenaka`,`${emoj} Tebak kalimat`,`${emoj} Tebak kata`,`${emoj} Tebak kata2`,`${emoj} Tebak kimia`,`${emoj} Tebak lirik`,`${emoj} Tebak aplikasi`,`${emoj} Tebak gabut`,`${emoj} Tebak kabupaten`,`${emoj} Tebak lucu`,`${emoj} Tebak lagu`,`${emoj} Tes wibu`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
-               const yy = {title: 'Game ke' + nombor++,
+               const yy = {title: 'Game ke-'+ nombor++,
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
@@ -16702,7 +16703,7 @@ list = []
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${ucapannya2}\nSilahkan Pilih Disini!`, list)
                break
 
 case '3d-nature':
@@ -16810,6 +16811,12 @@ ${emoj} tebakkata
 ${emoj} tebakkata2
 ${emoj} tebakkimia
 ${emoj} tebaklirik
+${emoj} tebakaplikasi
+${emoj} tebakgabut
+${emoj} tebakkabupaten
+${emoj} tebaklucu
+${emoj} tebaklagu
+${emoj} teswibu
 
 *SELAMAT BERMAIN*`
 reply2(lis2)
@@ -16819,13 +16826,11 @@ reply2(lis2)
 if (subscribezeeoneofc == 'x_menu') {
 list = []
                listmenu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
-               listmenuu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
+               listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`${emoj} Convert menu`,`${emoj} Download menu`,`${emoj} Fun menu`,`${emoj} Gacha cecan`,`${emoj} Gacha cogan`,`${emoj} Image effect`,`${emoj} Maker menu`,`${emoj} Nsfw menu`,`${emoj} Other menu`,`${emoj} Owner menu`,`${emoj} Quotes menu`,`${emoj} Set sticker cmd`,`${emoj} Storage menu`,`${emoj} Tag menu`,`${emoj} Telegram sticker`,`${emoj} Up menu`]
                nombor = 1
-               e = [`💐`,`🌹`,`🥀`,`🌷`,`🌺`,`🌸`,`🏵️`,`🌻`,`🌼`,`💮`,`🍂`,`🍁`,`🌾`,`🌱`,`🌿`,`🍃`,`☘️`,`🌵`,`🌴`,`🌳`,`🌲`,`🏞️`,`⛰️`,`🌊`,`🌬️`,`🌀`,`❄️`,`☃️`,`🏔️`,`🔥`,`🌋`,`🏜️`,`🏖️`,`🌅`,`☀️`]
-               emm = e[Math.floor(Math.random() * e.length)]
                startnum = 0
                for (let x of listmenuu) {
-               const yy = {title: `${emm} Sub Menu ke` + nombor++  ,
+               const yy = {title: `${listmenuu[+ nombor++]}` ,
                     rows: [
                        {
                         title: `${listmenu[startnum++]}`
@@ -16834,7 +16839,7 @@ list = []
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${pushname}\nSilahkan Pilih Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${ucapannya2}\nSilahkan Pilih Menu Disini!`, list)
 }
 
 if (q5 == "very_easy"){
