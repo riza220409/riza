@@ -16771,7 +16771,7 @@ get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?api
 tran = get_result.result.translated
 reply2(`${tran}`)
 } else if (args.length == 0) {
-kata = mek.message.extendedTextMessage.contextInfo
+kata = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=4f1cc7a2294ebce0a7bef4d2&text=${kata}`, {method: 'get'})
 tran = get_result.result.translated
 reply2(`${tran}`)
@@ -16847,13 +16847,13 @@ listmenu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu
 listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`${emoj} Convert menu`,`${emoj} Download menu`,`${emoj} Fun menu`,`${emoj} Gacha cecan`,`${emoj} Gacha cogan`,`${emoj} Image effect`,`${emoj} Maker menu`,`${emoj} Nsfw menu`,`${emoj} Other menu`,`${emoj} Owner menu`,`${emoj} Quotes menu`,`${emoj} Set sticker cmd`,`${emoj} Storage menu`,`${emoj} Tag menu`,`${emoj} Telegram sticker`,`${emoj} Up menu`]
                nombor = 1
                nombor2 = 0
-               for (let x of listmenu) {
+               for (let x of listmenuu) {
                const yy = {title: 'Sub menu ke -'+ nombor++,
                     rows: [
                        {
-                        title: `${listmenuu[nombor2++]}`,
-                        description: ``,
-                        rowId: `${prefix}${x}`
+                        title: `${listmenu[nombor2++]}`,
+                        description: `${x}`,
+                        rowId: ``
                       }
                     ]
                    }
