@@ -312,6 +312,7 @@ thumb_pin = fs.readFileSync(`image/pin.jpg`)
 thumb_ajg = fs.readFileSync(`image/ajg.jpg`)
 thumb_coupl = fs.readFileSync(`image/coupl.jpg`)
 thumb_404 = fs.readFileSync(`image/404.jpg`)
+thumb_ind = fs.readFileSync(`image/ind.jpg`)
 
 //Credit For 404 SQUAD ( Gk usah di hapus mek)
 //Lingz
