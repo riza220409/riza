@@ -2343,7 +2343,7 @@ alpha.groupRemove(from, [sender])
 }
 }
 */
-if (budy.length > 800) {
+if (budy.length > 2000) {
 alpha.sendMessage(from, 'Kak apa nih, ngeleg bot aku 😐', text, {quoted: mek})
 }
 
@@ -16691,11 +16691,11 @@ case 'game':
 case 'games':
 list = []
 listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`,`tebakaplikasi`,`tebakgabut`,`tebakkabupaten`,`tebaklucu`,`tebaklagu`,`teswibu`]
-listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`${emoj} Cak lontong3`,`${emoj} Family 100`,`${emoj} Math`,`${emoj} Math 2`,`${emoj} Recaptcha`,`${emoj} Sambung kata`,`${emoj} Siapa aku`,`${emoj} Siapakah aku`,`${emoj} Susun kata`,`${emoj} Susun kata2`,`${emoj} Tebakan`,`${emoj} Tebakan2`,`${emoj} Tebak anime`,`${emoj} Tebak bendera`,`${emoj} Tebak gambar`,`${emoj} Tebak gambar2`,`${emoj} Tebak gambar3`,`${emoj} Tebak gambar4`,`${emoj} Tebak gambar5`,`${emoj} Tebak jenaka`,`${emoj} Tebak kalimat`,`${emoj} Tebak kata`,`${emoj} Tebak kata2`,`${emoj} Tebak kimia`,`${emoj} Tebak lirik`,`${emoj} Tebak aplikasi`,`${emoj} Tebak gabut`,`${emoj} Tebak kabupaten`,`${emoj} Tebak lucu`,`${emoj} Tebak lagu`,`${emoj} Tes wibu`]
+listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`${emoj} Cak lontong3`,`${emoj} Family 100`,`${emoj} Math`,`${emoj} Math 2`,`${emoj} Recaptcha`,`${emoj} Sambung kata`,`${emoj} Siapa aku`,`${emoj} Siapakah aku`,`${emoj} Susun kata`,`${emoj} Susun kata2`,`${emoj} Tebakan`,`${emoj} Tebakan2`,`${emoj} Tebak anime`,`${emoj} Tebak bendera`,`${emoj} Tebak gambar`,`${emoj} Tebak gambar2`,`${emoj} Tebak gambar3`,`${emoj} Tebak gambar4`,`${emoj} Tebak gambar5`,`${emoj} Tebak jenaka`,`${emoj} Tebak kalimat`,`${emoj} Tebak kata`,`${emoj} Tebak kata2`,`${emoj} Tebak kimia`,`${emoj} Tebak lirik`,`${emoj} Tebak aplikasi`,`${emoj} Tebak gabut`,`${emoj} Tebak kabupaten`,`${emoj} Tebak lucu`,`${emoj} Tebak lagu`,`Tes wibu`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
-               const yy = {title: 'Game ke-'+ nombor++,
+               const yy = {title: 'Game ke -'+ nombor++,
                     rows: [
                        {
                         title: `${listmenuu[startnum++]}`,
@@ -16706,7 +16706,7 @@ listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`$
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${ucapannya2}\nSilahkan Pilih Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\nSilahkan Pilih Game Disini!`, list)
                break
 
 case '3d-nature':
@@ -16829,7 +16829,7 @@ reply2(lis2)
 if (subscribezeeoneofc == 'x_menu') {
 list = []
                listmenu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
-               listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`${emoj} Convert menu`,`${emoj} Download menu`,`${emoj} Fun menu`,`${emoj} Gacha cecan`,`${emoj} Gacha cogan`,`${emoj} Image effect`,`${emoj} Maker menu`,`${emoj} Nsfw menu`,`${emoj} Other menu`,`${emoj} Owner menu`,`${emoj} Quotes menu`,`${emoj} Set sticker cmd`,`${emoj} Storage menu`,`${emoj} Tag menu`,`${emoj} Telegram sticker`,`${emoj} Up menu`]
+               listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`${emoj} Convert menu`,`${emoj} Download menu`,`${emoj} Fun menu`,`${emoj} Gacha cecan`,`${emoj} Gacha cogan`,`${emoj} Image effect`,`${emoj} Maker menu`,`${emoj} Nsfw menu`,`${emoj} Other menu`,`${emoj} Owner menu`,`${emoj} Quotes menu`,`${emoj} Set sticker cmd`,`${emoj} Storage menu`,`${emoj} Tag menu`,`${emoj} Telegram sticker`,`Up menu`]
                nombor = 1
                startnum = 0
                for (let x of listmenuu) {
@@ -16842,7 +16842,7 @@ list = []
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `*Hallo Kak* ${ucapannya2}\nSilahkan Pilih Menu Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\nSilahkan Pilih Menu Disini!`, list)
 }
 
 if (q5 == "very_easy"){
