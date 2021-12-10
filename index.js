@@ -7775,7 +7775,7 @@ alpha.sendMessage(from, khs, audio, {quoted:mek, mimetype:'audio/mp4', filename:
 })
 break
 
-case'twitter':
+
 case'twit':
 case'tw':
 if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply2(mess.Iv)
@@ -7789,7 +7789,6 @@ sendMediaURL(from,ren,'DONE')
 break
 
 case 'ytdl':
-case 'youtube':
 case 'youtubedl': 
 case 'playt':
 if (args.length < 1) return reply2(`Kirim perintah *${prefix}${command}* query`)
@@ -7895,7 +7894,6 @@ alpha.sendMessage(from, khs, audio, {mimetype:'audio/mp4', filename:'clientgan.m
 break
 
 case 'dlvideo':
-case 'video':
 if (args.length === 0) return reply2(`Kirim perintah *${prefix}video* _Judul lagu yang akan dicari_`)
 var srch = args.join('')
 reply2(mess.wait)
@@ -10350,18 +10348,6 @@ reply2(`Tag sticker yang sudah dikirim`)
 }
 break
 
-case 'xttp':
-case 'xttp2':
-case 'xttp3':
-case 'xttp4':
-case 'xattp':
-case 'xattp2':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
-ini_txt = args.join(" ")
-ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${xmen}?apikey=${lolkey}&text=${ini_txt}`)
-await alpha.sendMessage(from, ini_buffer, sticker, { quoted: fgif2 })
-break
-
 case 'xtriggered':
 ini_url = args[0]
 ranp = getRandom('.gif')
@@ -12575,14 +12561,19 @@ alpha.sendMessage(from, asu, video, { quoted: mek})
 break
 
 //LIST───────[ API XTEAM
-case 'ttp': 
-if (args.length < 1) return reply2(lang.noteks(prefix, command))
-ttp = args.join(' ')
-anu1 = await getBuffer(`https://api.xteam.xyz/ttp?file&text=${encodeURI(ttp)}`)
-alpha.sendMessage(from, anu1, sticker, {quoted: fgif2})
+case 'ttp':
+case 'ttp2':
+case 'ttp3':
+case 'ttp4':
+case 'attp':
+case 'attp2':
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+ini_txt = args.join(" ")
+ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${xmen}?apikey=${lolkey}&text=${ini_txt}`)
+await alpha.sendMessage(from, ini_buffer, sticker, { quoted: fgif2 })
 break
 
-case 'attp':
+case 'xattp':
 if (args.length == 0) return reply2(`Example: ${prefix + command} Hai`)
 buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
 alpha.sendMessage(from, buffer, sticker, { quoted: fgif2 })
