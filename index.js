@@ -12314,14 +12314,22 @@ reply2(`${nsfw_list(prefix)}`)
 break
 
 //LIST───────[ API HADI
-case 'ssweb':
+
+case 'ss':
+if (args.length < 1) return reply2('Urlnya mana om')
+teks = args[0]
+buff = await getBuffer(`https://api.apiflash.com/v1/urltoimage?access_key=7eea5c14db5041ecb528f68062a7ab5d&url=${teks}`)
+alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Screenshot from ${teks}`})
+break
+
+case 'ss2':
 if (args.length < 1) return reply2('Urlnya mana om')
 teks = args[0]
 buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb2?url=${teks}`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Screenshot from ${teks}`})
 break
 
-case 'ss':
+case 'ssweb':
 if(!q) return reply2(`🏷️Hint : ${prefix + command} url|desktop|on`)
 pe = args.join(' ')
 tes1 = pe.split('|')[0]
