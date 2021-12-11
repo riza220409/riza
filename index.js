@@ -487,7 +487,7 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
 "listMessage": {"title": title,
 "description": desc,
 "buttonText": `${emoj} SELECT HERE ⌕`,
-"footerText": `${ownername}`,
+"footerText": `${botname}`,
 "listType": "SINGLE_SELECT",
 "sections": list}}, {quoted: fgif2})
             return alpha.relayWAMessage(po, {waitForAck: true})
@@ -16748,8 +16748,8 @@ break
 
 case 'game':
 case 'games':
-li = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
-motiv = li.motivasi
+mo = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
+motiv = mo.motivasi
 list = []
 listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`,`tebakaplikasi`,`tebakgabut`,`tebakkabupaten`,`tebaklucu`,`tebaklagu`,`teswibu`]
 listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`${emoj} Cak lontong3`,`${emoj} Family 100`,`${emoj} Math`,`${emoj} Math 2`,`${emoj} Recaptcha`,`${emoj} Sambung kata`,`${emoj} Siapa aku`,`${emoj} Siapakah aku`,`${emoj} Susun kata`,`${emoj} Susun kata2`,`${emoj} Tebakan`,`${emoj} Tebakan2`,`${emoj} Tebak anime`,`${emoj} Tebak bendera`,`${emoj} Tebak gambar`,`${emoj} Tebak gambar2`,`${emoj} Tebak gambar3`,`${emoj} Tebak gambar4`,`${emoj} Tebak gambar5`,`${emoj} Tebak jenaka`,`${emoj} Tebak kalimat`,`${emoj} Tebak kata`,`${emoj} Tebak kata2`,`${emoj} Tebak kimia`,`${emoj} Tebak lirik`,`${emoj} Tebak aplikasi`,`${emoj} Tebak gabut`,`${emoj} Tebak kabupaten`,`${emoj} Tebak lucu`,`${emoj} Tebak lagu`,`${emoj} Tes wibu`]
@@ -16767,7 +16767,7 @@ listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`$
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n${motiv}*\n${botname}`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n${motiv}*`, list)
                break
 
 
@@ -16975,7 +16975,7 @@ listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n*Fact :* ${fak}\n${botname}`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n*Fact :* ${fak}`, list)
 
 }
 
