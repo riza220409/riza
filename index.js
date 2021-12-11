@@ -5600,14 +5600,15 @@ mentions(`Perintah di terima, mengeluarkan : @${mentioned[0].split('@')[0]}`, me
 alpha.groupRemove(from, mentioned)
 break
 */
+
 case 'antilink':
 if (!isGroup && !isGroupAdmins && !isBotGroupAdmins) return reply2(lang.botNotAdm())
-if (args[0].toLowerCase() === 'on'){
+if (args[0] == "on") {
 if (isAntiLink) return reply2(lang.anjawaUdhOn(command))
 antilink.push(from)
 fs.writeFileSync('./src/antilink.json', JSON.stringify(antilink))
 reply2(lang.anjawaOn(command))
-} else if (args[0].toLowerCase() === 'off'){
+} else if (args[0] == "off") {
 let anu = antilink.indexOf(from)
 antilink.splice(anu, 1)
 fs.writeFileSync('./src/antilink.json', JSON.stringify(antilink))
