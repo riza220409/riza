@@ -217,7 +217,7 @@ var __permanen = 'Rp Gratis'
 // APIKEY
 dapuhy = 'kYR0hlaVZZPvv8B' // ls7II19RQIYv1aS // kYR0hlaVZZPvv8B
 YuzApi = 'Yuzzu'
-const lolkey = 'KurrXd' // 78bd89cd7b4d6205e3e18061 // 4f1cc7a2294ebce0a7bef4d2 // KurrXd
+const lolkey = '4f1cc7a2294ebce0a7bef4d2' // 78bd89cd7b4d6205e3e18061 // 4f1cc7a2294ebce0a7bef4d2 // KurrXd
 zeksApikey = 'AyGemuy24'
 ApiZeks = 'https://api.zeks.me'
 thumbnail = setting.thumb
@@ -10316,7 +10316,7 @@ break
 // Creator
 case 'xquotemaker3':
 if ((isMedia && !mek.message.videoMessage || isQuotedImage)) {
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} LoL|Human`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Bot|Gua`)
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 filePath = await alpha.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
 file_name = getRandom(".webp")
@@ -10433,7 +10433,7 @@ break
 
 case 'xtakestick':
 if ((isMedia && !mek.message.videoMessage || isQuotedSticker)) {
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} LoL|Human`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Bot|Gua`)
 const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 var image_buffer = await alpha.downloadMediaMessage(encmedia);
 var ini_txt = args.join(" ").split("|")
@@ -11392,7 +11392,7 @@ case 'mms':
 case 'notstonk':
 case 'police':
 case 'poutine':
-// case 'removebg':
+case 'removebg':
 case 'rip':
 case 'sepia':
 case 'stonk':
@@ -16646,18 +16646,8 @@ reply2(mess.wrongFormat)
 }
 break
 
-case 'git':
-l  = args.join(' ')
-t1 = l.split('|')
-t2  = l.split('|')
-biff = await getBuffer(`https://minhaskamal.github.io/DownGit/#/home?url=${t1}`)
-alpha.sendMessage(from, biff, document, {mimetype:'jpg/application', filename: `${t2}`})
-break
-
-
-
 case 'animes':
-nimp_ = await fetchJson(`https://dhnjing.xyz/api/anime/animeplanet?manga=naruto&apikey=044f4e9b6d553de682e8`)
+nimp_ = await fetchJson(`https://dhnjing.xyz/api/anime/animeplanet?manga=${q}&apikey=044f4e9b6d553de682e8`)
 for (let g of nimp_.result) {
 let npl = `${g.manga_name} ${g.manga_url}`
 }
@@ -17856,13 +17846,13 @@ quoted: fgif2, sendEphemeral: true
 if (budy.includes("eror",'error','Eror','Error')){
 alpha.updatePresence(from, Presence.composing)
 const daieeeee = fs.readFileSync('./sticker/eror.webp');
-alpha.sendMessage(from, daieeeee, sticker, {quoted: mek})
+alpha.sendMessage(from, daieeeee, sticker, {quoted: {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "0@s.whatsapp.net" } : {})},message: {"videoMessage": {'gifPlayback': 'true', 'caption': `✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : KOK BISA EROR?`, 'jpegThumbnail': fs.readFileSync(`image/404.jpg`)}}}})
 }
 
 if (budy.includes("Anj",'asu','anjing','Anjing')){
 alpha.updatePresence(from, Presence.composing)
 const daieeeee = fs.readFileSync('./sticker/ajg.webp');
-alpha.sendMessage(from, daieeeee, sticker, {quoted: mek})
+alpha.sendMessage(from, daieeeee, sticker, {quoted: {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "0@s.whatsapp.net" } : {})},message: {"videoMessage": {'gifPlayback': 'true', 'caption': `✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : IH KASARR :(`, 'jpegThumbnail': fs.readFileSync(`image/ajg.jpg`)}}}})
 }
 
 if (budy.includes("Tes")){
