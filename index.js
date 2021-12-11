@@ -486,7 +486,7 @@ const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi 
             let po = alpha.prepareMessageFromContent(from, {
 "listMessage": {"title": title,
 "description": desc,
-"buttonText": `${emoj} Disini`,
+"buttonText": `${emoj} SELECT HERE ⌕`,
 "footerText": `${ownername}`,
 "listType": "SINGLE_SELECT",
 "sections": list}}, {quoted: fgif2})
@@ -12561,19 +12561,22 @@ alpha.sendMessage(from, asu, video, { quoted: mek})
 break
 
 //LIST───────[ API XTEAM
-case 'ttp':
-case 'ttp2':
-case 'ttp3':
-case 'ttp4':
-case 'attp':
-case 'attp2':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
-ini_txt = args.join(" ")
-ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${xmen}?apikey=${lolkey}&text=${ini_txt}`)
-await alpha.sendMessage(from, ini_buffer, sticker, { quoted: fgif2 })
+
+case 'ttp3':  
+case 'ttp':  
+anuk = `https://api-xcoders.xyz/api/maker/${command}?text=${encodeURIComponent(q)}&apikey=7iyNa0qA`
+sendStickerFromUrl(from, `${anuk}`, mek)
 break
 
-case 'xattp':
+
+case 'ttp4':  
+				case 'ttp2':
+					if (!q) return reply2(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp ${botname}`)
+					atetepe = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
+					alpha.sendMessage(from, atetepe, sticker, { quoted: mek })
+					break             
+
+case 'attp':
 if (args.length == 0) return reply2(`Example: ${prefix + command} Hai`)
 buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
 alpha.sendMessage(from, buffer, sticker, { quoted: fgif2 })
@@ -16745,6 +16748,8 @@ break
 
 case 'game':
 case 'games':
+li = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
+motiv = li.motivasi
 list = []
 listmenu = [`asahotak`,`caklontong`,`caklontong2`,`caklontong3`,`family100`,`math`,`math2`,`recaptcha`,`sambungkata`,`siapaaku`,`siapakahaku`,`susunkata`,`susunkata2`,`tebakan`,`tebakan2`,`tebakanime`,`tebakbendera`,`tebakgambar`,`tebakgambar2`,`tebakgambar3`,`tebakgambar4`,`tebakgambar5`,`tebakjenaka`,`tebakkalimat`,`tebakkata`,`tebakkata2`,`tebakkimia`,`tebaklirik`,`tebakaplikasi`,`tebakgabut`,`tebakkabupaten`,`tebaklucu`,`tebaklagu`,`teswibu`]
 listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`${emoj} Cak lontong3`,`${emoj} Family 100`,`${emoj} Math`,`${emoj} Math 2`,`${emoj} Recaptcha`,`${emoj} Sambung kata`,`${emoj} Siapa aku`,`${emoj} Siapakah aku`,`${emoj} Susun kata`,`${emoj} Susun kata2`,`${emoj} Tebakan`,`${emoj} Tebakan2`,`${emoj} Tebak anime`,`${emoj} Tebak bendera`,`${emoj} Tebak gambar`,`${emoj} Tebak gambar2`,`${emoj} Tebak gambar3`,`${emoj} Tebak gambar4`,`${emoj} Tebak gambar5`,`${emoj} Tebak jenaka`,`${emoj} Tebak kalimat`,`${emoj} Tebak kata`,`${emoj} Tebak kata2`,`${emoj} Tebak kimia`,`${emoj} Tebak lirik`,`${emoj} Tebak aplikasi`,`${emoj} Tebak gabut`,`${emoj} Tebak kabupaten`,`${emoj} Tebak lucu`,`${emoj} Tebak lagu`,`${emoj} Tes wibu`]
@@ -16762,8 +16767,9 @@ listmenuu = [`${emoj} Asah otak`,`${emoj} Cak lontong`,`${emoj} Cak lontong2`,`$
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\nSilahkan Pilih Game Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n${motiv}*\n${botname}`, list)
                break
+
 
 case '3d-nature':
 case '3d-summer':
@@ -16950,6 +16956,8 @@ reply2(lis2)
 }
 
 if (subscribezeeoneofc == 'x_menu') {
+fa = await fetchJson(`https://x-restapi.herokuapp.com/api/random-fakta?apikey=BETA`)
+fak = fa.fakta
 list = []
 listmenu = [`All menu bot`,`animemenu`,`asupan menu`,`convertmenu`,`downloadmenu`,`funmenu`,`gacha cecan`,`gacha cogan`,`image effect`,`makermenu`,`nsfw menu`,`othermenu`,`ownermenu`,`quotesmenu`,`set sticker cmd`,`storagemenu`,`tagmenu`,`telegram sticker`,`upmenu`]
 listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`${emoj} Convert menu`,`${emoj} Download menu`,`${emoj} Fun menu`,`${emoj} Gacha cecan`,`${emoj} Gacha cogan`,`${emoj} Image effect`,`${emoj} Maker menu`,`${emoj} Nsfw menu`,`${emoj} Other menu`,`${emoj} Owner menu`,`${emoj} Quotes menu`,`${emoj} Set sticker cmd`,`${emoj} Storage menu`,`${emoj} Tag menu`,`${emoj} Telegram sticker`,`${emoj} Up menu`]
@@ -16967,7 +16975,8 @@ listmenuu = [`${emoj} All menu bot`,`${emoj} Anime menu`,`${emoj} Asupan menu`,`
                    }
                         list.push(yy)
            }
-               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\nSilahkan Pilih Menu Disini!`, list)
+               listmsg(from, `${ucapanWaktu}`,  `${ucapannya2}\n\n*Fact :* ${fak}\n${botname}`, list)
+
 }
 
 if (q5 == "very_easy"){
