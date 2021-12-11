@@ -3671,6 +3671,11 @@ if (isCmd && isGroup){
 console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32m CMD \x1b[1;37m]', timuu, color(command), 'from', color(pushname), 'in', color(groupName), 'args :', color(args.length))
 addBalance(sender, randomNomor(20), balance)
 }	
+
+
+                //anonymous
+                function _0x1592(){const _0x37a83f=['includes','test','348AbakLW','map','27558HtZJks','Lanjut','anonymous','12294msZJRg','\x5c$&','isArray','.leave','string','msg','CHATTING','430888ToiRVi','Stop','copyNForward','quoted','2271447uXzGrC','values','replace','@s.whatsapp.net','.stop','25445190DvRTfI','sender','.next','fromMe','exec','endsWith','find','text','1253jkfPpR','1krovBc','chat','6182195iMfJMT','Cari\x20Partner','8537592THMCNK','.start'];_0x1592=function(){return _0x37a83f;};return _0x1592();}const _0x2b2986=_0x4ea8;(function(_0x5bd027,_0x4f0bdb){const _0xd05060=_0x4ea8,_0x47e768=_0x5bd027();while(!![]){try{const _0x54d467=-parseInt(_0xd05060(0x8b))/0x1*(-parseInt(_0xd05060(0x79))/0x2)+parseInt(_0xd05060(0x6f))/0x3*(parseInt(_0xd05060(0x6d))/0x4)+-parseInt(_0xd05060(0x8d))/0x5+-parseInt(_0xd05060(0x72))/0x6*(parseInt(_0xd05060(0x8a))/0x7)+-parseInt(_0xd05060(0x8f))/0x8+-parseInt(_0xd05060(0x7d))/0x9+parseInt(_0xd05060(0x82))/0xa;if(_0x54d467===_0x4f0bdb)break;else _0x47e768['push'](_0x47e768['shift']());}catch(_0x5eb5bf){_0x47e768['push'](_0x47e768['shift']());}}}(_0x1592,0x9b5c1));function _0x4ea8(_0x5eeee7,_0x4e55d6){const _0x1592e5=_0x1592();return _0x4ea8=function(_0x4ea856,_0x4e7eae){_0x4ea856=_0x4ea856-0x6a;let _0x31c475=_0x1592e5[_0x4ea856];return _0x31c475;},_0x4ea8(_0x5eeee7,_0x4e55d6);}const str2Regex=_0x570bde=>_0x570bde[_0x2b2986(0x7f)](/[|\\{}()[\]^$+*?.]/g,_0x2b2986(0x73)),match=(prefix instanceof RegExp?[[prefix['exec'](m['text']),prefix]]:Array[_0x2b2986(0x74)](prefix)?prefix[_0x2b2986(0x6e)](_0x236870=>{const _0x3de517=_0x2b2986;let _0x5e088a=_0x236870 instanceof RegExp?_0x236870:new RegExp(str2Regex(_0x236870));return[_0x5e088a[_0x3de517(0x86)](m[_0x3de517(0x89)]),_0x5e088a];}):typeof prefix===_0x2b2986(0x76)?[[new RegExp(str2Regex(prefix))[_0x2b2986(0x86)](m[_0x2b2986(0x89)]),new RegExp(str2Regex(prefix))]]:[[[],new RegExp()]])[_0x2b2986(0x88)](_0x32f074=>_0x32f074[0x1]);if(match&&m[_0x2b2986(0x8c)][_0x2b2986(0x87)](_0x2b2986(0x80))&&!isCmd){this[_0x2b2986(0x71)]=this[_0x2b2986(0x71)]?this[_0x2b2986(0x71)]:{};let room=Object[_0x2b2986(0x7e)](this[_0x2b2986(0x71)])[_0x2b2986(0x88)](_0x1e2eb7=>[_0x1e2eb7['a'],_0x1e2eb7['b']]['includes'](m[_0x2b2986(0x83)])&&_0x1e2eb7['state']===_0x2b2986(0x78));if(room){if(/^.*(next|leave|start)/[_0x2b2986(0x6c)](m[_0x2b2986(0x89)]))return;if([_0x2b2986(0x84),_0x2b2986(0x75),_0x2b2986(0x81),_0x2b2986(0x6a),_0x2b2986(0x8e),'Keluar',_0x2b2986(0x70),_0x2b2986(0x7a)][_0x2b2986(0x6b)](m[_0x2b2986(0x89)]))return;let other=[room['a'],room['b']][_0x2b2986(0x88)](_0x18aa5e=>_0x18aa5e!==m['sender']);m[_0x2b2986(0x7b)](other,!![],m[_0x2b2986(0x7c)]&&m[_0x2b2986(0x7c)][_0x2b2986(0x85)]?{'contextInfo':{...m[_0x2b2986(0x77)]['contextInfo'],'forwardingScore':0x0,'isForwarded':!![],'participant':other}}:{});}return!0x0;}
+
 //await alpha.updatePresence(from, Presence.recording)
 //await alpha.updatePresence(from, Presence.composing)
 if (!mek.key.fromMe && !isOwner && !isCreator && banChats === true) return
@@ -5782,7 +5787,7 @@ alpha.deleteChat(_.jid)
 fakegroup(lang.success())
 break
 
-case 'leave':
+case 'out':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 setTimeout( () => {
 alpha.groupLeave (from) 
@@ -16761,6 +16766,94 @@ ling = titid.message
 sendStickerFromUrl(from, `${ling}`, mek)
 }
 
+
+case 'anonymous': {
+if (isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+this.anonymous = this.anonymous ? this.anonymous : {}
+sendMess(m.chat, `Welcome To Anonymous Chat\n\n${prefix}start - Search Partner\n${prefix}leave - Keluar Sesi Anonymous\n${prefix}next - Skip Sesi Anonymous\n${prefix}menu - All Menu`)
+				}
+break
+case 'keluar': case 'leave': {
+if (isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+this.anonymous = this.anonymous ? this.anonymous : {}
+let room = Object.values(this.anonymous).find(room => room.check(m.sender))
+if (!room) {
+	await sendMess(m.chat, `_*Kamu tidak sedang berada di anonymous chat..*_`)
+	throw false
+}
+m.reply('_Ok_')
+let other = room.other(m.sender)
+if (other) await sendMess(other, `_*Partner meninggalkan chat..*_`)
+delete this.anonymous[room.id]
+if (command === 'leave') break
+				}
+case 'mulai': case 'start': {
+if (isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+this.anonymous = this.anonymous ? this.anonymous : {}
+if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
+	await sendMess(m.chat, `_*Kamu masih berada di dalam anonymous chat, menunggu partner...*_`)
+	throw false
+}
+let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+if (room) {
+	await sendMess(room.a, `_*Partner Ditemukan!!*_`)
+	room.b = m.sender
+	room.state = 'CHATTING'
+	await sendMess(room.b, `_*Partner Ditemukan!!*_`)
+} else {
+	let id = + new Date
+	this.anonymous[id] = {
+		id,
+		a: m.sender,
+		b: '',
+		state: 'WAITING',
+		check: function (who = '') {
+			return [this.a, this.b].includes(who)
+		},
+		other: function (who = '') {
+			return who === this.a ? this.b : who === this.b ? this.a : ''
+		},
+	}
+	await sendMess(m.chat, `_*Menunggu Partner...*_`)
+}
+break
+				}
+				case 'next': case 'lanjut': {
+if (isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
+this.anonymous = this.anonymous ? this.anonymous : {}
+let romeo = Object.values(this.anonymous).find(room => room.check(m.sender))
+if (!romeo) {
+	await sendText(m.chat, `_*Kamu sedang tidak berada di dalam anonymous chat...*_`, m)
+	throw false
+}
+let other = romeo.other(m.sender)
+if (other) await sendText(other, `_*Partner meninggalkan chat...*_`, m)
+delete this.anonymous[romeo.id]
+let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
+if (room) {
+	await sendText(room.a, `_*Partner Ditemukan!!*_`, m)
+	room.b = m.sender
+	room.state = 'CHATTING'
+	await sendText(room.b, `_*Partner Ditemukan!!*_`, m)
+} else {
+	let id = + new Date
+	this.anonymous[id] = {
+		id,
+		a: m.sender,
+		b: '',
+		state: 'WAITING',
+		check: function (who = '') {
+			return [this.a, this.b].includes(who)
+		},
+		other: function (who = '') {
+			return who === this.a ? this.b : who === this.b ? this.a : ''
+		},
+	}
+	await sendText(m.chat, `_*Menunggu Partner...*_`, m)
+}
+break
+				}
+				
 //Ends
 default:
 
