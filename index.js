@@ -1866,7 +1866,7 @@ const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid"
 const fdoc = {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${creator}`,jpegThumbnail: thumb_miku}}}
 const fvn = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":444441600,"ptt": "true"}} } 
 const fgif = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`${creator}`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `${creator}`, 'jpegThumbnail': thumb_miku}}}
-const fgif2 = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "0@s.whatsapp.net" } : {})},message: {"videoMessage": {'gifPlayback': 'true', 'caption': `✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, 'jpegThumbnail': pp_userz}}}
+const fgif2 = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "0@s.whatsapp.net" } : {})},message: {"videoMessage": {'gifPlayback': 'true', 'caption': `؜✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, 'jpegThumbnail': pp_userz}}}
 const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": "P", "caption": `✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, 'jpegThumbnail': fs.readFileSync(`image/${fthumb}`)}}}
 const fgclink2 = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": "P", "caption": `${fake}`, 'jpegThumbnail': thumb_miku}}}
 const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {}) },message: { "videoMessage": { "title":`${creator}`, "h": `Hmm`,'seconds': '99999', 'caption': `${creator}`, 'jpegThumbnail': thumb_miku}}}
@@ -4361,7 +4361,7 @@ let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
 ini_list.push({
-"displayName": '𝑀𝑖??𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
+"displayName": '??𝑖??𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
 "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
@@ -17037,106 +17037,106 @@ default:
 
 // GAME HINT
 if (subscribezeeoneofc == 'jwb_anime') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_anime}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_anime}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_apk') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_apk}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_apk}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_asah') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_asah}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_asah}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_cak2') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_cak2}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_cak3') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_cak3}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_cak') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_cak}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_captcha') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_captcha}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_captcha}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_f100') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_f100}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_f100}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_flag') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_flag}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_flag}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_gbt') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_gbt}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_gbt}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_jen') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_jen}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_jen}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_kab') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kab}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_kab}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_kali') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kali}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_kali}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_kata') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kata}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_kata}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_kimia') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kimia}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_kimia}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_lagu') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lagu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_lagu}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_lirik') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lirik}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_lirik}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_lucu') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lucu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_lucu}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_math2') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_math2}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_math3') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_math3}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_math') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_math}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_sbg') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_sbg}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_sbg}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_siapa') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_siapa}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_siapa}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_siapakah') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_siapakah}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_siapakah}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_susun2') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_susun2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_susun2}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_susun') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_susun}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_susun}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbk2') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbk2}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbk3') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbk3}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbk4') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk4}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbk4}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbk5') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk5}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbk5}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbk') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbk}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbkn2') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbkn2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbkn2}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_tbkn') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbkn}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_tbkn}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 if (subscribezeeoneofc == 'jwb_wibu') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_wibu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_wibu}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
 // END GAME HINT
 
