@@ -1,6 +1,6 @@
 
 const help = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, mnc, os_version, device_manufacturer, device_model, alfa , alfa1, thisDay, ini_tanggal, totalchat, hit_today, ini_gcchat, latensi, teks)=> {
-	return`「 *MIKU BOT INFO*   」
+	return`「 *WUDY BOT INFO*   」
 	
 *🌱 Mode :* ${status}
 *☂️ Prefix :* ${prefix}
@@ -25,15 +25,15 @@ const help = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, mnc
 🍃⋆Set_sticker_cmd
 🍃⋆Gacha_cecan
 🍃⋆Telegram_sticker
-╰⋆⸙ Image_effect
+╰⌯ Image_effect
 
 ╭⌯ *</ABOUT/>*
 🌻⋆Source
 🌻⋆ThanksTo
 🌻⋆Group_support
-╰⋆⸙ Ownerbot
+╰⌯ Ownerbot
 
-⋆⸙ _Creator Miku © 2K21_ ⸙⋆
+⋆⸙ _Creator Wudy © 2K21_ ⸙⋆
 `
 }
 const convert = (prefix) => {
@@ -47,7 +47,7 @@ const convert = (prefix) => {
 │⌯ ${prefix}fast
 │⌯ ${prefix}reverse
 │⌯ ${prefix}tourl
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const download = (prefix) => {
 	return`*</DOWNLOAD MENU/>*
@@ -80,11 +80,11 @@ const download = (prefix) => {
 │⌯ ${prefix}komiku _query_
 │⌯ ${prefix}otaku _query_
 │⌯ ${prefix}anime _random_
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, mnc, os_version, device_manufacturer, device_model, alfa , alfa1, thisDay, ini_tanggal, totalchat, hit_today, ini_gcchat, latensi, teks)  => {
-	return `「 *MIKU BOT INFO*   」
+	return `「 *WUDY BOT INFO*   」
 	
 *🌱 Mode :* ${status}
 *☂️ Prefix :* ${prefix}
@@ -114,7 +114,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │• >
 │• x
 │• =>
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨/>
 ╭⸙ ${prefix}antilink
@@ -130,7 +130,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}setname
 │⌯ ${prefix}hidetag
 │⌯ ${prefix}infogc
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗚𝗔𝗠𝗘 𝗠𝗘𝗡𝗨/>
 ╭⸙ ${prefix}suit     
@@ -142,7 +142,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}caklontong
 │⌯ ${prefix}tebakgambar
 │⌯ ${prefix}family100
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗚𝗔𝗕𝗨𝗧 𝗠𝗘𝗡𝗨/>
 ╭⸙ ${prefix}apakah
@@ -152,7 +152,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}bisakah
 │⌯ ${prefix}kapankah
 │⌯ ${prefix}citacita
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗧𝗢𝗢𝗟𝗦 𝗠𝗘𝗡𝗨/>
 ╭⸙ ${prefix}tourl            
@@ -165,7 +165,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}audiotourl
 │⌯ ${prefix}videotourl
 │⌯ ${prefix}stickertourl
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚/>
 ╭⸙ ${prefix}image   
@@ -187,7 +187,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}komiku
 │⌯ ${prefix}google
 │⌯ ${prefix}wiki
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗/>
 ╭⸙ ${prefix}ig    
@@ -202,7 +202,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}fbmp4
 │⌯ ${prefix}fbmp3
 │⌯ ${prefix}tinyurl
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗣𝗛𝗢𝗧𝗢𝗢𝗫𝗬/>
 ╭⸙ ${prefix}burnpaper
@@ -216,7 +216,7 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}grass
 │⌯ ${prefix}butterfly
 │⌯ ${prefix}lovetext
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗪𝗜𝗕𝗨 𝗠𝗘𝗡𝗨/>
 ╭⸙ ${prefix}bj
@@ -249,20 +249,20 @@ const allmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, 
 │⌯ ${prefix}neko2
 │⌯ ${prefix}poke
 │⌯ ${prefix}slap
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 </𝗠𝗨𝗟𝗧𝗜 𝗦𝗘𝗦𝗦𝗜𝗢𝗡/>
 ╭⸙ ${prefix}jadibot
 │⌯ ${prefix}stopjadibot
 │⌯ ${prefix}listjadibot
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 *Mgak work jgn spam:)*
 `
 }
 
 const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc, mnc, os_version, device_manufacturer, device_model, alfa , alfa1, thisDay, ini_tanggal, totalchat, hit_today, ini_gcchat, latensi, teks)  => {
-	return `「 *MIKU BOT INFO*   」
+	return `「 *WUDY BOT INFO*   」
 *🌱 Mode :* ${status}
 *☂️ Prefix :* ${prefix}
 *👒 Total Hit :* ${hit_today.length}
@@ -279,7 +279,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}fast
 │⌯ ${prefix}reverse
 │⌯ ${prefix}tourl
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *DOWNLOAD MENU*   」
 │⌯ ${prefix}ytsearch _query_
@@ -323,7 +323,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}shota
 │⌯ ${prefix}waifu2
 │⌯ ${prefix}wallanime
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *FUN MENU*   」
 │⌯ ${prefix}jelajah
@@ -359,7 +359,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}jadibot
 │⌯ ${prefix}stopjadibot
 │⌯ ${prefix}listbot
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *MAKER MENU*   」
 │⌯ ${prefix}sticker
@@ -409,7 +409,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}pubglogo text|text
 │⌯ ${prefix}skytext text
 │⌯ ${prefix}cslogo text
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *IMAGE EFFECT*   」
 │⌯ ${prefix}trigger
@@ -458,7 +458,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}burn
 │⌯ ${prefix}brazzers
 │⌯ ${prefix}beautiful
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *GROUP MENU*   」
 │⌯ ${prefix}add 62+
@@ -512,7 +512,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}buyglimit
 │⌯ ${prefix}awoo
 │⌯ ${prefix}megumin
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *OWNER MENU*   」
 │⌯ ${prefix}off
@@ -564,7 +564,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 • x or > _code_
 • $  _termux code_
 • =>  _eval async_
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *SET STC CMD*   」
 │⌯ ${prefix}set_stc_menu _<query>_
@@ -575,7 +575,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}set_stc_toimg _<query>_
 │⌯ ${prefix}set_stc_self _<query>_
 │⌯ ${prefix}set_stc_public _<query>_
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *STORAGE  MENU*   」
 │⌯ ${prefix}addstik 
@@ -589,20 +589,20 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}addrespon
 │⌯ ${prefix}delrespon
 │⌯ ${prefix}listrespon
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *TAG  MENU*   」
 │⌯ ${prefix}hidetag
 │⌯ ${prefix}kontag
 │⌯ ${prefix}sticktag
 │⌯ ${prefix}totag
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *UP ESWE*   」
 │⌯ ${prefix}upswteks
 │⌯ ${prefix}upswimage
 │⌯ ${prefix}upswvideo
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *NSFW & SFW*   」
 │⌯ ${prefix}8ball
@@ -697,7 +697,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}yuri
 │⌯ ${prefix}zettai
 │⌯ ${prefix}zettai-ryouiki
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *STC  MENU*   」
 │⌯ ${prefix}awoawo
@@ -721,7 +721,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}sponsbob
 │⌯ ${prefix}kawan_sponsbob
 │⌯ ${prefix}tyni
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *CECAN  MENU*   」
 │⌯ ${prefix}china
@@ -735,7 +735,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}jiso
 │⌯ ${prefix}lisa
 │⌯ ${prefix}rose
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *QUOTES  MENU*   」
 │⌯ ${prefix}katailham  
@@ -744,7 +744,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}katabijak_lucu   
 │⌯ ${prefix}katacaklontong  
 │⌯ ${prefix}katadilan  
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *COGAN  MENU*   」
 │⌯ ${prefix}baekhyung  
@@ -765,7 +765,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}parkchanyeol 
 │⌯ ${prefix}suga  
 │⌯ ${prefix}wuyifan
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *ASUPAN  MENU*   」
 │⌯ ${prefix}rikagusriani 
@@ -789,7 +789,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}mama_gina
 │⌯ ${prefix}alcakenya 
 │⌯ ${prefix}mangayutri
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 ╭⋆⸙「 *ANIME  MENU*   」
 │⌯ ${prefix}akame
@@ -831,7 +831,7 @@ const xallmenu = (prefix, wita, wit, ucapannya2, timuu, status, wa_version, mcc,
 │⌯ ${prefix}winry
 │⌯ ${prefix}yukino
 │⌯ ${prefix}yuzuki
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 「 MENU BOT   」
 `
@@ -872,7 +872,7 @@ const fun = (prefix) => {
 │⌯ ${prefix}jadibot
 │⌯ ${prefix}stopjadibot
 │⌯ ${prefix}listbot
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const maker = (prefix) => {
@@ -982,7 +982,7 @@ const maker = (prefix) => {
 │⌯ ${prefix}ytgold _teks_
 │⌯ ${prefix}ytsilver _teks_
 │⌯ ${prefix}emoji 👼
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const other = (prefix) => {
@@ -1050,7 +1050,7 @@ const other = (prefix) => {
 │⌯ ${prefix}tts _id kata_
 │⌯ ${prefix}detikvn _12345_
 │⌯ ${prefix}megumin
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const ownermenu = (prefix) => {
@@ -1104,7 +1104,7 @@ const ownermenu = (prefix) => {
 │⌯  $  _termux code_
 │⌯  =>  _eval async_
 │⌯  x or > _code_
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const setStcCmd = (prefix) => {
@@ -1118,7 +1118,7 @@ const setStcCmd = (prefix) => {
 │⌯ ${prefix}set_stc_toimg
 │⌯ ${prefix}set_stc_self
 │⌯ ${prefix}set_stc_public
-╰─⊸ *Miku ⌕*
+╰─⊸ *Wudy ⌕*
 
 Cara penggunaan :
 > ${prefix}set_stc_menu _fileLenght sticker_
@@ -1142,7 +1142,7 @@ const storage = (prefix) => {
 │⌯ ${prefix}addrespon
 │⌯ ${prefix}delrespon
 │⌯ ${prefix}listrespon
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const cecanmenu = (prefix) => {
 	return`*</GACHA CECAN/>*
@@ -1158,7 +1158,7 @@ const cecanmenu = (prefix) => {
 │⌯ ${prefix}jiso
 │⌯ ${prefix}lisa
 │⌯ ${prefix}rose
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const tag = (prefix) => {
@@ -1169,7 +1169,7 @@ const tag = (prefix) => {
 │⌯ ${prefix}sticktag
 │⌯ ${prefix}totag
 │⌯ ${prefix}woii
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const upmenu = (prefix) => {
@@ -1178,7 +1178,7 @@ const upmenu = (prefix) => {
 ╭⌯ ${prefix}upswteks
 │⌯ ${prefix}upswimage
 │⌯ ${prefix}upswvideo
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const nsfw = (prefix) => {
 	return`*</NSFW & SFW/>*
@@ -1275,7 +1275,7 @@ const nsfw = (prefix) => {
 │⌯ ${prefix}yuri
 │⌯ ${prefix}zettai-ryouiki
 │⌯ ${prefix}zettai
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const asupan = (prefix) => {
 	return`*</ASUPAN MENU/>*
@@ -1301,7 +1301,7 @@ const asupan = (prefix) => {
 │⌯ ${prefix}mama_gina
 │⌯ ${prefix}alcakenya 
 │⌯ ${prefix}mangayutri
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const telestiker = (prefix) => {
 	return`*</STICKERS MENU/>*
@@ -1327,7 +1327,7 @@ const telestiker = (prefix) => {
 │⌯ ${prefix}sponsbob
 │⌯ ${prefix}kawan_sponsbob
 │⌯ ${prefix}tyni
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const image_effect_menu = (prefix) => {
 	return`*</IMAGE EFFECT/>*
@@ -1378,7 +1378,7 @@ const image_effect_menu = (prefix) => {
 │⌯ ${prefix}brazzers
 │⌯ ${prefix}beautiful
 │⌯ ${prefix}sepia
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const coganmenu = (prefix) => {
 	return`*</GACHA COGAN/>*
@@ -1401,7 +1401,7 @@ const coganmenu = (prefix) => {
 │⌯ ${prefix}parkchanyeol 
 │⌯ ${prefix}suga  
 │⌯ ${prefix}wuyifan  
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 const quotesmenu = (prefix) => {
@@ -1417,7 +1417,7 @@ const quotesmenu = (prefix) => {
 │⌯ ${prefix}artikata _kata_
 │⌯ ${prefix}zodiak _teks_
 │⌯ ${prefix}katadilan  
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const shopmenu = (prefix) => {
 	return`*</SHOP MENU/>*
@@ -1432,7 +1432,7 @@ const shopmenu = (prefix) => {
 │⌯ ${prefix}sausage   
 │⌯ ${prefix}lol  
 │⌯ ${prefix}valo  
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 const animemenu = (prefix) => {
 	return`*</ANIME MENU/>*
@@ -1469,7 +1469,7 @@ const animemenu = (prefix) => {
 │⌯ ${prefix}akame
 │⌯ ${prefix}wallanime _teks_
 │⌯ ${prefix}mikosiba
-╰─⊸ *Miku ⌕*`
+╰─⊸ *Wudy ⌕*`
 }
 
 exports.helpmenu = help
