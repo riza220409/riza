@@ -232,7 +232,7 @@ gcounttuser = "100"
 
 e = [`💐`,`🌹`,`🥀`,`🌷`,`🌺`,`🌸`,`🏵️`,`🌻`,`🌼`,`💮`,`🍂`,`🍁`,`🌾`,`🌱`,`🌿`,`🍃`,`☘️`,`🌵`,`🌴`,`🌳`,`🌲`,`🏞️`,`⛰️`,`🌊`,`🌬️`,`🌀`,`❄️`,`☃️`,`🏔️`,`🔥`,`🌋`,`🏜️`,`🏖️`,`🌅`,`☀️`]
 let emoj = e[Math.floor(Math.random() * e.length)]
-e2 = [`⋆`,`𖧹`,`⌯`,`᭺`,`○`,`•`]
+e2 = [`⋆`,`𖧹`,`⌯`,`〆`,`○`]
 let emoj2 = e2[Math.floor(Math.random() * e2.length)]
 let waktu_game = "120000"
 let multi = true
@@ -256,16 +256,16 @@ autoketik = true
 autoregister = setting.user_register
 
 img = setting.img
-baper = '🏷️ 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡'
+baper = `${emoj} Wudy`
 apiku = 'https://wa.link/l8owsw'
-gc_wa_lu = 'https://chat.whatsapp.com/LBzVp806tICJZzJwpBavVO' //klo gk punya gc wa gk usah di ganti 👍
+gc_wa_lu = 'https://chat.whatsapp.com/Eg5Iw7OxLjWIx66ArQpwTA' //klo gk punya gc wa gk usah di ganti 👍
 targetpc = setting.ownerNumberr
 owner = targetpc
 own1 = '6282195322106'
 own2 = '6282195322106'
 own3 = '6282195322106'
 fake = setting.fake
-footerr = '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡 〆🌹' 
+footerr = `Wudy 〆 ${emoj}`
 numbernye = '0'
 waktu = 'Nothing'
 alasan = 'Nothing'
@@ -1862,7 +1862,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "62882248593508@s.whats
 "token": "AR5b5YFz2g4W5fYrjbeakPiI3/XxarATSeP+KLh+0FGwkw=="
 }}}
 
-const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us" }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumb_miku, surface: 200, message: `𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, orderTitle: '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us" }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumb_miku, surface: 200, message: `𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : ${command}`, orderTitle: 'Wudy', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
 const fdoc = {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${creator}`,jpegThumbnail: thumb_miku}}}
 const fvn = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":444441600,"ptt": "true"}} } 
 const fgif = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`${creator}`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `${creator}`, 'jpegThumbnail': thumb_miku}}}
@@ -2500,7 +2500,7 @@ reply2(`@${sender.split('@')[0]} telah kembali dari AFK\n\n*Reason :* ${getReaso
 let authorname = alpha.contacts[from] != undefined ? alpha.contacts[from].vname || alpha.contacts[from].notify : undefined	
 if (authorname != undefined) { } else { authorname = groupName }	
 function addMetadata(packname, author) {	
-if (!packname) packname = 'Bot'; if (!author) author = 'Miku';author = author.replace(/[^a-zA-Z0-9]/g, '');	
+if (!packname) packname = 'Bot'; if (!author) author = 'Wudy';author = author.replace(/[^a-zA-Z0-9]/g, '');	
 let name = `${author}_${packname}`
 if (fs.existsSync(`./sticker/${name}.exif`)) return `./sticker/${name}.exif`
 const json = {	
@@ -4062,7 +4062,7 @@ locationMessage: bacotlu1.message.locationMessage
 }
 
 alpha.sendMessage(from, btn1, MessageType.buttonsMessage,{
-caption: '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡',
+caption: 'Wudy',
 "contextInfo": {
 text: 'hi',
 "forwardingScore": 999,
@@ -4361,8 +4361,8 @@ let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
 ini_list.push({
-"displayName": '??𝑖??𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"displayName": 'Wudy Owner',
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © Wudy;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
 hehe = await alpha.sendMessage(from, {
@@ -5021,7 +5021,7 @@ fs.unlinkSync(media)
 })
 .on('end', async function () {
 console.log('Finish')
-exec(`webpmux -set exif ${addMetadata('Bot', 'Miku')} ${ran} -o ${ran}`, async (error) => {
+exec(`webpmux -set exif ${addMetadata('Bot', 'Wudy')} ${ran} -o ${ran}`, async (error) => {
 if (error) return reply2('not bad')
 await alpha.sendMessage(from, fs.readFileSync(ran), sticker, { mimetype: 'image/webp', fileLength: 1000000000000, isAnimated: true, quoted: fgif2 })
 fs.unlinkSync(media)
@@ -5048,7 +5048,7 @@ reply2(`❌ Gagal, pada saat mengkonversi ${tipe} ke stiker`)
 })
 .on('end', async function () {
 console.log('Finish')
-exec(`webpmux -set exif ${addMetadata('Bot', 'Miku')} ${ran} -o ${ran}`, async (error) => {
+exec(`webpmux -set exif ${addMetadata('Bot', 'Wudy')} ${ran} -o ${ran}`, async (error) => {
 await alpha.sendMessage(from, fs.readFileSync(ran), sticker, { quoted: fgif2})
 fs.unlinkSync(media)
 fs.unlinkSync(ran)
@@ -5073,7 +5073,7 @@ if (err) return reply2('Gagal, Terjadi kesalahan, silahkan coba beberapa saat la
 exec(`ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${ranw}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply2('emror bang')
-exec(`webpmux -set exif ${addMetadata('Bot', 'Miku')} ${ranw} -o ${ranw}`, async (error) => {
+exec(`webpmux -set exif ${addMetadata('Bot', 'Wudy')} ${ranw} -o ${ranw}`, async (error) => {
 alpha.sendMessage(from, fs.readFileSync(ranw), sticker, { mimetype: 'image/webp', fileLength: 1000000000000, isAnimated: true, quoted: fgif2 })
 fs.unlinkSync(ranw)
 })
@@ -5371,7 +5371,7 @@ case 'term':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 if (!q) return fakegroup(mess.wrongFormat)
 exec(q, (err, stdout) => {
-if (err) return fakegroup(`Miku Bot:~ ${err}`)
+if (err) return fakegroup(`Wudy Bot:~ ${err}`)
 if (stdout) {
 fakegroup(stdout)
 }
@@ -6425,7 +6425,7 @@ break
 
 case 'ktpmaker':
 case 'ktp':
-if (args.length == 0) return reply2(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\n🏷️Hint : ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
+if (args.length == 0) return reply2(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\n${emoj}Hint : ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
 get_args = args.join(" ").split("|")
 nik = get_args[0]
 prov = get_args[1]
@@ -7320,7 +7320,7 @@ teks = '╭────「 *BANNED LIST* 」\n'
 for (let hui of banned) {
 teks += `│+ @${hui.split('@')[0]}\n`
 }
-teks += `│+ Total : ${banned.length}\n╰──────「 *𝑀𝑖𝑘𝑢.𝐵𝑜𝑡* 」────`
+teks += `│+ Total : ${banned.length}\n╰──────「 *Wudy* 」────`
 alpha.sendMessage(from, teks.trim(), extendedText, { quoted: fgif2, contextInfo: { "mentionedJid": [hui] } })
 break
 
@@ -7427,7 +7427,7 @@ absen.push(sender)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:${enter}`
 for (let sensi of absen) {
-teks += `${enter}🏷️ @${sensi.split('@')[0]} ✓${enter}`
+teks += `${enter}${emoj} @${sensi.split('@')[0]} ✓${enter}`
 }
 teks += `*TOTAL MEMBER YG ABSEN :* ${absen.length}${enter}${enter}Ketik ${prefix}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 alpha.sendMessage(from, teks.trim(), extendedText, {quoted: fgif2, contextInfo: {"mentionedJid": absen}})
@@ -7442,7 +7442,7 @@ absen.splice(ini, 1)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR*:${enter}`
 for (let sensi of absen) {
-teks += `${enter}🏷️ @${sensi.split('@')[0]} ✓${enter}`
+teks += `${enter}${emoj} @${sensi.split('@')[0]} ✓${enter}`
 }
 teks += `*ABSENSI :* ${sensi.length}${enter}${enter}Ketik ${prefix}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 reply2(`*List Presentasi Hadir Telah Siap* ${enter}${enter}Ketik ${prefix}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
@@ -9245,7 +9245,7 @@ break
 
 // AniManga //
 case 'xcharacter':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku Nakano`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy Nakano`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/character?apikey=${lolkey}&query=${query}`)
 get_result = get_result.result
@@ -10226,7 +10226,7 @@ break
 
 // Primbon
 case 'xartinama':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_nama = args.join(" ")
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/artinama?apikey=${lolkey}&nama=${ini_nama}`)
 reply2(get_result.result)
@@ -10272,9 +10272,9 @@ reply2(ini_txt)
 break
 
 case 'xtebakumur':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_name = args.join(" ")
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakumur?apikey=SoftApikey&name=${ini_name}`)
 get_result = get_result.result
 ini_txt = `Nama : ${get_result.name}\n`
@@ -10505,18 +10505,18 @@ await alpha.sendMessage(from, ini_buffer, sticker, { quoted: fgif2 })
 break
 
 case 'xfakedonald':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_txt = args.join(" ")
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/tweettrump?apikey=${lolkey}&text=${ini_txt}`)
 await alpha.sendMessage(from, ini_buffer, image, { quoted: fgif2 })
 break
 
 case 'xfaketoko':
-await faketoko(teks = "Tahu Bacem", url_image = "https://i.ibb.co/JdfQ73m/photo-2021-02-05-10-13-39.jpg", title = "Miku", code = "IDR", price = 1000000)
+await faketoko(teks = "Tahu Bacem", url_image = "https://i.ibb.co/JdfQ73m/photo-2021-02-05-10-13-39.jpg", title = "Wudy", code = "IDR", price = 1000000)
 break
 
 case 'xktpmaker':
-if (args.length == 0) return reply2(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\nContoh: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|Miku|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
+if (args.length == 0) return reply2(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\nContoh: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|Wudy|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
 get_args = args.join(" ").split("|")
 nik = get_args[0]
 prov = get_args[1]
@@ -10941,7 +10941,7 @@ case 'xharrypotter':
 case 'xfoggywindow':
 case 'xwatercolor':
 case 'xwonderfulgraffiti':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_txt = args.join(" ")
 await getBuffer(`https://api.lolhuman.xyz/api/textprome/${xmen}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
 alpha.sendMessage(from, gambar, image, { quoted: fgif2 })
@@ -10959,7 +10959,7 @@ case 'xwolflogo':
 case 'xsteel3d':
 case 'xwallgravity':
 case 'xcoolgravity':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 txt1 = args[0]
 txt2 = args[1]
 await getBuffer(`https://api.lolhuman.xyz/api/textprome2/${xmen}?apikey=${lolkey}&text1=${txt1}&text2=${txt2}`).then((gambar) => {
@@ -10990,7 +10990,7 @@ case 'xfallleaves':
 case 'xflamming':
 case 'xharrypotter':
 case 'xcarvedwood':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_txt = args.join(" ")
 await getBuffer(`https://api.lolhuman.xyz/api/photooxy1/${xmen}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
 alpha.sendMessage(from, gambar, image, { quoted: fgif2 })
@@ -11001,7 +11001,7 @@ case 'xtiktok':
 case 'xarcade8bit':
 case 'xbattlefield4':
 case 'xpubg':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 txt1 = args[0]
 txt2 = args[1]
 await getBuffer(`https://api.lolhuman.xyz/api/photooxy2/${xmen}?apikey=${lolkey}&text1=${txt1}&text2=${txt2}`).then((gambar) => {
@@ -11050,7 +11050,7 @@ case 'xfpslogo':
 case 'xavatarlolnew':
 case 'xlolbanner':
 case 'xavatardota':
-if (args.length == 0) return reply2(`Contoh: ${prefix + command} Miku`)
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
 ini_txt = args.join(" ")
 await getBuffer(`https://api.lolhuman.xyz/api/ephoto1/${xmen}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
 alpha.sendMessage(from, gambar, image, { quoted: fgif2 })
@@ -11481,7 +11481,7 @@ case 'undergrass':
 case 'underwater':
 case 'whitecube':
 case 'wolfmetal':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let poxy_1 = await getBuffer(`https://api.dapuhy.ga/api/photooxy/${command}?text=${q}&apikey=${dapuhy}`);
 const poxy_3 = await alpha.prepareMessage(from, poxy_1, MessageType.image, { thumbnail:thumb_oxy})
 let poxy_2 = poxy_3.message["ephemeralMessage"] ? poxy_3.message.ephemeralMessage : poxy_3
@@ -11607,7 +11607,7 @@ case 'writing':
 case 'xmascards':
 case 'yellowglass':
 case 'yellowjewelry':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let txtpr_1 = await getBuffer(`https://api.dapuhy.ga/api/textpro/${command}?text=${q}&apikey=${dapuhy}`);
 const txtpr_3 = await alpha.prepareMessage(from, txtpr_1, MessageType.image, { thumbnail:thumb_pro})
 let txtpr_2 = txtpr_3.message["ephemeralMessage"] ? txtpr_3.message.ephemeralMessage : txtpr_3
@@ -11686,7 +11686,7 @@ case 'wooden3d':
 case 'wordgreen':
 case 'writingchalk':
 case 'zombie3d':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let ephto_1 = await getBuffer(`https://api.dapuhy.ga/api/ephoto/${command}?text=${q}&apikey=${dapuhy}`);
 const ephto_3 = await alpha.prepareMessage(from, ephto_1, MessageType.image, { thumbnail:thumb_epho})
 let ephto_2 = ephto_3.message["ephemeralMessage"] ? ephto_3.message.ephemeralMessage : ephto_3
@@ -11736,7 +11736,7 @@ case 'pendant':
 case 'planebanner':
 case 'rugbyball':
 case 'rustywriting':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let pfun_1 = await getBuffer(`https://api.dapuhy.ga/api/photofunia/${command}?text=${q}&apikey=${dapuhy}`);
 const pfun_3 = await alpha.prepareMessage(from, pfun_1, MessageType.image, { thumbnail:thumb_pfun})
 let pfun_2 = pfun_3.message["ephemeralMessage"] ? pfun_3.message.ephemeralMessage : pfun_3
@@ -11919,7 +11919,7 @@ case 'wolf_metal':
 case 'wood':
 case 'woodblock':
 case 'wooden':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let oxxy_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/photooxy/${command}?apikey=Alphabot&text=${q}`);
 const oxxy_3 = await alpha.prepareMessage(from, oxxy_1, MessageType.image, { thumbnail:thumb_pro})
 let oxxy_2 = oxxy_3.message["ephemeralMessage"] ? oxxy_3.message.ephemeralMessage : oxxy_3
@@ -12171,7 +12171,7 @@ case 'wonderfulg':
 case 'wood':
 case 'writing':
 case 'xmas':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 let tpr_1 = await getBuffer(`https://api-alphabot.herokuapp.com/api/textpro/${command}?text=${q}&apikey=Alphabot`);
 const tpr_3 = await alpha.prepareMessage(from, tpr_1, MessageType.image, { thumbnail:thumb_pro})
 let tpr_2 = tpr_3.message["ephemeralMessage"] ? tpr_3.message.ephemeralMessage : tpr_3
@@ -12531,7 +12531,7 @@ case 'woodblock-effect':
 case 'wooden-3d-black':
 case 'wooden-boards':
 case 'write-stars':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 buff = await getBuffer(`https://hadi-api.herokuapp.com/api/photoxy/${command}?teks=${q}`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxylist* untuk melihat menu yang lain`})
 break
@@ -13628,7 +13628,7 @@ mhan = await alpha.prepareMessage(from, buff, image, {thumbnail: buff})
 const buttonMessagessss = {
 imageMessage: mhan.message.imageMessage,
 contentText: `Ngedark Bos`,
-footerText: '*_©Miku Bot_*',
+footerText: '*_©Wudy Bot_*',
 buttons: gbutsan,
 headerType: 4
 }
@@ -14519,7 +14519,7 @@ hsb_5 =`「 *Nih Hasilnya* 」
 const hsb_6 = [
 {buttonId: 'random_list', buttonText: {displayText: `${emoj} Random List`}, type: 1},
 {buttonId: `${command}`, buttonText: {displayText: 'Try Again ♻️'}, type: 1},
-{buttonId: 'x_menu', buttonText: {displayText: '?? List menu'}, type: 1}
+{buttonId: 'x_menu', buttonText: {displayText: '🌱 List menu'}, type: 1}
 ]
 
 const hsb_7 = {
@@ -15161,7 +15161,7 @@ alpha.sendMessage(from, ini_buffer, MessageType.image,{quoted: fgif2})
 break
 
 case 'sertitolol':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 buff = await getBuffer(`https://mysakura.herokuapp.com/api/serti/tolol?text=${q}&apikey=sakura404`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Ketik *.serti* untuk melihat list , Req by: ${pushname}`})
 break
@@ -15789,7 +15789,7 @@ res = await alpha.prepareMessageFromContent(from,{
 "templateMessage": {
 "hydratedTemplate": {
 "hydratedContentText": `Hi ${pushname} 👋`,
-"hydratedFooterText": `Miku Bot`,
+"hydratedFooterText": `Wudy Bot`,
 "hydratedButtons": [
 {
 "urlButton": {
@@ -16763,7 +16763,7 @@ case 'wood-heart':
 case 'woodblock':
 case 'wooden-boards':
 case 'write-birthday':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Miku Bot`) 
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} Wudy Bot`) 
 ini_buffer = await getBuffer(`https://kuontol-api.herokuapp.com/api/photooxy/${command}?text=${q}`)
 alpha.sendMessage(from, ini_buffer, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxy_list* untuk melihat menu yang lain`})
 break
@@ -17814,7 +17814,7 @@ ${ucapannya2}
 │⌯ ${prefix}xngif
 │⌯ ${prefix}xnsfw_neko_gif
 │⌯ ${prefix}xrandom_hentai_gif
-╰───「 MikuBot 」`
+╰───「 WudyBot 」`
 but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List game'}, type: 1}
 ]
@@ -17902,8 +17902,8 @@ let ini_list = []
 for (let i of ini_ownerNumber) {
 const vname_ = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
 ini_list.push({
-"displayName": '𝑀𝑖𝑘𝑢.𝐵𝑜𝑡 𝑂𝑤𝑛𝑒𝑟',
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname_ ? `${vname_}` : `${alpha.user.name}`}\nORG: © 𝑀𝑖𝑘𝑢.𝐵𝑜𝑡;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"displayName": 'Wudy Owner',
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname_ ? `${vname_}` : `${alpha.user.name}`}\nORG: © Wudy;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
 hehe = await alpha.sendMessage(from, {
@@ -17919,7 +17919,7 @@ const latensinya = speed() - timestampnya
 teks = `*「 STATISTIK BOT 」*
 
 *Base :* SELF-BOT
-*Lib :* Baileys, 3.5.2
+*Lib :* Baileys, 3.5.3
 *Prefix :* ${prefix}
 *Versi Bot :* v0.0.7
 
@@ -18075,7 +18075,7 @@ if (budy.startsWith('$')){
 if (!mek.key.fromMe && !isOwner && !isCreator ) return reply2(lang.onlyOwner())
 qur = budy.slice(2)
 exec(qur, (err, stdout) => {
-if (err) return reply2(`Miku Bot :~ ${err}`)
+if (err) return reply2(`Wudy Bot :~ ${err}`)
 if (stdout) {
 reply2(stdout)
 }
