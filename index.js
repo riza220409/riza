@@ -3536,8 +3536,8 @@ await alpha.sendMessage(from, "Salah!",text,{quoted: mek})
 
 // RECAPTCHA
 if (recaptcha.hasOwnProperty(sender.split('@')[0]) && !isCmd && !mek.key.fromMe && !isOwner) {
-jwb_captha = recaptcha[sender.split('@')[0]]
-if (budy.toLowerCase() == jwb_captha) {
+jwb_captcha = recaptcha[sender.split('@')[0]]
+if (budy.toLowerCase() == jwb_captcha) {
 let koin =randomNomor(500)
 addLevelingLevel(sender, 1)
 addBalance(sender, koin, balance)
@@ -11242,17 +11242,17 @@ if (tebakgambar2.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada 
 ttgbr_ = await fetchJson(`https://api.dapuhy.ga/api/fun/tebakgambar2?apikey=${dapuhy}`);
 let ttgbr_1 = await getBuffer(ttgbr_.result.image);
 clu = ttgbr_.result.clue
-jwb_tbk = ttgbr_.result.jawaban
-clue = jwb_tbk.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
-tebakgambar2[sender.split('@')[0]] = jwb_tbk.toLowerCase()
+jwb_tbk2 = ttgbr_.result.jawaban
+clue = jwb_tbk2.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
+tebakgambar2[sender.split('@')[0]] = jwb_tbk2.toLowerCase()
 fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
-console.log(jwb_tbk)
+console.log(jwb_tbk2)
 const ttgbr_3 = await alpha.prepareMessage(from, ttgbr_1, MessageType.image, { thumbnail:thumb_img})
 let ttgbr_2 = ttgbr_3.message["ephemeralMessage"] ? ttgbr_3.message.ephemeralMessage : ttgbr_3
 
 ttgbr_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const ttgbr_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbk2', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const ttgbr_7 = {
@@ -11281,7 +11281,7 @@ but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List game'}, type: 1},
 {buttonId: 'x_menu', buttonText: {displayText: '🌱 List menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jwb_tbk}`, `Waktu habis ${waktu_game}ms`, but)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jwb_tbk2}`, `Waktu habis ${waktu_game}ms`, but)
 
 delete tebakgambar2[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar2.json", JSON.stringify(tebakgambar2))
@@ -11299,7 +11299,7 @@ caklontong[sender.split('@')[0]] = jwb_cak.toLowerCase()
 fs.writeFileSync("./game/caklontong.json", JSON.stringify(caklontong))
 console.log(jwb_cak)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_cak', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -11326,7 +11326,7 @@ clue = jwb_siapakah.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '�
 fs.writeFileSync("./game/siapakah.json", JSON.stringify(siapakah))
 console.log(jwb_siapakah)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_siapakah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 await sleep(`${waktu_game}`)
@@ -11353,7 +11353,7 @@ susunkata2[sender.split('@')[0]] = jwb_susun2.toLowerCase()
 fs.writeFileSync("./game/susunkata2.json", JSON.stringify(susunkata2))
 console.log(jwb_susun2)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_susun2', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -12739,7 +12739,7 @@ sambungkata[sender.split('@')[0]] = jwb_sbg.toLowerCase()
 fs.writeFileSync("./game/sambungkata.json", JSON.stringify(sambungkata))
 console.log(jwb_sbg)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_sbg', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -12768,7 +12768,7 @@ caklontong2[sender.split('@')[0]] = jwb_cak2.toLowerCase()
 fs.writeFileSync("./game/caklontong2.json", JSON.stringify(caklontong2))
 console.log(jwb_cak2)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_cak2', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -12791,18 +12791,18 @@ if (tebakgambar3.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada 
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/gambar?apikey=${lolkey}`)
 get_result = get_result.result
 ini_image = get_result.image
-jwb_tbk2 = get_result.answer
-clue = jwb_tbk2.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
+jwb_tbk3 = get_result.answer
+clue = jwb_tbk3.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
 let tttgbr_1 = await getBuffer(ini_image);
-tebakgambar3[sender.split('@')[0]] = jwb_tbk2.toLowerCase()
+tebakgambar3[sender.split('@')[0]] = jwb_tbk3.toLowerCase()
 fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
-console.log(jwb_tbk2)
+console.log(jwb_tbk3)
 const tttgbr_3 = await alpha.prepareMessage(from, tttgbr_1, MessageType.image, { thumbnail:thumb_img})
 let tttgbr_2 = tttgbr_3.message["ephemeralMessage"] ? tttgbr_3.message.ephemeralMessage : tttgbr_3
 
 tttgbr_5 =`Coba tebak 🙂\nClue ${clue}`
 const tttgbr_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbk3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tttgbr_7 = {
@@ -12831,7 +12831,7 @@ but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List game'}, type: 1},
 {buttonId: 'x_menu', buttonText: {displayText: '🌱 List menu'}, type: 1}
 ]
-sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jwb_tbk2}`, `Waktu habis ${waktu_game}ms`, but)
+sendButton(from, `❌ Game berakhir..\n*Jawaban :* ${jwb_tbk3}`, `Waktu habis ${waktu_game}ms`, but)
 
 delete tebakgambar3[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakgambar3.json", JSON.stringify(tebakgambar3))
@@ -12853,7 +12853,7 @@ let tgbr_2 = tgbr_3.message["ephemeralMessage"] ? tgbr_3.message.ephemeralMessag
 
 tgbr_5 =` Hei @${sender.split("@")[0]} Coba tebak \nClue : ${clue}🙂`
 const tgbr_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbk', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tgbr_7 = {
@@ -12901,7 +12901,7 @@ family100[sender.split('@')[0]] = jwb_f100.toLowerCase()
 fs.writeFileSync("./game/family100.json", JSON.stringify(family100))
 console.log(jwb_f100)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_f100', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 await sleep(`${waktu_game}`)
@@ -12927,7 +12927,7 @@ asahotak[sender.split('@')[0]] = jwb_asah.toLowerCase()
 fs.writeFileSync("./game/asahotak.json", JSON.stringify(asahotak))
 console.log(jwb_asah)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_asah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -12956,7 +12956,7 @@ tebakkimia[sender.split('@')[0]] = jwb_kimia.toLowerCase()
 fs.writeFileSync("./game/tebakkimia.json", JSON.stringify(tebakkimia))
 console.log(jwb_kimia)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_kimia', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal* : Apa lambang ${soal}\nClue : ${clue}`, `Waktu ${waktu_game}ms`, but)
 
@@ -12984,7 +12984,7 @@ tebakkata[sender.split('@')[0]] = jwb_kata.toLowerCase()
 fs.writeFileSync("./game/tebakkata.json", JSON.stringify(tebakkata))
 console.log(jwb_kata)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_kata', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13065,7 +13065,7 @@ tebakkalimat[sender.split('@')[0]] = jwb_kali.toLowerCase()
 fs.writeFileSync("./game/tebakkalimat.json", JSON.stringify(tebakkalimat))
 console.log(jwb_kali)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_kali', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13093,7 +13093,7 @@ tebakan[sender.split('@')[0]] = jwb_tbkn.toLowerCase()
 fs.writeFileSync("./game/tebakan.json", JSON.stringify(tebakan))
 console.log(jwb_tbkn)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbkn', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13121,7 +13121,7 @@ siapaaku[sender.split('@')[0]] = jwb_siapa.toLowerCase()
 fs.writeFileSync("./game/siapaaku.json", JSON.stringify(siapaaku))
 console.log(jwb_siapa)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_siapa', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13150,7 +13150,7 @@ susunkata[sender.split('@')[0]] = jwb_susun.toLowerCase()
 fs.writeFileSync("./game/susunkata.json", JSON.stringify(susunkata))
 console.log(jwb_susun)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_susun', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\nTipe : ${timpe}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13178,7 +13178,7 @@ tebakgabut[sender.split('@')[0]] = jwb_gbt.toLowerCase()
 fs.writeFileSync("./game/tebakgabut.json", JSON.stringify(tebakgabut))
 console.log(jwb_gbt)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_gbt', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13206,7 +13206,7 @@ tebaklucu[sender.split('@')[0]] = jwb_lucu.toLowerCase()
 fs.writeFileSync("./game/tebaklucu.json", JSON.stringify(tebaklucu))
 console.log(jwb_lucu)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_lucu', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -13235,7 +13235,7 @@ teswibu[sender.split('@')[0]] = jwb_wibu.toLowerCase()
 fs.writeFileSync("./game/teswibu.json", JSON.stringify(teswibu))
 console.log(jwb_wibu)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_wibu', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 await sleep(`${waktu_game}`)
@@ -14224,7 +14224,7 @@ let gbr5_2 = gbr5_3.message["ephemeralMessage"] ? gbr5_3.message.ephemeralMessag
 
 gbr5_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const gbr5_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbk5', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const gbr5_7 = {
@@ -14270,7 +14270,7 @@ caklontong3[sender.split('@')[0]] = jwb_cak3.toLowerCase()
 fs.writeFileSync("./game/caklontong3.json", JSON.stringify(caklontong3))
 console.log(jwb_cak3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_cak3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -14302,7 +14302,7 @@ let tnim_2 = tnim_3.message["ephemeralMessage"] ? tnim_3.message.ephemeralMessag
 
 tnim_5 =`Coba tebak Siapa Dia 🙂\nClue : ${clue}`
 const tnim_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_anime', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tnim_7 = {
@@ -14705,7 +14705,7 @@ let capt_2 = capt_3.message["ephemeralMessage"] ? capt_3.message.ephemeralMessag
 
 capt_5 =`Coba tebak 🙂\nClue : ${clue}`
 const capt_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_captcha', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const capt_7 = {
@@ -14758,7 +14758,7 @@ let tbra_2 = tbra_3.message["ephemeralMessage"] ? tbra_3.message.ephemeralMessag
 
 tbra_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const tbra_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_flag', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tbra_7 = {
@@ -14809,7 +14809,7 @@ let tkab_2 = tkab_3.message["ephemeralMessage"] ? tkab_3.message.ephemeralMessag
 
 tkab_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const tkab_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_kab', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tkab_7 = {
@@ -14860,7 +14860,7 @@ let gbr4_2 = gbr4_3.message["ephemeralMessage"] ? gbr4_3.message.ephemeralMessag
 
 gbr4_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const gbr4_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbk4', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const gbr4_7 = {
@@ -14941,7 +14941,7 @@ tebakan2[sender.split('@')[0]] = jwb_tbkn2.toLowerCase()
 fs.writeFileSync("./game/tebakan2.json", JSON.stringify(tebakan2))
 console.log(jwb_tbkn2)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_tbkn2', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 await sleep(`${waktu_game}`)
@@ -14972,7 +14972,7 @@ let tapp_2 = tapp_3.message["ephemeralMessage"] ? tapp_3.message.ephemeralMessag
 
 tapp_5 =`*Clue :* ${clue}\nCoba tebak ${emoj}`
 const tapp_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_apk', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 
 const tapp_7 = {
@@ -15500,7 +15500,7 @@ let mat2_2 = mat2_3.message["ephemeralMessage"] ? mat2_3.message.ephemeralMessag
 
 mat2_5 =` Hei @${sender.split("@")[0]} Coba tebak 🙂\nClue : ${clue}`
 const mat2_6 = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math2', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 const mat2_7 = {
 contentText: mat2_5 ,
@@ -16518,7 +16518,7 @@ tebakjenaka[sender.split('@')[0]] = jwb_jen.toLowerCase()
 fs.writeFileSync("./game/tebakjenaka.json", JSON.stringify(tebakjenaka))
 console.log(jwb_jen)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_jen', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 await sleep(`${waktu_game}`)
@@ -17035,9 +17035,110 @@ default:
 
 //______________//
 
-if (subscribezeeoneofc == 'nyerah') {
-alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\n*Tag soal dan ketik:* ${jawaban}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+// GAME HINT
+if (subscribezeeoneofc == 'jwb_anime') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_anime}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
+if (subscribezeeoneofc == 'jwb_apk') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_apk}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_asah') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_asah}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_cak2') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_cak3') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_cak') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_cak}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_captcha') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_captcha}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_f100') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_f100}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_flag') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_flag}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_gbt') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_gbt}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_jen') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_jen}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_kab') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kab}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_kali') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kali}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_kata') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kata}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_kimia') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_kimia}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_lagu') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lagu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_lirik') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lirik}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_lucu') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_lucu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_math2') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_math3') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_math') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_math}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_sbg') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_sbg}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_siapa') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_siapa}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_siapakah') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_siapakah}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_susun2') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_susun2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_susun') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_susun}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbk2') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbk3') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk3}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbk4') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk4}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbk5') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk5}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbk') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbk}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbkn2') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbkn2}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_tbkn') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_tbkn}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+if (subscribezeeoneofc == 'jwb_wibu') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Mencet PASS\nTag soal dan ketik:* ${jwb_wibu}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
+// END GAME HINT
 
 if (subscribezeeoneofc == "Oke"){
 reply2('Oke bg')
@@ -17120,7 +17221,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -17148,7 +17249,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -17176,7 +17277,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -17204,7 +17305,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -17232,7 +17333,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
@@ -17260,7 +17361,7 @@ math3[sender.split('@')[0]] = jwb_math3.toLowerCase()
 fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 console.log(jwb_math3)
 but = [
-{buttonId: 'nyerah', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
+{buttonId: 'jwb_math3', buttonText: {displayText: '🚩 Kunci jawaban'}, type: 1}
 ]
 sendButton(from, `*Soal :* ${soal}\n\n*Clue :* ${clue}\n\nApa hayoo... ${emoj}`, `Waktu ${waktu_game}ms`, but)
 
