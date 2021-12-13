@@ -1575,32 +1575,33 @@ ane.push(i.jid)
 }
 alpha.sendMessage(from, buffer, sticker, { sendEphemeral: true, contextInfo: { mentionedJid: ane } })
 }
+
 const promoteAdmin = async function(to, target=[]){
-if(!target.length > 0) { return reply2("No target..") }
-let g = await alpha.groupMetadata(to)
-let owner = g.owner.replace("c.us","s.whatsapp.net")
-let me = alpha.user.jid
-for (i of target){
-if (!i.includes(me) && !i.includes(owner)){
-const res = await alpha.groupMakeAdmin(to, [i])
-}else{
-reply2("Ndak bisa cok")
+           if(!target.length > 0) { return  reply2("No target..") }
+           let g = await alpha.groupMetadata(to)
+           let owner = g.owner.replace("c.us","s.whatsapp.net")
+           let me = alpha.user.jid
+           for (i of target){
+           if (!i.includes(me) && !i.includes(owner)){
+           const res = await alpha.groupMakeAdmin(to, [i])
+           reply2(`Hm..... @${mentioned[0].split('@')[0]} JABATANMU DINAIKAN AKU BANGGA PADAMU`)
 }
 }
 }
-const demoteAdmin = async function(to, target=[]){
-if(!target.length > 0) { return reply2("No target..") }
-let g = await alpha.groupMetadata(to)
-let owner = g.owner.replace("c.us","s.whatsapp.net")
-let me = alpha.user.jid
-for (i of target){
-if (!i.includes(me) && !i.includes(owner)){
-const res = await alpha.groupDemoteAdmin(to, [i])
-} else {
-reply2("Ndak bisa cok")
+      const demoteAdmin = async function(to, target=[]){
+           if(!target.length > 0) { return  reply2("No target..") }
+           let g = await alpha.groupMetadata(to)
+           let owner = g.owner.replace("c.us","s.whatsapp.net")
+           let me = alpha.user.jid
+           for (i of target){
+           if (!i.includes(me) && !i.includes(owner)){
+           const res = await alpha.groupDemoteAdmin(to, [i])
+           reply2(`Hm..... @${mentioned[0].split('@')[0]} JABATANMU TURUNKAN SAYA IKUT SEDIH`)
+				
 }
 }
 }
+
 const kickMember = async(id, target = []) => {
 let group = await alpha.groupMetadata(id)
 let owner = group.owner.replace("c.us", "s.whatsapp.net")
@@ -1630,8 +1631,8 @@ console.log(e)
 }
 
 const mentions = (teks, memberr, id) => {
-(id == null || id == undefined || id == false) ? alpha.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : alpha.sendMessage(from, teks.trim(), extendedText, { quoted: fgif2, contextInfo: { "mentionedJid": memberr } })
-}
+           (id == null || id == undefined || id == false) ? alpha.sendMessage(from, {text: teks.trim(), jpegThumbnail: fs.readFileSync('./image/miku.jpg')}, extendedText, { sendEphemeral: true, contextInfo: { "mentionedJid": memberr } }) : alpha.sendMessage(from, {text: teks.trim(), jpegThumbnail: fs.readFileSync('./image/miku.jpg')}, extendedText, { sendEphemeral: true, quoted: mek, contextInfo: { "mentionedJid": memberr } })
+        }
 
 const costum = (pesan, tipe, target, target2) => {
 alpha.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participant: `${target}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target2}` }}})
@@ -4666,6 +4667,8 @@ require('./lib/fetcher.js').createExif(satu, dua)
 require('./lib/fetcher.js').modStick(media_ , alpha, mek, from)
 break
 
+
+
 case 'stikerwm':
 case 'stickerwm':
 case 'swm':
@@ -6012,6 +6015,7 @@ members_id.push(mem.jid)
 alpha.groupMakeAdmin(from, members_id)
 break
 
+/*
 case 'promote':
 if (!isGroup && !isBotGroupAdmins) return reply2(lang.botNotAdm())
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
@@ -6045,7 +6049,48 @@ mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`,
 alpha.groupDemoteAdmin(from, mentioned)
 }
 break
+*/
 
+case 'promote':
+reply2(`Yee..di ${command}🗿`)
+             if (!isGroupAdmins) return reply2('Admin je bg')
+             if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
+             if (mek.message.extendedTextMessage.contextInfo.participant === undefined) {
+             entah = mek.message.extendedTextMessage.contextInfo.mentionedJid
+             if (entah.length > 0) {
+             var mems_ids = []
+             for (let ids of entah) {
+             mems_ids.push(ids)
+}
+             alpha.groupMakeAdmin(from, mems_ids)
+             } else {
+             alpha.groupMakeAdmin(from, entah)
+}
+             } else {
+             entah = mek.message.extendedTextMessage.contextInfo.participant
+             alpha.groupMakeAdmin(from, [entah])
+}
+             break
+      case 'demote':
+reply2(`Yee..di ${command}🗿`)
+             if (!isGroupAdmins) return reply2('Admin je bg')
+             if (mek.message.extendedTextMessage === null || mek.message.extendedTextMessage === undefined) return;
+             if (mek.message.extendedTextMessage.contextInfo.participant === undefined) {
+             entah = mek.message.extendedTextMessage.contextInfo.mentionedJid
+             if (entah.length > 0) {
+             var mems_ids = []
+             for (let ids of entah) {
+             mems_ids.push(ids)
+}
+             alpha.groupDemoteAdmin(from, mems_ids)
+             } else {
+             alpha.groupDemoteAdmin(from, [entah[0]])
+}
+             } else {
+             entah = mek.message.extendedTextMessage.contextInfo.participant
+             alpha.groupDemoteAdmin(from, [entah])
+}
+             break
 //LIST───────[ API ZEKS ]───────────────//
 
 case 'tahta': 
@@ -17025,7 +17070,47 @@ teks = await getBuffer(`https://demo.sirv.com/${anu.display_url}q=${cim}`)
 alpha.sendMessage(from, teks, image,{quoted: mek})
 break
 
+case 'delwm':
+              if (!isQuotedSticker) return reply('Stiker aja om')
+              encdlwm = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+              dlwm = await alpha.downloadAndSaveMediaMessage(encdlwm)
+              anu = args.join(' ').split('|')
+              satu = anu[0] !== '' ? anu[0] : ``
+              dua = typeof anu[1] !== 'undefined' ? anu[1] : ``
+              require('./lib/fetch.js').createExif(satu, dua)
+              require('./lib/fetch.js').modStick(dlwm, alpha, mek, from)
+              break
 
+case 'shutdown':
+             if (!isOwner) return 
+             reply2(`Bye...`)
+             await sleep(3000)
+             process.exit()
+             break
+      
+      case 'restart':
+             if (!isOwner) return 
+             reply2('Wait..')
+             exec(`pm2 monit`)
+             reply2('_Restarting Bot Success_')
+             break
+      case 'leaveall':
+             if (!isOwner) return  reply2('Owner aja kack')
+             let totalgroup = alpha.chats.array.filter(u => u.jid.endsWith('@g.us')).map(u => u.jid)
+             for (let id of totalgroup) {
+             sendMess(id, 'Byee', null)
+             await sleep(3000)
+             alpha.groupLeave(id)
+}
+             break
+
+case 'mining':
+              var minert = randomNomor(1000)
+              addBalance(sender, minert, balance)
+              await reply2(`*Selamat Kamu Mendapatkan*: _+ ${mining} balance_`)
+              break
+              
+              
 //Ends
 default:
 
