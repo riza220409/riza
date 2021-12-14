@@ -17201,6 +17201,9 @@ alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan 
 if (subscribezeeoneofc == 'jwb_wibu') {
 alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_wibu}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
 }
+if (subscribezeeoneofc == 'jwb_hwn') {
+alpha.sendMessage(from, `@${sender.split("@")[0]} Membuka jawaban\nTag soal dan ketik: *${jwb_hwn}*` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: mek, sendEphemeral: true})
+}
 // END GAME HINT
 
 if (subscribezeeoneofc == "Oke"){
