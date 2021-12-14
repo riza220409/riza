@@ -2403,8 +2403,10 @@ alpha.groupRemove(from, [sender])
 }
 }
 */
+if (!mek.key.fromMe && !isOwner) {
 if (budy.length > 10000) {
 alpha.sendMessage(from, 'Kak apa nih, ngeleg bot aku 😐', text, {quoted: mek})
+}
 }
 
 if (isGroup && isAntivirtex && !mek.key.fromMe && !isOwner) {
@@ -8323,18 +8325,18 @@ limitAdd(sender, limit)
 break
 
 case 'togif':
-if (isLimit(sender, isPremium, isOwner, limitawal, limit)) return reply2(mess.limit)
-if (!isQuotedSticker) return reply2('Reply stiker Lord')
-// reply2(mess.wait)
-if (mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated == true)
-encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-media = await mek.downloadAndSaveMediaMessage(encmedia)
-moew = await webp2gifFile(media)
-console.log(moew)
-Frd = await getBuffer(moew.result)
-alpha.sendMessage(from, Frd, video, { mimetype: 'video/gif', caption: 'Sukses Lord', quoted: fgif2 })
-limitAdd(sender, limit)
-break
+               if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
+               reply2(mess.wait)
+               encmegif = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+               megif = await alpha.downloadAndSaveMediaMessage(encmegif)
+               a = await webp2gifFile(megif)
+               mp4 = await getBuffer(a.result)
+               alpha.sendMessage(from, mp4, video, {mimetype: 'video/gif', quoted: mek, caption: mess.success})
+               fs.unlinkSync(megif)
+               } else {
+               reply2(mess.wrongFormat)
+}
+               break
 
 case 'loadingx':
 ranp = getRandom('.gif')
@@ -17077,6 +17079,46 @@ delete tebakhewan[sender.split('@')[0]]
 fs.writeFileSync("./game/tebakhewan.json", JSON.stringify(tebakhewan))
 }
 break
+
+case 'katasedih':
+ano = await fetchText(`https://raw.githubusercontent.com/masdevid/ID-OpinionWords/master/negative.txt`)
+var kts = ano.split('\n')
+var ktsx = kts[Math.floor(Math.random() * kts.length)]
+alpha.sendMessage(from,`*Kamu ${ktsx}*`, MessageType.text, {quoted: mek})
+break
+
+
+
+case 'animestick':
+       case 'stickeranime':
+              reply2(mess.wait)
+              fetch('https://raw.githubusercontent.com/rashidsiregar28/data/main/animestick')
+             .then(res => res.text())
+             .then(body => {
+              let todd = body.split("\n");
+              let pjrr = todd[Math.floor(Math.random() * todd.length)];
+              sendWebp(from, pjrr)
+}
+)
+              break
+
+case 'loliv':
+       case 'lolivid':
+       case 'lolivideo':
+              reply2(mess.wait)
+              anu = await fetchText('https://raw.githubusercontent.com/AlvioAdjiJanuar/random/main/loli.txt')
+             .then(async (body) => {
+              anu = body.split('\n')
+              anu = anu[Math.floor(Math.random() * anu.length)]
+              sendMediaURL(from, anu)
+})
+             .catch(async (err) => {
+              console.error(err)
+              reply2(`${err}`)
+})
+              break
+
+
 //Ends
 default:
 
@@ -18080,11 +18122,19 @@ alpha.sendMessage(from, `Salam yg bener kak @${sender.split("@")[0]}` ,text, {"c
 }
 
 if (budy == 'hai') {
-alpha.sendMessage(from, `Hai @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+await alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+getr = [`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Pasti%20Bangka%20ngana%20ko%20ba%20jamping%20jamping%20anjing%20anjing%20banget%20Viral%20titktok%20versi%20Spongebob.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Prank%20desahan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/megumin_last.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan%20onii%20chan.mp3?raw=true`]
+let hai1= getr[Math.floor(Math.random() * getr.length)];
+calcu = await getBuffer(hai1)
+await alpha.sendMessage(from,calcu, MessageType.audio, {mimetype:'audio/mp4', quoted:mek, ptt:true,duration: 444441600})
 }
 
 if (budy == 'Hai') {
-alpha.sendMessage(from, `Hai @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+await alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+getr = [`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Pasti%20Bangka%20ngana%20ko%20ba%20jamping%20jamping%20anjing%20anjing%20banget%20Viral%20titktok%20versi%20Spongebob.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Prank%20desahan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/megumin_last.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan%20onii%20chan.mp3?raw=true`]
+let hai2= getr[Math.floor(Math.random() * getr.length)];
+calcu = await getBuffer(hai2)
+await alpha.sendMessage(from,calcu, MessageType.audio, {mimetype:'audio/mp4', quoted:mek, ptt:true,duration: 444441600})
 }
 
 if (budy == 'P') {
@@ -18092,11 +18142,19 @@ alpha.sendMessage(from, `Salam yg bener kak @${sender.split("@")[0]}` ,text, {"c
 }
 
 if (budy == 'bot') {
-alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+await alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+getr = [`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Pasti%20Bangka%20ngana%20ko%20ba%20jamping%20jamping%20anjing%20anjing%20banget%20Viral%20titktok%20versi%20Spongebob.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Prank%20desahan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/megumin_last.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan%20onii%20chan.mp3?raw=true`]
+let bot1= getr[Math.floor(Math.random() * getr.length)];
+calcu = await getBuffer(bot1)
+await alpha.sendMessage(from,calcu, MessageType.audio, {mimetype:'audio/mp4', quoted:mek, ptt:true,duration: 444441600})
 }
 
 if (budy == 'Bot') {
-alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+await alpha.sendMessage(from, `Ada apa kak @${sender.split("@")[0]}` ,text, {"contextInfo": {"mentionedJid" : [sender]}, quoted: fgif2, sendEphemeral: true})
+getr = [`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Pasti%20Bangka%20ngana%20ko%20ba%20jamping%20jamping%20anjing%20anjing%20banget%20Viral%20titktok%20versi%20Spongebob.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/Prank%20desahan.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/megumin_last.mp3?raw=true`,`https://github.com/IndonesianDev/whatsapp-bot/blob/main/desahan/onii%20chan%20onii%20chan.mp3?raw=true`]
+let bot2= getr[Math.floor(Math.random() * getr.length)];
+calcu = await getBuffer(bot2)
+await alpha.sendMessage(from,calcu, MessageType.audio, {mimetype:'audio/mp4', quoted:mek, ptt:true,duration: 444441600})
 }
 
 if (budy == 'assalamualaikum') {
