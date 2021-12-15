@@ -218,7 +218,7 @@ var __permanen = 'Rp Gratis'
 // APIKEY
 dapuhy = 'kYR0hlaVZZPvv8B' // ls7II19RQIYv1aS // kYR0hlaVZZPvv8B
 YuzApi = 'Yuzzu'
-const lolkey = '4f1cc7a2294ebce0a7bef4d2' // 78bd89cd7b4d6205e3e18061 // 4f1cc7a2294ebce0a7bef4d2 // KurrXd
+const lolkey = '${lolkey}' // 78bd89cd7b4d6205e3e18061 // ${lolkey} // KurrXd
 zeksApikey = 'AyGemuy24'
 ApiZeks = 'https://api.zeks.me'
 thumbnail = setting.thumb
@@ -1649,24 +1649,6 @@ alpha.sendMessage(from, teks, text, {
 "sourceUrl": apiku,
 "thumbnail": thumb_miku},
 "mentionedJid" : [sender]},
-quoted: fgif2, sendEphemeral: true
-})
-}
-
-const reply3 = (teks) => {
-	members_ids = []
-for (let mem of groupMembers) {
-members_ids.push(mem.jid)
-}
-alpha.sendMessage(from, teks, text, {
-"contextInfo": {
-"forwardingScore": 999,isForwarded: true,
-"externalAdReply": {
-"title": `${ucapannya2}` ,
-"body": `${botname}`,
-"sourceUrl": apiku,
-"thumbnail": thumb_miku},
-"mentionedJid" : [mem]},
 quoted: fgif2, sendEphemeral: true
 })
 }
@@ -5066,6 +5048,28 @@ fs.unlinkSync(ran)
 .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 .toFormat('webp')
 .save(ran)
+} else if (isMedia && !mek.message.videoMessage || isQuotedImage) {
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+const media = await alpha.downloadAndSaveMediaMessage(encmedia)
+ran = getRandom('.webp')
+await ffmpeg(`./${media}`)
+.input(media)
+.on('start', function (cmd) {
+console.log(`Started : ${cmd}`)
+})
+.on('error', function (err) {
+console.log(`Error : ${err}`)
+fs.unlinkSync(media)
+})
+.on('end', async function () {
+console.log('Finish')
+await alpha.sendMessage(from, fs.readFileSync(ran), sticker, { mimetype: 'image/webp', fileLength: 1000000000000, isAnimated: true, quoted: fgif2})
+fs.unlinkSync(media)
+fs.unlinkSync(ran)
+})
+.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
+.toFormat('webp')
+.save(ran)
 } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
 const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const media = await alpha.downloadAndSaveMediaMessage(encmedia)
@@ -5088,28 +5092,6 @@ await alpha.sendMessage(from, fs.readFileSync(ran), sticker, { quoted: fgif2})
 fs.unlinkSync(media)
 fs.unlinkSync(ran)
 })
-})
-.addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-.toFormat('webp')
-.save(ran)
-} else if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const media = await alpha.downloadAndSaveMediaMessage(encmedia)
-ran = getRandom('.webp')
-await ffmpeg(`./${media}`)
-.input(media)
-.on('start', function (cmd) {
-console.log(`Started : ${cmd}`)
-})
-.on('error', function (err) {
-console.log(`Error : ${err}`)
-fs.unlinkSync(media)
-})
-.on('end', async function () {
-console.log('Finish')
-await alpha.sendMessage(from, fs.readFileSync(ran), sticker, { mimetype: 'image/webp', fileLength: 1000000000000, isAnimated: true, quoted: fgif2})
-fs.unlinkSync(media)
-fs.unlinkSync(ran)
 })
 .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
 .toFormat('webp')
@@ -5874,15 +5856,26 @@ break
 case 'tagall':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
 if (!isGroupAdmins && !isBotGroupAdmins) return reply2("Khusus admin");
+if (args.length == 0) {
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
 for (let mem of groupMembers) {
-teks += `@${mem.jid.split('@')[0]}\n`
+teks += `Si @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
 mentions(teks, members_id, true)
+} else if (args.length == 1) {
+members_id = []
+query = args.join(" ")
+teks = (args.length > 1) ? body.slice(8).trim() : ''
+teks += `${query}\n\n`
+for (let mem of groupMembers) {
+teks += `Si @${mem.jid.split('@')[0]}\n`
+members_id.push(mem.jid)
+}
 break
+
 
 case 'clearall':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
@@ -12371,6 +12364,7 @@ break
 //LIST───────[ API HADI
 
 case 'ss':
+case 'ssweb':
 if (args.length < 1) return reply2('Urlnya mana om')
 teks = args[0]
 buff = await getBuffer(`https://api.apiflash.com/v1/urltoimage?access_key=7eea5c14db5041ecb528f68062a7ab5d&url=${teks}`)
@@ -12384,35 +12378,6 @@ buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb2?url=${teks}`)
 alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Screenshot from ${teks}`})
 break
 
-case 'ssweb':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} url|desktop|on`)
-pe = args.join(' ')
-tes1 = pe.split('|')[0]
-tes2 = pe.split('|')[1]
-tes3 = pe.split('|')[2]
-buff = await getBuffer(`https://hadi-api.herokuapp.com/api/ssweb?url=${tes1}&device=${tes2}&full=${tes3}`)
-alpha.sendMessage(from, buff, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}`})
-break
-
-case 'translate':
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Reply pesan yg ingin di translate!')
- try{
-if ( args.length === 1 ){
-tekss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss)}&from=auto&to=id`)
-has = result.result.translated
-reply2(`*Hasil* : ${has}`)
-} else if(args.length > 0 ) {
-ngab = args.join(' ')
-tekss2 = ngab.split(' ')[0];
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss2)}&from=auto&to=id`)
-has = result.result.translated
-reply2(`*Hasil* : ${has}`)
-						}
-						} catch (e){
-reply2(mess.error.api)
-}
-				  break
 
 case 'tinyurl':
 // reply2(mess.wait)
@@ -15312,7 +15277,7 @@ case 'apakah':
 apakah = body.slice(1)
 const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
 const kah = apa[Math.floor(Math.random() * apa.length)]
-reply3('*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah)
+reply2('*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah)
 break
 
 case 'gantengcek':
@@ -15320,7 +15285,7 @@ case 'cekganteng':
 ganteng = body.slice(1)
 const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const teng = gan[Math.floor(Math.random() * gan.length)]
-reply3('*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%')
+reply2('*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%')
 break
 
 case 'cantikcek':
@@ -15328,7 +15293,7 @@ case 'cantikcek':
 cantik = body.slice(1)
 const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 const tik = can[Math.floor(Math.random() * can.length)]
-reply3('*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%')
+reply2('*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%')
 break
 
 case 'cekwatak':
@@ -15346,20 +15311,20 @@ case 'cekwatak':
               const klbh = kelebihan[Math.floor(Math.random() * (kelebihan.length))]
               const tipe = ['cool','idaman','Alami','Keren','Ideal','Dia Bamget','normal','elite','epic','Legend']
               const typo = tipe[Math.floor(Math.random() * (tipe.length))]
-              await reply3(`[ INTROGASI SUKSES ]\n\n[Nama]:${namao}\n\n[Watak]:${wtk}\n\n[Akhlak✨]:${akhlak}\n\n[Sifat]:${sft}\n\n[Hobby]:${hby}\n\n[Tipe]:${typo}\n\n[Kelebihan]:${klbh}\n\nNote\n\n_ini hanya main main_`)
+              await reply2(`[ INTROGASI SUKSES ]\n\n[Nama]:${namao}\n\n[Watak]:${wtk}\n\n[Akhlak✨]:${akhlak}\n\n[Sifat]:${sft}\n\n[Hobby]:${hby}\n\n[Tipe]:${typo}\n\n[Kelebihan]:${klbh}\n\nNote\n\n_ini hanya main main_`)
               break
 
 case 'hobby':
 const kan =['Coli','baca buku','Tadi','ngeliat org mandi','Nonton bokep','sepedaan','Baca wattpad','belajar','Main discord','menabung']
 const hooo = kan[Math.floor(Math.random() * kan.length)]
-reply3('Pertanyaan : *hoby*\n\nJawaban : '+ hooo)
+reply2('Pertanyaan : *hoby*\n\nJawaban : '+ hooo)
 break
 
 case 'bisakah':
 bisakah = body.slice(1)
 const bisa =['Bisa','Tidak Bisa','Coba Ulangi','Ya mana gw tau']
 const keh = bisa[Math.floor(Math.random() * bisa.length)]
-reply3('*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh)
+reply2('*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh)
 break
 
 case 'citacita': 
@@ -15373,7 +15338,7 @@ case 'kapankah':
 kapankah = body.slice(1)
 const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
 const koh = kapan[Math.floor(Math.random() * kapan.length)]
-reply3('*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh)
+reply2('*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh)
 break
 
 case 'cantik':
@@ -16350,89 +16315,6 @@ get_audio = await getBuffer(get_resultP.url_audio)
 alpha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, filename: `${get_resultP.title}.mp3`, quoted: mek})
 break
 
-/*
-case 'ts':
-try{
-if ( args.length === 1 ){
-tekss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-translate(tekss, {client: 'gtx', to:args[0]})
-.then((res) =>{
-reply2(res.text)
-}) 
-} else
-if(args.length > 0 ) {
-ngab = args.join(' ')
-teks = ngab.split(' ')[0];
-bhs = ngab.split(' ')[1];
-translate(teks, {client: 'gtx', to:bhs})
-.then((res) =>{
-reply2(res.text)
-})
-}
-} catch (e){
-reply2(mess.error.api)
-}
-break
-*/
-
-case 'stk':
-if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-const encstk_ = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const stk_ = await alpha.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
-await ffmpeg(`${stk_}`)
-.input(stk_)
-.on('start', function (cmd) {
-console.log(`Started : ${cmd}`)
-})
-.on('error', function (err) {
-console.log(`Error : ${err}`)
-fs.unlinkSync(stk_)
-reply2(mess.error.api)
-})
-.on('end', function () {
-console.log('Finish')
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-if (error) return reply2(mess.error.api)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-fs.unlinkSync(stk_)	
-fs.unlinkSync(`./sticker/${sender}.webp`)	
-})
-})
-.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-.toFormat('webp')
-.save(`./sticker/${sender}.webp`)
-} else if ((isMedia && mek.message.videoMessage.fileLength < 1000000000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 1000000000000)) {
-const encstk_ = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-const stk_ = await alpha.downloadAndSaveMediaMessage(encstk_, `./sticker/${sender}`)
-
-await ffmpeg(`${stk_}`)
-.inputFormat(stk_.split('.')[4])
-.on('start', function (cmd) {
-console.log(`Started : ${cmd}`)
-})
-.on('error', function (err) {
-console.log(`Error : ${err}`)
-fs.unlinkSync(stk_)
-tipe = stk_.endsWith('.mp4') ? 'video' : 'gif'
-reply2(mess.error.api)
-})
-.on('end', function () {
-console.log('Finish')
-exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-if (error) return reply2(mess.error.api)
-alpha.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
-fs.unlinkSync(stk_)
-fs.unlinkSync(`./sticker/${sender}.webp`)
-})
-})
-.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-.toFormat('webp')
-.save(`./sticker/${sender}.webp`)
-} else {
-reply2(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
-}
-break
-
 case 'liriklagu':
 if (args.length < 1) return reply2('Judulnya?')
 teks = body.slice(7)
@@ -16759,16 +16641,36 @@ break
 case 'ts':
 if (args.length == 1) {
 query = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=4f1cc7a2294ebce0a7bef4d2&text=${query}`, {method: 'get'})
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=${lolkey}&text=${encodeURIComponent(query)}`, {method: 'get'})
 tran = get_result.result.translated
 reply2(`${tran}`)
 } else if (args.length == 0) {
 kata = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=4f1cc7a2294ebce0a7bef4d2&text=${kata}`, {method: 'get'})
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=${lolkey}&text=${encodeURIComponent(kata)}`, {method: 'get'})
 tran = get_result.result.translated
 reply2(`${tran}`)
 }
 break
+
+case 'translate':
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Reply pesan yg ingin di translate!')
+ try{
+if ( args.length === 1 ){
+tekss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss)}&from=auto&to=id`)
+has = result.result.translated
+reply2(`*Hasil* : ${has}`)
+} else if(args.length > 0 ) {
+ngab = args.join(' ')
+tekss2 = ngab.split(' ')[0];
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss2)}&from=auto&to=id`)
+has = result.result.translated
+reply2(`*Hasil* : ${has}`)
+						}
+						} catch (e){
+reply2(mess.error.api)
+}
+				  break
 
 case 'jadigc':
 if(!q) return reply2(`${prefix}jadigc link|nama|footer|caption`)
@@ -17118,6 +17020,17 @@ case 'loliv':
 })
               break
 
+
+case 'loli':
+       case 'husbu':
+       case 'milf':
+       case 'cosplay':
+       case 'wallml':
+              let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
+              let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
+              ge = await getBuffer(wipi)
+              alpha.sendMessage(from, ge,image,{quoted: mek})
+              break
 
 //Ends
 default:
@@ -18072,11 +17985,6 @@ quoted: fgif2, sendEphemeral: true
 })
 } 
 
-if (budy.includes("eror")){
-alpha.updatePresence(from, Presence.composing)
-const daieeeee = fs.readFileSync('./sticker/eror.webp');
-alpha.sendMessage(from, daieeeee, sticker, {quoted: {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "0@s.whatsapp.net" } : {})},message: {"videoMessage": {'gifPlayback': 'true', 'caption': `✗ ${pushname} ✗\n𝐸𝑥𝑒𝑐𝑢𝑡𝑒 : KOK BISA ?`, 'jpegThumbnail': fs.readFileSync(`image/404.jpg`)}}}})
-}
 
 if (budy.includes("Anj",'Anjing')){
 alpha.updatePresence(from, Presence.composing)
