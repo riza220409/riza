@@ -334,7 +334,7 @@ var _permanen = 'Rp Gratis'
 var __permanen = 'Rp Gratis'
 
 // APIKEY
-dapuhy = 'kYR0hlaVZZPvv8B' // ls7II19RQIYv1aS // kYR0hlaVZZPvv8B
+dapuhy = 'AyGemuy24' // ls7II19RQIYv1aS // kYR0hlaVZZPvv8B
 YuzApi = 'Yuzzu'
 const lolkey = '${lolkey}' // 78bd89cd7b4d6205e3e18061 // ${lolkey} // KurrXd
 zeksApikey = 'AyGemuy24'
@@ -5241,6 +5241,41 @@ reply2(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah 
 }
 break
 
+
+case 'stickergif':
+       case 'stikergif':
+       case 'sgif':
+              if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+              encmediat = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+              mediat = await client.downloadAndSaveMediaMessage(encmediat)
+              ron = getRandom('.webp')
+              exec(`ffmpeg -i ${mediat} -vf "scale=512:512:force_original_aspect_ratio=increase,fps=15, crop=512:512" ${ron}`, (err) => {
+              fs.unlinkSync(mediat)
+              if (err) return reply(`${err}`)
+              exec(`webpmux -set exif ${addMetadata('Bot', 'Wudy')} ${ron} -o ${ron}`, async (error) => {
+              if (error) return reply(`${error}`)
+              client.sendMessage(from, fs.readFileSync(ron), sticker, {quoted: fgif2})
+              fs.unlinkSync(ron)
+})
+})
+              } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
+              encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+              mediat = await client.downloadAndSaveMediaMessage(encmedia)
+              ron = getRandom('.webp')
+              exec(`ffmpeg -i ${mediat} -vf "scale=512:512:force_original_aspect_ratio=increase,fps=15, crop=512:512" ${ron}`, (err) => {
+              fs.unlinkSync(mediat)
+              if (err) return reply(`${err}`)
+              exec(`webpmux -set exif ${addMetadata('Bot', 'Wudy')} ${ron} -o ${ron}`, async (error) => {
+              if (error) return reply(`${error}`)
+              client.sendMessage(from, fs.readFileSync(ron), sticker, {quoted: fgif2})
+              fs.unlinkSync(ron)
+})
+})
+              } else {
+              reply(`Kirim gambar dengan caption ${prefix}sticker\nDurasi Sticker Video 1-9 Detik`)
+}
+              break
+
 case 'toimg':
 if (!isQuotedSticker) return reply2('Reply stc nya!')
 // reply2(lang.wait())
@@ -6182,25 +6217,7 @@ members_id.push(mem.jid)
 alpha.groupMakeAdmin(from, members_id)
 break
 
-case 'promote':
-					if (!isGroup) return reply2(lang.onlygc())
-					if (!isGroupAdmins) return reply2(lang.onlygcAdmin())
-					if (!isBotGroupAdmins) return reply2(lang.botNotAdm())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
-					mentionede = mek.message.extendedTextMessage.contextInfo.participant
-alpha.groupMakeAdmin(from, [mentionede])
-teks = `Members @${mentionede.split('@')[0]} succes promote`
-alpha.sendMessage(from, teks, text, {quoted:mek, contextInfo:{mentionedJid:[mentionede]}})
-				case 'demote':
-					if (!isGroup) return reply2(lang.onlygc())
-					if (!isGroupAdmins) return reply2(lang.onlygcAdmin())
-					if (!isBotGroupAdmins) return reply2(lang.botNotAdm())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
-					mentionede = mek.message.extendedTextMessage.contextInfo.participant
-alpha.groupDemoteAdmin(from, [mentionede])
-teks = `Members @${mentionede.split('@')[0]} succes demote`
-alpha.sendMessage(from, teks, text, {quoted:mek, contextInfo:{mentionedJid:[mentionede]}})
-break
+
                 
 //LIST───────[ API ZEKS ]───────────────//
 
@@ -6456,8 +6473,18 @@ sendImageMaker(cslogop, cslogopp, sender)
 break
 
 case 'nulis':
-reply2(`*Example*\n${prefix}nuliskiri\n${prefix}nuliskanan\n${prefix}foliokiri\n${prefix}foliokanan`)
-break
+        case 'tulis':
+               if (args.length < 1) return reply2(`${command} text \n*Atau*\n${prefix}nuliskiri text\n${prefix}nuliskanan text\n${prefix}foliokiri text\n${prefix}foliokanan text`)
+               teks = args.join(' ')
+               reply2(mess.wait)
+               nulis = encodeURIComponent(teks)
+               res = await axios.get(`https://dt-04.herokuapp.com/nulis?text=${nulis}`)
+               if (res.data.error) return reply2(res.data.error)
+               buff = Buffer.from(res.data.result.split(',')[1], 'base64')
+               alpha.sendMessage(from, buff, image, {quoted: mek, caption: mess.success}).catch(e => {
+               return reply2('_[ ! ] Error Gagal Dalam Mendownload Dan Mengirim File_')
+})
+               break
 
 case 'nuliskiri':{
 if (isLimit(sender, isPremium, isCreator, isOwner, limitawal, limit)) return reply2(`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -11281,29 +11308,7 @@ say_ = await getBuffer(`https://api.dapuhy.ga/api/maker/tts?text=${q}&lang=id&ap
 alpha.sendMessage(from, say_, MessageType.audio, {quoted: fgif2, mimetype: 'audio/mp4', ptt:true, duration: 444441600})
 break
 
-case 'tr':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} Hello`)
-trsm_ = await fetchJson(`https://api.dapuhy.ga/api/others/translate?from=auto&to=id&text=${q}&apikey=${dapuhy}`)
-res = trsm_.result
-var trsm_1 = `• ${res}`
-var trsm_2 = [
-{buttonId: 'x_menu', buttonText: {displayText: '🌱 List menu'}, type: 1},
-{buttonId: 'menu_x', buttonText: {displayText: '🍵 Lol menu'}, type: 1}
-]
 
-trsm_3 = {
-contentText: trsm_1,
-footerText: `${tampilTanggal}`,
-buttons: trsm_2,
-headerType: 1
-}
-alpha.sendMessage(from, trsm_3, MessageType.buttonsMessage,{
-"contextInfo": {
-"forwardingScore": 999,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgif2, sendEphemeral: true
-})
-break
 
 case 'asupan':
 case 'asupansantuy':
@@ -16019,7 +16024,7 @@ reply2( text1 + readmore + text2)
 break
 
 case 'detikvideo':
-              if (!isRegistered) return reply2(`daftar dlu om ketik .verify`)
+              if (!isRegister) return reply2(`daftar dlu om ketik .verify`)
 				encdvid = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					dvid = await alpha.downloadAndSaveMediaMessage(encdvid)
 					cokmatane = Number(args[0])
@@ -16313,27 +16318,7 @@ membr.push(goo.jid)
 mentions(teks, membr, true)
 break
 
-case 'ytv2':
-if (args.length === 0) return reply2(`Kirim perintah *${prefix}ytmp4 [linkYt]*`)
-let isLinks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-if (!isLinks2) return reply2(mess.error.Iv)
-try {
-
-ytv(args[0])
-.then((res) => {
-const { dl_link, thumb, title, filesizeF, filesize } = res
-axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
-.then((a) => {
-if (Number(filesize) >= 10000) return sendMediaURL(from, thumb, `❏ *YTmp4*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_File gak dikirim jika terlalu gede ngab_`)
-sendFileFromUrl(dl_link, document, {mimetype: 'video/mp4', filename: `${title}.mp4`, quoted: fgif2, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:" YTMP4",mediaType:"2",thumbnail:getBuffer(thumb),sourceUrl:`${body.slice(7)}`}}}).catch(() => reply2(mess.error.api))
-})
-})
-} catch (err) {
-reply2(mess.error.api)
-}
-break
-
-case 'yts2':
+case 'yts3':
 if (args.length < 1) return reply2('Apa Yang Mau Dicari?')
 teks = args.join(' ')
 reply2(mess.wait)
@@ -16385,54 +16370,6 @@ sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', file
 break
 
 
-case 'yta2':
-if (args.length === 0) return reply2(`Kirim perintah *${prefix}ytmp3 [linkYt]*`)
-let isLinks = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-if (!isLinks) return reply2(mess.error.Iv)
-try {
-
-yta(args[0])
-.then((res) => {
-const { dl_link, thumb, title, filesizeF, filesize } = res
-axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
-.then((a) => {
-if (Number(filesize) >= 10000) return sendMediaURL(from, thumb, `❏ *YTmp3*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_File gak dikirim jika terlalu gede ngab_`)
-sendFileFromUrl(dl_link, document, {mimetype: 'audio/mp3', filename: `${title}.mp3`, quoted: fgif2, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:" YTMP3",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:`${body.slice(7)}`}}}).catch(() => reply2(mess.error.api))
-})
-})
-} catch (err) {
-reply2(mess.error.api)
-}
-break
-
-case 'ytp2':
-if (args.length == 0) return reply2(`Example: ${prefix + command} vide 1detik`)
-query = args.join(" ")
-get_resultL = await fetchJson(`https://ziy.herokuapp.com/api/play?apikey=xZiyy&judul=${query}`)
-get_resultP = get_resultL.result
-textP =`
-*YOUTUBE PLAY*
-
-Judul : ${get_resultP.judul}
-Link : ${get_resultP.url_audio}
-`
-alpha.sendMessage(from, textP, text,{contextInfo:{
-"forwardingScore": 999,
-isForwarded: false,
-sendEphemeral: false,
-"externalAdReply": {
-"title": `Hallo ${pushname}` ,
-"body": `Nih ${query} nya`,
-"mediaType": "2",
-"thumbnailUrl": `${get_resultP.image_thumbnail}`,
-"mediaUrl": "https://youtu.be/8S-AdzinXAI",
-"thumbnail": thumb_miku,
-"sourceUrl": "http://ziy.herokuapp.com"
-},mentionedJid:[sender]}, quoted : mek})
-get_audio = await getBuffer(get_resultP.url_audio)
-alpha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, filename: `${get_resultP.title}.mp3`, quoted: mek})
-break
-
 case 'liriklagu':
 if (args.length < 1) return reply2('Judulnya?')
 teks = body.slice(7)
@@ -16479,8 +16416,9 @@ reply2(mess.wrongFormat)
 break
 
 case 'animes':
-nimp_ = await fetchJson(`https://dhnjing.xyz/api/anime/animeplanet?manga=${q}&apikey=044f4e9b6d553de682e8`)
-for (let g of nimp_.result) {
+nin = await fetchJson(`https://dhnjing.xyz/api/anime/animeplanet?manga=${q}&apikey=044f4e9b6d553de682e8`)
+nimp_ = nin.result
+for (let g of nimp_) {
 let npl = `${g.manga_name} ${g.manga_url}`
 }
 await alpha.sendMessage(from, npl, MessageType.text, {
@@ -16524,7 +16462,7 @@ break
 
 
 case 'chat':
-              if (!isRegistered) return reply2('Blm regis')
+              if (!isRegister) return reply2('Blm regis')
 			if (args[0].startsWith('08')) return reply2('Awali nomor dengan 62')
             if (args[0].startsWith('+62')) return reply2('Awali nomor dengan 62')
 			if (args.length < 1) return reply2(`Penggunaan ${prefix}chat 62xnxx|teks`)
@@ -16538,7 +16476,6 @@ case 'chat':
             
             
 					case 'swm2':
-              if (!isRegistered) return reply2('Blm regis')
 						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 							ppp = `${args.join(' ')}`
 							const encmediax = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -16756,40 +16693,28 @@ ini_buffer = await getBuffer(`https://kuontol-api.herokuapp.com/api/photooxy/${c
 alpha.sendMessage(from, ini_buffer, image, {quoted: fgif2, caption : `Dah selesai , Req by: ${pushname}\nKetik *${prefix}oxy_list* untuk melihat menu yang lain`})
 break
 
-case 'ts':
-if (args.length == 1) {
-query = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=${lolkey}&text=${encodeURIComponent(query)}`, {method: 'get'})
-tran = get_result.result.translated
-reply2(`${tran}`)
-} else if (args.length == 0) {
-kata = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=${lolkey}&text=${encodeURIComponent(kata)}`, {method: 'get'})
-tran = get_result.result.translated
-reply2(`${tran}`)
-}
+case 'tytyd':
+reply2('Oke nyala')
 break
 
+case 'translet':
 case 'translate':
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Reply pesan yg ingin di translate!')
- try{
-if ( args.length === 1 ){
-tekss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss)}&from=auto&to=id`)
+case 'ts':
+case 'tr':
+					if(args.length == 0 ) {
+						let bresss = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${bresss}&from=auto&to=id`)
 has = result.result.translated
 reply2(`*Hasil* : ${has}`)
-} else if(args.length > 0 ) {
-ngab = args.join(' ')
-tekss2 = ngab.split(' ')[0];
-result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${encodeURIComponent(tekss2)}&from=auto&to=id`)
+} else
+			if(args.join(' ')) {
+				ngab = args.join(' ')
+result = await fetchJson(`https://hadi-api.herokuapp.com/api/terjemahan?text=${ngab}&from=auto&to=id`)
 has = result.result.translated
 reply2(`*Hasil* : ${has}`)
-						}
-						} catch (e){
-reply2(mess.error.api)
 }
-				  break
-
+						break
+						
 case 'jadigc':
 if(!q) return reply2(`${prefix}jadigc link|nama|footer|caption`)
 gc = args.join(' ')
@@ -17122,22 +17047,6 @@ case 'animestick':
 )
               break
 
-case 'loliv':
-       case 'lolivid':
-       case 'lolivideo':
-              reply2(mess.wait)
-              anu = await fetchText('https://raw.githubusercontent.com/AlvioAdjiJanuar/random/main/loli.txt')
-             .then(async (body) => {
-              anu = body.split('\n')
-              anu = anu[Math.floor(Math.random() * anu.length)]
-              sendMediaURL(from, anu)
-})
-             .catch(async (err) => {
-              console.error(err)
-              reply2(`${err}`)
-})
-              break
-
 
 case 'loli':
        case 'husbu':
@@ -17158,13 +17067,46 @@ tes = `${mus.sticker}`
 sendStickerFromUrl(from, tes, mek)
 break
 
-case 'eses':
-if(!q) return reply2(`${emoj} Hint : ${prefix + command} link`)
-gg = args.join(' ')
-dev = await wudy6_ssweb(`${q}`)
-let via = `${dev.screenshot}`
-ge = await getBuffer(via)
-alpha.sendMessage(from, ge,image,{quoted: mek})
+case 'getquoted':
+             reply2(JSON.stringify(mek.message.extendedTextMessage.contextInfo, null, 3))
+             break
+
+
+case 'promote' :
+if (!isGroup) return reply2(mess.only.group)
+if (!isGroupAdmins) return reply2(mess.only.admin)
+if (!isBotGroupAdmins) return reply2("Bot Bukan Admin :)")
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Tag target yang ingin di jadi admin!')
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+if (mentioned.length > 1) {
+teks = 'Perintah di terima, anda menjdi admin :\n'
+for (let _ of mentioned) {
+teks += `@${_.split('@')[0]}\n`
+}
+mentions(teks, mentioned, true)
+alpha.groupMakeAdmin(from, mentioned)
+} else {
+mentions(`Perintah di terima, @${mentioned[0].split('@')[0]} Kamu Menjadi Admin Di Group *${groupMetadata.subject}*`, mentioned, true)
+alpha.groupMakeAdmin(from, mentioned)
+}
+break
+case 'demote' :
+if (!isGroup) return reply2(mess.only.group)
+if (!isGroupAdmins) return reply2(mess.only.admin)
+if (!isBotGroupAdmins) return reply2("Bot Bukan Admin :)")
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply2('Tag target yang ingin di tidak jadi admin!')
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
+if (mentioned.length > 1) {
+teks = 'Perintah di terima, anda tidak menjadi admin :\n'
+for (let _ of mentioned) {
+teks += `@${_.split('@')[0]}\n`
+}
+mentions(teks, mentioned, true)
+alpha.groupDemoteAdmin(from, mentioned)
+} else {
+mentions(`Perintah di terima, Menurunkan : @${mentioned[0].split('@')[0]} Menjadi Member`, mentioned, true)
+alpha.groupDemoteAdmin(from, mentioned)
+}
 break
 
 
