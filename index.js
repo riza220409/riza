@@ -80,7 +80,125 @@ const { herolist } = require('./lib/herolist.js')
 const { herodetails } = require('./lib/herodetail.js');
 const { TiktokDownloader, igDownloader, webp2gifFile } = require("./lib/gif.js");
 const { Text2Speech } = require("./lib/gtts.js");
-// const { tiktok, tiktokmusic, ghstalk, telegra, yta, ytv, emoji, mediafire, covid, tahta, styleText, asmaul, fb, igstalk, tebakgambar, playstore, twitter, kodepos, gempa, servermc, happymod, kompasnews, tribunnews, jalantikus, igtv, igfoto, igvideo, hoax, sfilesearch, mcpedl, halal, wallpapper, apkmody, moddroid, pinterest, palingmurah, ssweb } = require("./scrappe/srapp7.js");
+
+const { 
+wudy_android1,
+wudy_anime,
+wudy_anoboydl,
+wudy_anoboys,
+wudy_apkmirror,
+wudy_apkmody,
+wudy_artinama,
+wudy_asupanfilm,
+wudy_asupanfilminfo,
+wudy_bacaresep,
+wudy_carigc,
+wudy_cariresep,
+wudy_chara,
+wudy_corona,
+wudy_devianart,
+wudy_dewabatch,
+wudy_drakor,
+wudy_film,
+wudy_gempa,
+wudy_ghfollower,
+wudy_ghfollowing,
+wudy_ghuser,
+wudy_goredl,
+wudy_happymod,
+wudy_happymoddl,
+wudy_igdl,
+wudy_igstalk,
+wudy_job,
+wudy_kiryu,
+wudy_konachan,
+wudy_manga,
+wudy_mangatoon,
+wudy_mediafire,
+wudy_merdekanews,
+wudy_metronews,
+wudy_palingmurah,
+wudy_pinterest2,
+wudy_randomgore,
+wudy_randomtt,
+wudy_rexdl,
+wudy_rexdldown,
+wudy_searchgore,
+wudy_sfiledown,
+wudy_sfilesearch,
+wudy_soundcloud,
+wudy_stickersearch,
+wudy_textmakervid,
+wudy_trendtwit,
+wudy_wallpapercave,
+wudy_wallpapercraft,
+wudy_wallpaperhd,
+wudy_wattpad,
+wudy_webtoons,
+wudy_wikisearch,
+wudy_zerochan,
+wudy_zippydl
+ } = require("./scrappe/srapp.js");
+ 
+const { wudy2_cnn,
+wudy2_corona,
+wudy2_cuaca,
+wudy2_emoji,
+wudy2_FaktaUnik,
+wudy2_fbDownloader,
+wudy2_FilmApik23,
+wudy2_GSMArena,
+wudy2_igDownloader,
+wudy2_infoFilm123,
+wudy2_jagokata,
+wudy2_Liriklagu,
+wudy2_ManggaToon,
+wudy2_Otakudesu,
+wudy2_Pantun,
+wudy2_photoManipulation,
+wudy2_pinterest,
+wudy2_RamalJadian,
+wudy2_RandomCerpen,
+wudy2_ReverseVid,
+wudy2_SearchFilm,
+wudy2_Shoope,
+wudy2_SpeedVid,
+wudy2_ssstik_io,
+wudy2_stickerSearch,
+wudy2_TiktokDown,
+wudy2_TiktokDownloader,
+wudy2_ToVid,
+wudy2_trutdare,
+wudy2_uploadFile,
+wudy2_wikipedia,
+wudy2_ytPlay,
+wudy2_zodiakHar,
+wudy2_zodiakMing
+ } = require("./scrappe/srapp2.js");
+ 
+const { wudy3_ManggaToon,
+wudy3_EmojiScrapper,
+wudy3_RandomCerpen,
+wudy3_StickerSearch,
+wudy3_UploadFile,
+wudy3_igDownload,
+wudy3_Pantun,
+wudy3_TruthOrDare,
+wudy3_SearchFilm,
+wudy3_OtakudesuSearch,
+wudy3_InfoOtakudesu,
+wudy3_Musikmatch,
+wudy3_Snaptik
+ } = require("./scrappe/srapp3.js");
+ 
+const {
+    wudy4_getLatest,
+    wudy4_getVideo
+} = require("./scrappe/srapp4.js");
+
+// const {  } = require("./scrappe/srapp5.js");
+const { wudy6_ssweb } = require("./scrappe/srapp6.js");
+
 const fakeimage = fs.readFileSync ('./media/menu2.jpeg')
 const setGelud = require('./lib/gameGelud.js')
 const { downloadig, igstory } = require("./lib/instadl.js");
@@ -5871,8 +5989,10 @@ query = args.join(" ")
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += `${query}\n\n`
 for (let mem of groupMembers) {
-teks += `Si @${mem.jid.split('@')[0]}\n`
+teks += `@${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
+}
+mentions(teks, members_id, true)
 }
 break
 
@@ -17031,6 +17151,24 @@ case 'loli':
               ge = await getBuffer(wipi)
               alpha.sendMessage(from, ge,image,{quoted: mek})
               break
+
+case 'stik':
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} pentol`)
+gg = args.join(' ')
+mus = await wudy_stickersearch(`${gg}`)
+tes = `${mus.sticker}`
+sendStickerFromUrl(from, tes, mek)
+break
+
+case 'eses':
+if(!q) return reply2(`${emoj} Hint : ${prefix + command} link`)
+gg = args.join(' ')
+dev = await wudy6_ssweb(`${q}`)
+let via = `${dev.screenshot}`
+ge = await getBuffer(via)
+alpha.sendMessage(from, ge,image,{quoted: mek})
+break
+
 
 //Ends
 default:
