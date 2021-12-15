@@ -7,7 +7,7 @@ const request = require('request');
 const randomarray = async (array) => {
 	return array[Math.floor(Math.random() * array.length)]
 }
-exports.rexdl = async (query) => {
+exports.wudy_rexdl = async (query) => {
 	return new Promise((resolve) => {
 		axios.get('https://rexdl.com/?s=' + query)
 			.then(({
@@ -46,7 +46,7 @@ exports.rexdl = async (query) => {
 			})
 	})
 }
-exports.rexdldown = async (link) => {
+exports.wudy_rexdldown = async (link) => {
 	return new Promise((resolve) => {
 		axios.get(link)
 			.then(({
@@ -88,7 +88,7 @@ exports.rexdldown = async (link) => {
 			})
 	})
 }
-exports.merdekanews = async () => {
+exports.wudy_merdekanews = async () => {
 	return new Promise((resolve) => {
 		axios.get('https://www.merdeka.com/peristiwa/')
 			.then(({
@@ -119,7 +119,7 @@ exports.merdekanews = async () => {
 			})
 	})
 }
-exports.metronews = async () => {
+exports.wudy_metronews = async () => {
 	return new Promise((resolve) => {
 		axios.get('https://www.metrotvnews.com/news')
 			.then(({
@@ -157,7 +157,7 @@ exports.metronews = async () => {
 			})
 	})
 }
-exports.asupanfilm = async (query) => {
+exports.wudy_asupanfilm = async (query) => {
 	return new Promise((resolve) => {
 		axios.get(`https://asupanfilm.link/?search=${query}`)
 			.then(({
@@ -195,7 +195,7 @@ exports.asupanfilm = async (query) => {
 			})
 	})
 }
-exports.asupanfilminfo = async (link) => {
+exports.wudy_asupanfilminfo = async (link) => {
 	return new Promise((resolve) => {
 		axios.get(link)
 			.then(({
@@ -221,7 +221,7 @@ exports.asupanfilminfo = async (link) => {
 			})
 	})
 }
-exports.stickersearch = async (query) => {
+exports.wudy_stickersearch = async (query) => {
 	return new Promise((resolve) => {
 		axios.get(`https://getstickerpack.com/stickers?query=${query}`)
 			.then(({
@@ -253,7 +253,7 @@ exports.stickersearch = async (query) => {
 			})
 	})
 }
-exports.randomtt = async (query) => {
+exports.wudy_randomtt = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://brainans.com/search?query=' + query)
 			.then(({
@@ -290,7 +290,7 @@ exports.randomtt = async (query) => {
 			})
 	})
 }
-exports.trendtwit = (country) => {
+exports.wudy_trendtwit = (country) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://getdaytrends.com/${country}/`)
 			.then(({
@@ -325,7 +325,7 @@ exports.trendtwit = (country) => {
 			.catch(reject)
 	})
 }
-exports.pinterest2 = async (querry) => {
+exports.wudy_pinterest2 = async (querry) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get('https://id.pinterest.com/search/pins/?autologin=true&q=' + querry, {
 			headers: {
@@ -350,7 +350,7 @@ exports.pinterest2 = async (querry) => {
 		})
 	})
 }
-exports.zerochan = (query) => {
+exports.wudy_zerochan = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://www.zerochan.net/search?q=' + query)
 			.then(({
@@ -379,7 +379,7 @@ exports.zerochan = (query) => {
 			.catch(reject)
 	})
 }
-exports.happymoddl = (link) => {
+exports.wudy_happymoddl = (link) => {
 	return new Promise((resolve, reject) => {
 		axios.get(link)
 			.then(({
@@ -417,7 +417,7 @@ exports.happymoddl = (link) => {
 			.catch(reject)
 	})
 }
-exports.goredl = async (link) => {
+exports.wudy_goredl = async (link) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get(link)
 			.then(({
@@ -439,7 +439,7 @@ exports.goredl = async (link) => {
 			.catch(reject)
 	})
 }
-exports.chara = async (query) => {
+exports.wudy_chara = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://www.anime-planet.com/characters/all?name=${query}&sort=likes&order=desc`)
 			.then((data) => {
@@ -463,7 +463,7 @@ exports.chara = async (query) => {
 			.catch(reject)
 	})
 }
-exports.anime = async (query) => {
+exports.wudy_anime = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://www.anime-planet.com/anime/all?name=${query}`)
 			.then((data) => {
@@ -494,7 +494,7 @@ exports.anime = async (query) => {
 			.catch(reject)
 	})
 }
-exports.manga = async (query) => {
+exports.wudy_manga = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://www.anime-planet.com/manga/all?name=${query}`)
 			.then((data) => {
@@ -525,7 +525,7 @@ exports.manga = async (query) => {
 			.catch(reject)
 	})
 }
-exports.job = async (query) => {
+exports.wudy_job = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://www.jobstreet.co.id/id/job-search/${query}-jobs/`)
 			.then((data) => {
@@ -570,7 +570,7 @@ exports.job = async (query) => {
 			.catch(reject)
 	})
 }
-exports.anoboys = (query) => {
+exports.wudy_anoboys = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://anoboy.media/?s=' + query)
 			.then(({
@@ -613,7 +613,7 @@ exports.anoboys = (query) => {
 			.catch(reject)
 	})
 }
-exports.anoboydl = (query) => {
+exports.wudy_anoboydl = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(query)
 			.then(({
@@ -641,7 +641,7 @@ exports.anoboydl = (query) => {
 			.catch(reject)
 	})
 }
-exports.film = async (query) => {
+exports.wudy_film = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`http://167.99.71.200/?s=${query}`)
 			.then((data) => {
@@ -684,7 +684,7 @@ exports.film = async (query) => {
 			.catch(reject)
 	})
 }
-exports.webtoons = async (query) => {
+exports.wudy_webtoons = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(`https://www.webtoons.com/id/search?keyword=${query}`)
 			.then((data) => {
@@ -734,7 +734,7 @@ exports.webtoons = async (query) => {
 			.catch(reject)
 	})
 }
-exports.soundcloud = async (link) => {
+exports.wudy_soundcloud = async (link) => {
 	return new Promise((resolve, reject) => {
 		const options = {
 			method: 'POST',
@@ -760,7 +760,7 @@ exports.soundcloud = async (link) => {
 		});
 	})
 }
-exports.igdl = async (link) => {
+exports.wudy_igdl = async (link) => {
 	return new Promise((resolve, reject) => {
 		const options = {
 			method: 'POST',
@@ -784,7 +784,7 @@ exports.igdl = async (link) => {
 		});
 	})
 }
-exports.igstalk = async (username) => {
+exports.wudy_igstalk = async (username) => {
 	return new Promise(async (resolve, reject) => {
 		let {
 			data
@@ -816,7 +816,7 @@ exports.igstalk = async (username) => {
 		resolve(json)
 	})
 }
-exports.gempa = async () => {
+exports.wudy_gempa = async () => {
 	return new Promise(async (resolve, reject) => {
 		axios.get('https://www.bmkg.go.id/gempabumi/gempabumi-dirasakan.bmkg')
 			.then(({
@@ -851,7 +851,7 @@ exports.gempa = async () => {
 			.catch(reject)
 	})
 }
-exports.cariresep = async (query) => {
+exports.wudy_cariresep = async (query) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get('https://resepkoki.id/?s=' + query)
 			.then(({
@@ -885,7 +885,7 @@ exports.cariresep = async (query) => {
 			.catch(reject)
 	})
 }
-exports.bacaresep = async (query) => {
+exports.wudy_bacaresep = async (query) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get(query)
 			.then(({
@@ -939,7 +939,7 @@ exports.bacaresep = async (query) => {
 			.catch(reject)
 	})
 }
-exports.searchgore = async (query) => {
+exports.wudy_searchgore = async (query) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get('https://seegore.com/?s=' + query).then(dataa => {
 			const $$$ = cheerio.load(dataa)
@@ -992,7 +992,7 @@ exports.searchgore = async (query) => {
 		})
 	})
 }
-exports.randomgore = async () => {
+exports.wudy_randomgore = async () => {
 	return new Promise(async (resolve, reject) => {
 		rand = Math.floor(Math.random() * 218) + 1
 		randvid = Math.floor(Math.random() * 16) + 1
@@ -1033,7 +1033,7 @@ exports.randomgore = async () => {
 			})
 	})
 }
-exports.textmakervid = async (text1, style) => {
+exports.wudy_textmakervid = async (text1, style) => {
 	if (style == 'poly') {
 		var tstyle = 0
 	} else if (style == 'bold') {
@@ -1070,7 +1070,7 @@ exports.textmakervid = async (text1, style) => {
 		});
 	})
 }
-exports.apkmirror = async (query) => {
+exports.wudy_apkmirror = async (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=' + query)
 			.then(({
@@ -1128,7 +1128,7 @@ exports.apkmirror = async (query) => {
 			.catch(reject)
 	})
 }
-exports.sfiledown = async (link) => {
+exports.wudy_sfiledown = async (link) => {
 	return new Promise((resolve, reject) => {
 		axios.get(link)
 			.then(({
@@ -1164,7 +1164,7 @@ exports.sfiledown = async (link) => {
 			.catch(reject)
 	})
 }
-exports.zippydl = async (link) => {
+exports.wudy_zippydl = async (link) => {
 	return new Promise(async (resolve, reject) => {
 		axios.get(link)
 			.then(({
@@ -1221,7 +1221,7 @@ exports.zippydl = async (link) => {
 			.catch(reject)
 	})
 }
-exports.android1 = (query) => {
+exports.wudy_android1 = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://an1.com/tags/MOD/?story=' + query + '&do=search&subaction=search')
 			.then(({
@@ -1270,7 +1270,7 @@ exports.android1 = (query) => {
 			.catch(reject)
 	})
 }
-exports.apkmody = (query) => {
+exports.wudy_apkmody = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://apkmody.io/?s=' + query)
 			.then(({
@@ -1314,7 +1314,7 @@ exports.apkmody = (query) => {
 			.catch(reject)
 	})
 }
-exports.happymod = (query) => {
+exports.wudy_happymod = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://www.happymod.com/search.html?q=' + query)
 			.then(({
@@ -1355,7 +1355,7 @@ exports.happymod = (query) => {
 			.catch(reject)
 	})
 }
-exports.ghuser = (query) => {
+exports.wudy_ghuser = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://github.com/search?q=' + query + '&type=users')
 			.then(({
@@ -1386,7 +1386,7 @@ exports.ghuser = (query) => {
 			.catch(reject)
 	})
 }
-exports.ghfollower = (query) => {
+exports.wudy_ghfollower = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://github.com/' + query + '?tab=followers')
 			.then(({
@@ -1417,7 +1417,7 @@ exports.ghfollower = (query) => {
 			.catch(reject)
 	})
 }
-exports.ghfollowing = (query) => {
+exports.wudy_ghfollowing = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://github.com/' + query + '?tab=following')
 			.then(({
@@ -1448,7 +1448,7 @@ exports.ghfollowing = (query) => {
 			.catch(reject)
 	})
 }
-exports.corona = async (country) => {
+exports.wudy_corona = async (country) => {
 	if (!country) return loghandler.noinput;
 	try {
 		const res = await axios.request(`https://www.worldometers.info/coronavirus/country/` + country, {
@@ -1474,7 +1474,7 @@ exports.corona = async (country) => {
 		return "=> Error => " + error404;
 	}
 };
-exports.mangatoon = async (search) => {
+exports.wudy_mangatoon = async (search) => {
 	if (!search) return "No Querry Input! Bakaa >\/\/<";
 	try {
 		const res = await axios.get(`https://mangatoon.mobi/en/search?word=${search}`, {
@@ -1506,7 +1506,7 @@ exports.mangatoon = async (search) => {
 		return "=> Error =>" + eror404;
 	}
 }
-exports.palingmurah = async (produk) => {
+exports.wudy_palingmurah = async (produk) => {
 	if (!produk) {
 		return new TypeError("No Querry Input! Bakaaa >\/\/<")
 	}
@@ -1536,7 +1536,7 @@ exports.palingmurah = async (produk) => {
 		return new Error("=> Error =>" + error404)
 	}
 }
-exports.mediafire = (query) => {
+exports.wudy_mediafire = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get(query)
 			.then(({
@@ -1559,7 +1559,7 @@ exports.mediafire = (query) => {
 			.catch(reject)
 	})
 }
-exports.artinama = (query) => {
+exports.wudy_artinama = (query) => {
 	return new Promise((resolve, reject) => {
 		queryy = query.replace(/ /g, '+')
 		axios.get('https://www.primbon.com/arti_nama.php?nama1=' + query + '&proses=+Submit%21+')
@@ -1577,7 +1577,7 @@ exports.artinama = (query) => {
 			.catch(reject)
 	})
 }
-exports.drakor = (query) => {
+exports.wudy_drakor = (query) => {
 	return new Promise((resolve, reject) => {
 		queryy = query.replace(/ /g, '+')
 		axios.get('https://drakorasia.net/?s=' + queryy + '&post_type=post')
@@ -1609,7 +1609,7 @@ exports.drakor = (query) => {
 			.catch(reject)
 	})
 }
-exports.wattpad = (query) => {
+exports.wudy_wattpad = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://www.wattpad.com/search/' + query)
 			.then(({
@@ -1659,7 +1659,7 @@ exports.wattpad = (query) => {
 			.catch(reject)
 	})
 }
-exports.dewabatch = (query) => {
+exports.wudy_dewabatch = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://dewabatch.com/?s=' + query)
 			.then(({
@@ -1693,7 +1693,7 @@ exports.dewabatch = (query) => {
 			.catch(reject)
 	})
 }
-exports.kiryu = (query) => {
+exports.wudy_kiryu = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://kiryuu.id/?s=' + query)
 			.then(({
@@ -1727,7 +1727,7 @@ exports.kiryu = (query) => {
 			.catch(reject)
 	})
 }
-exports.sfilesearch = (query) => {
+exports.wudy_sfilesearch = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://sfile.mobi/search.php?q=' + query + '&search=Search')
 			.then(({
@@ -1762,7 +1762,7 @@ exports.sfilesearch = (query) => {
 			.catch(reject)
 	})
 }
-exports.carigc = (nama) => {
+exports.wudy_carigc = (nama) => {
 	return new Promise((resolve, reject) => {
 		axios.get('http://ngarang.com/link-grup-wa/daftar-link-grup-wa.php?search=' + nama + '&searchby=name')
 			.then(({
@@ -1791,7 +1791,7 @@ exports.carigc = (nama) => {
 			.catch(reject)
 	})
 }
-exports.wikisearch = async (query) => {
+exports.wudy_wikisearch = async (query) => {
 	const res = await axios.get(`https://id.m.wikipedia.org/w/index.php?search=${query}`)
 	const $ = cheerio.load(res.data)
 	const hasil = []
@@ -1807,7 +1807,7 @@ exports.wikisearch = async (query) => {
 	})
 	return hasil
 }
-exports.devianart = (query) => {
+exports.wudy_devianart = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://www.deviantart.com/search?q=' + query)
 			.then(({
@@ -1833,7 +1833,7 @@ exports.devianart = (query) => {
 			.catch(reject)
 	})
 }
-exports.konachan = (chara) => {
+exports.wudy_konachan = (chara) => {
 	return new Promise((resolve, reject) => {
 		let text = chara.replace(' ', '_')
 		axios.get('https://konachan.net/post?tags=' + text + '+')
@@ -1861,7 +1861,7 @@ exports.konachan = (chara) => {
 			.catch(reject)
 	})
 }
-exports.wallpapercave = (query) => {
+exports.wudy_wallpapercave = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://wallpapercave.com/search?q=' + query)
 			.then(({
@@ -1879,7 +1879,7 @@ exports.wallpapercave = (query) => {
 			.catch(reject)
 	})
 }
-exports.wallpapercraft = (query) => {
+exports.wudy_wallpapercraft = (query) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://wallpaperscraft.com/search/?query=' + query)
 			.then(({
@@ -1895,7 +1895,7 @@ exports.wallpapercraft = (query) => {
 			.catch(reject)
 	})
 }
-exports.wallpaperhd = (chara) => {
+exports.wudy_wallpaperhd = (chara) => {
 	return new Promise((resolve, reject) => {
 		axios.get('https://wall.alphacoders.com/search.php?search=' + chara + '&filter=4K+Ultra+HD')
 			.then(({

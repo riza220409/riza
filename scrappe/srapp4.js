@@ -2,7 +2,7 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 
-function getLatest() {
+function wudy4_getLatest() {
     return new Promise(function (resolve, reject) {                                                                                                                                                              
             const url = 'http://nekopoi.care'
             axios.get(url, { timeout: 6000})
@@ -34,7 +34,7 @@ function getLatest() {
         })
 }
 
-function getVideo(url) {
+function wudy4_getVideo(url) {
     return new Promise(function (resolve, reject) {                                                                                                                                                               //<https://github.com/ArugaZ/whatsapp-bot>
             axios.get(url, { timeout: 6000 })
                 .then(req => {
@@ -62,6 +62,6 @@ function getVideo(url) {
 }
 
 module.exports = {
-    getLatest,
-    getVideo
+    wudy4_getLatest,
+    wudy4_getVideo
 }

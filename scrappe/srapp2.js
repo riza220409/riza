@@ -9,7 +9,7 @@ const print = (message) => {
 	return console.log(message)
 }
 
-async function ManggaToon(judul) {
+async function wudy2_ManggaToon(judul) {
 	try {
 		const link = await axios.get(`https://mangatoon.mobi/id/search?word=${judul}`) 
 		const c = cheerio.load(link.data)
@@ -50,7 +50,7 @@ async function ManggaToon(judul) {
 			return `Not Found 404`
 		}
 }
-async function emoji(emoticon) {
+async function wudy2_emoji(emoticon) {
 	const emojii = encodeURI(`${emoticon}`)
 	const link = await axios.get(`https://emojipedia.org/${emojii}/`)
 	const $ = cheerio.load(link.data)
@@ -93,7 +93,7 @@ async function emoji(emoticon) {
 	return result
 }
 
-async function RandomCerpen() {
+async function wudy2_RandomCerpen() {
 	try{
 	const link = await axios.get(`http://cerpenmu.com/`)
 	const c = cheerio.load(link.data)
@@ -147,7 +147,7 @@ async function RandomCerpen() {
 	return res404
 }
 }
-async function stickerSearch(querry) {
+async function wudy2_stickerSearch(querry) {
 	const link = await axios.get(`https://getstickerpack.com/stickers?query=${querry}`);
 	const $ = cheerio.load(link.data)
 	let sticker1 = {
@@ -230,7 +230,7 @@ let data = {
 	return data
 }
 
-async function RamalJadian(tanggal, bulan, tahun) {
+async function wudy2_RamalJadian(tanggal, bulan, tahun) {
 	if(isNaN(tanggal) && isNaN(bulan) && isNaN(tahun)) return `Tanggal bulan tahun harus berupa angka`
 	const link = await axios.get(`https://www.primbon.com/tanggal_jadian_pernikahan.php?tgl=${tanggal}&bln=${bulan}&thn=${tahun}&proses=+Submit%21+`)
 	const $ = cheerio.load(link.data)
@@ -238,7 +238,7 @@ async function RamalJadian(tanggal, bulan, tahun) {
 	let a = tanggall.replace('MAKNA TANGGAL JADIAN, PERNIKAHAN', '').replace('Karakteristik:', '\nKarakteristik : ').replace('< Hitung Kembali', '')
 	return a
 }
-async function igDownloader(Link) {
+async function wudy2_igDownloader(Link) {
 	const hasil = []
 	const Form = {
 		url: Link,
@@ -286,13 +286,13 @@ async function igDownloader(Link) {
 	})
 	return hasil[0]
 }
-function Pantun() {
+function wudy2_Pantun() {
 	const pantun = fs.readFileSync('./database/pantun.json')
 	const data = JSON.parse(pantun)
 	const acak = data[Math.floor(Math.random() * (data.length))]
 	return acak
 }
-function trutdare(querry) {
+function wudy2_trutdare(querry) {
 	const trdr = fs.readFileSync('./database/truthdare.json') // tempat simpen file lu
 	const result = JSON.parse(trdr)
 	if(querry === 'truth id') {
@@ -311,7 +311,7 @@ function trutdare(querry) {
 		return `Querry tidak terdaftar dimenu harap masukkan dengan benar.\n\ncara pakai :\n1. trutdare('truth id')\n2. trutdare('truth eng')\n3. trutdare('dare id')\n4. trutdare('dare eng')`
 	}
 }
-async function SearchFilm(querry) {
+async function wudy2_SearchFilm(querry) {
 	const link =  await axios.get(`https://123movies.mom/search/?keyword=${querry}`)
 	const $ = cheerio.load(link.data)
 	let hasil = []
@@ -334,13 +334,13 @@ async function SearchFilm(querry) {
 	})
 	return hasil
 }
-function FaktaUnik() {
+function wudy2_FaktaUnik() {
 	const fakta = fs.readFileSync('./database/faktaunik.json')
 	const data = JSON.parse(fakta)
 	const acak = data[Math.floor(Math.random() * (data.length))]
 	return acak
 }
-async function Liriklagu(querry) {
+async function wudy2_Liriklagu(querry) {
 	return new Promise(async (resolve, reject) => {
 		await axios.request({
 			url: "https://www.musixmatch.com/search/" + querry,
@@ -389,7 +389,7 @@ async function Liriklagu(querry) {
 		})
 	})
 }
-async function infoFilm123(url) {
+async function wudy2_infoFilm123(url) {
 	try{
 	const link =  await axios.get(`${url}`)
 	const $ = cheerio.load(link.data)
@@ -429,7 +429,7 @@ async function infoFilm123(url) {
 }
 } 
 
-async function Otakudesu(querry) {
+async function wudy2_Otakudesu(querry) {
 	try {
 	const link = await axios.get(`https://otakudesu.moe/?s=${querry}&post_type=anime`)
 	const c = cheerio.load(link.data)
@@ -480,7 +480,7 @@ async function Otakudesu(querry) {
 	return notFond
 }
 }
-async function wikipedia(querry) {
+async function wudy2_wikipedia(querry) {
 	try {
 	const link =  await axios.get(`https://id.wikipedia.org/wiki/${querry}`)
 	const $ = cheerio.load(link.data)
@@ -512,7 +512,7 @@ async function wikipedia(querry) {
 		return notFond
 	}
 }
-async function corona(negara) {
+async function wudy2_corona(negara) {
 	try{
 	const link = await axios.get(`https://www.worldometers.info/coronavirus/country/${negara}/`)
 	const $ = cheerio.load(link.data)
@@ -538,7 +538,7 @@ async function corona(negara) {
 	return notFond
 }
 }
-async function cuaca(wilayah) {
+async function wudy2_cuaca(wilayah) {
 	try {
 	function Cuaca(daerah) {
 		const listcuaca = fs.readFileSync('./database/cuaca.json')
@@ -643,7 +643,7 @@ async function cuaca(wilayah) {
 	return notFond
 }
 }
-async function FilmApik23(querry) {
+async function wudy2_FilmApik23(querry) {
 	try{
 	const link = await axios.get(`https://filmapik.website/?s=${querry}`);
 	const c = cheerio.load(link.data)
@@ -692,7 +692,7 @@ async function FilmApik23(querry) {
 	return notFond
 }
 }
-async function ssstik_io(Link) {
+async function wudy2_ssstik_io(Link) {
 	const hasil = []
 	await axios.request({
 		url: "https://ssstik.io/download-tiktok-mp3",
@@ -741,7 +741,7 @@ async function ssstik_io(Link) {
 	})
 	return hasil[0]
 } 
-async function TiktokDownloader(link) {
+async function wudy2_TiktokDownloader(link) {
 	const Result = []
 	await axios.request({
 		url: `https://ttdownloader.com/`,
@@ -787,7 +787,7 @@ async function TiktokDownloader(link) {
 	})
 	return Result[0]
 }
-async function uploadFile(path) {
+async function wudy2_uploadFile(path) {
 	const Result = []
 	const bodyForm = new FormData();
 	bodyForm.append('files[]', fs.createReadStream(path))
@@ -814,7 +814,7 @@ async function uploadFile(path) {
 	})
 	return Result[0]
 }
-async function ytPlay(querry) {
+async function wudy2_ytPlay(querry) {
 	const videos = await yt(querry)
 	const result = []
 	const Format = {
@@ -855,7 +855,7 @@ async function ytPlay(querry) {
 	})
 	return result[0]
 }
-async function Gempa() {
+async function wudy2_FilmApik23() {
 	try{
 	const link = await axios.get(`https://www.bmkg.go.id/gempabumi/gempabumi-dirasakan.bmkg`)
 	const $ = cheerio.load(link.data)
@@ -891,7 +891,7 @@ async function Gempa() {
 	return notFond
 }
 }
-async function cnn() {
+async function wudy2_cnn() {
 	try {
 	const link = await axios.get('https://www.cnnindonesia.com/')
 	const $ = cheerio.load(link.data)
@@ -927,7 +927,7 @@ async function cnn() {
 	return notFond
 }
 }
-async function photoManipulation(namaFile, path, effectId) {
+async function wudy2_photoManipulation(namaFile, path, effectId) {
 	const hasil = []
 		const fd = new FormData();
 		fd.append('name', `${namaFile}`)
@@ -968,7 +968,7 @@ async function photoManipulation(namaFile, path, effectId) {
 		})
 		return hasil[0]
 }
-async function ToVid(path) {
+async function wudy2_ToVid(path) {
 	return new Promise(async (resolve, reject) => {
 		const BodyForm = new FormData()
 		BodyForm.append('new-image', fs.createReadStream(path))
@@ -1010,7 +1010,7 @@ async function ToVid(path) {
 		})
 	})
 }
-async function fbDownloader(Link) {
+async function wudy2_fbDownloader(Link) {
 	return new Promise (async (resolve, reject) => {
 		const BodyForm = {
 			url: Link
@@ -1043,7 +1043,7 @@ async function fbDownloader(Link) {
 		}).catch(reject)
 	})
 }
-async function SpeedVid(path, kecepatan) {
+async function wudy2_SpeedVid(path, kecepatan) {
 	return new Promise(async (resolve, reject) => {
 		const BodyForm = new FormData()
 		BodyForm.append('new-image', fs.createReadStream(path))
@@ -1086,7 +1086,7 @@ async function SpeedVid(path, kecepatan) {
 		})
 	})
 }
-async function ReverseVid (path, audio) {
+async function wudy2_ReverseVid (path, audio) {
 	return new Promise(async (resolve, reject) => {
 		function muteOrno(audioo ,File, token) {
 			if (audioo === true) {
@@ -1155,7 +1155,7 @@ async function ReverseVid (path, audio) {
 		}).catch(reject)
 	})
 }
-async function GSMArena(querry) {
+async function wudy2_GSMArena(querry) {
 	const link = await axios.get(`https://www.gsmarena.com/res.php3?sSearch=${querry}`)
 	const ch = cheerio.load(link.data)
 	let Url = ch('#review-body > div > ul').find('li:nth-child(1) > a').attr('href')
@@ -1206,7 +1206,7 @@ async function GSMArena(querry) {
 	}
 	return result
 }
-async function zodiakMing(querry) {
+async function wudy2_zodiakMing(querry) {
 	const link = await axios.get(`https://www.fimela.com/zodiak/${querry}/minggu-ini`)
 	const  $ = cheerio.load(link.data)
 	let thumb = $('body > div > div > div').find('div > div > a > img').attr('src')
@@ -1232,7 +1232,7 @@ async function zodiakMing(querry) {
 	}
 	return result
 }
-async function zodiakHar (querry) {
+async function wudy2_zodiakHar (querry) {
 	let Hasil = []
 	await axios.request(`https://www.fimela.com/zodiak/${querry}`, {
 			method: "GET",
@@ -1277,7 +1277,7 @@ async function zodiakHar (querry) {
 		})
 		return Hasil[0]
 }
-async function Shoope(item, limit) {
+async function wudy2_Shoope(item, limit) {
 	const hasil = []
 	await axios.request(`https://shopee.co.id/api/v4/search/search_items?by=relevancy&keyword=${item}&limit=${limit}&newest=0&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2`, {
 		method: "GET",
@@ -1293,7 +1293,7 @@ async function Shoope(item, limit) {
 	})
 	return hasil[0]
 }
-async function pinterest(querry) {
+async function wudy2_pinterest(querry) {
 	let HASIL = []
 	await axios.request(`https://id.pinterest.com/search/pins/?rs=typed&q=` + querry, {
 			method: "GET",
@@ -1329,7 +1329,7 @@ async function pinterest(querry) {
 		})
 		return HASIL[0]
 }
-async function TiktokDown (link) {
+async function wudy2_TiktokDown (link) {
 		return new Promise (async (resolve, reject) => {
 			await axios.request(`https://toksaver.com/convertok?url=` + link, {
 				method: "GET",
@@ -1346,7 +1346,7 @@ async function TiktokDown (link) {
 		})
 }
 
-function jagokata(input) {
+function wudy2_jagokata(input) {
 	return new Promise((resolve, reject) => {
 		axios.get('https://jagokata.com/kata-bijak/kata-' + input.replace(/\s/g, '_') + '.html?page=1')
 			.then(res => {
@@ -1365,38 +1365,38 @@ function jagokata(input) {
 	})
 }
 
-module.exports.jagokata = jagokata
-module.exports.RandomCerpen = RandomCerpen
-module.exports.emoji = emoji
-module.exports.stickerSearch = stickerSearch
-module.exports.ManggaToon = ManggaToon
-module.exports.RamalJadian = RamalJadian
-module.exports.Pantun = Pantun
-module.exports.trutdare = trutdare
-module.exports.SearchFilm = SearchFilm
-module.exports.infoFilm123 = infoFilm123
-module.exports.FaktaUnik = FaktaUnik
-module.exports.Liriklagu = Liriklagu
-module.exports.Otakudesu = Otakudesu
-module.exports.wikipedia = wikipedia
-module.exports.corona =  corona
-module.exports.cuaca = cuaca
-module.exports.FilmApik23 = FilmApik23
-module.exports.Gempa = Gempa
-module.exports.cnn = cnn
-module.exports.TiktokDownloader = TiktokDownloader
-module.exports.uploadFile =  uploadFile
-module.exports.ytPlay = ytPlay
-module.exports.igDownloader = igDownloader
-module.exports.ssstik_io =  ssstik_io
-module.exports.photoManipulation = photoManipulation
-module.exports.ToVid = ToVid 
-module.exports.fbDownloader = fbDownloader
-module.exports.SpeedVid = SpeedVid
-module.exports.ReverseVid = ReverseVid
-module.exports.GSMArena =  GSMArena
-module.exports.zodiakMing = zodiakMing
-module.exports.zodiakHar =  zodiakHar 
-module.exports.Shoope = Shoope
-module.exports.pinterest = pinterest
-module.exports.TiktokDown = TiktokDown
+module.exports.wudy2_jagokata = wudy2_jagokata
+module.exports.wudy2_RandomCerpen = wudy2_RandomCerpen
+module.exports.wudy2_emoji = wudy2_emoji
+module.exports.wudy2_stickerSearch = wudy2_stickerSearch
+module.exports.wudy2_ManggaToon = wudy2_ManggaToon
+module.exports.wudy2_RamalJadian = wudy2_RamalJadian
+module.exports.wudy2_Pantun = wudy2_Pantun
+module.exports.wudy2_trutdare = wudy2_trutdare
+module.exports.wudy2_SearchFilm = wudy2_SearchFilm
+module.exports.wudy2_infoFilm123 = wudy2_infoFilm123
+module.exports.wudy2_FaktaUnik = wudy2_FaktaUnik
+module.exports.wudy2_Liriklagu = wudy2_Liriklagu
+module.exports.wudy2_Otakudesu = wudy2_Otakudesu
+module.exports.wudy2_wikipedia = wudy2_wikipedia
+module.exports.wudy2_corona =  wudy2_corona
+module.exports.wudy2_cuaca = wudy2_cuaca
+module.exports.wudy2_FilmApik23 = wudy2_FilmApik23
+module.exports.wudy2_FilmApik23 = wudy2_FilmApik23
+module.exports.wudy2_cnn = wudy2_cnn
+module.exports.wudy2_TiktokDownloader = wudy2_TiktokDownloader
+module.exports.wudy2_uploadFile =  wudy2_uploadFile
+module.exports.wudy2_ytPlay = wudy2_ytPlay
+module.exports.wudy2_igDownloader = wudy2_igDownloader
+module.exports.wudy2_ssstik_io =  wudy2_ssstik_io
+module.exports.wudy2_photoManipulation = wudy2_photoManipulation
+module.exports.wudy2_ToVid = wudy2_ToVid 
+module.exports.wudy2_fbDownloader = wudy2_fbDownloader
+module.exports.wudy2_SpeedVid = wudy2_SpeedVid
+module.exports.wudy2_ReverseVid = wudy2_ReverseVid
+module.exports.wudy2_GSMArena =  wudy2_GSMArena
+module.exports.wudy2_zodiakMing = wudy2_zodiakMing
+module.exports.wudy2_zodiakHar =  wudy2_zodiakHar 
+module.exports.wudy2_Shoope = wudy2_Shoope
+module.exports.wudy2_pinterest = wudy2_pinterest
+module.exports.wudy2_TiktokDown = wudy2_TiktokDown

@@ -16,7 +16,7 @@ const cheerio_1 = __importDefault(require("cheerio"));
 const form_data_1 = __importDefault(require("form-data"));
 const fs_1 = __importDefault(require("fs"));
 const got_1 = __importDefault(require("got"));
-function ManggaToon(querry) {
+function wudy3_ManggaToon(querry) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
@@ -73,7 +73,7 @@ function ManggaToon(querry) {
         }
     });
 }
-function EmojiScrapper(emoji) {
+function wudy3_EmojiScrapper(emoji) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const emot = encodeURIComponent(emoji);
@@ -113,7 +113,7 @@ function EmojiScrapper(emoji) {
         }));
     });
 }
-function RandomCerpen() {
+function wudy3_RandomCerpen() {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const link = yield axios_1.default.get(`http://cerpenmu.com/`);
@@ -161,7 +161,7 @@ function RandomCerpen() {
         }));
     });
 }
-function StickerSearch(querry) {
+function wudy3_StickerSearch(querry) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             yield axios_1.default.get(`https://getstickerpack.com/stickers?query=` + querry).then((res) => __awaiter(this, void 0, void 0, function* () {
@@ -211,7 +211,7 @@ function StickerSearch(querry) {
         }));
     });
 }
-function UploadFile(_path) {
+function wudy3_UploadFile(_path) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, rejects) => __awaiter(this, void 0, void 0, function* () {
             const BodyForm = new form_data_1.default();
@@ -238,7 +238,7 @@ function UploadFile(_path) {
         }));
     });
 }
-function igDownload(Link) {
+function wudy3_igDownload(Link) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const Form = {
@@ -286,12 +286,12 @@ function igDownload(Link) {
         }));
     });
 }
-function Pantun() {
+function wudy3_Pantun() {
     const pantun = JSON.parse(fs_1.default.readFileSync('./database/pantun.json').toString());
     const acak = pantun[Math.floor(Math.random() * (pantun.length))];
     return acak;
 }
-function TruthOrDare(querry) {
+function wudy3_TruthOrDare(querry) {
     const result = JSON.parse(fs_1.default.readFileSync('./database/truthdare.json').toString());
     if (querry === 'truth id') {
         const res = result.Truth.id[Math.floor(Math.random() * result.Truth.id.length)];
@@ -310,10 +310,10 @@ function TruthOrDare(querry) {
         return res;
     }
     else {
-        return `Querry tidak terdaftar dimenu harap masukkan dengan benar.\n\ncara pakai :\n1. TruthOrDare ('truth id')\n2. TruthOrDare('truth eng')\n3. TruthOrDare ('dare id')\n4. TruthOrDare ('dare eng')`;
+        return `Querry tidak terdaftar dimenu harap masukkan dengan benar.\n\ncara pakai :\n1. wudy3_TruthOrDare ('truth id')\n2. wudy3_TruthOrDare('truth eng')\n3. wudy3_TruthOrDare ('dare id')\n4. wudy3_TruthOrDare ('dare eng')`;
     }
 }
-function SearchFilm(querry) {
+function wudy3_SearchFilm(querry) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             yield got_1.default.get(`http://167.99.31.48/?s=${querry}`).then(respon => {
@@ -339,7 +339,7 @@ function SearchFilm(querry) {
         }));
     });
 }
-function OtakudesuSearch(querry) {
+function wudy3_OtakudesuSearch(querry) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             yield got_1.default(`https://otakudesu.moe/?s=${querry}&post_type=anime`, {
@@ -381,7 +381,7 @@ function OtakudesuSearch(querry) {
         }));
     });
 }
-function InfoOtakudesu(URL) {
+function wudy3_InfoOtakudesu(URL) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             yield got_1.default.get(URL, {
@@ -423,7 +423,7 @@ function InfoOtakudesu(URL) {
         }));
     });
 }
-function Musikmatch(querry) {
+function wudy3_Musikmatch(querry) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             yield got_1.default.get(`https://www.musixmatch.com/search/${querry}`, {
@@ -469,7 +469,7 @@ function Musikmatch(querry) {
         }));
     });
 }
-function Snaptik (Url) {
+function wudy3_Snaptik (Url) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             const BodyForm = new form_data_1.default();
@@ -499,16 +499,16 @@ function Snaptik (Url) {
         }));
     });
 }
-module.exports.ManggaToon = ManggaToon;
-module.exports.EmojiScrapper = EmojiScrapper;
-module.exports.RandomCerpen = RandomCerpen;
-module.exports.StickerSearch = StickerSearch;
-module.exports.UploadFile = UploadFile;
-module.exports.igDownload = igDownload;
-module.exports.Pantun = Pantun;
-module.exports.TruthOrDare = TruthOrDare;
-module.exports.SearchFilm = SearchFilm;
-module.exports.OtakudesuSearch = OtakudesuSearch;
-module.exports.InfoOtakudesu = InfoOtakudesu;
-module.exports.Musikmatch = Musikmatch;
-module.exports.Snaptik = Snaptik;
+module.exports.wudy3_ManggaToon = wudy3_ManggaToon;
+module.exports.wudy3_EmojiScrapper = wudy3_EmojiScrapper;
+module.exports.wudy3_RandomCerpen = wudy3_RandomCerpen;
+module.exports.wudy3_StickerSearch = wudy3_StickerSearch;
+module.exports.wudy3_UploadFile = wudy3_UploadFile;
+module.exports.wudy3_igDownload = wudy3_igDownload;
+module.exports.wudy3_Pantun = wudy3_Pantun;
+module.exports.wudy3_TruthOrDare = wudy3_TruthOrDare;
+module.exports.wudy3_SearchFilm = wudy3_SearchFilm;
+module.exports.wudy3_OtakudesuSearch = wudy3_OtakudesuSearch;
+module.exports.wudy3_InfoOtakudesu = wudy3_InfoOtakudesu;
+module.exports.wudy3_Musikmatch = wudy3_Musikmatch;
+module.exports.wudy3_Snaptik = wudy3_Snaptik;
