@@ -4008,6 +4008,8 @@ sendButLocation(from, teks , `Makasih Udah Verifikasi 😉\n${botname}™© | By
 break
 
 case 'menu':
+sendStickerFromUrl(from, `https://i.ibb.co/9rsxrhR/menu.webp`, mek)
+/*
 try {
 xcat = await alpha.getProfilePicture(sender)
 } catch {
@@ -4081,6 +4083,7 @@ alpha.sendMessage(from,
  mediaType:"2",
  previewType: "VIDEO",
  mediaUrl: pelink_}}})
+ */
 break
 
 case 'help':
