@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 COPY package.json .
 RUN npm install 
-#RUN npm install @adiwajshing/baileys@3.5.3 
+#RUN npm install @adiwajshing/baileys@latest
 #RUN npm audit fix
 #RUN npm install -g npm-check-updates
 #RUN ncu --upgrade
