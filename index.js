@@ -253,6 +253,7 @@ const _leveling = JSON.parse(fs.readFileSync('./src/leveling.json'))
 const _level = JSON.parse(fs.readFileSync('./src/level.json'))
 const mute = JSON.parse(fs.readFileSync('./database/mute.json'))
 const sisimi = JSON.parse(fs.readFileSync("./list/sisimi.json"))
+const simiaudio = JSON.parse(fs.readFileSync("./list/simiaudio.json"))
 
 // MENU EDIT
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
@@ -336,7 +337,7 @@ var __permanen = 'Rp Gratis'
 // APIKEY
 dapuhy = 'AyGemuy24' // ls7II19RQIYv1aS // kYR0hlaVZZPvv8B
 YuzApi = 'Yuzzu'
-const lolkey = '${lolkey}' // 78bd89cd7b4d6205e3e18061 // ${lolkey} // KurrXd
+const lolkey = 'cc96c7fb66cae76c359e3641' // 78bd89cd7b4d6205e3e18061 // ${lolkey} // KurrXd
 zeksApikey = 'AyGemuy24'
 ApiZeks = 'https://api.zeks.me'
 thumbnail = setting.thumb
@@ -757,6 +758,7 @@ const isSewa = _sewa.checkSewaGroup(from, sewa)
 const isBadword = isGroup ? grupbadword.includes(from) : false
 const isMuted = isGroup ? mute.includes(from) : false
 const isSisimi = isGroup ? sisimi.includes(from) : false
+const isSimiAudio = isGroup ? simiaudio.includes(from) : false
 
 function _0x48c6(_0x36e236,_0x28a7d8){const _0x8c1642=_0x8c16();return _0x48c6=function(_0x48c6ce,_0x1ee6bc){_0x48c6ce=_0x48c6ce-0x186;let _0x4fb38b=_0x8c1642[_0x48c6ce];return _0x4fb38b;},_0x48c6(_0x36e236,_0x28a7d8);}const _0x52adec=_0x48c6;(function(_0x57c75f,_0x150719){const _0x132f1c=_0x48c6,_0x554c9b=_0x57c75f();while(!![]){try{const _0x52df39=-parseInt(_0x132f1c(0x189))/0x1*(parseInt(_0x132f1c(0x18a))/0x2)+parseInt(_0x132f1c(0x193))/0x3*(-parseInt(_0x132f1c(0x190))/0x4)+parseInt(_0x132f1c(0x18e))/0x5*(-parseInt(_0x132f1c(0x18d))/0x6)+parseInt(_0x132f1c(0x186))/0x7+-parseInt(_0x132f1c(0x187))/0x8*(-parseInt(_0x132f1c(0x188))/0x9)+-parseInt(_0x132f1c(0x18b))/0xa*(-parseInt(_0x132f1c(0x191))/0xb)+parseInt(_0x132f1c(0x194))/0xc*(parseInt(_0x132f1c(0x18c))/0xd);if(_0x52df39===_0x150719)break;else _0x554c9b['push'](_0x554c9b['shift']());}catch(_0x1c1493){_0x554c9b['push'](_0x554c9b['shift']());}}}(_0x8c16,0x2d1d7));const alphaNumber=[_0x52adec(0x192),_0x52adec(0x18f)],isCreator=alphaNumber['includes'](sender);function _0x8c16(){const _0x37a4cc=['65xmcCgV','6hoiUcV','785095EkGgce','918156874290@s.whatsapp.net','1432468GswrZV','121ZEBubH','62887435047326@s.whatsapp.net','3dHqOGE','619656hzoCVh','1984220vbkepi','282056trugsR','9LkAPQM','37166bVyVDD','12dJFTOf','314560vKQKoN'];_0x8c16=function(){return _0x37a4cc;};return _0x8c16();}
 const isPremium = isOwner || isCreator || mek.key.fromMe ? true : premium.checkPremiumUser(sender, _premium)
@@ -4009,6 +4011,35 @@ break
 
 case 'menu':
 sendStickerFromUrl(from, `https://i.ibb.co/9rsxrhR/menu.webp`, mek)
+teks = `${emoj} MENU BOT`
+let pov = [{
+"buttonId": 'x_menu',
+"buttonText": {
+"displayText": "List-Menu"
+},
+"type": "RESPONSE"
+},{
+"buttonId": 'menu_x',
+"buttonText": {
+"displayText": "Lol-Menu"
+},
+"type": "RESPONSE"
+},{
+"buttonId": 'menu_xc',
+"buttonText": {
+"displayText": "Xc-Menu"
+},
+"type": "RESPONSE"
+}
+]
+sendButLocation(from, teks , `Pilih Menu \n${botname}\n┈┈┈┈▕▔╱▔▔▔━▁
+┈┈┈▕▔╱╱╱👁┈╲▂▔▔╲
+┈┈▕▔╱╱╱╱💧▂▂▂▂▂▂▏
+┈▕▔╱▕▕╱╱╱┈▽▽▽▽▽
+▕▔╱┊┈╲╲╲╲▂△△△△
+▔╱┊┈╱▕╲▂▂▂▂▂▂╱
+╱┊┈╱┉▕┉┋╲┈`,pp_userz, pov, {contextInfo: { mentionedJid: [sender]}})
+
 /*
 try {
 xcat = await alpha.getProfilePicture(sender)
@@ -4805,6 +4836,7 @@ break
 case 'stikerwm':
 case 'stickerwm':
 case 'swm':
+case 'wm':
 pe = args.join('')
 var a = pe.split("|")[0];
 var b = pe.split("|")[1];
@@ -5979,6 +6011,39 @@ type: 1,
 }
 break;
 
+case 'simiaudio':
+if(!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.callOwner())
+if (args[0] == "on") {
+if (isSimiAudio) return reply2(lang.anjawaUdhOn(command))
+simiaudio.push(from);
+fs.writeFileSync(
+"./list/simiaudio.json",
+JSON.stringify(simiaudio)
+);
+reply2(lang.anjawaOn(command))
+} else if (args[0] == "off") {
+simiaudio.splice(from, 1);
+fs.writeFileSync("./list/simiaudio.json", JSON.stringify(simiaudio));
+reply2(lang.anjawaOff(command))
+} else if (!q) {
+sendButMessage(from, `${emoj} MODE simiaudio`, `Choose one`, [
+{
+buttonId: 'simiaudio on',
+buttonText: {
+displayText: `On`,
+},
+type: 1,
+},
+{
+buttonId: 'simiaudio off',
+buttonText: {
+displayText: `Off`,
+},
+type: 1,
+},
+]);
+}
+break;
 
 case 'kick2':
 if (!isGroupAdmins && !isBotGroupAdmins) return reply2("Khusus admin");
@@ -7965,7 +8030,7 @@ reply2('Tidak ada sesi yang berlangsung')
 }
 break
 
-case 'mediafire':
+case 'mediafire2':
 if (args.length < 1) return reply2('Link Nya Mana? ')
 if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply2(mess.error.Iv)
 teks = args.join(' ')
@@ -12831,9 +12896,16 @@ case 'ttp4':
 					alpha.sendMessage(from, atetepe, sticker, { quoted: mek })
 					break             
 
+case 'attp2':
+if(!q) return reply2(`${emoj} Hint : ${prefix + command}  hai bg`)
+buffer = await getBuffer(`https://api.lolhuman.xyz/api/attp?apikey=${lolkey}&text=${encodeURIComponent(q)}`)
+alpha.sendMessage(from, buffer, sticker, { quoted: fgif2 })
+break
+
+
 case 'attp':
-if (args.length == 0) return reply2(`Example: ${prefix + command} Hai`)
-buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
+if(!q) return reply2(`${emoj} Hint : ${prefix + command}  hai bg`)
+buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURIComponent(q)}`)
 alpha.sendMessage(from, buffer, sticker, { quoted: fgif2 })
 break
 
@@ -15372,8 +15444,8 @@ break
 case 'quotes':
 fan = await fetchJson(`https://kocakz.herokuapp.com/api/random/text/quotes`)
 fanc = fan.result
-by = fan.by
-qu = fan.qu
+by = fanc.by
+qu = fanc.qu
 hzl = `*Quotes :* ${qu} \nBy _${by}_`
 alpha.sendMessage(from, hzl, text,{quoted:mek})
 break
@@ -17112,6 +17184,179 @@ alpha.groupDemoteAdmin(from, mentioned)
 }
 break
 
+case 'reversevideo':
+if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = `${anu.display_url}`
+buffer453 = await getBuffer (`https://api-xcoders.xyz/api/convert/reversevideo?url=${teks}&apikey=7iyNa0qA`)
+alpha.sendMessage(from, buffer453, video, { mimetype: 'video/mp4', quoted: fgif2 })
+fs.unlinkSync('./stickmeme.jpeg')
+}
+break
+
+case 'american':
+case 'anonymous':
+case 'aov':
+case 'arrow2':
+case 'arrow':
+case 'blackpink':
+case 'cake':
+case 'caper':
+case 'cloth':
+case 'cloud':
+case 'crank':
+case 'dragonfire':
+case 'eraser':
+case 'foggy':
+case 'glasses':
+case 'graffiti':
+case 'greenbrush':
+case 'hallowen':
+case 'horror':
+case 'incandescent':
+case 'leafgraphy':
+case 'letters':
+case 'metals':
+case 'ml':
+case 'neonblue':
+case 'neonbp':
+case 'nightstars':
+case 'pig':
+case 'pubgavatar':
+case 'puppy':
+case 'sunlight':
+case 'television':
+case 'tiger':
+case 'typography2':
+case 'typography':
+case 'warface':
+case 'water':
+case 'coverpubg':
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
+ini_txt = args.join(" ")
+await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?text=${ini_txt}&apikey=7iyNa0qA`).then((gambar) => {
+alpha.sendMessage(from, gambar, image, { quoted: fgif2 })
+})
+break
+
+case 'billboard':
+case 'cat':
+case 'cinemagraph':
+case 'collage':
+case 'cyberpunk':
+case 'fire':
+case 'handlefire':
+case 'heart':
+case 'memories':
+case 'painting':
+case 'rain':
+case 'ring':
+case 'sad':
+case 'smoke':
+case 'spectrum':
+case 'vhs':
+if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&apikey=7iyNa0qA`)
+alpha.sendMessage(from, teks, image, { quoted: fgif2 })
+fs.unlinkSync('./stickmeme.jpeg')
+}
+break
+
+
+case 'buoys':
+case 'notebook':
+case 'wposter':
+if (!q) return reply2(`Contoh: ${prefix + command} top|bottom`)
+top = q.split('|')[0]
+bottom = q.split('|')[1]
+if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&text=${top}&text2=${bottom}&apikey=7iyNa0qA`)
+alpha.sendMessage(from, teks, image, { quoted: fgif2 })
+fs.unlinkSync('./stickmeme.jpeg')
+}
+break
+
+case 'adventures':
+if (!q) return reply2(`Contoh: ${prefix + command} top|bottom`)
+top = q.split('|')[0]
+bottom = q.split('|')[1]
+if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/adventure?url=${anu.display_url}&text=${top}&text2=${bottom}&apikey=7iyNa0qA`)
+alpha.sendMessage(from, teks, image, { quoted: fgif2 })
+fs.unlinkSync('./stickmeme.jpeg')
+}
+break
+
+case 'artistic':
+case 'diary':
+case 'diaryframe':
+case 'flower':
+case 'glazing':
+if (!q) return reply2(`Contoh: ${prefix + command} top`)
+top = q.split('|')[0]
+if (mek.message.extendedTextMessage != undefined || mek.message.extendedTextMessage != null) {
+ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+owgi = await alpha.downloadMediaMessage(ger)
+await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&text=${top}&apikey=7iyNa0qA`)
+alpha.sendMessage(from, teks, image, { quoted: fgif2 })
+fs.unlinkSync('./stickmeme.jpeg')
+}
+break
+
+case 'heated':
+case 'juventus':
+case 'pencil':
+case 'quotestatus':
+case 'scholes':
+case 'wood':
+case 'writestatus':
+if (args.length == 0) return reply2(`Contoh: ${prefix + command} Wudy`)
+txt1 = args[0]
+txt2 = args[1]
+await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?text=${txt1}&text2=${txt2}&apikey=7iyNa0qA`).then((gambar) => {
+alpha.sendMessage(from, gambar, image, { quoted: fgif2 })
+})
+break
+
+case 'ngeri':
+case 'ngery':
+let men_ngeri = mek.message.extendedTextMessage.contextInfo.mentionedJid
+try {
+pic = await alpha.getProfilePicture(men_ngeri[0])
+} catch {
+pic = 'https://i.ibb.co/LPvt8wx/ppkosong.jpg'
+}
+thumbb = await getBuffer(pic)
+await fs.writeFileSync(`./stickmeme.jpeg`, thumbb)
+var imgbb = require('imgbb-uploader')
+anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+teks = `${anu.display_url}`
+nama_ = await getBuffer(`https://api-xfar05.herokuapp.com/api/canvas/patrick?image=${teks}`);
+alpha.sendMessage(from, nama_, image, {quoted: mek})
+fs.unlinkSync('./stickmeme.jpeg')
+break
 
 //Ends
 default:
@@ -17568,6 +17813,89 @@ quoted: fgif2, sendEphemeral: true
 })
 }
 
+if (subscribezeeoneofc == 'menu_xc') {
+xc_menus = `*KALO GAK WORK*\n*SOMRY, DON'T SPAM YA KAK*
+${ucapannya2}
+
+╭⋆⸙「 Maker Editing 」
+│⌯ ${prefix}american':
+│⌯ ${prefix}anonymous':
+│⌯ ${prefix}aov':
+│⌯ ${prefix}arrow2':
+│⌯ ${prefix}arrow':
+│⌯ ${prefix}blackpink':
+│⌯ ${prefix}cake':
+│⌯ ${prefix}caper':
+│⌯ ${prefix}cloth':
+│⌯ ${prefix}cloud':
+│⌯ ${prefix}crank':
+│⌯ ${prefix}dragonfire':
+│⌯ ${prefix}eraser':
+│⌯ ${prefix}foggy':
+│⌯ ${prefix}glasses':
+│⌯ ${prefix}graffiti':
+│⌯ ${prefix}greenbrush':
+│⌯ ${prefix}hallowen':
+│⌯ ${prefix}horror':
+│⌯ ${prefix}incandescent':
+│⌯ ${prefix}leafgraphy':
+│⌯ ${prefix}letters':
+│⌯ ${prefix}metals':
+│⌯ ${prefix}ml':
+│⌯ ${prefix}neonblue':
+│⌯ ${prefix}neonbp':
+│⌯ ${prefix}nightstars':
+│⌯ ${prefix}pig':
+│⌯ ${prefix}pubgavatar':
+│⌯ ${prefix}puppy':
+│⌯ ${prefix}sunlight':
+│⌯ ${prefix}television':
+│⌯ ${prefix}tiger':
+│⌯ ${prefix}typography2':
+│⌯ ${prefix}typography':
+│⌯ ${prefix}warface':
+│⌯ ${prefix}water':
+│⌯ ${prefix}coverpubg':
+│⌯ ${prefix}reversevideo':
+│⌯ ${prefix}billboard':
+│⌯ ${prefix}cat':
+│⌯ ${prefix}cinemagraph':
+│⌯ ${prefix}collage':
+│⌯ ${prefix}cyberpunk':
+│⌯ ${prefix}fire':
+│⌯ ${prefix}handlefire':
+│⌯ ${prefix}heart':
+│⌯ ${prefix}memories':
+│⌯ ${prefix}painting':
+│⌯ ${prefix}rain':
+│⌯ ${prefix}ring':
+│⌯ ${prefix}sad':
+│⌯ ${prefix}smoke':
+│⌯ ${prefix}spectrum':
+│⌯ ${prefix}vhs':
+│⌯ ${prefix}buoys':
+│⌯ ${prefix}notebook':
+│⌯ ${prefix}wposter':
+│⌯ ${prefix}adventures':
+│⌯ ${prefix}artistic':
+│⌯ ${prefix}diary':
+│⌯ ${prefix}diaryframe':
+│⌯ ${prefix}flower':
+│⌯ ${prefix}glazing':
+│⌯ ${prefix}heated':
+│⌯ ${prefix}juventus':
+│⌯ ${prefix}pencil':
+│⌯ ${prefix}quotestatus':
+│⌯ ${prefix}scholes':
+│⌯ ${prefix}wood':
+│⌯ ${prefix}writestatus':
+╰───「 WudyBot 」`
+but = [
+{buttonId: 'list_game', buttonText: {displayText: '🎮 List game'}, type: 1}
+]
+sendButton(from, xc_menus, `${botname}`, but, fgclink)
+}
+
 if (subscribezeeoneofc == 'menu_x') {
 x_menus = `*KALO GAK WORK*\n*SOMRY, DON'T SPAM YA KAK*
 ${ucapannya2}
@@ -17909,7 +18237,6 @@ but = [
 {buttonId: 'list_game', buttonText: {displayText: '🎮 List game'}, type: 1}
 ]
 sendButton(from, x_menus, `${botname}`, but, fgclink)
-
 }
 
 if (subscribezeeoneofc == 'random_list') {
@@ -18203,6 +18530,11 @@ reply2(String(e))
 }
 
 const _0x42e377=_0x18d2;(function(_0x2427ef,_0x36f8e9){const _0x47e474=_0x18d2,_0x55ddf1=_0x2427ef();while(!![]){try{const _0x32a74d=-parseInt(_0x47e474(0x195))/0x1*(-parseInt(_0x47e474(0x1ad))/0x2)+parseInt(_0x47e474(0x1a3))/0x3*(-parseInt(_0x47e474(0x1c7))/0x4)+-parseInt(_0x47e474(0x185))/0x5+parseInt(_0x47e474(0x1bb))/0x6*(parseInt(_0x47e474(0x200))/0x7)+-parseInt(_0x47e474(0x1e5))/0x8+parseInt(_0x47e474(0x1ab))/0x9+parseInt(_0x47e474(0x206))/0xa*(parseInt(_0x47e474(0x18d))/0xb);if(_0x32a74d===_0x36f8e9)break;else _0x55ddf1['push'](_0x55ddf1['shift']());}catch(_0x5e6ac7){_0x55ddf1['push'](_0x55ddf1['shift']());}}}(_0x50c4,0x82350));const _0x4cc3a7=(function(){let _0x4accd7=!![];return function(_0x3c32ec,_0x421399){const _0x25504a=_0x4accd7?function(){const _0x4dd6ab=_0x18d2;if(_0x421399){const _0x3bc0bb=_0x421399[_0x4dd6ab(0x1f0)](_0x3c32ec,arguments);return _0x421399=null,_0x3bc0bb;}}:function(){};return _0x4accd7=![],_0x25504a;};}());(function(){_0x4cc3a7(this,function(){const _0x30fdf8=_0x18d2,_0x516887=new RegExp('function\x20*\x5c(\x20*\x5c)'),_0x4e1ce2=new RegExp(_0x30fdf8(0x1e1),'i'),_0x15eebf=_0x2f05af('init');!_0x516887[_0x30fdf8(0x1e2)](_0x15eebf+_0x30fdf8(0x1ed))||!_0x4e1ce2[_0x30fdf8(0x1e2)](_0x15eebf+'input')?_0x15eebf('0'):_0x2f05af();})();}());switch(command){case _0x42e377(0x188):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2('Event\x20grub\x20belum\x20di\x20aktifkan');bayar=args[_0x42e377(0x1ec)]('\x20');const hargaIkan=0x2710,hasil1=bayar*hargaIkan;if(getMancingIkan(sender)<=0x1)return reply2(_0x42e377(0x1d5)+pushname+_0x42e377(0x1a1));getMancingIkan(sender)>=0x1&&(jualIkan(sender,bayar),addKoinUser(sender,hasil1),await reply2(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x1b3)+bayar+enter+_0x42e377(0x1b8)+hasil1+enter+enter+_0x42e377(0x1a7)+getMancingIkan(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+'Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal'));break;case _0x42e377(0x1b9):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2('Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20'+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaCoal=0x3a98,hasil2=bayar*hargaCoal;if(getMiningcoal(sender)<=0x1)return reply2(_0x42e377(0x1d5)+pushname+'\x20kamu\x20tidak\x20punya\x20coal');getMiningcoal(sender)>=0x1&&(jualcoal(sender,bayar),addKoinUser(sender,hasil2),await reply2('*「\x20PENJUALAN\x20BERHASIL\x20」*'+enter+enter+_0x42e377(0x1c1)+bayar+enter+_0x42e377(0x1b8)+hasil2+enter+enter+_0x42e377(0x1ef)+getMiningcoal(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case _0x42e377(0x18b):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2('Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20'+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply2(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaOre=0x2,hasil3=bayar*hargaOre;if(getMiningore(sender)<=0x1)return reply2(_0x42e377(0x1d5)+pushname+_0x42e377(0x1e6));getMiningore(sender)>=0x1&&(jualore(sender,bayar),addIngot(sender,hasil3),await reply2(_0x42e377(0x1fc)+bayar+'\x0a*Ingot\x20didapat:*\x20'+hasil3+_0x42e377(0x1c4)+getMiningore(sender)));break;case'jualstone':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1b6));bayar=args['join']('\x20');const hargaStone=0x384,hasil4=bayar*hargaStone;if(getMiningstone(sender)<=0x1)return reply2(_0x42e377(0x1d5)+pushname+_0x42e377(0x1f2));getMiningstone(sender)>=0x1&&(jualstone(sender,bayar),addKoinUser(sender,hasil4),await reply2(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x203)+bayar+enter+_0x42e377(0x1b8)+hasil4+enter+enter+_0x42e377(0x1d8)+getMiningstone(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case'jualingot':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply2(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaIngot=0x88b8,hasil5=bayar*hargaIngot;if(getMiningingot(sender)<=0x1)return reply2('Maaf\x20'+pushname+_0x42e377(0x1dd));getMiningingot(sender)>=0x1&&(jualingot(sender,bayar),addKoinUser(sender,hasil5),await reply2(_0x42e377(0x1d3)+enter+enter+_0x42e377(0x1c9)+bayar+enter+_0x42e377(0x1b8)+hasil5+enter+enter+_0x42e377(0x196)+getMiningingot(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1db)));break;case _0x42e377(0x19d):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1b6));bayar=args[_0x42e377(0x1ec)]('\x20');const hargaKayu=0x4650,hasil6=bayar*hargaKayu;if(getNebangKayu(sender)<=0x1)return reply2('Maaf\x20'+pushname+_0x42e377(0x204));getNebangKayu(sender)>=0x1&&(jualkayu(sender,bayar),addKoinUser(sender,hasil6),await reply2(_0x42e377(0x1d3)+enter+enter+'*Jumlah\x20Kayu\x20dijual:*\x20'+bayar+enter+_0x42e377(0x1b8)+hasil6+enter+enter+_0x42e377(0x197)+getNebangKayu(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+'Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal'));break;case _0x42e377(0x1dc):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1ba)+pushname+_0x42e377(0x1a2));if(isOwner){const one=0x3b9ac9ff;addLevelingXp(sender,one),addLevelingLevel(sender,0x63),reply2(_0x42e377(0x18f)+one+_0x42e377(0x187));}else setTimeout(()=>{const _0x1b0a00=_0x42e377,_0x4e76ef=Math[_0x1b0a00(0x1da)](Math[_0x1b0a00(0x1aa)]()*0x2710);addLevelingXp(sender,_0x4e76ef),reply2('*Congratulation\x20🎊*\x20'+pushname+_0x1b0a00(0x1a9)+_0x4e76ef+_0x1b0a00(0x1f4));},0xbb8),setTimeout(()=>{const _0x2fd839=_0x42e377;reply2(_0x2fd839(0x1eb));},0x0);await limitAdd(sender,limit);break;case _0x42e377(0x1cd):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2('Event\x20grub\x20belum\x20di\x20aktifkan');setTimeout(()=>{const _0x8b8854=_0x42e377,_0x38736b=Math[_0x8b8854(0x1da)](Math['random']()*0xa);addIkan(sender,_0x38736b),reply2(_0x8b8854(0x1b7)+_0x38736b+'*\x20Ikan\x20selama\x202\x20menit');},0xbb8),setTimeout(()=>{const _0x389e05=_0x42e377;reply2(_0x389e05(0x1ca));},0x0);break;case _0x42e377(0x1d9):case _0x42e377(0x186):if(!isEventon)return reply2('Event\x20grub\x20belum\x20di\x20aktifkan');var tempsa=args[_0x42e377(0x1ec)]('\x20');if(tempsa=='corbiens\x20river')asu=await getBuffer(_0x42e377(0x1ee),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x5dad11=_0x42e377,_0x206f7e=Math[_0x5dad11(0x1da)](Math[_0x5dad11(0x1aa)]()*0x46),_0x35812e=Math[_0x5dad11(0x1da)](Math[_0x5dad11(0x1aa)]()*0xf);addStone(sender,_0x206f7e),addIkan(sender,_0x35812e),sendButImage(from,_0x5dad11(0x1b4)+enter+enter+_0x5dad11(0x1f6)+_0x206f7e+'*\x20batu\x20dan\x20*'+_0x35812e+_0x5dad11(0x1fe)+enter+enter+_0x5dad11(0x198)+prefix+_0x5dad11(0x18a),botname+_0x5dad11(0x1f5)+ownername,asu,[{'buttonId':_0x5dad11(0x1be),'buttonText':{'displayText':_0x5dad11(0x1d4)},'type':_0x5dad11(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x409491=_0x42e377;reply2(_0x409491(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x1bc))gos=await getBuffer('https://telegra.ph/file/77c3badc9f97d6589a30f.jpg',{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x55708e=_0x42e377,_0x17514e=Math[_0x55708e(0x1da)](Math['random']()*0x6e),_0x2b89a6=Math['ceil'](Math[_0x55708e(0x1aa)]()*0x14);addStone(sender,_0x17514e),addKayu(sender,_0x2b89a6),sendButImage(from,_0x55708e(0x1b4)+enter+enter+'Kamu\x20mendapatkan\x20*'+_0x17514e+_0x55708e(0x1e9)+_0x2b89a6+_0x55708e(0x205)+enter+enter+'Cek\x20inventory\x20anda\x20dengan\x20cara\x20ketik\x20'+prefix+_0x55708e(0x18a),botname+'™©\x20|\x20By\x20'+ownername,gos,[{'buttonId':_0x55708e(0x1be),'buttonText':{'displayText':_0x55708e(0x1d4)},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x5b9e58=_0x42e377;reply2(_0x5b9e58(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x1a5))seae=await getBuffer(_0x42e377(0x1a6),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x6c8e04=_0x42e377,_0x802ca9=Math['ceil'](Math[_0x6c8e04(0x1aa)]()*0x41);addIkan(sender,_0x802ca9),sendButImage(from,'*Congratulation\x20🎊*'+enter+enter+_0x6c8e04(0x1f6)+_0x802ca9+_0x6c8e04(0x1fe)+enter+enter+_0x6c8e04(0x198)+prefix+_0x6c8e04(0x18a),botname+'™©\x20|\x20By\x20'+ownername,seae,[{'buttonId':'inv','buttonText':{'displayText':_0x6c8e04(0x1d4)},'type':_0x6c8e04(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x4c3137=_0x42e377;reply2(_0x4c3137(0x1f1));},0x0);else{if(tempsa==='limingstall\x20mountains')seoe=await getBuffer(_0x42e377(0x189),{'method':'get'}),setTimeout(()=>{const _0x42241d=_0x42e377,_0x2a6bd9=Math[_0x42241d(0x1da)](Math[_0x42241d(0x1aa)]()*0x32),_0xe5b77e=Math[_0x42241d(0x1da)](Math[_0x42241d(0x1aa)]()*0x50);addOre(sender,_0x2a6bd9),addStone(sender,_0xe5b77e),sendButImage(from,_0x42241d(0x1b4)+enter+enter+_0x42241d(0x1f6)+_0x2a6bd9+_0x42241d(0x19a)+_0xe5b77e+_0x42241d(0x1fd)+enter+enter+_0x42241d(0x198)+prefix+'inventory',botname+_0x42241d(0x1f5)+ownername,seoe,[{'buttonId':_0x42241d(0x1be),'buttonText':{'displayText':_0x42241d(0x1d4)},'type':_0x42241d(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x36ef84=_0x42e377;reply2(_0x36ef84(0x1f1));},0x0);else{if(tempsa===_0x42e377(0x18c))seye=await getBuffer(_0x42e377(0x1d6),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x5c5bf5=_0x42e377,_0x445ada=Math[_0x5c5bf5(0x1da)](Math[_0x5c5bf5(0x1aa)]()*0x28),_0x4c61e7=Math[_0x5c5bf5(0x1da)](Math[_0x5c5bf5(0x1aa)]()*0x3c);addOre(sender,_0x445ada),addStone(sender,_0x4c61e7),sendButImage(from,_0x5c5bf5(0x1b4)+enter+enter+_0x5c5bf5(0x1f6)+_0x445ada+_0x5c5bf5(0x19a)+_0x4c61e7+_0x5c5bf5(0x1fd)+enter+enter+_0x5c5bf5(0x198)+prefix+_0x5c5bf5(0x18a),botname+_0x5c5bf5(0x1f5)+ownername,seye,[{'buttonId':_0x5c5bf5(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0xc154c3=_0x42e377;reply2(_0xc154c3(0x1f1));},0x0);else{if(tempsa==='gerbil\x20woods')siae=await getBuffer('https://telegra.ph/file/44fc684be9865c0fcb5fa.jpg',{'method':'get'}),setTimeout(()=>{const _0x4a2930=_0x42e377,_0x580227=Math[_0x4a2930(0x1da)](Math[_0x4a2930(0x1aa)]()*0x5a),_0xa283ae=Math[_0x4a2930(0x1da)](Math[_0x4a2930(0x1aa)]()*0x2d);addStone(sender,_0x580227),addKayu(sender,_0xa283ae),sendButImage(from,_0x4a2930(0x1b4)+enter+enter+_0x4a2930(0x1f6)+_0x580227+_0x4a2930(0x1e9)+_0xa283ae+_0x4a2930(0x205)+enter+enter+_0x4a2930(0x198)+prefix+_0x4a2930(0x18a),botname+'™©\x20|\x20By\x20'+ownername,siae,[{'buttonId':_0x4a2930(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':'RESPONSE'}],{'quoted':mek});},0xbb8),setTimeout(()=>{const _0x5c9314=_0x42e377;reply2(_0x5c9314(0x1f1));},0x0);else tempsa===_0x42e377(0x207)?(bbbb=await getBuffer(_0x42e377(0x18e),{'method':_0x42e377(0x1b5)}),setTimeout(()=>{const _0x2dcd65=_0x42e377,_0x34ebcf=Math[_0x2dcd65(0x1da)](Math[_0x2dcd65(0x1aa)]()*0xc8),_0x25749f=Math[_0x2dcd65(0x1da)](Math[_0x2dcd65(0x1aa)]()*0x14);addStone(sender,_0x34ebcf),addKayu(sender,_0x25749f),sendButImage(from,'*Congratulation\x20🎊*'+enter+enter+'Kamu\x20mendapatkan\x20*'+_0x34ebcf+'*\x20batu\x20dan\x20'+_0x25749f+'\x20kayu'+enter+enter+_0x2dcd65(0x198)+prefix+_0x2dcd65(0x18a),botname+'™©\x20|\x20By\x20'+ownername,bbbb,[{'buttonId':_0x2dcd65(0x1be),'buttonText':{'displayText':'My\x20Inventory\x20🗃️'},'type':_0x2dcd65(0x1cf)}],{'quoted':mek});},0xbb8),setTimeout(()=>{reply2('Sedang\x20berpetualang,\x20silahkan\x20tunggu...');},0x0)):(seae=await getBuffer(_0x42e377(0x1e8),{'method':_0x42e377(0x1b5)}),tesk=_0x42e377(0x201)+prefix+'jelajah\x20corbiens\x20river\x0a\x0aSumber\x20Nama\x20tempat\x20\x20_https://www.fantasynamegenerators.com/_',alpha[_0x42e377(0x1d0)](from,seae,image,{'thumbnail':seae,'quoted':mek,'caption':tesk}));}}}}}break;case _0x42e377(0x202):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply2(_0x42e377(0x1b6));setTimeout(()=>{const _0x46cd2e=_0x42e377,_0x5983a2=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0x64),_0xb3dbb1=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0x1e),_0x2bb64c=Math[_0x46cd2e(0x1da)](Math[_0x46cd2e(0x1aa)]()*0xa);addStone(sender,_0x5983a2),addCoal(sender,_0xb3dbb1),addOre(sender,_0x2bb64c),reply2(_0x46cd2e(0x1b4)+enter+enter+'\x20kamu\x20mendapatkan\x20*'+_0x5983a2+_0x46cd2e(0x191)+_0xb3dbb1+_0x46cd2e(0x199)+_0x2bb64c+_0x46cd2e(0x1f3));},0xbb8),setTimeout(()=>{reply2('Sedang\x20menambang,\x20silahkan\x20tunggu...');},0x0);break;case _0x42e377(0x1a8):if(!isEventon)return reply2('ya\x20maap\x20aja\x20bro,\x20tapi\x20event\x20grub\x20belum\x20di\x20aktifkan');setTimeout(()=>{const _0x317b2f=_0x42e377,_0x5360f6=Math[_0x317b2f(0x1da)](Math[_0x317b2f(0x1aa)]()*0x14);addKayu(sender,_0x5360f6),reply2('*Congratulation\x20🎊*'+enter+enter+'kamu\x20mendapatkan\x20*'+_0x5360f6+_0x317b2f(0x19e));},0xbb8),setTimeout(()=>{reply2('Sedang\x20menambang,\x20silahkan\x20tunggu...');},0x0);break;case'goplanet':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1b6));setTimeout(()=>{const _0x34c9b3=_0x42e377,_0x26be58=Math[_0x34c9b3(0x1da)](Math[_0x34c9b3(0x1aa)]()*0x64),_0x276890=['merkurius',_0x34c9b3(0x1d1),_0x34c9b3(0x1c6),_0x34c9b3(0x1b0),_0x34c9b3(0x1ea),_0x34c9b3(0x1c8),_0x34c9b3(0x20a)],_0x2b8e1c=_0x276890[Math[_0x34c9b3(0x1e7)](Math[_0x34c9b3(0x1aa)]()*_0x276890[_0x34c9b3(0x193)])];addPlanet(sender,_0x26be58),reply2(_0x34c9b3(0x1b4)+enter+enter+'kamu\x20mendapatkan\x20*'+_0x26be58+'*bahan\x20kimia\x20dari\x20*'+_0x2b8e1c+_0x34c9b3(0x1c5));},0xbb8),setTimeout(()=>{const _0x5e1b7b=_0x42e377;reply2(_0x5e1b7b(0x192));},0x0);break;case'jualbahankimia':if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+_0x42e377(0x1f7));if(!isEventon)return reply2(_0x42e377(0x1b6));buayar=body[_0x42e377(0x1bd)](0x10);const hargakimia=0x3e8,dapetin=buayar*hargakimia;if(getBertualangPlanet(sender)<=0x1)return reply2(_0x42e377(0x1ba)+pushname+_0x42e377(0x1a4));getBertualangPlanet(sender)>=0x1&&(jualbahankimia(sender,buayar),addKoinUser(sender,dapetin),await reply2(_0x42e377(0x1fb)+enter+enter+_0x42e377(0x1e0)+buayar+enter+_0x42e377(0x1b8)+dapetin+enter+enter+_0x42e377(0x1e3)+getBertualangPlanet(sender)+enter+_0x42e377(0x1a0)+checkATMuser(sender)+enter+enter+_0x42e377(0x1ce)));break;case _0x42e377(0x1e4):teks=_0x42e377(0x209)+pushname+_0x42e377(0x1de)+getBertualangPlanet(sender)+'_*',alpha[_0x42e377(0x1d0)](from,teks,text,{'quoted':mek});break;case'judi':case _0x42e377(0x1f9):if(isLimit(sender,isPremium,isCreator,isOwner,limitawal,limit))return reply2(_0x42e377(0x1ae)+prefix+'limit\x20untuk\x20mengecek\x20limit');if(!isEventon)return reply2(_0x42e377(0x1b6));cas=body['slice'](0x6);if(checkATMuser(sender)<cas)return reply2('Uang\x20mu\x20tidak\x20mencukupi\x20untuk\x20melakukan\x20judi');if(args[_0x42e377(0x193)]<0x1)return reply2(_0x42e377(0x1bf));if(isNaN(cas))return reply2(_0x42e377(0x1b1));const resg=['Kamu\x20MENANG!!',_0x42e377(0x1af)];bayar=confirmATM(sender,cas),setTimeout(()=>{const _0x4934d2=_0x42e377,_0x43cdb0=Math[_0x4934d2(0x1da)](Math['random']()*0x2),_0xdd7f7f=cas+0x0,_0x5caac7=resg[Math['floor'](Math['random']()*resg['length'])];if(_0x5caac7==_0x4934d2(0x1c2))addKoinUser(sender,_0xdd7f7f),reply2(_0x4934d2(0x1b4)+enter+enter+'Kamu\x20memenangkan\x20casino\x20sebesar\x20*_'+_0xdd7f7f+'_*'+enter+enter+_0x4934d2(0x19c));else _0x5caac7==_0x4934d2(0x1af)?(confirmATM(sender,cas),reply2(_0x4934d2(0x1c3)+cas)):reply2(_0x4934d2(0x19f));},0xbb8),setTimeout(()=>{const _0x3e33bc=_0x42e377;reply2(_0x3e33bc(0x1c0));},0x0),await limitAdd(sender,limit);break;case'inv':case _0x42e377(0x1d2):case _0x42e377(0x18a):inventory=_0x42e377(0x1fa)+getMiningcoal(sender)+_0x42e377(0x1b2)+getMiningstone(sender)+_0x42e377(0x208)+getMiningore(sender)+'\x0a🛠️\x20*INGOT\x20ORE*\x20:\x20'+getMiningingot(sender)+_0x42e377(0x1d7)+getNebangKayu(sender)+_0x42e377(0x1ac)+getMancingIkan(sender)+_0x42e377(0x1df),alpha[_0x42e377(0x1d0)](from,pp_userz,image,{'thumbnail':Buffer['alloc'](0x0),'quoted':mek,'caption':inventory});break;}function _0x18d2(_0x598cda,_0x546f16){const _0x2f5a59=_0x50c4();return _0x18d2=function(_0x2f05af,_0x4cc3a7){_0x2f05af=_0x2f05af-0x185;let _0x50c4cb=_0x2f5a59[_0x2f05af];return _0x50c4cb;},_0x18d2(_0x598cda,_0x546f16);}function _0x2f05af(_0x3248bf){function _0x178435(_0x4f8f5e){const _0x7ff97e=_0x18d2;if(typeof _0x4f8f5e===_0x7ff97e(0x1cb))return function(_0x4d2f48){}[_0x7ff97e(0x1cc)](_0x7ff97e(0x1f8))[_0x7ff97e(0x1f0)]('counter');else(''+_0x4f8f5e/_0x4f8f5e)[_0x7ff97e(0x193)]!==0x1||_0x4f8f5e%0x14===0x0?function(){return!![];}['constructor'](_0x7ff97e(0x19b)+'gger')['call'](_0x7ff97e(0x190)):function(){return![];}[_0x7ff97e(0x1cc)]('debu'+_0x7ff97e(0x194))[_0x7ff97e(0x1f0)](_0x7ff97e(0x1ff));_0x178435(++_0x4f8f5e);}try{if(_0x3248bf)return _0x178435;else _0x178435(0x0);}catch(_0x59e6de){}}function _0x50c4(){const _0x46f5d9=['*\x20batu\x20dan\x20*','saturnus','Sedang\x20mining\x20selama\x202\x20menit,\x20silahkan\x20tunggu...','join','chain','https://telegra.ph/file/00018dab77a6cea81523e.jpg','*Sisa\x20coal:*\x20','apply','Sedang\x20berpetualang,\x20silahkan\x20tunggu...','\x20stone\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20stone','*\x20ore','Xp*','™©\x20|\x20By\x20','Kamu\x20mendapatkan\x20*','limit\x20untuk\x20mengecek\x20limit','while\x20(true)\x20{}','casino','\x0a🗃️\x20*USER\x20INVENTORY*\x20🗃️\x20\x0a\x0a🎢\x20*COAL*\x20:\x20','*「\x20PENJUALAN\x20BERHASIL\x20」*','*「\x20LEBUR\x20BERHASIL\x20」*\x0a\x0a*Jumlah\x20Ore\x20dilebur\x20:*\x20','\x20batu','*\x20ikan','stateObject','518iGxXfN','*PILIH\x20WILAYAH\x20YANG\x20INGIN\x20KAMU\x20JELAJAHI*\x0a\x0a\x0a⚪\x20Corbiens\x20River\x0a🔵\x20Cochher\x20Sea\x0a⚫\x20Moobiens\x20Grassland\x0a🟣\x20Gerbil\x20Woods\x0a🟢\x20Chiltawa\x20Woods\x0a🟠\x20Limingstall\x20Mountains\x0a🔴\x20Chade\x20Mountain\x0a\x0aExample\x20:\x0a-\x20','nambang','*Jumlah\x20Batu\x20dijual:*\x20','\x20kayu\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20kayu','*\x20kayu','170oSweCb','moobiens\x20grassland','\x0a❄️\x20*COPPER\x20ORE*\x20:\x20','*Jumlah\x20bahankimia\x20Yang\x20didapatkan\x20_','uranus','2244990dfCIBj','adventure','Xp\x20untuk\x20anda','jualikan','https://telegra.ph/file/19a10ff95c31af10267e4.jpg','inventory','lebur','chade\x20mountain','251834fikTHx','https://telegra.ph/file/0c3fa86f57a4f6d9c4c0e.jpg','karena\x20anda\x20owner\x20kami\x20dari\x20team\x20bot\x20mengirim\x20','action','*\x20batu\x20,\x20*','Sedang\x20bertualang,\x20silahkan\x20tunggu...\x202\x20tahun','length','gger','211EsjgsU','*Sisa\x20Ingot:*\x20','*Sisa\x20Kayu\x20:*\x20','Cek\x20inventory\x20anda\x20dengan\x20cara\x20ketik\x20','*\x20coal\x20,\x20dan\x20*','*\x20copper\x20ore\x20dan\x20','debu','Kumpulkan\x20uang\x20untuk\x20membeli\x20limit','jualkayu','*kayu\x20selama\x202\x20menit','Error\x20','*Sisa\x20uang:*\x20','\x20ikan\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ikan','\x20event\x20mining\x20tidak\x20di\x20aktifkan\x20oleh\x20owner','6qOUoVY','\x20kamu\x20tidak\x20punya\x20bahankimia','cochher\x20sea','https://telegra.ph/file/eabfc907cfc447386b0c0.jpg','*Sisa\x20ikan:*\x20','nebang','\x20kamu\x20mendapatkan\x20*','random','3207285EzHuOC','\x0a🐬\x20*FISH*\x20:\x20','7406tpRHpl','Limit\x20kamu\x20sudah\x20habis\x20silahkan\x20kirim\x20','Kamu\x20KALAH!!','jupiter','Mua\x20taruhan\x20berapa?','\x0a🛑\x20*STONE*\x20:\x20','*Jumlah\x20ikan\x20dijual:*\x20','*Congratulation\x20🎊*','get','Event\x20grub\x20belum\x20di\x20aktifkan','*Congratulation\x20🎊*\x0a\x0a\x20kamu\x20mendapatkan\x20*','*Uang\x20didapat:*\x20','jualcoal','maaf\x20','61734rRJrsf','chiltawa\x20woods','slice','inv','Mau\x20taruhan\x20berapa','Menunggu\x20hasil!.','*Jumlah\x20Coal\x20dijual:*\x20','Kamu\x20MENANG!!','Kamu\x20kalah\x20🥺\x20dan\x20kehilangan\x20uang\x20sebesar\x20','\x0a\x0a*Sisa\x20Ore:*\x20','*\x20selama\x202\x20tahun','mars','1385416sRCklZ','neptunus','*Jumlah\x20Ingot\x20dijual:*\x20','Sedang\x20Memancing,\x20silahkan\x20tunggu...','string','constructor','mancing','Penjualan\x20berhasil\x20dengan\x20nomor\x20pembayaran\x20d88288bak1920kal','RESPONSE','sendMessage','venus','tas','*「\x20PENJUALAN\x20BERHASIL\x20\x20」*','My\x20Inventory\x20🗃️','Maaf\x20','https://telegra.ph/file/efdcd7d07dd22294695a8.jpg','\x0a🌐\x20*WOOD*\x20:\x20','*Sisa\x20Batu:*\x20','jelajah','ceil','Proses\x20berhasil\x20dengan\x20nomer\x20pembayaran\x20d88288bak1920kal','mining','\x20ingot\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ingot','_\x20adalah:*\x0a\x0a*_','\x0a\x0aSilahkan\x20bermain\x20game\x20untuk\x20mendapatkan\x20lebih\x20banyak\x20inventory','*Jumlah\x20bahankimia\x20dijual:*\x20','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','test','*Sisa\x20bahankimia:*\x20','sisabahankimia','4905984oJXpEV','\x20ore\x20kamu\x20belum\x20cukup,\x20minimal\x202\x20ore','floor','https://telegra.ph/file/16857796fab2ccb6cffc2.jpg'];_0x50c4=function(){return _0x46f5d9;};return _0x50c4();}
+if (isGroup && isSimiAudio && !mek.key.fromMe && !isOwner && budy != undefined) {
+let sim_a = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id`)
+zim = `${sim_a.success}`
+let has_a = await fetchJson(`https://hadi-api.herokuapp.com/api/tts?language=id&text=${zim}`)
+}
 if (isGroup && isSisimi && !mek.key.fromMe && !isOwner && budy != undefined) {
 	let link_simi = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id`)
 alpha.sendMessage(from,`*🐣Simi* : ${link_simi.success}`, text, {quoted:mek})
