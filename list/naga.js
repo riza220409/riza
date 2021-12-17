@@ -573,6 +573,6 @@ Jika sudah temuin maka kamu harus melakukan aktiviti dibawah
 JIKA SUDAH DI LAKUKAN LIHAT
 APA YANG TER
 JADI
-`
+`}
 
 exports.naga_ = naga_
