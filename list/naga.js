@@ -1,4 +1,5 @@
-const naga_ = `
+const epho_list = (pushname)=> {
+return`${pushname}
        (\____/)
        (  ⚫ ʖ⚫
         \ 👉    \  👉
@@ -574,4 +575,4 @@ APA YANG TER
 JADI
 `
 
-module.exports = { naga_ }
+exports.naga_ = naga_
