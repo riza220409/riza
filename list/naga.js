@@ -1,5 +1,4 @@
-const naga_ = (pushname)=> {
-return`${pushname} Iya sepi nih
+const naga_ = `
        (\____/)
        (  ⚫ ʖ⚫
         \ 👉    \  👉
@@ -574,5 +573,5 @@ JIKA SUDAH DI LAKUKAN LIHAT
 APA YANG TER
 JADI
 `
-}
-exports.naga_ = naga_
+
+module.exports = { naga_ }
