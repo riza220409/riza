@@ -13,16 +13,16 @@ RUN apt-get update && \
 
 COPY package.json .
 RUN npm install 
-#RUN npm install @adiwajshing/baileys@3.5.3
+#RUN npm install @adiwajshing/baileys@3.5.2 
 #RUN npm audit fix
 #RUN npm install -g npm-check-updates
 #RUN ncu --upgrade
 #RUN npm install libwebp
 
-RUN mkdir /SelfBot
-WORKDIR /SelfBot
-COPY . /SelfBot
-RUN python3 -m pip install -r /SelfBot/requirements.txt
+RUN mkdir /Alphab0t10
+WORKDIR /Alphab0t10
+COPY . /Alphab0t10
+RUN python3 -m pip install -r /Alphab0t10/requirements.txt
 ENV TZ=Asia/Jakarta
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
