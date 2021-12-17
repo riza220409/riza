@@ -258,6 +258,7 @@ const simiaudio = JSON.parse(fs.readFileSync("./list/simiaudio.json"))
 // MENU EDIT
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
 const { reki } = require('./list/reki.js')
+const { naga_ } = require('./list/naga.js')
 
 // GAME
 const asahotak = JSON.parse(fs.readFileSync('./game/asahotak.json'))
@@ -17359,6 +17360,12 @@ teks = `${anu.display_url}`
 nama_ = await getBuffer(`https://api-xfar05.herokuapp.com/api/canvas/patrick?image=${teks}`);
 alpha.sendMessage(from, nama_, image, {quoted: mek})
 fs.unlinkSync('./stickmeme.jpeg')
+break
+
+
+case 'nagasepi':
+case 'sepi':
+await alpha.sendMessage(from, naga_, text, {quoted: {contextInfo: {"forwardingScore":999,"isForwarded":true,'stanzaId': msgId, 'participant':`${numbernye}@s.whatsapp.net`, 'remoteJid': '6283136505591-1614953337@g.us', 'quotedMessage': {"locationMessage": {"degreesLatitude": 41.893714904785156, "degreesLongitude": -87.63370513916016, "name": "Jurus naga sepi" , 'jpegThumbnail': thumb_miku}}}}})
 break
 
 //Ends
