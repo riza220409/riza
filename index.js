@@ -5782,7 +5782,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 // reply2(lang.wait())
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading image...'))
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks = `✓ *Nih Kak :* ${pushname} \n${anu.display_url}`
 reply2(teks)
 .catch((e)=>{reply2(`${petik}[ x ]${petik}Eror! ada masalah dgn imgbb`)})
@@ -11651,7 +11651,7 @@ var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
-let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
+let datau = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", delib)
 anuk = `https://api.dapuhy.ga/api/canvas/${command}?img=${datau.display_url}&apikey=${dapuhy}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -11662,7 +11662,7 @@ let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/f
 let medianya = await getBuffer(oppp)
 let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+let odata = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", 'janckuk.jpeg')
 anuk = `https://api.dapuhy.ga/api/canvas/${command}?img=${odata.display_url}&apikey=${dapuhy}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -13501,7 +13501,7 @@ var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
-let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
+let datau = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", delib)
 anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -13512,7 +13512,7 @@ let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/f
 let medianya = await getBuffer(oppp)
 let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+let odata = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", 'janckuk.jpeg')
 anuk = `https://some-random-api.ml/canvas/${command}?avatar=${odata.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -13561,7 +13561,7 @@ var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var edit2_ = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var edit3_ = await alpha.downloadAndSaveMediaMessage(edit2_, `./media/${sender}.png`)
-let edit4_ = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", edit3_)
+let edit4_ = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", edit3_)
 anuk = `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${edit4_.display_url}`
 sendStickerFromUrl(from, `${anuk}`, mek)
 } else {
@@ -13570,7 +13570,7 @@ let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/f
 let medianya = await getBuffer(oppp)
 let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+let odata = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", 'janckuk.jpeg')
 anuk = `https://api-alphabot.herokuapp.com/api/image_editor/${command}?apikey=Alphabot&url=${odata.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -15247,7 +15247,7 @@ fs.writeFileSync("./game/tebaklagu.json", JSON.stringify(tebaklagu))
 }
 break
 //───────────────[ FITUR MAKER ]───────────────//
-
+/*
 case 'wanted':
 case 'utatoo':
 case 'unsharpen':
@@ -15288,7 +15288,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0)
 // reply2(lang.wait())
 var bioij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var delib = await alpha.downloadAndSaveMediaMessage(bioij, `./media/${sender}.png`)
-let datau = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", delib)
+let datau = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", delib)
 anuk = `${datau.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -15302,7 +15302,7 @@ let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/f
 let medianya = await getBuffer(oppp)
 let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+let odata = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", 'janckuk.jpeg')
 anuk = `${odata.display_url}`
 ini_gen = `${command}`
 console.log(color(ini_gen))
@@ -15311,7 +15311,7 @@ alpha.sendFile(from, imoj, `${sender}.png`, null, mek, {thumbnail: medianya})
 // sendStickerFromUrl(from, `${emoj}`, mek)
 }
 break
-
+*/
 case 'wroom':
 case 'text3d':
 case 'water':
@@ -16884,9 +16884,9 @@ var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 var edit2_ = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 var edit3_ = await alpha.downloadAndSaveMediaMessage(edit2_, `./media/${sender}.png`)
-let edit4_ = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", edit3_)
+let edit4_ = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", edit3_)
 titid = await fetchJson(`https://nekobot.xyz/api/imagegen?type=${command}&url=${edit4_.display_url}`, {method: 'get'})
-ling = titid.message
+ling = `${titid.message}`
 sendStickerFromUrl(from, `${ling}`, mek)
 } else {
 ghost = mek.message.extendedTextMessage.contextInfo.participant || mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -16894,9 +16894,9 @@ let oppp = await alpha.getProfilePicture(ghost).catch(_ => 'https://telegra.ph/f
 let medianya = await getBuffer(oppp)
 let datae = await imageToBase64(JSON.stringify(oppp).replace(/\"/gi, ''))
 fs.writeFileSync('janckuk.jpeg', datae, 'base64')
-let odata = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", 'janckuk.jpeg')
+let odata = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", 'janckuk.jpeg')
 titid = await fetchJson(`https://nekobot.xyz/api/imagegen?type=${command}&url=${odata.display_url}`, {method: 'get'})
-ling = titid.message
+ling = `${titid.message}`
 sendStickerFromUrl(from, `${ling}`, mek)
 }
 break
