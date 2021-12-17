@@ -4010,37 +4010,7 @@ sendButLocation(from, teks , `Makasih Udah Verifikasi 😉\n${botname}™© | By
 break
 
 case 'menu':
-sendStickerFromUrl(from, `https://i.ibb.co/9rsxrhR/menu.webp`, mek)
-teks = `${emoj} MENU BOT`
-let pov = [{
-"buttonId": 'x_menu',
-"buttonText": {
-"displayText": "List-Menu"
-},
-"type": "RESPONSE"
-},{
-"buttonId": 'menu_x',
-"buttonText": {
-"displayText": "Lol-Menu"
-},
-"type": "RESPONSE"
-},{
-"buttonId": 'menu_xc',
-"buttonText": {
-"displayText": "Xc-Menu"
-},
-"type": "RESPONSE"
-}
-]
-sendButLocation(from, teks , `Pilih Menu \n${botname}\n┈┈┈┈▕▔╱▔▔▔━▁
-┈┈┈▕▔╱╱╱👁┈╲▂▔▔╲
-┈┈▕▔╱╱╱╱💧▂▂▂▂▂▂▏
-┈▕▔╱▕▕╱╱╱┈▽▽▽▽▽
-▕▔╱┊┈╲╲╲╲▂△△△△
-▔╱┊┈╱▕╲▂▂▂▂▂▂╱
-╱┊┈╱┉▕┉┋╲┈`,pp_userz, pov, {contextInfo: { mentionedJid: [sender]}})
-
-/*
+if(menusimple == false){
 try {
 xcat = await alpha.getProfilePicture(sender)
 } catch {
@@ -4114,7 +4084,40 @@ alpha.sendMessage(from,
  mediaType:"2",
  previewType: "VIDEO",
  mediaUrl: pelink_}}})
- */
+} else if(menusimple = true){ 
+sendStickerFromUrl(from, `https://i.ibb.co/9rsxrhR/menu.webp`, mek)
+teks = `${emoj} MENU BOT`
+let pov = [{
+"buttonId": 'x_menu',
+"buttonText": {
+"displayText": "List-Menu"
+},
+"type": "RESPONSE"
+},{
+"buttonId": 'menu_x',
+"buttonText": {
+"displayText": "Lol-Menu"
+},
+"type": "RESPONSE"
+},{
+"buttonId": 'menu_xc',
+"buttonText": {
+"displayText": "Xc-Menu"
+},
+"type": "RESPONSE"
+}
+]
+sendButLocation(from, teks , `Pilih Menu \n${botname}\n
+┈┈┈┈▕▔╱▔▔▔━▁
+┈┈┈▕▔╱╱╱👁┈╲▂▔▔╲
+┈┈▕▔╱╱╱╱💧▂▂▂▂▂▂▏
+┈▕▔╱▕▕╱╱╱┈▽▽▽▽▽
+▕▔╱┊┈╲╲╲╲▂△△△△
+▔╱┊┈╱▕╲▂▂▂▂▂▂╱
+╱┊┈╱┉▕┉┋╲┈`,pp_userz, pov, {contextInfo: { mentionedJid: [sender]}})
+
+}
+
 break
 
 case 'help':
@@ -12838,7 +12841,7 @@ break
 case 'font':
 case 'font2':
 if(!q) return reply2(`${emoj} Hint : ${prefix + command} Indonesia `)
-fnt1 = await fetchJson(`https://hadi-api.herokuapp.com/api/font2?teks=${q}`);
+fnt1 = await fetchJson(`https://hadi-api.herokuapp.com/api/${command}?teks=${q}`);
 fnt2 = fnt1.result
 fnt3 = `${ucapannya2}
 • *Hasil* : ${fnt2}`
