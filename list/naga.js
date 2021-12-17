@@ -1,4 +1,5 @@
-const naga_ = "
+const naga_ = (pushname)=> {
+return`${pushname} Iya sepi nih
        (\____/)
        (  ⚫ ʖ⚫
         \ 👉    \  👉
@@ -571,5 +572,7 @@ Jika sudah temuin maka kamu harus melakukan aktiviti dibawah
 
 JIKA SUDAH DI LAKUKAN LIHAT
 APA YANG TER
-JADI"
-module.exports = { naga_ }
+JADI
+`
+}
+exports.naga_ = naga_
