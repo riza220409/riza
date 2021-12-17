@@ -17365,7 +17365,7 @@ break
 
 case 'nagasepi':
 case 'sepi':
-alpha.sendMessage(from, `${naga_}`, text, {quoted: {contextInfo: {"forwardingScore":999,"isForwarded":true,'stanzaId': msgId, 'participant':`0@s.whatsapp.net`, 'remoteJid': '6283136505591-1614953337@g.us', 'quotedMessage': {"locationMessage": {"degreesLatitude": 41.893714904785156, "degreesLongitude": -87.63370513916016, "name": "Jurus naga sepi" , 'jpegThumbnail': thumb_miku}}}}})
+await alpha.sendMessage(from ,`${naga_(pushname)}`, text, {quoted: mek})
 break
 
 //Ends
