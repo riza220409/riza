@@ -22,8 +22,6 @@ axios({
 .then((response) => {
   if(response.status != 200) return console.error('Error:', response.status, response.statusText);
  fs.writeFileSync("no-bg.png", response.data);
- const remov = fs.readFileSync('./no-bg.png');
-alpha.sendMessage(from, remov, image, {quoted: mek})
 })
 .catch((error) => {
     return console.error('Request failed:', error);
