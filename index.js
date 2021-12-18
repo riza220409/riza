@@ -259,7 +259,6 @@ const simiaudio = JSON.parse(fs.readFileSync("./list/simiaudio.json"))
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
 const { reki } = require('./list/reki.js')
 const { naga_ } = require('./list/naga.js')
-const { remove_bg } = require('./list/removebg.js')
 
 // GAME
 const asahotak = JSON.parse(fs.readFileSync('./game/asahotak.json'))
