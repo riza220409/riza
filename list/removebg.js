@@ -19,7 +19,7 @@ axios({
   },
   encoding: null
 })
-.then((respon) => {
+.then((response) => {
   if(response.status != 200) return console.error('Error:', response.status, response.statusText);
  fs.writeFileSync("no-bg.png", response.data);
  const remov = fs.readFileSync('./no-bg.png');
