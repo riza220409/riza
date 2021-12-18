@@ -34,6 +34,7 @@ const crypto = require('crypto')
 const request = require('request');
 const { spawn, exec, execSync } = require("child_process")
 const fs = require("fs")
+const FormData = require('form-data')
 const axios = require("axios")
 const hx = require('hxz-api')
 const ffmpeg = require('fluent-ffmpeg')
@@ -259,6 +260,7 @@ const simiaudio = JSON.parse(fs.readFileSync("./list/simiaudio.json"))
 const { tpro_list, epho_list, pfun_list, oxy_list, nsfw_list} = require('./list/list.js')
 const { reki } = require('./list/reki.js')
 const { naga_ } = require('./list/naga.js')
+const { remove_bg } = require('./list/removebg.js')
 
 // GAME
 const asahotak = JSON.parse(fs.readFileSync('./game/asahotak.json'))
@@ -4525,20 +4527,10 @@ break
 
 case 'owner':
 case 'creator': 
-ini_ownerNumber = [`${targetpc}@s.whatsapp.net`]
-let ini_list = []
-for (let i of ini_ownerNumber) {
-const vname = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
-ini_list.push({
-"displayName": 'Wudy Owner',
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname ? `${vname}` : `${alpha.user.name}`}\nORG: © Wudy;\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-})
-}
 hehe = await alpha.sendMessage(from, {
-"displayName": `${ini_list.length} kontak`,
-"contacts": ini_list 
-}, 'contactsArrayMessage', { quoted: fgif2})
-
+         "displayName": "Wudy owner",
+         "vcard": "BEGIN:VCARD\nVERSION:3.0\nN:;Wudy owner;;;\nFN:Wudy owner\nORG:Wudy owner\nTITLE:\nitem1.TEL;waid=6282195322106:+62 821-9532-2106\nitem1.X-ABLabel:Wudy owner\nX-WA-BIZ-DESCRIPTION:Semua bisa dimulai dengan mengetik #menu\nX-WA-BIZ-NAME:Wudy owner\nEND:VCARD"
+}, 'contactMessage', { quoted: fgif2})
 break
 
 case 'sider':
@@ -7968,7 +7960,7 @@ if (isQuotedAudio) {
 ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-Okelor = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+Okelor = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks=`*${emoj} 「 AUDIO TO URL 」 ${emoj}*
 
 *$Url : ${Okelor.display_url}*`
@@ -7977,7 +7969,7 @@ reply2(teks)
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-qbc = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+qbc = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks=`*${emoj} 「 IMAGE TO URL 」 ${emoj}*
 
 *Url : ${qbc.display_url}*`
@@ -7986,7 +7978,7 @@ reply2(teks)
 ger = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-ffff = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+ffff = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks=`*${emoj} 「 VIDEO TO URL 」 ${emoj}*
 
 *$Url : ${ffff.display_url}*`
@@ -7995,7 +7987,7 @@ reply2(teks)
 ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 // reply2(mess.wait)
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-vrr = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+vrr = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks=`*${emoj} 「 STICKER TO URL 」 ${emoj}*
 
 *Url : ${vrr.display_url}*`
@@ -8576,7 +8568,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 sendStickerFromUrl(from, `https://pecundang.herokuapp.com/api/memegen2?teks1=${top}&teks2=${bottom}&img_url=${teks}`, mek)
 fs.unlinkSync('./stickmeme.jpeg')
@@ -8596,7 +8588,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 sendStickerFromUrl(from, `https://api.memegen.link/images/custom/${top}/${bottom}.png?background=${teks}`, mek)
 fs.unlinkSync('./stickmeme.jpeg')
@@ -8612,7 +8604,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 sendStickerFromUrl(from, `https://api.memegen.link/images/custom/${top}.png?background=${teks}`, mek)
 fs.unlinkSync('./stickmeme.jpeg')
@@ -8628,7 +8620,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 sendStickerFromUrl(from, `https://api.memegen.link/images/custom/_/${bottom}.png?background=${teks}`, mek)
 fs.unlinkSync('./stickmeme.jpeg')
@@ -16469,7 +16461,7 @@ if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedSticker) &
 reply2(mess.wait)
 ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 owgi = await alpha.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("39d895963468b814fad0514bd28787e2", owgi)
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -17194,7 +17186,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 buffer453 = await getBuffer (`https://api-xcoders.xyz/api/convert/reversevideo?url=${teks}&apikey=7iyNa0qA`)
 alpha.sendMessage(from, buffer453, video, { mimetype: 'video/mp4', quoted: fgif2 })
@@ -17268,7 +17260,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&apikey=7iyNa0qA`)
 alpha.sendMessage(from, teks, image, { quoted: fgif2 })
 fs.unlinkSync('./stickmeme.jpeg')
@@ -17287,7 +17279,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&text=${top}&text2=${bottom}&apikey=7iyNa0qA`)
 alpha.sendMessage(from, teks, image, { quoted: fgif2 })
 fs.unlinkSync('./stickmeme.jpeg')
@@ -17303,7 +17295,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/adventure?url=${anu.display_url}&text=${top}&text2=${bottom}&apikey=7iyNa0qA`)
 alpha.sendMessage(from, teks, image, { quoted: fgif2 })
 fs.unlinkSync('./stickmeme.jpeg')
@@ -17322,7 +17314,7 @@ ger = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTex
 owgi = await alpha.downloadMediaMessage(ger)
 await fs.writeFileSync(`./stickmeme.jpeg`, owgi)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = await getBuffer(`https://api-xcoders.xyz/api/ephoto/${command}?url=${anu.display_url}&text=${top}&apikey=7iyNa0qA`)
 alpha.sendMessage(from, teks, image, { quoted: fgif2 })
 fs.unlinkSync('./stickmeme.jpeg')
@@ -17355,7 +17347,7 @@ pic = 'https://i.ibb.co/LPvt8wx/ppkosong.jpg'
 thumbb = await getBuffer(pic)
 await fs.writeFileSync(`./stickmeme.jpeg`, thumbb)
 var imgbb = require('imgbb-uploader')
-anu = await imgbb("40a8ed0863d41e87cfad6b4a3fbc4769", './stickmeme.jpeg')
+anu = await imgbb("f7864144fe0b1fc22bd5f9a3f24397c7", './stickmeme.jpeg')
 teks = `${anu.display_url}`
 nama_ = await getBuffer(`https://api-xfar05.herokuapp.com/api/canvas/patrick?image=${teks}`);
 alpha.sendMessage(from, nama_, image, {quoted: mek})
@@ -18370,21 +18362,11 @@ fakeitem(teks)
 
 if (subscribezeeoneofc == "ownerku"){
 console.log(color('[ CMD ]', 'aqua'), 'Ownerbot', color(pushname))
-
-ini_ownerNumber = [`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`,`${targetpc}@s.whatsapp.net`]
-let ini_list = []
-for (let i of ini_ownerNumber) {
-const vname_ = alpha.contacts[i] != undefined ? alpha.contacts[i].vname || alpha.contacts[i].notify : undefined
-ini_list.push({
-"displayName": `Owner ${botname}`,
-"vcard": "BEGIN:VCARD\nVERSION:3.0\nN:;;;;\nFN:This is Owner\nitem1.TEL;waid=6282195322106:+62 821-9532-2106\nitem1.X-ABLabel:Owner\nPHOTO;BASE64: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\nX-WA-BIZ-DESCRIPTION:`${botname}`\nX-WA-BIZ-NAME:`${ownername}`\nEND:VCARD"
-})
-}
 hehe = await alpha.sendMessage(from, {
-"displayName": `${ini_list.length} kontak`,
-"contacts": ini_list 
-}, 'contactsArrayMessage', { quoted: mek})
-var ini_gopayy =`Halo @${sender.split("@")[0]} itu owner ku🙄`
+         "displayName": "Wudy owner",
+         "vcard": "BEGIN:VCARD\nVERSION:3.0\nN:;Wudy owner;;;\nFN:Wudy owner\nORG:Wudy owner\nTITLE:\nitem1.TEL;waid=6282195322106:+62 821-9532-2106\nitem1.X-ABLabel:Wudy owner\nX-WA-BIZ-DESCRIPTION:Semua bisa dimulai dengan mengetik #menu\nX-WA-BIZ-NAME:Wudy owner\nEND:VCARD"
+}, 'contactMessage', { quoted: fgif2})
+var ini_gopayy =`Halo @${sender.split("@")[0]} itu owner gw kack🙄`
 var buttonss = [
 {buttonId: 'Oke', buttonText:{displayText: 'Ok'}, type: 1}
 ]
@@ -18398,8 +18380,7 @@ headerType: 1
 alpha.sendMessage(from, buttonMessagee, MessageType.buttonsMessage,{
 "contextInfo": {
 "forwardingScore": 999,isForwarded: true,
-"mentionedJid" : [sender]},
-quoted: fgif2, sendEphemeral: true
+"mentionedJid" : [sender]}, sendEphemeral: true
 })
 } 
 
