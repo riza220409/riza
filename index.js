@@ -1769,7 +1769,7 @@ alpha.sendMessage(from, teks, text, {
 "sourceUrl": apiku,
 "thumbnail": thumb_miku},
 "mentionedJid" : [sender]},
-quoted: fgif2, sendEphemeral: true
+quoted: mek, sendEphemeral: true
 })
 }
 
@@ -2412,11 +2412,11 @@ _sewa.expiredCheck(alpha, sewa)
 
 if (isCmd && msgFilter.isFiltered(from) && !isGroup) {
 console.log(color('[CMD]','magenta'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YYYY | HH:mm:ss'), 'white'), color(`${command}`,'magenta'), 'from', color(`${sender.split("@")[0]}`,'green'))
-return reply2('Jangan Spam Lord')
+return reply2(`${ucapannya2} No spam`)
 } 
 if (isCmd && msgFilter.isFiltered(from) && isGroup) {
 console.log(color('[CMD]','magenta'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YYYY | HH:mm:ss'), 'white'), color(`${command}`,'magenta'), 'from', color(`${sender.split("@")[0]}`,'green'))
-return reply2('Jangan Spam Lord')
+return reply2(`${ucapannya2} No spam`)
 }
 if (!m.isBaileys && isGroup && isBadword && !isOwner && !isGroupAdmins && !mek.key.fromMe){
 for (let kasar of badword){
@@ -17440,51 +17440,6 @@ if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
                     reply2(`Sukses upload image:\n${teksyy}`)
                         break
 
-
-case 'tengs': {
-                anu = `
-┌──⭓
-│ TES
-└───────⭓
-`
-                let message = await prepareWAMessageMedia({ image: fs.readFileSync('./image/miku.jpg') }, { upload: alpha.waUploadToServer })
-                const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: {
-                        hydratedTemplate: {
-                            imageMessage: message.imageMessage,
-                            hydratedContentText: anu,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
-                                }
-                            }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: '+62 882-9202-4190'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Status Bot',
-                                    id: 'ping'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Contact Owner',
-                                    id: 'owner'
-                                }  
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: 'sc'
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat, quoted: m })
-                alpha.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
 
 //Ends
 default:
