@@ -34,7 +34,6 @@ const crypto = require('crypto')
 const request = require('request');
 const { spawn, exec, execSync } = require("child_process")
 const fs = require("fs")
-const FormData = require('form-data')
 const axios = require("axios")
 const hx = require('hxz-api')
 const ffmpeg = require('fluent-ffmpeg')
@@ -17327,30 +17326,6 @@ case 'sepi':
 await alpha.sendMessage(from ,`${naga_(pushname)}`, text, {quoted: mek})
 break
 
-
-case 'rbg':
-q = args[0]
-const formData = new FormData();
-formData.append('size', 'auto');
-formData.append('image_url', `${q}`);
-
-axios({
-  method: 'post',
-  url: 'https://api.remove.bg/v1.0/removebg',
-  data: formData,
-  responseType: 'arraybuffer',
-  headers: {
-    ...formData.getHeaders(),
-    'X-Api-Key': 'UBhMUo7FNNdEZ6fmkyAMrAUA',
-  },
-  encoding: null
-})
-.then((res) => {
-let rem = res.data
-remov = await getBuffer(rem)
-alpha.sendMessage(from, remov, image, {quoted: mek})
-})
-break
 
 case 'spamsw':
 if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
