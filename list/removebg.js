@@ -1,9 +1,9 @@
+let { WAConnection, MessageType, Mimetype} = require('@adiwajshing/baileys')
+alpha = new WAConnection()
 
-async function remove_bg (Url) {
+async function remove_bg(Url) {
 	return new Promise (async (resolve, reject) => {
-const axios = require('axios');
 const FormData = require('form-data');
-const fs = require('fs');
 const formData = new FormData();
 formData.append('size', 'auto');
 formData.append('image_url', `${Url}`);
@@ -19,12 +19,13 @@ axios({
   },
   encoding: null
 })
-.then((res) => {
- let hasil = res.data
+.then((response) => {
+  if(response.status != 200) return console.error('Error:', response.status, response.statusText);
+  fs.writeFileSync("no-bg.png", response.data);
+ alpha.sendMessage(from, fs.readFileSync('./no-bg.png'), image, { quoted: mek , caption: 'Done'})
 })
 .catch((error) => {
     return console.error('Request failed:', error);
-});
 });
 }
 
