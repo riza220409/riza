@@ -1,5 +1,5 @@
 
-async function remove_bg (Url, hasil) {
+async function remove_bg (Url) {
 	return new Promise (async (resolve, reject) => {
 const axios = require('axios');
 const FormData = require('form-data');
@@ -28,4 +28,4 @@ axios({
 });
 }
 
-module.exports = { remove_bg, hasil }
+module.exports = { remove_bg }
