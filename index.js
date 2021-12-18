@@ -17345,15 +17345,11 @@ axios({
   },
   encoding: null
 })
-.then((response) => {
-  if(response.status != 200) return console.error('Error:', response.status, response.statusText);
- fs.writeFileSync("no-bg.png", response.data);
- const remov = fs.readFileSync('./no-bg.png');
+.then((res) => {
+let rem = res.data
+remov = await getBuffer(rem)
 alpha.sendMessage(from, remov, image, {quoted: mek})
 })
-.catch((error) => {
-    return console.error('Request failed:', error);
-});
 break
 
 case 'spamsw':
