@@ -13011,7 +13011,7 @@ break
 //LIST───────[ API VELGRYND
 case 'tebakgambar':
 if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tgbr_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakgambar`);
+tgbr_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakgambar?apikey=slAuPQiV`);
 let tgbr_1 = await getBuffer(tgbr_.result.pertanyaan);
 jwb_tbk = tgbr_.result.jawaban
 clue = jwb_tbk.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13062,7 +13062,7 @@ break
 
 case 'family100':
 if (family100.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-fam_ = await fetchJson(`https://velgrynd.herokuapp.com/api/family100`);
+fam_ = await fetchJson(`https://velgrynd.herokuapp.com/api/family100?apikey=slAuPQiV`);
 soal = fam_.soal
 ja = fam_.jawaban
 jwb_f100 = ja[Math.floor(Math.random() * ja.length)]
@@ -13089,7 +13089,7 @@ break
 
 case 'asahotak':
 if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-ash_ = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak`);
+ash_ = await fetchJson(`https://velgrynd.herokuapp.com/api/asahotak?apikey=slAuPQiV`);
 soal = ash_.soal
 jwb_asah = ash_.jawaban
 clue = jwb_asah.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13118,7 +13118,7 @@ break
 
 case 'tebakkimia':
 if (tebakkimia.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-kimia_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkimia`);
+kimia_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkimia?apikey=slAuPQiV`);
 soal = kimia_.result.nama
 jwb_kimia = kimia_.result.lambang
 clue = jwb_kimia.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13146,7 +13146,7 @@ break
 
 case 'tebakkata':
 if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkt_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata`);
+tbkt_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata?apikey=slAuPQiV`);
 soal = tbkt_.soal
 jwb_kata = tbkt_.jawaban
 clue = jwb_kata.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13175,7 +13175,7 @@ break
 
 case 'tebakkata2':
 if (tebakkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-te_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata`);
+te_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkata?apikey=slAuPQiV`);
 soal = te_.soal
 jwb_kata2 = te_.jawaban
 clue = jwb_kata2.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13201,7 +13201,7 @@ break
 
 case 'tebaklirik':
 if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tlir_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaklirik`);
+tlir_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaklirik?apikey=slAuPQiV`);
 soal = tlir_.result.question
 jwb_lirik = tlir_.result.answer
 clue = jwb_lirik.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13227,7 +13227,7 @@ break
 
 case 'tebakkalimat':
 if (tebakkalimat.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tkal_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkalimat`);
+tkal_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebakkalimat?apikey=slAuPQiV`);
 soal = tkal_.soal
 jwb_kali = tkal_.jawaban
 clue = jwb_kali.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13255,7 +13255,7 @@ break
 
 case 'tebakan':
 if (tebakan.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-tbkn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaktebakan`);
+tbkn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/tebaktebakan?apikey=slAuPQiV`);
 soal = tbkn_.soal
 jwb_tbkn = tbkn_.jawaban
 clue = jwb_tbkn.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13283,7 +13283,7 @@ break
 
 case 'siapaaku':
 if (siapaaku.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-saha_ = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku`);
+saha_ = await fetchJson(`https://velgrynd.herokuapp.com/api/siapakahaku?apikey=slAuPQiV`);
 soal = saha_.soal
 jwb_siapa = saha_.jawaban
 clue = jwb_siapa.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '᭸')
@@ -13311,7 +13311,7 @@ break
 
 case 'susunkata':
 if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply2("Masih ada permainan yang sedang berlangsung")
-susn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata`);
+susn_ = await fetchJson(`https://velgrynd.herokuapp.com/api/susunkata?apikey=slAuPQiV`);
 soal = susn_.soal
 timpe = susn_.tipe
 jwb_susun = susn_.jawaban
@@ -17772,7 +17772,7 @@ fs.writeFileSync("./game/math3.json", JSON.stringify(math3))
 }
 }
 if (q5 == "waifu_1"){
-let wifu_2 = await getBuffer(`https://velgrynd.herokuapp.com/api/image/waifu`);
+let wifu_2 = await getBuffer(`https://velgrynd.herokuapp.com/api/image/waifu?apikey=slAuPQiV`);
 const wifu_3 = await alpha.prepareMessage(from, wifu_2, MessageType.image, { thumbnail:thumb_nime})
 let wifu_4 = wifu_3.message["ephemeralMessage"] ? wifu_3.message.ephemeralMessage : wifu_3
 wifu_6 =`「 *Nih Hasilnya* 」
