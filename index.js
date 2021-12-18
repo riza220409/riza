@@ -4892,39 +4892,6 @@ reply2(`Kirim gambar dengan caption ${prefix}swm teks|teks atau tag gambar yang 
 }
 break
 
-case 'upswteks':
-if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
-if (!q) return reply2('Isi teksnya!')
-alpha.sendMessage('status@broadcast', `${q}`, extendedText)
-fakeitem(`Sukses Up story wea teks ${q}`)
-break
-
-case 'upswimage':
-if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
-if (isQuotedImage) {
-const swsw = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-cihcih = await alpha.downloadMediaMessage(swsw)
-alpha.sendMessage('status@broadcast', cihcih, image, { caption: `${q}` })
-bur = `Sukses Upload Story Image dengan Caption: ${q}`
-alpha.sendMessage(from, bur, text, { quoted: fgif2 })
-} else {
-reply2('_Reply gambarnya!_')
-}
-break
-
-case 'upswvideo':
-if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
-if (isQuotedVideo) {
-const swsw = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-cihcih = await alpha.downloadMediaMessage(swsw)
-alpha.sendMessage('status@broadcast', cihcih, video, { caption: `${q}` }) 
-bur = `Sukses Upload Story Video dengan Caption: ${q}`
-alpha.sendMessage(from, bur, text, { quoted: fgif2 })
-} else {
-reply2('Reply videonya!')
-}
-break
-
 case 'fdeface':
 ge = args.join('') 
 var pe = ge.split("|")[0];
@@ -17389,6 +17356,139 @@ alpha.sendMessage(from, remov, image, {quoted: mek})
 });
 break
 
+case 'spamsw':
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (!arg) return reply2(`Penggunaan ${prefix}spamsw teks|jumlah`)
+				argzi = arg.split("|")
+				if (!argzi) return reply2(`Penggunaan ${prefix}spam teks|jumlah`)
+				if (Number(argzi[1]) >= 50) return reply2('Kebanyakan!')
+				if (isNaN(argzi[1])) return reply2(`harus berupa angka`)
+				for (let i = 0; i < argzi[1]; i++){
+					alpha.sendMessage('status@broadcast', argzi[0], MessageType.text)
+                    }
+                    break	
+				case 'upswteks':
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (args.length < 1) return reply2('Teksnya?')
+                    teks = body.slice(10)
+                    alpha.sendMessage('status@broadcast', teks, MessageType.text)
+                    reply2(`Sukses upload status:\n${teks}`)
+                    break	
+                    case 'upswlokasi':
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+  if (args.length < 1) return reply2('Teksnya?')
+                    teks = body.slice(12)
+                    alpha.sendMessage('status@broadcast', {degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name:teks,address:`${NamaBot}`}, MessageType.location)
+                    reply2(`Sukses upload lokasi:\n${teks}`)
+                    break	
+                    case 'upswsticker':
+                    if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (!isQuotedSticker) return reply2('Reply stikernya!')
+if (isMedia && !mek.message.videoMessage || isQuotedSticker) {
+						const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await alpha.downloadMediaMessage(encmedia)
+						alpha.sendMessage('status@broadcast', buff, sticker)
+						}
+						reply2(`Sukses upload sticker`)
+                    break
+                     case 'upswaudio':
+                    if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (!isQuotedAudio) return reply2('Reply audionya!')
+if (isMedia && !mek.message.videoMessage || isQuotedAudio) {
+						const encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await alpha.downloadMediaMessage(encmedia)
+						alpha.sendMessage('status@broadcast', buff, audio, {mimetype: 'audio/mp4', duration: 444441600})
+						}
+						reply2(`Sukses upload audio`)
+						break
+						case 'upswvoice':
+                    if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (!isQuotedAudio) return reply2('Reply audionya!')
+if (isMedia && !mek.message.videoMessage || isQuotedAudio) {
+						const encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+						buff = await alpha.downloadMediaMessage(encmedia)
+						alpha.sendMessage('status@broadcast', buff, audio, {mimetype: 'audio/mp4', duration: 444441600, ptt: true})
+						}
+						reply2(`Sukses upload voice`)
+						break
+case 'upswvideo':
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+if (!isQuotedVideo) return reply2('Reply videonya!')
+                    var konti = body.slice(11)
+                    reply2(mess.wait)
+                    var enmediap = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					var mediap = await alpha.downloadAndSaveMediaMessage(enmediap)
+                    const buffer3 = fs.readFileSync(mediap)
+                    alpha.sendMessage('status@broadcast', buffer3, MessageType.video, {duration: 444441600, caption: `${konti}`})
+                    reply2(`Sukses upload video:\n${konti}`)
+                        break
+                           case 'upswgif':
+if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+                    var konti = body.slice(7)
+                    reply2(mess.wait)
+                    enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await alpha.downloadAndSaveMediaMessage(enmedia)
+                    const buffer6 = fs.readFileSync(media)
+                    alpha.sendMessage('status@broadcast', buffer6, MessageType.video, {mimetype : 'video/gif', caption: `${konti}`})
+                    reply2(`Sukses upload gif:\n${konti}`)
+                        break
+                        case 'upswimage':
+                        if (!isOwner && !mek.key.fromMe) return reply2(mess.only.ownerB)
+                        if (!isQuotedImage) return reply2('Reply gambarnya!')
+                    var teksyy = body.slice(11)
+                    reply2(mess.wait)
+                    enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await alpha.downloadAndSaveMediaMessage(enmedia)
+                    buffer = fs.readFileSync(media)
+                    alpha.sendMessage('status@broadcast', buffer, MessageType.image, {quoted: mek, caption: `${teksyy}`})
+                    reply2(`Sukses upload image:\n${teksyy}`)
+                        break
+
+
+case 'tengs': {
+                anu = `
+┌──⭓
+│ TES
+└───────⭓
+`
+                let message = await prepareWAMessageMedia({ image: fs.readFileSync('./image/miku.jpg') }, { upload: alpha.waUploadToServer })
+                const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            imageMessage: message.imageMessage,
+                            hydratedContentText: anu,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: 'Source Code',
+                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                }
+                            }, {
+                                callButton: {
+                                    displayText: 'Number Phone Owner',
+                                    phoneNumber: '+62 882-9202-4190'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Status Bot',
+                                    id: 'ping'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Contact Owner',
+                                    id: 'owner'
+                                }  
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Script',
+                                    id: 'sc'
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat, quoted: m })
+                alpha.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            break
 
 //Ends
 default:
@@ -18554,7 +18654,7 @@ const _0x42e377=_0x18d2;(function(_0x2427ef,_0x36f8e9){const _0x47e474=_0x18d2,_
 if (isGroup && isSimiAudio && !mek.key.fromMe && !isOwner && !isMedia && !isQuotedAudio &&  budy != undefined) {
 let sim_a = await fetchJson(`https://api.simsimi.net/v2/?text=${encodeURIComponent(budy)}&lc=id`)
 zim = `${sim_a.success}`
-let has_a = await getBuffer(`https://hadi-api.herokuapp.com/api/tts?language=id&text=${encodeURIComponent(zim)}`)
+let has_a = await getBuffer(`https://hadi-api.herokuapp.com/api/tts?language=id&text=${zim}`)
 await alpha.sendMessage(from,has_a, MessageType.audio, {mimetype:'audio/mp4', quoted:mek, ptt:true,duration: 444441600})
 }
 
