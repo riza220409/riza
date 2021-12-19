@@ -5845,15 +5845,17 @@ mentions(teks, members_id, true)
 }
 break
 
-case 'clearall':
-if (!isOwner && !mek.key.fromMe) return reply3('Only owner')
-anu = await alpha.chats.all()
-alpha.setMaxListeners(25)
-for (let _ of anu) {
-alpha.deleteChat(_.jid)
-}
-reply2('Sukses membersihkan semua pesan')
-break
+case 'clearall':{
+									if (!isOwner && !mek.key.fromMe) return reply2(`Owner only`)
+									let chiit = await alpha.chats.all()
+									for (let i of chiit){
+										alpha.modifyChat(i.jid, 'clear', {
+											includeStarred: false
+											})
+											}
+											reply2(`Succes Lord`)
+											}
+									break
 
 case 'out':
 if (!mek.key.fromMe && !isOwner && !isCreator) return reply2(lang.onlyOwner())
